@@ -3,14 +3,15 @@
 GitHub Actions clip worker — automated equivalent of the agent's manual
 scripts/process-clips.sh, but processes a single moment per invocation
 (triggered by a repository_dispatch webhook from Convex) and reports the
-finished MP4 straight to the app's /ingest-clip HTTP endpoint instead of
-going through the Convex CLI.
+finished MP4 straight to the app's HTTP endpoints instead of going through
+the Convex CLI.
 
 This file lives here in the app's own repo as the source of truth, and gets
 copied into the separate mercadomarcelo5559/magoosuna GitHub repo (which
 runs it via .github/workflows/process-clip.yml) — it is not executed as
 part of this app itself.
 """
+import json
 import os
 import re
 import subprocess
@@ -33,7 +34,9 @@ END = float(env("END_SECONDS"))
 TITLE = env("MOMENT_TITLE")
 ANALYSIS_ID = env("ANALYSIS_ID")
 MOMENT_INDEX = env("MOMENT_INDEX")
-INGEST_URL = env("CONVEX_INGEST_URL")
+# Base site URL only, e.g. https://secret-vulture-720.eu-west-1.convex.site
+# (no trailing path) — /get-upload-url and /complete-clip are appended below.
+CONVEX_SITE_URL = env("CONVEX_INGEST_URL").rstrip("/")
 INGEST_SECRET = env("INGEST_SECRET")
 WATERMARK_TEXT = env("WATERMARK_TEXT", required=False, default="@tu_canal")
 
@@ -61,9 +64,6 @@ source_file = f"source_{video_id}.mp4"
 
 if not os.path.exists(source_file):
     print("== Downloading source video ==")
-    # YouTube's extraction path is flaky from shared CI IPs (transient 429s,
-    # occasional JS-challenge solver failures). Try a couple of different
-    # player-client strategies before giving up, with a short backoff.
     strategies = [
         ["--js-runtimes", "node", "--remote-components", "ejs:github"],
         ["--extractor-args", "youtube:player_client=tv,web_safari"],
@@ -252,21 +252,43 @@ run([
     "-c:a", "aac", "-b:a", "192k", f"{name}_final.mp4", "-loglevel", "error",
 ])
 
+# ---- Upload (two-step: small JSON through Convex, big bytes direct to storage) ----
 print("== Uploading to app ==")
-with open(f"{name}_final.mp4", "rb") as f:
-    data = f.read()
+final_path = f"{name}_final.mp4"
+file_size = os.path.getsize(final_path)
 
-req = urllib.request.Request(
-    f"{INGEST_URL}?analysisId={ANALYSIS_ID}&momentIndex={MOMENT_INDEX}"
-    f"&audioWarning={'true' if audio_warning else 'false'}",
-    data=data,
+get_url_req = urllib.request.Request(
+    f"{CONVEX_SITE_URL}/get-upload-url?analysisId={ANALYSIS_ID}&momentIndex={MOMENT_INDEX}&fileSize={file_size}",
+    method="POST",
+    headers={"Authorization": f"Bearer {INGEST_SECRET}"},
+)
+with urllib.request.urlopen(get_url_req, timeout=60) as resp:
+    upload_info = json.load(resp)
+
+put_req = urllib.request.Request(
+    upload_info["uploadUrl"],
+    data=open(final_path, "rb").read(),
+    method=upload_info.get("method", "PUT"),
+    headers=upload_info.get("headers", {}),
+)
+with urllib.request.urlopen(put_req, timeout=300) as put_resp:
+    print("upload PUT status:", put_resp.status)
+
+complete_req = urllib.request.Request(
+    f"{CONVEX_SITE_URL}/complete-clip",
+    data=json.dumps({
+        "analysisId": ANALYSIS_ID,
+        "momentIndex": int(MOMENT_INDEX),
+        "fileId": upload_info["fileId"],
+        "audioWarning": audio_warning,
+    }).encode(),
     method="POST",
     headers={
         "Authorization": f"Bearer {INGEST_SECRET}",
-        "Content-Type": "video/mp4",
+        "Content-Type": "application/json",
     },
 )
-with urllib.request.urlopen(req, timeout=300) as resp:
+with urllib.request.urlopen(complete_req, timeout=60) as resp:
     print(resp.status, resp.read().decode())
 
 print("== Done ==")
