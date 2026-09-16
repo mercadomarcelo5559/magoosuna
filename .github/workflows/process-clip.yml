@@ -36,6 +36,13 @@ jobs:
         # "The page needs to be reloaded" (yt-dlp/yt-dlp#16212).
         run: pip install --break-system-packages -U "yt-dlp[default]" faster-whisper
 
+      - name: Diagnose JS runtime detection
+        run: |
+          node --version
+          which node
+          yt-dlp --version
+          yt-dlp -v "https://www.youtube.com/watch?v=jNQXAC9IVRw" --skip-download 2>&1 | grep -iE "js runtime|JS Challenge|ejs" || true
+
       - name: Restore YouTube cookies
         run: echo "${{ secrets.YOUTUBE_COOKIES_B64 }}" | base64 -d > /tmp/youtube_cookies.txt
 
