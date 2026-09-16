@@ -9,6 +9,7 @@ client_secret*.json
 
 # ---- Datos locales ----
 data/
+tmp/
 *.db
 *.db-shm
 *.db-wal

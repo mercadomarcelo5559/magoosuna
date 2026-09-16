@@ -3,6 +3,7 @@
 from __future__ import annotations
 
 import os
+import shutil
 import tempfile
 from collections.abc import Iterator
 from pathlib import Path
@@ -61,6 +62,18 @@ def make_video_bytes(size: int = 4096) -> bytes:
     """Bytes de un fichero que pasa la validación de MIME type."""
     body = MP4_HEADER
     return body + b"\x00" * max(0, size - len(body))
+
+
+@pytest.fixture(scope="session", autouse=True)
+def _limpiar_directorio_temporal() -> Iterator[None]:
+    """Borra el directorio temporal de la sesión al terminar.
+
+    Se cierra antes el engine: si quedara una conexión viva, SQLAlchemy
+    volvería a crear el directorio del fichero SQLite.
+    """
+    yield
+    engine.dispose()
+    shutil.rmtree(_TMP, ignore_errors=True)
 
 
 @pytest.fixture(autouse=True)
