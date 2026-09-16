@@ -44,11 +44,13 @@ WORKDIR = "/tmp/clip-work"
 os.makedirs(WORKDIR, exist_ok=True)
 os.chdir(WORKDIR)
 
-# Prefer H.264 (avc1) video over AV1/VP9 — GitHub's runner ffmpeg build hit
-# reproducible decode failures ("Assertion pkt failed" / SIGABRT and
-# "Error initializing complex filters: Invalid argument") on this source's
-# AV1 stream at certain cut points. H.264 is universally reliable there.
-FORMAT_SELECTOR = "bv*[height<=1080][vcodec^=avc1]+ba/b[height<=1080]"
+# Default format selection (no codec restriction). Tried forcing H.264
+# (avc1) here at one point to work around what looked like an AV1 decode
+# issue — turned out to be an unrelated, isolated crash on one specific
+# timestamp range, and forcing avc1 picked a much larger 1080p60 variant
+# that made every download noticeably slower. Left unrestricted since that
+# tradeoff wasn't worth it for a one-off edge case.
+FORMAT_SELECTOR = "bv*[height<=1080]+ba/b[height<=1080]"
 
 
 def run(cmd, **kwargs):
