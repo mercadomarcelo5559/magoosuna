@@ -59,4 +59,5 @@ jobs:
           MOMENT_INDEX: ${{ github.event.client_payload.momentIndex }}
           CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+          WATERMARK_TEXT: "@viralclips2026_"
         run: python3 worker/process_clip.py
