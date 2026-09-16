@@ -17,7 +17,11 @@ jobs:
 
       - uses: actions/setup-node@v4
         with:
-          node-version: "20"
+          # yt-dlp-ejs (the YouTube JS-challenge solver) marks Node 20 as
+          # unsupported — without a supported runtime, extraction silently
+          # degrades and YouTube demands a sign-in/bot check. Node 22+ is
+          # required.
+          node-version: "22"
 
       - name: Install system dependencies
         run: |
@@ -32,13 +36,6 @@ jobs:
 
       - name: Install Python dependencies
         run: pip install --break-system-packages -U "yt-dlp[default]" faster-whisper
-
-      - name: Diagnose JS runtime detection (forcing node)
-        run: |
-          node --version
-          which node
-          yt-dlp --version
-          yt-dlp -v --js-runtimes node "https://www.youtube.com/watch?v=jNQXAC9IVRw" --skip-download 2>&1 | grep -iE "js runtime|JS Challenge|ejs|error|node" || true
 
       - name: Restore YouTube cookies
         run: echo "${{ secrets.YOUTUBE_COOKIES_B64 }}" | base64 -d > /tmp/youtube_cookies.txt
