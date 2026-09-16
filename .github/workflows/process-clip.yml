@@ -31,7 +31,10 @@ jobs:
           fc-cache -f
 
       - name: Install Python dependencies
-        run: pip install --break-system-packages yt-dlp faster-whisper
+        # [default] extra bundles yt-dlp-ejs, the JS-challenge solver —
+        # without it, YouTube extraction fails intermittently with
+        # "The page needs to be reloaded" (yt-dlp/yt-dlp#16212).
+        run: pip install --break-system-packages -U "yt-dlp[default]" faster-whisper
 
       - name: Restore YouTube cookies
         run: echo "${{ secrets.YOUTUBE_COOKIES_B64 }}" | base64 -d > /tmp/youtube_cookies.txt
