@@ -44,6 +44,12 @@ WORKDIR = "/tmp/clip-work"
 os.makedirs(WORKDIR, exist_ok=True)
 os.chdir(WORKDIR)
 
+# Prefer H.264 (avc1) video over AV1/VP9 — GitHub's runner ffmpeg build hit
+# reproducible decode failures ("Assertion pkt failed" / SIGABRT and
+# "Error initializing complex filters: Invalid argument") on this source's
+# AV1 stream at certain cut points. H.264 is universally reliable there.
+FORMAT_SELECTOR = "bv*[height<=1080][vcodec^=avc1]+ba/b[height<=1080]"
+
 
 def run(cmd, **kwargs):
     print("+", " ".join(cmd))
@@ -76,7 +82,7 @@ if not os.path.exists(source_file):
             run([
                 "yt-dlp", "--cookies", "/tmp/youtube_cookies.txt",
                 *extra_args,
-                "-f", "bv*[height<=1080]+ba/b[height<=1080]",
+                "-f", FORMAT_SELECTOR,
                 "--merge-output-format", "mp4",
                 "-o", source_file,
                 f"https://www.youtube.com/watch?v={video_id}",
@@ -100,10 +106,8 @@ print(f"== Cutting {START}-{END}s ==")
 # Re-encoding here (not -c copy) on purpose: a stream-copied cut can land
 # mid-GOP on the source's keyframe layout and produce a segment that
 # decodes fine on its own but crashes ffmpeg on the *next* pass (the
-# vertical-conversion filter graph below) with "Assertion pkt failed" /
-# SIGABRT — reproduced consistently on some timestamp ranges. Re-encoding
-# guarantees a clean, self-contained segment regardless of keyframe
-# alignment, at a small, worthwhile time cost.
+# vertical-conversion filter graph below). Re-encoding guarantees a clean,
+# self-contained segment regardless of keyframe alignment.
 run([
     "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
