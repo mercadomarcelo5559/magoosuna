@@ -1,0 +1,58 @@
+name: Process viral clip
+
+on:
+  repository_dispatch:
+    types: [process-clip]
+
+jobs:
+  process:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fontconfig
+
+      - name: Install Poppins font
+        run: |
+          mkdir -p ~/.fonts
+          cp worker/fonts/Poppins-ExtraBold.ttf ~/.fonts/
+          fc-cache -f
+
+      - name: Install Python dependencies
+        run: pip install --break-system-packages yt-dlp faster-whisper
+
+      - name: Restore YouTube cookies
+        run: echo "${{ secrets.YOUTUBE_COOKIES_B64 }}" | base64 -d > /tmp/youtube_cookies.txt
+
+      - name: Set up PO token provider
+        run: |
+          git clone --depth 1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider /tmp/bgutil
+          cd /tmp/bgutil/server
+          npm ci
+          npx tsc
+          nohup node build/main.js > /tmp/bgutil.log 2>&1 &
+          sleep 3
+
+      - name: Process clip
+        env:
+          VIDEO_URL: ${{ github.event.client_payload.videoUrl }}
+          START_SECONDS: ${{ github.event.client_payload.startSeconds }}
+          END_SECONDS: ${{ github.event.client_payload.endSeconds }}
+          MOMENT_TITLE: ${{ github.event.client_payload.title }}
+          ANALYSIS_ID: ${{ github.event.client_payload.analysisId }}
+          MOMENT_INDEX: ${{ github.event.client_payload.momentIndex }}
+          CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+        run: python3 worker/process_clip.py
