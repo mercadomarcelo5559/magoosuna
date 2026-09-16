@@ -1,0 +1,131 @@
+# ---------------------------------------------------------------------------
+#  Levanta todo el stack:  docker compose up -d
+#  Sólo la infraestructura:  docker compose up -d postgres redis
+#  Logs:  docker compose logs -f api
+#  Parar: docker compose down     (añade -v para borrar también los datos)
+# ---------------------------------------------------------------------------
+name: social-video-api
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: unless-stopped
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-svapi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-svapi}
+      POSTGRES_DB: ${POSTGRES_DB:-social_video_api}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-svapi} -d ${POSTGRES_DB:-social_video_api}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    # Codespaces es una máquina pequeña: limitamos el consumo.
+    command: >
+      postgres -c shared_buffers=128MB
+               -c max_connections=50
+               -c effective_cache_size=256MB
+
+  redis:
+    image: redis:7-alpine
+    restart: unless-stopped
+    ports:
+      - "${REDIS_PORT:-6379}:6379"
+    command: redis-server --save 60 1 --maxmemory 128mb --maxmemory-policy allkeys-lru
+    volumes:
+      - redis_data:/data
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 3s
+      retries: 5
+
+  api:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-svapi}:${POSTGRES_PASSWORD:-svapi}@postgres:5432/${POSTGRES_DB:-social_video_api}
+      REDIS_URL: redis://redis:6379/0
+      CELERY_TASK_ALWAYS_EAGER: "false"
+      # En Docker el barredor lo ejecuta `beat`, no la API.
+      SCHEDULER_IN_PROCESS: "false"
+    ports:
+      - "${API_PORT:-8000}:8000"
+    volumes:
+      - media_data:/app/data/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    command: >
+      sh -c "alembic upgrade head &&
+             uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers"
+
+  worker:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-svapi}:${POSTGRES_PASSWORD:-svapi}@postgres:5432/${POSTGRES_DB:-social_video_api}
+      REDIS_URL: redis://redis:6379/0
+      CELERY_TASK_ALWAYS_EAGER: "false"
+      SCHEDULER_IN_PROCESS: "false"
+    volumes:
+      - media_data:/app/data/media
+    depends_on:
+      api:
+        condition: service_started
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    # El HEALTHCHECK del Dockerfile consulta HTTP; el worker no sirve HTTP.
+    healthcheck:
+      test: ["CMD-SHELL", "celery -A app.workers.celery_app inspect ping -d celery@$$HOSTNAME || exit 1"]
+      interval: 60s
+      timeout: 15s
+      retries: 3
+      start_period: 40s
+    command: celery -A app.workers.celery_app worker --loglevel=info --concurrency=2
+
+  beat:
+    build: .
+    restart: unless-stopped
+    env_file: .env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-svapi}:${POSTGRES_PASSWORD:-svapi}@postgres:5432/${POSTGRES_DB:-social_video_api}
+      REDIS_URL: redis://redis:6379/0
+      CELERY_TASK_ALWAYS_EAGER: "false"
+      SCHEDULER_IN_PROCESS: "false"
+    depends_on:
+      redis:
+        condition: service_healthy
+      postgres:
+        condition: service_healthy
+    # `beat` tampoco sirve HTTP: comprobamos que el proceso sigue vivo.
+    healthcheck:
+      test: ["CMD-SHELL", "pgrep -f 'celery.*beat' > /dev/null || exit 1"]
+      interval: 60s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: >
+      celery -A app.workers.celery_app beat --loglevel=info
+             --schedule=/tmp/celerybeat-schedule
+
+volumes:
+  postgres_data:
+  redis_data:
+  media_data:
+
+# Los logs de Docker no deben crecer sin límite en un servidor pequeño.
+x-logging: &logging
+  driver: json-file
+  options:
+    max-size: "10m"
+    max-file: "3"

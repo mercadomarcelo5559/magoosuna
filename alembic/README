@@ -1,0 +1,10 @@
+Migraciones de base de datos (Alembic).
+
+Comandos:
+  alembic upgrade head                      # aplicar migraciones
+  alembic downgrade -1                      # revertir la última
+  alembic revision --autogenerate -m "msg"  # crear una nueva
+  alembic current                           # revisión actual
+  alembic history                           # historial
+
+La URL de conexión se toma de DATABASE_URL (ver alembic/env.py).

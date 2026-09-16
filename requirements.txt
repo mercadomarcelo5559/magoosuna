@@ -1,0 +1,30 @@
+# ---- Core API ----
+fastapi==0.115.6
+uvicorn[standard]==0.34.0
+pydantic==2.10.4
+email-validator==2.2.0
+pydantic-settings==2.7.1
+python-multipart==0.0.20
+
+# ---- Database ----
+SQLAlchemy==2.0.36
+alembic==1.14.0
+psycopg[binary]==3.2.3
+
+# ---- HTTP / providers ----
+httpx==0.28.1
+
+# ---- Security ----
+cryptography==44.0.0
+
+# ---- Background jobs / scheduling ----
+celery==5.4.0
+redis==5.2.1
+APScheduler==3.11.0
+
+# ---- Object storage (S3 / Cloudflare R2), optional at runtime ----
+boto3==1.35.90
+
+# ---- Utils ----
+python-json-logger==3.2.1
+tenacity==9.0.0

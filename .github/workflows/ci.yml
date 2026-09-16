@@ -1,0 +1,159 @@
+name: CI
+
+on:
+  push:
+    branches: ["main", "claude/**"]
+    paths-ignore: ["**.md", "index.html"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  calidad:
+    name: Lint y tests (SQLite)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Revisar estilo (ruff)
+        run: python -m ruff check .
+
+      - name: Revisar formato (ruff)
+        run: python -m ruff format --check .
+
+      - name: Comprobar tipos (mypy)
+        run: python -m mypy app
+
+      - name: Buscar secretos hardcodeados
+        run: bash scripts/check_secrets.sh
+
+      - name: Tests con cobertura
+        env:
+          ENCRYPTION_KEY: dGVzdC1rZXktMzItYnl0ZXMtZm9yLXRlc3RpbmctMDE=
+          SIGNING_SECRET: secreto-de-firma-solo-para-la-ci
+        run: python -m pytest --cov=app --cov-report=term-missing
+
+  migraciones:
+    name: Migraciones contra PostgreSQL
+    runs-on: ubuntu-latest
+    services:
+      postgres:
+        image: postgres:16-alpine
+        env:
+          POSTGRES_USER: svapi
+          POSTGRES_PASSWORD: svapi
+          POSTGRES_DB: social_video_api
+        ports: ["5432:5432"]
+        options: >-
+          --health-cmd "pg_isready -U svapi"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+      redis:
+        image: redis:7-alpine
+        ports: ["6379:6379"]
+        options: >-
+          --health-cmd "redis-cli ping"
+          --health-interval 10s
+          --health-timeout 5s
+          --health-retries 5
+    env:
+      DATABASE_URL: postgresql+psycopg://svapi:svapi@localhost:5432/social_video_api
+      REDIS_URL: redis://localhost:6379/0
+      ENCRYPTION_KEY: dGVzdC1rZXktMzItYnl0ZXMtZm9yLXRlc3RpbmctMDE=
+      SIGNING_SECRET: secreto-de-firma-solo-para-la-ci
+      BOOTSTRAP_API_KEYS: svk_clave_de_la_ci_para_pruebas
+      CELERY_TASK_ALWAYS_EAGER: "true"
+      SCHEDULER_IN_PROCESS: "false"
+      PUBLIC_BASE_URL: http://localhost:8000
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+          cache-dependency-path: requirements-dev.txt
+
+      - name: Instalar dependencias
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements-dev.txt
+
+      - name: Aplicar migraciones
+        run: python -m alembic upgrade head
+
+      - name: Comprobar que no falta ninguna migración
+        run: |
+          python - <<'PY'
+          from alembic.autogenerate import compare_metadata
+          from alembic.migration import MigrationContext
+          from app.database import build_engine
+          from app.models import Base
+          engine = build_engine()
+          with engine.connect() as connection:
+              contexto = MigrationContext.configure(connection)
+              diferencias = compare_metadata(contexto, Base.metadata)
+          if diferencias:
+              print("Los modelos no coinciden con las migraciones:")
+              for d in diferencias:
+                  print("  -", d)
+              raise SystemExit(1)
+          print("Modelos y migraciones sincronizados.")
+          PY
+
+      - name: Revertir y volver a aplicar
+        run: |
+          python -m alembic downgrade base
+          python -m alembic upgrade head
+
+      - name: Arrancar la API y pasar la prueba de humo
+        run: |
+          python -m uvicorn app.main:app --host 127.0.0.1 --port 8000 &
+          for _ in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8000/health >/dev/null && break
+            sleep 2
+          done
+          BASE_URL=http://127.0.0.1:8000 API_KEY=svk_clave_de_la_ci_para_pruebas \
+            bash scripts/smoke_test.sh
+
+  docker:
+    name: Imagen Docker
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Construir la imagen
+        run: docker build -t social-video-api:ci .
+
+      - name: Comprobar que la imagen arranca
+        run: |
+          docker run -d --name api-ci -p 8000:8000 \
+            -e DATABASE_URL="sqlite:////tmp/ci.db" \
+            -e ENCRYPTION_KEY="dGVzdC1rZXktMzItYnl0ZXMtZm9yLXRlc3RpbmctMDE=" \
+            -e SIGNING_SECRET="secreto-de-firma-solo-para-la-ci" \
+            -e CELERY_TASK_ALWAYS_EAGER=true \
+            -e SCHEDULER_IN_PROCESS=false \
+            social-video-api:ci
+          for _ in $(seq 1 30); do
+            curl -sf http://127.0.0.1:8000/health >/dev/null && break
+            sleep 2
+          done
+          curl -sf http://127.0.0.1:8000/health | tee /dev/stderr | grep -q '"status"'
+          docker logs api-ci
+          docker rm -f api-ci

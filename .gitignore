@@ -1,0 +1,58 @@
+# ---- Secretos: NUNCA subir ----
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+credentials.json
+client_secret*.json
+
+# ---- Datos locales ----
+data/
+*.db
+*.db-shm
+*.db-wal
+*.sqlite3
+
+# ---- Python ----
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+.venv/
+venv/
+env/
+build/
+dist/
+*.egg-info/
+.eggs/
+
+# ---- Tests y calidad ----
+.pytest_cache/
+.coverage
+.coverage.*
+htmlcov/
+coverage.xml
+.mypy_cache/
+.ruff_cache/
+.tox/
+
+# ---- Celery ----
+celerybeat-schedule*
+celerybeat.pid
+*.pid
+
+# ---- Editores / SO ----
+.vscode/*
+!.vscode/settings.json
+!.vscode/launch.json
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
+*.swp
+
+# ---- Logs ----
+*.log
+logs/

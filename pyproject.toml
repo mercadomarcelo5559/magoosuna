@@ -1,0 +1,51 @@
+[project]
+name = "social-video-api"
+version = "1.0.0"
+description = "API independiente para gestionar y publicar videos en redes sociales"
+requires-python = ">=3.12"
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
+addopts = "-ra --strict-markers"
+filterwarnings = [
+    "ignore::DeprecationWarning:celery.*",
+    "ignore::DeprecationWarning:kombu.*",
+]
+markers = [
+    "integration: pruebas que necesitan servicios externos (postgres/redis)",
+]
+
+[tool.ruff]
+line-length = 100
+target-version = "py312"
+exclude = [".venv", "alembic/versions", "worker"]
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4", "SIM", "RUF", "ARG", "PTH", "S"]
+ignore = [
+    "E501",    # la longitud la controla el formateador
+    "B008",    # Depends()/File() en valores por defecto es el patrón de FastAPI
+    "RUF001",  # caracteres unicode en textos en español
+    "RUF002",
+    "RUF003",
+    "N818",    # nombres de excepciones del dominio
+    "S101",    # assert
+]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["S", "ARG", "PTH", "SIM117"]
+"app/config.py" = ["RUF012"]
+
+[tool.ruff.lint.isort]
+known-first-party = ["app"]
+
+[tool.mypy]
+python_version = "3.12"
+warn_unused_configs = true
+ignore_missing_imports = true
+exclude = ["alembic/versions", "\\.venv", "worker"]
+
+[tool.coverage.run]
+source = ["app"]
+omit = ["app/workers/celery_app.py", "alembic/*", "tests/*"]
