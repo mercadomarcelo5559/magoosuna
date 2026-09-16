@@ -15,6 +15,7 @@ import os
 import re
 import subprocess
 import sys
+import time
 import urllib.request
 
 
@@ -60,14 +61,36 @@ source_file = f"source_{video_id}.mp4"
 
 if not os.path.exists(source_file):
     print("== Downloading source video ==")
-    run([
-        "yt-dlp", "--cookies", "/tmp/youtube_cookies.txt",
-        "--js-runtimes", "node", "--remote-components", "ejs:github",
-        "-f", "bv*[height<=1080]+ba/b[height<=1080]",
-        "--merge-output-format", "mp4",
-        "-o", source_file,
-        f"https://www.youtube.com/watch?v={video_id}",
-    ])
+    # YouTube's extraction path is flaky from shared CI IPs (transient 429s,
+    # occasional JS-challenge solver failures). Try a couple of different
+    # player-client strategies before giving up, with a short backoff.
+    strategies = [
+        ["--js-runtimes", "node", "--remote-components", "ejs:github"],
+        ["--extractor-args", "youtube:player_client=tv,web_safari"],
+        ["--extractor-args", "youtube:player_client=web_safari"],
+    ]
+    last_err = None
+    for attempt, extra_args in enumerate(strategies, start=1):
+        try:
+            print(f"-- download attempt {attempt}: {' '.join(extra_args)} --")
+            run([
+                "yt-dlp", "--cookies", "/tmp/youtube_cookies.txt",
+                *extra_args,
+                "-f", "bv*[height<=1080]+ba/b[height<=1080]",
+                "--merge-output-format", "mp4",
+                "-o", source_file,
+                f"https://www.youtube.com/watch?v={video_id}",
+            ])
+            last_err = None
+            break
+        except subprocess.CalledProcessError as e:
+            last_err = e
+            if os.path.exists(source_file):
+                os.remove(source_file)
+            print(f"attempt {attempt} failed, retrying in 8s...")
+            time.sleep(8)
+    if last_err:
+        raise last_err
 else:
     print("== Source already cached ==")
 
