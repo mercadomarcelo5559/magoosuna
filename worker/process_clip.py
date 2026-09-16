@@ -97,8 +97,19 @@ else:
 name = f"clip_{MOMENT_INDEX}"
 
 print(f"== Cutting {START}-{END}s ==")
-run(["ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
-     "-c", "copy", f"{name}_cut.mp4", "-loglevel", "error"])
+# Re-encoding here (not -c copy) on purpose: a stream-copied cut can land
+# mid-GOP on the source's keyframe layout and produce a segment that
+# decodes fine on its own but crashes ffmpeg on the *next* pass (the
+# vertical-conversion filter graph below) with "Assertion pkt failed" /
+# SIGABRT — reproduced consistently on some timestamp ranges. Re-encoding
+# guarantees a clean, self-contained segment regardless of keyframe
+# alignment, at a small, worthwhile time cost.
+run([
+    "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
+    "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+    "-c:a", "aac", "-b:a", "192k",
+    f"{name}_cut.mp4", "-loglevel", "error",
+])
 
 print("== Converting to 9:16 vertical ==")
 run([
