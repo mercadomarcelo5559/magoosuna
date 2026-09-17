@@ -9,6 +9,7 @@ from app.config import settings
 from app.database import database_is_reachable
 from app.providers import platform_status
 from app.schemas import ComponentHealth, HealthResponse, PlatformInfo
+from app.services import dispatch
 from app.services.media import public_url_is_reachable
 from app.services.scheduler import scheduler_is_running
 
@@ -45,15 +46,20 @@ def health() -> HealthResponse:
         )
     )
 
-    redis_ok, redis_error = _redis_healthy()
-    components.append(
-        ComponentHealth(
-            name="redis",
-            healthy=redis_ok,
-            detail=redis_error
-            or ("modo eager (sin Redis)" if settings.celery_task_always_eager else "ok"),
+    if settings.needs_redis:
+        redis_ok, redis_error = _redis_healthy()
+        components.append(
+            ComponentHealth(name="redis", healthy=redis_ok, detail=redis_error or "ok")
         )
-    )
+    else:
+        # En modo "solo"/"inline" la cola es la base de datos: Redis no hace falta.
+        components.append(
+            ComponentHealth(
+                name="redis",
+                healthy=True,
+                detail=f"no se usa (modo {settings.publish_mode})",
+            )
+        )
 
     from app.storage import get_storage
 
@@ -71,6 +77,13 @@ def health() -> HealthResponse:
             name="scheduler",
             healthy=True,
             detail=("en proceso (activo)" if scheduler_is_running() else "externo (celery beat)"),
+        )
+    )
+    components.append(
+        ComponentHealth(
+            name="publisher",
+            healthy=True,
+            detail=f"{settings.publish_mode}: {dispatch.describe_mode()}",
         )
     )
     components.append(

@@ -9,7 +9,7 @@ from __future__ import annotations
 import functools
 from typing import Literal
 
-from pydantic import field_validator
+from pydantic import field_validator, model_validator
 from pydantic_settings import BaseSettings, SettingsConfigDict
 
 Environment = Literal["development", "staging", "production"]
@@ -64,10 +64,20 @@ class Settings(BaseSettings):
     # --------------------------------------------------------------- redis
     redis_url: str = "redis://localhost:6379/0"
 
+    # ------------------------------------------------- modo de publicación
+    #: Cómo se ejecutan las publicaciones:
+    #:   "solo"   → en hilos del propio proceso de la API. Un solo servicio,
+    #:              sin Redis ni worker aparte. Recomendado para un VPS.
+    #:   "celery" → worker Celery externo con Redis. Para escalar.
+    #:   "inline" → síncrono dentro de la petición (tests y depuración).
+    publish_mode: Literal["solo", "celery", "inline"] = "solo"
+    #: Publicaciones simultáneas en modo "solo". Una máquina pequeña aguanta 2-4.
+    publish_concurrency: int = 3
+
     # -------------------------------------------------------------- celery
     celery_broker_url: str = ""
     celery_result_backend: str = ""
-    #: True => las tareas se ejecutan en el propio proceso (dev sin Redis).
+    #: Compatibilidad: equivale a PUBLISH_MODE=inline.
     celery_task_always_eager: bool = False
 
     #: Ejecuta el barredor de publicaciones programadas dentro del proceso API.
@@ -162,6 +172,17 @@ class Settings(BaseSettings):
     youtube_oauth_token_url: str = "https://oauth2.googleapis.com/token"  # noqa: S105 - es una URL
 
     # ------------------------------------------------------------- helpers
+    @model_validator(mode="after")
+    def _compatibilidad_eager(self) -> Settings:
+        """`CELERY_TASK_ALWAYS_EAGER=true` sigue significando modo inline.
+
+        Sólo se aplica si NO se indicó `PUBLISH_MODE` explícitamente: un modo
+        puesto a mano siempre manda sobre la variable antigua.
+        """
+        if self.celery_task_always_eager and "publish_mode" not in self.model_fields_set:
+            object.__setattr__(self, "publish_mode", "inline")
+        return self
+
     @field_validator("public_base_url", "s3_public_base_url")
     @classmethod
     def _strip_trailing_slash(cls, value: str) -> str:
@@ -209,6 +230,15 @@ class Settings(BaseSettings):
     @property
     def is_sqlite(self) -> bool:
         return self.database_url.startswith("sqlite")
+
+    @property
+    def uses_celery(self) -> bool:
+        return self.publish_mode == "celery"
+
+    @property
+    def needs_redis(self) -> bool:
+        """Redis sólo es imprescindible con Celery; si no, es opcional."""
+        return self.uses_celery
 
     @property
     def instagram_scope_list(self) -> list[str]:

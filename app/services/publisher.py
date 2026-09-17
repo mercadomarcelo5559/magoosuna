@@ -95,6 +95,27 @@ class PublishOutcome:
         return f"<PublishOutcome {self.post_id} {self.status}>"
 
 
+def claim_post(db: Session, post_id: str) -> bool:
+    """Reclama un post para publicarlo, de forma atómica.
+
+    Hace un `UPDATE ... WHERE status IN (queued, scheduled)`: sólo un proceso
+    puede ganar la carrera. Devuelve True si lo hemos reclamado nosotros.
+    Evita publicaciones duplicadas cuando hay varios hilos o procesos.
+    """
+    from sqlalchemy import update
+
+    resultado = db.execute(
+        update(Post)
+        .where(
+            Post.id == post_id,
+            Post.status.in_([PostStatus.QUEUED, PostStatus.SCHEDULED, PostStatus.DRAFT]),
+        )
+        .values(status=PostStatus.UPLOADING, updated_at=utcnow())
+    )
+    db.commit()
+    return resultado.rowcount == 1
+
+
 def _set_status(db: Session, post: Post, status: PostStatus) -> None:
     post.status = status
     db.add(post)

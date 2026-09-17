@@ -32,9 +32,9 @@ Sólo cambian variables de entorno y dónde corren los procesos.
 | Pieza | Desarrollo | Producción | ¿Cambia el código? |
 |---|---|---|---|
 | Base de datos | SQLite o PostgreSQL en Docker | PostgreSQL gestionado o en el servidor | No — sólo `DATABASE_URL` |
-| Cola de trabajos | Redis en Docker | Redis del servidor o gestionado | No — sólo `REDIS_URL` |
-| Publicación | Celery (o *eager*) | Celery en su propio proceso | No — sólo `CELERY_TASK_ALWAYS_EAGER=false` |
-| Programación | barredor embebido en la API | `celery beat` aparte | No — sólo `SCHEDULER_IN_PROCESS=false` |
+| Cola de trabajos | la base de datos | la base de datos (Redis sólo si escalas) | No — sólo `PUBLISH_MODE` |
+| Publicación | hilos del proceso (`solo`) | los mismos hilos, o Celery si escalas | No — sólo `PUBLISH_MODE` |
+| Programación | barredor embebido | el mismo barredor, o `celery beat` | No — sólo `SCHEDULER_IN_PROCESS` |
 | Videos | disco local | Cloudflare R2 / Amazon S3 | No — sólo `STORAGE_BACKEND=s3` |
 | HTTPS | URL de Codespaces | reverse proxy + certificado | No |
 | Logs | texto legible | JSON estructurado | No — sólo `LOG_JSON=true` |
@@ -49,213 +49,132 @@ Sólo cambian variables de entorno y dónde corren los procesos.
 | **Plataforma de contenedores** (Fly.io, Railway, Render) | 5–20 €/mes | despliegue desde git, HTTPS incluido | menos control, el almacenamiento es efímero |
 | **Kubernetes gestionado** | 30 €+/mes | escala | complejidad innecesaria al principio |
 
-Recomendación para empezar: **un VPS de 2 vCPU / 4 GB** con
-`docker compose`. Es lo más parecido a lo que ya tienes funcionando.
+Recomendación para empezar: **un VPS de 2 vCPU / 4 GB** (Hetzner CX22 ~4 €/mes,
+DigitalOcean ~6 $/mes). El script de la sección 4 lo deja funcionando con un
+solo comando, y al usar un único servicio no necesitas Redis gestionado.
 
 ---
 
-## 4. Despliegue en un VPS, paso a paso
+## 4. Despliegue en un VPS: un solo comando
 
-### 4.1 Preparar el servidor
+### 4.1 Antes de nada: el DNS
+
+Crea un registro **A** en tu proveedor de dominios apuntando al servidor:
+
+```
+api.tudominio.com   A   <IP-de-tu-VPS>
+```
+
+Hazlo primero: Let's Encrypt necesita resolver el dominio para emitir el
+certificado.
+
+### 4.2 El comando
+
+Conéctate al VPS (desde el terminal del Codespace, también vale desde el iPad):
 
 ```bash
-ssh root@TU_SERVIDOR
-
-# Usuario sin privilegios para la app
-adduser --disabled-password --gecos "" svapi
-usermod -aG sudo svapi
-
-# Docker
-curl -fsSL https://get.docker.com | sh
-usermod -aG docker svapi
-
-# Cortafuegos: sólo SSH y HTTPS
-ufw allow OpenSSH
-ufw allow 80/tcp
-ufw allow 443/tcp
-ufw --force enable
+ssh root@<IP-de-tu-VPS>
 ```
 
-> **No abras los puertos 5432 ni 6379 al exterior.** PostgreSQL y Redis se
-> comunican por la red interna de Docker.
-
-### 4.2 Clonar y configurar
+Y ejecuta:
 
 ```bash
-su - svapi
-git clone https://github.com/mercadomarcelo5559/magoosuna.git
-cd magoosuna
-
-cp .env.example .env
-nano .env
+curl -fsSL https://raw.githubusercontent.com/mercadomarcelo5559/magoosuna/main/deploy/install.sh \
+  | bash -s -- api.tudominio.com tu@correo.com
 ```
 
-Contenido mínimo del `.env` de producción:
+Eso es todo. El script deja funcionando:
 
-```env
-ENVIRONMENT=production
-DEBUG=false
-LOG_LEVEL=INFO
-LOG_JSON=true
-
-# Dominio real de la API
-PUBLIC_BASE_URL=https://api.tudominio.com
-
-# Claves NUEVAS, distintas de las de desarrollo:
-#   python -m app.security.crypto --generate-key
-#   python -m app.security.crypto --generate-secret
-ENCRYPTION_KEY=<clave-fernet-nueva>
-SIGNING_SECRET=<secreto-nuevo>
-ADMIN_API_KEYS=<clave-admin-nueva>
-BOOTSTRAP_API_KEYS=                  # vacío: emite las keys por API
-
-# Sólo el dominio de tu app
-CORS_ALLOW_ORIGINS=https://tu-app.macaly.app
-
-# PostgreSQL con contraseña fuerte
-POSTGRES_USER=svapi
-POSTGRES_PASSWORD=<contraseña-larga-aleatoria>
-POSTGRES_DB=social_video_api
-
-# Worker y planificador en procesos propios
-CELERY_TASK_ALWAYS_EAGER=false
-SCHEDULER_IN_PROCESS=false
-
-# Videos en object storage
-STORAGE_BACKEND=s3
-S3_BUCKET=mis-videos
-S3_ENDPOINT_URL=https://<account_id>.r2.cloudflarestorage.com
-S3_REGION=auto
-S3_ACCESS_KEY_ID=<clave>
-S3_SECRET_ACCESS_KEY=<secreto>
-
-# Redirect URI del dominio definitivo
-INSTAGRAM_REDIRECT_URI=https://api.tudominio.com/v1/oauth/instagram/callback
-TIKTOK_REDIRECT_URI=https://api.tudominio.com/v1/oauth/tiktok/callback
-YOUTUBE_REDIRECT_URI=https://api.tudominio.com/v1/oauth/youtube/callback
-
-# …y las credenciales de cada plataforma
-```
-
-```bash
-chmod 600 .env        # sólo el usuario de la app puede leerlo
-```
-
-### 4.3 Levantar el stack
-
-```bash
-docker compose up -d --build
-docker compose ps           # los 5 servicios en "healthy"/"running"
-docker compose logs -f api
-```
-
-`docker-compose.yml` ya incluye:
-
-- `postgres` — base de datos con volumen persistente
-- `redis` — cola de trabajos
-- `api` — aplica las migraciones y arranca uvicorn
-- `worker` — publica los videos
-- `beat` — dispara las publicaciones programadas
-
-### 4.4 HTTPS con Caddy (la vía más corta)
-
-`/etc/caddy/Caddyfile`:
-
-```caddy
-api.tudominio.com {
-    encode gzip
-    request_body {
-        max_size 600MB          # mayor que MAX_VIDEO_SIZE_MB
-    }
-    reverse_proxy localhost:8000 {
-        header_up X-Forwarded-Proto {scheme}
-        header_up X-Real-IP {remote_host}
-    }
-}
-```
-
-```bash
-sudo apt install -y caddy
-sudo systemctl reload caddy
-```
-
-Caddy obtiene y renueva el certificado de Let's Encrypt automáticamente.
-
-<details>
-<summary>Alternativa con Nginx</summary>
-
-```nginx
-server {
-    listen 443 ssl http2;
-    server_name api.tudominio.com;
-
-    ssl_certificate     /etc/letsencrypt/live/api.tudominio.com/fullchain.pem;
-    ssl_certificate_key /etc/letsencrypt/live/api.tudominio.com/privkey.pem;
-
-    client_max_body_size 600M;      # mayor que MAX_VIDEO_SIZE_MB
-    proxy_read_timeout 600s;        # las subidas tardan
-
-    location / {
-        proxy_pass http://127.0.0.1:8000;
-        proxy_set_header Host $host;
-        proxy_set_header X-Real-IP $remote_addr;
-        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
-        proxy_set_header X-Forwarded-Proto $scheme;
-    }
-}
-
-server {
-    listen 80;
-    server_name api.tudominio.com;
-    return 301 https://$host$request_uri;
-}
-```
-
-Certificado: `sudo certbot --nginx -d api.tudominio.com`
-</details>
-
-### 4.5 Dominio
-
-En tu proveedor de DNS, un registro **A**:
-
-```
-api.tudominio.com   A   <IP-de-tu-servidor>
-```
-
-### 4.6 Actualizar las Redirect URI en las plataformas
-
-**Este paso es obligatorio** o el OAuth dejará de funcionar:
-
-| Plataforma | Dónde |
+| | |
 |---|---|
-| Instagram | <https://developers.facebook.com/apps> → tu app → Instagram → Configuración de la API → OAuth redirect URIs |
-| TikTok | <https://developers.tiktok.com/apps> → tu app → Login Kit → Redirect URI |
-| YouTube | <https://console.cloud.google.com/apis/credentials> → tu ID de cliente → URIs de redireccionamiento autorizados |
+| Docker | instalado y arrancando al reiniciar |
+| Cortafuegos | sólo SSH, HTTP y HTTPS (PostgreSQL **no** se expone) |
+| Usuario de servicio | `svapi`, sin privilegios |
+| `.env` | generado con claves nuevas y permisos `600` |
+| PostgreSQL 16 | con contraseña aleatoria, en la red interna |
+| La API | un solo servicio (API + worker + planificador) |
+| HTTPS | certificado de Let's Encrypt, renovación automática (Caddy) |
+| Copia de seguridad | diaria a las 03:00, conserva 14 días |
+| `svapi-update` | actualizar a la última versión |
+| `svapi-backup` | copia de seguridad manual |
 
-### 4.7 Emitir la API key para Macaly
+Al terminar te imprime:
 
-```bash
-curl -X POST https://api.tudominio.com/v1/admin/clients \
-  -H "Authorization: Bearer $ADMIN_API_KEYS" \
-  -H "Content-Type: application/json" \
-  -d '{"name": "Macaly (producción)"}'
-```
+* la URL de la API y de Swagger,
+* tu **API key de cliente** (para Macaly), guardada en `/root/api-key-cliente.txt`,
+* tu API key de administración, en `/root/api-key-admin.txt`,
+* las tres **Redirect URI** que tienes que registrar en Instagram, TikTok y YouTube.
 
-Guarda la `api_key` que devuelve en los secretos de Macaly.
-
-### 4.8 Comprobar
+### 4.3 Comprobar
 
 ```bash
 curl -s https://api.tudominio.com/health | python3 -m json.tool
-
-BASE_URL=https://api.tudominio.com API_KEY=<la-key-nueva> \
-  bash scripts/smoke_test.sh
 ```
 
-Los cinco componentes de `/health` deben estar en `healthy`, incluido
-`public_url`.
+Los componentes deben estar todos en `healthy`. Y desde tu iPad:
 
----
+```
+https://api.tudominio.com/docs
+```
+
+### 4.4 Pega tus credenciales de plataforma
+
+El script no puede inventarse tus credenciales de Meta, TikTok y Google
+(ver README §7). Cuando las tengas:
+
+```bash
+cd /opt/social-video-api
+nano .env          # pega INSTAGRAM_APP_ID, TIKTOK_CLIENT_KEY, YOUTUBE_CLIENT_ID…
+docker compose -f deploy/docker-compose.prod.yml --env-file .env up -d
+```
+
+### 4.5 Actualizar más adelante
+
+```bash
+svapi-update       # copia de seguridad + git pull + rebuild + migraciones
+```
+
+### 4.6 Por qué un solo servicio
+
+El despliegue usa `PUBLISH_MODE=solo`: la API, el worker de publicaciones y
+el planificador comparten proceso, y **la base de datos hace de cola**. Eso
+significa:
+
+* **Dos contenedores** en total (la API y PostgreSQL) en lugar de cinco.
+* **Sin Redis**, que en los servicios gestionados es la pieza más cara.
+* Un VPS de 2 vCPU / 4 GB va sobrado.
+
+La reclamación de trabajos es atómica en base de datos
+(`UPDATE ... WHERE status = 'queued'`), así que no hay publicaciones
+duplicadas ni aunque arranques varios procesos.
+
+Si algún día necesitas escalar, se separa en workers Celery sin tocar la
+lógica de negocio:
+
+```bash
+docker compose -f deploy/docker-compose.prod.yml \
+               -f deploy/docker-compose.celery.yml --env-file .env up -d
+```
+
+Eso añade Redis, `worker` y `beat`, y cambia el modo a `celery`. Los mismos
+trabajos (`app/services/jobs.py`) los ejecutan ambos caminos, así que no
+pueden desincronizarse.
+
+### 4.7 Si algo falla
+
+```bash
+cd /opt/social-video-api
+docker compose -f deploy/docker-compose.prod.yml --env-file .env ps
+docker compose -f deploy/docker-compose.prod.yml --env-file .env logs -f api
+docker compose -f deploy/docker-compose.prod.yml --env-file .env logs caddy
+```
+
+| Síntoma | Causa habitual |
+|---|---|
+| El certificado no se emite | El DNS aún no propaga, o el puerto 80 está cerrado |
+| `password authentication failed` | Reutilizaste un volumen de PostgreSQL con otra contraseña: `docker compose ... down -v` y vuelve a levantar (borra los datos) |
+| La API reinicia en bucle | Mira `logs api`: casi siempre falta una variable en el `.env` |
+| 502 desde Caddy | La API todavía está aplicando migraciones; espera un minuto |
 
 ## 5. Object storage (recomendado)
 
@@ -299,23 +218,12 @@ temporales (`MEDIA_URL_TTL_MINUTES`), así el bucket puede ser privado.
 Lo crítico es **PostgreSQL**: contiene las cuentas conectadas (con sus tokens
 cifrados) y el histórico. Los videos son temporales y desechables.
 
-```bash
-# /home/svapi/backup.sh
-#!/usr/bin/env bash
-set -euo pipefail
-cd /home/svapi/magoosuna
-FECHA=$(date +%F-%H%M)
-mkdir -p /home/svapi/backups
-docker compose exec -T postgres pg_dump -U svapi social_video_api \
-  | gzip > "/home/svapi/backups/bd-$FECHA.sql.gz"
-find /home/svapi/backups -name 'bd-*.sql.gz' -mtime +14 -delete
-```
+**El script de instalación ya las configura**: copia diaria a las 03:00 en
+`/opt/social-video-api/backups`, conservando 14 días. Para lanzarla a mano:
 
 ```bash
-chmod +x /home/svapi/backup.sh
-crontab -e
-# Copia diaria a las 03:00
-0 3 * * * /home/svapi/backup.sh >> /home/svapi/backups/backup.log 2>&1
+svapi-backup
+ls -la /opt/social-video-api/backups
 ```
 
 > ⚠️ **Guarda también `ENCRYPTION_KEY` en un gestor de contraseñas.** Sin ella
@@ -325,8 +233,10 @@ crontab -e
 Restaurar:
 
 ```bash
-gunzip -c bd-2026-10-01-0300.sql.gz | \
-  docker compose exec -T postgres psql -U svapi social_video_api
+cd /opt/social-video-api
+gunzip -c backups/bd-2026-10-01-0300.sql.gz | \
+  docker compose -f deploy/docker-compose.prod.yml --env-file .env \
+    exec -T postgres psql -U svapi social_video_api
 ```
 
 ---
@@ -389,10 +299,17 @@ GROUP BY 1, 2 ORDER BY 1;
 ## 8. Actualizar la aplicación
 
 ```bash
-cd /home/svapi/magoosuna
+svapi-update
+```
+
+Eso hace copia de seguridad, trae los cambios, reconstruye la imagen, aplica
+las migraciones y comprueba `/health`. Manualmente sería:
+
+```bash
+cd /opt/social-video-api
+svapi-backup
 git pull
-docker compose up -d --build          # aplica migraciones al arrancar `api`
-docker compose ps
+docker compose -f deploy/docker-compose.prod.yml --env-file .env up -d --build
 curl -s https://api.tudominio.com/health | python3 -m json.tool
 ```
 
@@ -407,6 +324,9 @@ la versión trae cambios de esquema.
 Cuando crezca el uso:
 
 ```env
+# Más publicaciones simultáneas en modo solo
+PUBLISH_CONCURRENCY=6
+
 # Más conexiones a la base de datos
 DB_POOL_SIZE=10
 DB_MAX_OVERFLOW=10
@@ -416,24 +336,18 @@ RATE_LIMIT_REQUESTS=600
 RATE_LIMIT_WINDOW_SECONDS=60
 ```
 
-```yaml
-# docker-compose.yml: más procesos de API y de worker
-api:
-  command: >
-    sh -c "alembic upgrade head &&
-           uvicorn app.main:app --host 0.0.0.0 --port 8000
-                  --workers 4 --proxy-headers"
+Si un solo servicio se queda corto, pasa a Celery (sección 4.6) y escala los
+workers horizontalmente:
 
-worker:
-  command: celery -A app.workers.celery_app worker --loglevel=info --concurrency=4
+```bash
+docker compose -f deploy/docker-compose.prod.yml \
+               -f deploy/docker-compose.celery.yml --env-file .env \
+               up -d --scale worker=3
 ```
 
-Puedes escalar los workers horizontalmente (`docker compose up -d --scale
-worker=3`): la cola de Redis reparte el trabajo y los reintentos siguen
-coordinados por la base de datos.
-
-> `beat` debe correr en **una sola instancia**, o las publicaciones
-> programadas se despacharían varias veces.
+> Con `PUBLISH_MODE=solo`, **no** subas `--workers` de uvicorn por encima de 1:
+> el planificador embebido debe ejecutarse en un único proceso. Si necesitas
+> varios procesos de API, ese es el momento de pasar a Celery.
 
 ---
 
@@ -446,12 +360,11 @@ coordinados por la base de datos.
 - [ ] `CORS_ALLOW_ORIGINS` con el dominio exacto de Macaly (no `*`)
 - [ ] `.env` con permisos `600` y fuera de git
 - [ ] PostgreSQL con contraseña fuerte y **sin** puerto expuesto al exterior
-- [ ] Redis **sin** puerto expuesto al exterior
 - [ ] HTTPS funcionando y renovación automática del certificado
 - [ ] Redirect URI actualizadas en Instagram, TikTok y YouTube
 - [ ] `STORAGE_BACKEND=s3` configurado
-- [ ] `CELERY_TASK_ALWAYS_EAGER=false` y `SCHEDULER_IN_PROCESS=false`
-- [ ] Exactamente **un** proceso `beat`
+- [ ] `PUBLISH_MODE=solo` y `SCHEDULER_IN_PROCESS=true` (o `celery` + un único `beat` si escalaste)
+- [ ] Un solo proceso de uvicorn (el planificador embebido debe ser único)
 - [ ] Copia de seguridad diaria probada (¡y restauración probada!)
 - [ ] Healthcheck externo con alertas
 - [ ] `bash scripts/smoke_test.sh` en verde contra el dominio real

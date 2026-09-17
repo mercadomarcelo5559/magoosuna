@@ -28,7 +28,9 @@ from app.providers.registry import UnsupportedPlatformError
 from app.routers import accounts, admin, health, media, oauth, posts, webhooks
 from app.schemas import ErrorDetail
 from app.security.crypto import CryptoError
+from app.services import dispatch
 from app.services.clients import ensure_bootstrap_keys
+from app.services.runner import shutdown_runner
 from app.services.scheduler import shutdown_scheduler, start_scheduler
 from app.utils.video import VideoValidationError
 
@@ -113,11 +115,13 @@ async def lifespan(_app: FastAPI) -> AsyncIterator[None]:
         finally:
             db.close()
 
+    logger.info("Modo de publicación: %s (%s)", settings.publish_mode, dispatch.describe_mode())
     start_scheduler()
     try:
         yield
     finally:
         shutdown_scheduler()
+        shutdown_runner()
         logger.info("API detenida")
 
 

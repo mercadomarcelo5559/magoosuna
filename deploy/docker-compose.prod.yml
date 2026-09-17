@@ -1,0 +1,84 @@
+# ---------------------------------------------------------------------------
+#  Despliegue de producción en un VPS: UN SOLO servicio de aplicación.
+#
+#  La API, el worker de publicaciones y el planificador comparten proceso
+#  (PUBLISH_MODE=solo), así que no hacen falta ni Redis ni un worker aparte.
+#
+#  Uso:
+#    docker compose -f deploy/docker-compose.prod.yml up -d
+#
+#  Para escalar más adelante:  ver deploy/docker-compose.celery.yml
+# ---------------------------------------------------------------------------
+name: social-video-api
+
+services:
+  postgres:
+    image: postgres:16-alpine
+    restart: always
+    environment:
+      POSTGRES_USER: ${POSTGRES_USER:-svapi}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:?define POSTGRES_PASSWORD en el .env}
+      POSTGRES_DB: ${POSTGRES_DB:-social_video_api}
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    # Sin `ports`: sólo accesible desde la red interna de Docker.
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-svapi} -d ${POSTGRES_DB:-social_video_api}"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    command: ["postgres", "-c", "shared_buffers=256MB", "-c", "max_connections=50", "-c", "effective_cache_size=512MB"]
+    logging: &logging
+      driver: json-file
+      options:
+        max-size: "10m"
+        max-file: "3"
+
+  api:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    image: social-video-api:latest
+    restart: always
+    env_file: ../.env
+    environment:
+      DATABASE_URL: postgresql+psycopg://${POSTGRES_USER:-svapi}:${POSTGRES_PASSWORD}@postgres:5432/${POSTGRES_DB:-social_video_api}
+      # Un solo servicio: publicación en hilos + planificador embebido.
+      PUBLISH_MODE: solo
+      SCHEDULER_IN_PROCESS: "true"
+      ENVIRONMENT: production
+      LOG_JSON: "true"
+    volumes:
+      - media_data:/app/data/media
+    depends_on:
+      postgres:
+        condition: service_healthy
+    # Un solo proceso de uvicorn: el planificador embebido debe ser único.
+    # Una sola línea a propósito: con el plegado `>` de YAML, una línea más
+    # indentada conserva el salto y partiría el comando en dos.
+    command: ["sh", "-c", "alembic upgrade head && exec uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips='*'"]
+    logging: *logging
+
+  caddy:
+    image: caddy:2-alpine
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+      - "443:443/udp"
+    environment:
+      DOMINIO: ${DOMINIO:?define DOMINIO en el .env, p. ej. api.tudominio.com}
+      EMAIL_TLS: ${EMAIL_TLS:-}
+    volumes:
+      - ./Caddyfile:/etc/caddy/Caddyfile:ro
+      - caddy_data:/data
+      - caddy_config:/config
+    depends_on:
+      - api
+    logging: *logging
+
+volumes:
+  postgres_data:
+  media_data:
+  caddy_data:
+  caddy_config:

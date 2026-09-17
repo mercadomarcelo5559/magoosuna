@@ -24,10 +24,7 @@ services:
       timeout: 5s
       retries: 5
     # Codespaces es una máquina pequeña: limitamos el consumo.
-    command: >
-      postgres -c shared_buffers=128MB
-               -c max_connections=50
-               -c effective_cache_size=256MB
+    command: ["postgres", "-c", "shared_buffers=128MB", "-c", "max_connections=50", "-c", "effective_cache_size=256MB"]
 
   redis:
     image: redis:7-alpine
@@ -62,9 +59,7 @@ services:
         condition: service_healthy
       redis:
         condition: service_healthy
-    command: >
-      sh -c "alembic upgrade head &&
-             uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers"
+    command: ["sh", "-c", "alembic upgrade head && exec uvicorn app.main:app --host 0.0.0.0 --port 8000 --proxy-headers"]
 
   worker:
     build: .
@@ -114,9 +109,7 @@ services:
       timeout: 10s
       retries: 3
       start_period: 30s
-    command: >
-      celery -A app.workers.celery_app beat --loglevel=info
-             --schedule=/tmp/celerybeat-schedule
+    command: ["celery", "-A", "app.workers.celery_app", "beat", "--loglevel=info", "--schedule=/tmp/celerybeat-schedule"]
 
 volumes:
   postgres_data:

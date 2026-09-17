@@ -40,7 +40,7 @@ def start_scheduler() -> BackgroundScheduler | None:
     if _scheduler is not None:
         return _scheduler
 
-    from app.workers import tasks
+    from app.services import jobs
 
     scheduler = BackgroundScheduler(
         timezone="UTC",
@@ -48,37 +48,37 @@ def start_scheduler() -> BackgroundScheduler | None:
     )
 
     scheduler.add_job(
-        lambda: _run("sweep_scheduled_posts", tasks.sweep_scheduled_posts),
+        lambda: _run("sweep_scheduled_posts", jobs.sweep_scheduled_posts),
         trigger=IntervalTrigger(seconds=settings.scheduler_interval_seconds),
         id="sweep_scheduled_posts",
         replace_existing=True,
     )
     scheduler.add_job(
-        lambda: _run("retry_pending_posts", tasks.retry_pending_posts),
+        lambda: _run("retry_pending_posts", jobs.retry_pending_posts),
         trigger=IntervalTrigger(seconds=60),
         id="retry_pending_posts",
         replace_existing=True,
     )
     scheduler.add_job(
-        lambda: _run("sync_stuck_posts", tasks.sync_stuck_posts),
+        lambda: _run("sync_stuck_posts", jobs.sync_stuck_posts),
         trigger=IntervalTrigger(minutes=5),
         id="sync_stuck_posts",
         replace_existing=True,
     )
     scheduler.add_job(
-        lambda: _run("refresh_expiring_tokens", tasks.refresh_expiring_tokens),
+        lambda: _run("refresh_expiring_tokens", jobs.refresh_expiring_tokens),
         trigger=IntervalTrigger(hours=6),
         id="refresh_expiring_tokens",
         replace_existing=True,
     )
     scheduler.add_job(
-        lambda: _run("purge_expired_media", tasks.purge_expired_media),
+        lambda: _run("purge_expired_media", jobs.purge_expired_media),
         trigger=IntervalTrigger(hours=1),
         id="purge_expired_media",
         replace_existing=True,
     )
     scheduler.add_job(
-        lambda: _run("purge_oauth_states", tasks.purge_oauth_states),
+        lambda: _run("purge_oauth_states", jobs.purge_oauth_states),
         trigger=IntervalTrigger(hours=3),
         id="purge_oauth_states",
         replace_existing=True,
@@ -86,6 +86,15 @@ def start_scheduler() -> BackgroundScheduler | None:
 
     scheduler.start()
     _scheduler = scheduler
+
+    # Al arrancar, recupera lo que quedó a medias si el servicio se paró
+    # mientras publicaba, y despacha lo programado que ya venció.
+    scheduler.add_job(
+        lambda: _run("recover_interrupted_posts", jobs.recover_interrupted_posts),
+        trigger="date",
+        id="recover_interrupted_posts",
+        replace_existing=True,
+    )
     logger.info(
         "scheduler en proceso activo (barrido cada %ss). " "Codespaces NO es un servidor 24/7.",
         settings.scheduler_interval_seconds,

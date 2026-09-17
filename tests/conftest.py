@@ -22,6 +22,10 @@ os.environ.update(
         "DATABASE_URL": f"sqlite:///{_TMP}/test.db",
         "LOCAL_STORAGE_PATH": f"{_TMP}/media",
         "STORAGE_BACKEND": "local",
+        # Modo explícito: los tests publican de forma síncrona para poder
+        # comprobar el resultado en la propia respuesta. Se pone a mano para
+        # que un `.env` del proyecto no altere el comportamiento.
+        "PUBLISH_MODE": "inline",
         "CELERY_TASK_ALWAYS_EAGER": "true",
         "SCHEDULER_IN_PROCESS": "false",
         "RATE_LIMIT_ENABLED": "false",

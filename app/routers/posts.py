@@ -20,10 +20,10 @@ from app.schemas import (
     PostResponse,
     RetryPostResponse,
 )
+from app.services import dispatch, publisher
 from app.services import idempotency as idempotency_service
 from app.services import media as media_service
 from app.services import posts as posts_service
-from app.services import publisher
 from app.services.idempotency import (
     IdempotencyConflictError,
     IdempotencyInProgressError,
@@ -67,12 +67,10 @@ def _dispatch(group: PostGroup) -> None:
 
     Cada plataforma va en su propia tarea: un fallo en una no bloquea las otras.
     """
-    from app.workers.tasks import enqueue_post
-
     for post in group.posts:
         if PostStatus(post.status) == PostStatus.QUEUED:
             try:
-                enqueue_post(post.id)
+                dispatch.enqueue_post(post.id)
             except Exception as exc:
                 logger.error(
                     "posts: no se pudo encolar post_id=%s (%s). "
@@ -375,9 +373,7 @@ def retry_post(post_id: str, auth: CurrentAuth, db: DbSession) -> RetryPostRespo
     db.commit()
     db.refresh(post)
 
-    from app.workers.tasks import enqueue_post
-
-    enqueue_post(post.id)
+    dispatch.enqueue_post(post.id)
     # La tarea corre en su propia sesión: recargamos para devolver el estado real
     # (en modo eager ya estará publicado; con Celery seguirá en `queued`).
     db.expire(post)

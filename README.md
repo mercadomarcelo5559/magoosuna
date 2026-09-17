@@ -51,7 +51,8 @@ verificado ejecutándose**:
 |---|---|
 | API REST (30 rutas, Swagger) | ✅ funcionando |
 | PostgreSQL 16 + 10 tablas + Alembic (ida y vuelta) | ✅ verificado |
-| Redis + Celery (9 tareas) | ✅ worker conectado y publicando |
+| Publicación en proceso (modo `solo`, sin Redis) | ✅ verificado en stack de producción |
+| Redis + Celery (modo `celery`, opcional) | ✅ worker conectado y publicando |
 | Publicaciones programadas (barredor real) | ✅ despachadas al llegar la hora |
 | Cifrado de tokens OAuth (Fernet) | ✅ verificado en la BD |
 | Idempotencia (`Idempotency-Key`) | ✅ verificada (sin duplicados) |
@@ -59,7 +60,8 @@ verificado ejecutándose**:
 | Subida, validación y descarga firmada de video | ✅ verificado byte a byte |
 | Rate limiting, CORS, logs sin secretos | ✅ verificado |
 | Docker + docker compose | ✅ imagen construida y arrancada |
-| Tests: **251 pasando**, 85 % de cobertura | ✅ |
+| Despliegue en VPS en un comando (HTTPS, copias, cortafuegos) | ✅ probado |
+| Tests: **275 pasando**, 85 % de cobertura | ✅ |
 | Lint (ruff) y formato | ✅ limpio |
 
 **Falta únicamente**: pegar tus credenciales de Meta, TikTok y Google en el
@@ -151,7 +153,7 @@ Si Docker no está disponible, el proyecto funciona igual con SQLite y sin Redis
 ```bash
 # en el .env:
 DATABASE_URL=sqlite:///./data/social_video_api.db
-CELERY_TASK_ALWAYS_EAGER=true    # las publicaciones corren dentro de la API
+PUBLISH_MODE=inline              # publica dentro de la propia petición
 SCHEDULER_IN_PROCESS=true        # el barredor va embebido en la API
 
 make dev
@@ -203,7 +205,10 @@ make dev
 │   │   ├── publisher.py          Motor de publicación (estados + intentos)
 │   │   ├── idempotency.py        Idempotency-Key
 │   │   ├── retry.py              Clasificación de errores y backoff
-│   │   ├── scheduler.py          Barredor embebido (APScheduler) para dev
+│   │   ├── dispatch.py           Encolado: solo / celery / inline
+│   │   ├── runner.py             Publicación en hilos del propio proceso
+│   │   ├── jobs.py               Trabajos periódicos (los comparten ambos modos)
+│   │   ├── scheduler.py          Barredor embebido (APScheduler)
 │   │   └── rate_limit.py         Rate limiting (Redis o memoria)
 │   │
 │   ├── providers/              Una carpeta por plataforma
@@ -226,7 +231,13 @@ make dev
 │   └── utils/                  http.py, video.py, polling.py
 │
 ├── alembic/                    Migraciones (0001_esquema_inicial)
-├── tests/                      251 tests (pytest); ninguno publica de verdad
+├── tests/                      275 tests (pytest); ninguno publica de verdad
+├── deploy/                     Despliegue en un VPS
+│   ├── install.sh                Instalación completa en un comando
+│   ├── docker-compose.prod.yml   API (un servicio) + PostgreSQL + Caddy
+│   ├── docker-compose.celery.yml Ampliación opcional: Redis + worker + beat
+│   └── Caddyfile                 HTTPS automático
+│
 ├── scripts/                    dev.sh, smoke_test.sh, check_secrets.sh
 ├── docs/                       Documentación ampliada
 │   ├── MACALY.md                 Guía de integración para Macaly
@@ -330,8 +341,9 @@ make keys     # y pega el resultado en el .env
 | `MAX_PUBLISH_ATTEMPTS` | `5` | Reintentos antes de marcar `failed` |
 | `RATE_LIMIT_REQUESTS` | `120` | Peticiones por minuto y por API key |
 | `CORS_ALLOW_ORIGINS` | `*` | Dominios permitidos (pon el de Macaly en producción) |
-| `CELERY_TASK_ALWAYS_EAGER` | `false` | `true` = publicar sin Redis (dentro de la API) |
-| `SCHEDULER_IN_PROCESS` | `true` | `true` = barredor embebido (dev); `false` = `celery beat` |
+| `PUBLISH_MODE` | `solo` | `solo` = API + worker en un proceso (sin Redis); `celery` = worker aparte; `inline` = síncrono |
+| `PUBLISH_CONCURRENCY` | `3` | Publicaciones simultáneas en modo `solo` |
+| `SCHEDULER_IN_PROCESS` | `true` | Barredor embebido. `false` sólo con `celery beat` |
 | `STORAGE_BACKEND` | `local` | `local` o `s3` (S3 / Cloudflare R2) |
 | `TIKTOK_POST_MODE` | `DIRECT_POST` | `DIRECT_POST` publica; `INBOX` deja borrador |
 | `TIKTOK_AUDIT_PASSED` | `false` | Ponlo a `true` cuando TikTok apruebe tu app |
@@ -919,6 +931,26 @@ Guía completa: **[`docs/PRODUCCION.md`](docs/PRODUCCION.md)**.
 **Desarrollo gratuito ≠ producción gratuita.** El desarrollo cuesta 0 € extra
 usando Codespaces; para producción necesitarás un servidor permanente.
 
+### Despliegue en un VPS: un solo comando
+
+```bash
+ssh root@<IP-de-tu-VPS>
+
+curl -fsSL https://raw.githubusercontent.com/mercadomarcelo5559/magoosuna/main/deploy/install.sh \
+  | bash -s -- api.tudominio.com tu@correo.com
+```
+
+Deja funcionando Docker, la API con HTTPS (certificado automático),
+PostgreSQL, copias de seguridad diarias, cortafuegos y arranque al reiniciar,
+y te imprime tu API key y las tres Redirect URI que registrar.
+
+Son **dos contenedores**: la API (que lleva dentro el worker y el
+planificador, `PUBLISH_MODE=solo`) y PostgreSQL. Sin Redis. Un VPS de
+2 vCPU / 4 GB va sobrado (~4-6 €/mes).
+
+Detalle completo y resolución de problemas en
+[`docs/PRODUCCION.md`](docs/PRODUCCION.md).
+
 ### La migración no cambia la lógica de negocio
 
 Sólo cambian variables de entorno y dónde corren los procesos:
@@ -934,23 +966,20 @@ CORS_ALLOW_ORIGINS=https://tu-app.macaly.app
 DATABASE_URL=postgresql+psycopg://usuario:clave@db-interna:5432/social_video_api
 REDIS_URL=redis://redis-interno:6379/0
 
-CELERY_TASK_ALWAYS_EAGER=false
-SCHEDULER_IN_PROCESS=false        # el barredor pasa a `celery beat`
+PUBLISH_MODE=solo                 # API + worker + planificador en un proceso
+SCHEDULER_IN_PROCESS=true
 
 STORAGE_BACKEND=s3                # Cloudflare R2 o Amazon S3
 S3_BUCKET=…
 S3_ENDPOINT_URL=…
 ```
 
-Pasos resumidos:
+Lo único que tienes que hacer a mano tras el despliegue:
 
-1. Servidor Linux (VPS) o plataforma con contenedores.
-2. `docker compose up -d` (ya incluye api + worker + beat + postgres + redis).
-3. Reverse proxy con HTTPS (Caddy o Nginx + Let's Encrypt).
-4. Dominio apuntando al servidor.
-5. Actualizar las **Redirect URI** en las tres plataformas al nuevo dominio.
-6. Object storage (R2/S3) para no guardar videos en el servidor.
-7. Copias de seguridad de PostgreSQL y monitorización de `/health`.
+1. Apuntar el **DNS** al servidor (registro A) — antes de ejecutar el script.
+2. Pegar tus credenciales de Meta, TikTok y Google en el `.env`.
+3. Registrar las **Redirect URI** en las tres plataformas.
+4. Opcional: object storage (R2/S3) para no guardar videos en el servidor.
 
 ### OAuth con URL pública durante el desarrollo
 
@@ -1007,7 +1036,7 @@ make secrets        # buscar secretos hardcodeados
 ## 18. Tests y verificación
 
 ```bash
-make test           # 251 tests
+make test           # 275 tests
 make test-cov       # con informe de cobertura (85 %)
 ```
 
@@ -1026,6 +1055,8 @@ usan los **endpoints oficiales** con los parámetros correctos.
 | `test_provider_instagram.py` | endpoints oficiales de Meta | 30 |
 | `test_provider_tiktok.py` | endpoints oficiales de TikTok | 30 |
 | `test_provider_youtube.py` | endpoints oficiales de YouTube | 31 |
+| `test_modo_solo.py` | modo un-solo-servicio y reclamación atómica | 10 |
+| `test_database.py` | rutas SQLite y sesiones | 14 |
 
 ### Verificado ejecutándose (no sólo en tests)
 
@@ -1041,6 +1072,9 @@ usan los **endpoints oficiales** con los parámetros correctos.
 - Idempotencia: dos peticiones idénticas → un solo grupo; cuerpo distinto → 409
 - `make smoke`: **17/17 comprobaciones correctas**
 - Imagen Docker construida y arrancada con healthcheck en verde
+- **Stack de producción** (modo `solo`, 2 contenedores, sin Redis) levantado y
+  verificado: 17/17 en la prueba de humo y una publicación programada
+  despachada y ejecutada por el propio proceso de la API
 
 ---
 

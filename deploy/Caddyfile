@@ -1,0 +1,36 @@
+# HTTPS automático con Let's Encrypt. Caddy pide y renueva el certificado solo.
+{
+	email {$EMAIL_TLS}
+}
+
+{$DOMINIO} {
+	encode zstd gzip
+
+	# Los videos son grandes: hay que permitir cuerpos y esperas largas.
+	request_body {
+		max_size 600MB
+	}
+
+	reverse_proxy api:8000 {
+		header_up X-Forwarded-Proto {scheme}
+		header_up X-Real-IP {remote_host}
+		transport http {
+			read_timeout 900s
+			write_timeout 900s
+		}
+	}
+
+	# Cabeceras de seguridad básicas.
+	header {
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		-Server
+	}
+
+	log {
+		output stdout
+		format json
+	}
+}
