@@ -34,22 +34,15 @@ END = float(env("END_SECONDS"))
 TITLE = env("MOMENT_TITLE")
 ANALYSIS_ID = env("ANALYSIS_ID")
 MOMENT_INDEX = env("MOMENT_INDEX")
-# Base site URL only, e.g. https://secret-vulture-720.eu-west-1.convex.site
-# (no trailing path) — /get-upload-url and /complete-clip are appended below.
 CONVEX_SITE_URL = env("CONVEX_INGEST_URL").rstrip("/")
 INGEST_SECRET = env("INGEST_SECRET")
 WATERMARK_TEXT = env("WATERMARK_TEXT", required=False, default="@tu_canal")
+FONT_FAMILY = env("FONT_FAMILY", required=False, default="Poppins ExtraBold")
 
 WORKDIR = "/tmp/clip-work"
 os.makedirs(WORKDIR, exist_ok=True)
 os.chdir(WORKDIR)
 
-# Default format selection (no codec restriction). Tried forcing H.264
-# (avc1) here at one point to work around what looked like an AV1 decode
-# issue — turned out to be an unrelated, isolated crash on one specific
-# timestamp range, and forcing avc1 picked a much larger 1080p60 variant
-# that made every download noticeably slower. Left unrestricted since that
-# tradeoff wasn't worth it for a one-off edge case.
 FORMAT_SELECTOR = "bv*[height<=1080]+ba/b[height<=1080]"
 
 
@@ -105,11 +98,6 @@ else:
 name = f"clip_{MOMENT_INDEX}"
 
 print(f"== Cutting {START}-{END}s ==")
-# Re-encoding here (not -c copy) on purpose: a stream-copied cut can land
-# mid-GOP on the source's keyframe layout and produce a segment that
-# decodes fine on its own but crashes ffmpeg on the *next* pass (the
-# vertical-conversion filter graph below). Re-encoding guarantees a clean,
-# self-contained segment regardless of keyframe alignment.
 run([
     "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
     "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
@@ -180,6 +168,24 @@ else:
 
 duration = get_duration(f"{name}.mp4")
 
+print("== Preparing caption font ==")
+FONT_DOWNLOAD_URLS = {
+    "Anton": "https://raw.githubusercontent.com/google/fonts/main/ofl/anton/Anton-Regular.ttf",
+    "Bebas Neue": "https://raw.githubusercontent.com/google/fonts/main/ofl/bebasneue/BebasNeue-Regular.ttf",
+    "Archivo Black": "https://raw.githubusercontent.com/google/fonts/main/ofl/archivoblack/ArchivoBlack-Regular.ttf",
+}
+FONTS_DIR = os.path.join(WORKDIR, "fonts")
+os.makedirs(FONTS_DIR, exist_ok=True)
+if FONT_FAMILY != "Poppins ExtraBold":
+    if FONT_FAMILY in FONT_DOWNLOAD_URLS:
+        font_path = os.path.join(FONTS_DIR, FONT_FAMILY.replace(" ", "") + ".ttf")
+        if not os.path.exists(font_path):
+            print(f"downloading font: {FONT_FAMILY}")
+            urllib.request.urlretrieve(FONT_DOWNLOAD_URLS[FONT_FAMILY], font_path)
+    else:
+        print(f"unknown font {FONT_FAMILY!r}, falling back to Poppins ExtraBold")
+        FONT_FAMILY = "Poppins ExtraBold"
+
 print("== Transcribing + building captions ==")
 from faster_whisper import WhisperModel
 
@@ -191,8 +197,13 @@ def ass_time(t):
     return f"{h}:{m:02}:{s:05.2f}"
 
 
-model = WhisperModel("small", device="cpu", compute_type="int8")
-segments, info = model.transcribe(f"{name}.mp4", word_timestamps=True)
+model = WhisperModel("medium", device="cpu", compute_type="int8")
+segments, info = model.transcribe(
+    f"{name}.mp4",
+    word_timestamps=True,
+    vad_filter=True,
+    beam_size=5,
+)
 segments = list(segments)
 
 avg_no_speech = sum(s.no_speech_prob for s in segments) / len(segments) if segments else 1.0
@@ -206,27 +217,31 @@ for seg in segments:
             words.append((w.start, w.end, wd))
 
 ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
-CHUNK = 3
+CONTEXT_BEFORE, CONTEXT_AFTER = 1, 1
+MAX_GAP_BRIDGE = 0.15
 res_w, res_h = 1080, 1920
 fontsize = max(18, round(res_h * 0.075))
 
 lines = []
-for i in range(0, len(words), CHUNK):
-    chunk = words[i:i + CHUNK]
-    if not chunk:
-        continue
-    start, end = chunk[0][0], chunk[-1][1]
-    idx_emph = max(range(len(chunk)), key=lambda k: len(chunk[k][2]))
-    accent = ACCENTS[(i // CHUNK) % len(ACCENTS)]
+for i, (ws, we, wd) in enumerate(words):
+    start_idx = max(0, i - CONTEXT_BEFORE)
+    end_idx = min(len(words), i + CONTEXT_AFTER + 1)
+    window = words[start_idx:end_idx]
+    accent = ACCENTS[i % len(ACCENTS)]
     parts = []
-    for j, (ws, we, wd) in enumerate(chunk):
-        word = wd.upper()
-        if j == idx_emph:
-            parts.append("{\\c%s\\fscx130\\fscy130}%s{\\r}" % (accent, word))
+    for j, (jw_s, jw_e, jw_t) in enumerate(window):
+        word = jw_t.upper()
+        if start_idx + j == i:
+            parts.append("{\\c%s\\fscx128\\fscy128}%s{\\r}" % (accent, word))
         else:
             parts.append(word)
     text = " ".join(parts)
-    lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Default,,0,0,0,,{text}")
+    display_end = we
+    if i + 1 < len(words):
+        gap = words[i + 1][0] - we
+        if gap > 0:
+            display_end = we + min(gap, MAX_GAP_BRIDGE)
+    lines.append(f"Dialogue: 0,{ass_time(ws)},{ass_time(display_end)},Default,,0,0,0,,{text}")
 
 watermark_fontsize = max(14, round(res_h * 0.022))
 lines.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration)},Watermark,,0,0,0,,{WATERMARK_TEXT}")
@@ -247,9 +262,9 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Poppins ExtraBold,{fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{max(2, round(fontsize * 0.11))},0,2,10,10,{round(res_h * 0.16)},1
+Style: Default,{FONT_FAMILY},{fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{max(2, round(fontsize * 0.11))},0,2,10,10,{round(res_h * 0.16)},1
 Style: Watermark,Poppins ExtraBold,{watermark_fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,3,1,0,9,20,40,50,1
-Style: Headline,Poppins ExtraBold,{round(res_h * 0.085)},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{round(res_h * 0.011)},0,8,60,60,{round(res_h * 0.09)},1
+Style: Headline,{FONT_FAMILY},{round(res_h * 0.085)},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{round(res_h * 0.011)},0,8,60,60,{round(res_h * 0.09)},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
@@ -259,17 +274,16 @@ with open(f"{name}.ass", "w") as f:
     f.write(header)
     f.write("\n".join(lines))
 
-print(f"language: {info.language} | lines: {len(lines) - 2} | audio_warning: {audio_warning}")
+print(f"language: {info.language} | lines: {len(lines) - 2} | audio_warning: {audio_warning} | font: {FONT_FAMILY}")
 
 print("== Burning captions + normalizing loudness + encoding at CRF18 ==")
 run([
-    "ffmpeg", "-y", "-i", f"{name}.mp4", "-vf", f"ass={name}.ass",
+    "ffmpeg", "-y", "-i", f"{name}.mp4", "-vf", f"ass={name}.ass:fontsdir={FONTS_DIR}",
     "-af", "loudnorm=I=-16:TP=-1.5:LRA=11",
     "-c:v", "libx264", "-preset", "medium", "-crf", "18",
     "-c:a", "aac", "-b:a", "192k", f"{name}_final.mp4", "-loglevel", "error",
 ])
 
-# ---- Upload (two-step: small JSON through Convex, big bytes direct to storage) ----
 print("== Uploading to app ==")
 final_path = f"{name}_final.mp4"
 file_size = os.path.getsize(final_path)
