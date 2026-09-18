@@ -95,25 +95,19 @@ try:
     # timeout, so a much slower model risks timing out on a longer upload
     # instead of just being more accurate on a short one.
     #
-    # language="es" removes Whisper's own language auto-detection, a real
-    # source of garbled transcripts on noisy or accented audio. The
-    # initial_prompt still leads with the user's own DESCRIPTION (their
-    # best hint at names/topic words) and adds a note that this is
-    # informal spoken Mexican Spanish, so slang and filler words come
-    # through as said instead of getting "cleaned up" into something else.
+    # language is intentionally left unset so Whisper auto-detects per
+    # video — uploads here aren't guaranteed to be Spanish, so forcing
+    # one language would garble anything that isn't. initial_prompt still
+    # leads with the user's own DESCRIPTION (their own words, whatever
+    # language those happen to be in) as a light content/vocabulary hint.
     model = WhisperModel("medium", device="cpu", compute_type="int8")
-    prompt_parts = []
-    if DESCRIPTION:
-        prompt_parts.append(DESCRIPTION)
-    prompt_parts.append("Transcripcion en espanol informal hablado de Mexico, con muletillas y jerga tal como se dicen.")
     segments, info = model.transcribe(
         source_file,
         word_timestamps=True,
-        initial_prompt=" ".join(prompt_parts),
+        initial_prompt=DESCRIPTION if DESCRIPTION else None,
         vad_filter=True,
         vad_parameters=dict(min_silence_duration_ms=300),
         beam_size=5,
-        language="es",
         condition_on_previous_text=False,
     )
     segments = list(segments)
