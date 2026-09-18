@@ -72,5 +72,5 @@ jobs:
           FONT_FAMILY: ${{ github.event.client_payload.fontFamily }}
           CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
-          WATERMARK_TEXT: "@viralclips2026_"
+          WATERMARK_TEXT: ${{ github.event.client_payload.watermarkText }}
         run: python3 worker/process_clip.py
