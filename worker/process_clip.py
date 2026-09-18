@@ -202,16 +202,17 @@ def ass_time(t):
 # (15-90s of audio), never the full source video, so the extra CPU time
 # stays well inside the job's timeout even on GitHub's free runners.
 #
-# language="es" removes Whisper's own language auto-detection entirely --
-# on a short clip (often with music, slang, or a noisy intro) guessing the
-# wrong language was a real source of garbled transcripts; every clip
-# here is Spanish, so there is nothing to detect.
+# language is intentionally left unset -- clips aren't guaranteed to be
+# Spanish (this pipeline runs on whatever YouTube video someone submits,
+# any language), so Whisper auto-detects per clip instead of a hardcoded
+# language forcing every clip's audio into the wrong one when it isn't
+# Spanish. The bigger model + tighter VAD below already make that
+# auto-detection meaningfully more reliable than it was on "medium".
 #
 # initial_prompt primes the decoder with the clip's own AI-written title
 # as a light content/vocabulary hint (names, topic words it might
-# otherwise mishear), plus a note that this is informal spoken Mexican
-# Spanish -- Whisper's baseline otherwise tends to "clean up" slang and
-# filler words into more formal, unrelated text.
+# otherwise mishear) -- kept language-neutral so it doesn't itself bias
+# detection toward Spanish on non-Spanish audio.
 model = WhisperModel("large-v3", device="cpu", compute_type="int8")
 segments, info = model.transcribe(
     f"{name}.mp4",
@@ -219,11 +220,7 @@ segments, info = model.transcribe(
     vad_filter=True,
     vad_parameters=dict(min_silence_duration_ms=300),
     beam_size=5,
-    language="es",
-    initial_prompt=(
-        f"Transcripcion en espanol informal hablado de Mexico, con muletillas, "
-        f"jerga y groserias tal como se dicen. Tema del clip: {TITLE}."
-    ),
+    initial_prompt=f"Topic of this clip: {TITLE}",
     condition_on_previous_text=False,
 )
 segments = list(segments)
