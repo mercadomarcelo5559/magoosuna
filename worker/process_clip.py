@@ -197,12 +197,34 @@ def ass_time(t):
     return f"{h}:{m:02}:{s:05.2f}"
 
 
-model = WhisperModel("medium", device="cpu", compute_type="int8")
+# "large-v3" instead of "medium" -- a real accuracy step up, and
+# affordable here since this only ever transcribes one already-cut clip
+# (15-90s of audio), never the full source video, so the extra CPU time
+# stays well inside the job's timeout even on GitHub's free runners.
+#
+# language="es" removes Whisper's own language auto-detection entirely --
+# on a short clip (often with music, slang, or a noisy intro) guessing the
+# wrong language was a real source of garbled transcripts; every clip
+# here is Spanish, so there is nothing to detect.
+#
+# initial_prompt primes the decoder with the clip's own AI-written title
+# as a light content/vocabulary hint (names, topic words it might
+# otherwise mishear), plus a note that this is informal spoken Mexican
+# Spanish -- Whisper's baseline otherwise tends to "clean up" slang and
+# filler words into more formal, unrelated text.
+model = WhisperModel("large-v3", device="cpu", compute_type="int8")
 segments, info = model.transcribe(
     f"{name}.mp4",
     word_timestamps=True,
     vad_filter=True,
+    vad_parameters=dict(min_silence_duration_ms=300),
     beam_size=5,
+    language="es",
+    initial_prompt=(
+        f"Transcripcion en espanol informal hablado de Mexico, con muletillas, "
+        f"jerga y groserias tal como se dicen. Tema del clip: {TITLE}."
+    ),
+    condition_on_previous_text=False,
 )
 segments = list(segments)
 
