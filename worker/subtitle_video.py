@@ -89,17 +89,32 @@ try:
         s = t % 60
         return f"{h}:{m:02}:{s:05.2f}"
 
-    # "medium" — noticeably fewer misheard words than "small", at the cost
-    # of a slower transcode. vad_filter skips silence/non-speech stretches
-    # (fewer hallucinated words in those gaps); beam_size=5 is
-    # faster-whisper's own default, set explicitly.
+    # "medium" (not the heavier "large-v3" used for the short viral clips
+    # in process_clip.py) — this pipeline transcribes the person's WHOLE
+    # uploaded video, whatever its length, inside the same 30-minute CI
+    # timeout, so a much slower model risks timing out on a longer upload
+    # instead of just being more accurate on a short one.
+    #
+    # language="es" removes Whisper's own language auto-detection, a real
+    # source of garbled transcripts on noisy or accented audio. The
+    # initial_prompt still leads with the user's own DESCRIPTION (their
+    # best hint at names/topic words) and adds a note that this is
+    # informal spoken Mexican Spanish, so slang and filler words come
+    # through as said instead of getting "cleaned up" into something else.
     model = WhisperModel("medium", device="cpu", compute_type="int8")
+    prompt_parts = []
+    if DESCRIPTION:
+        prompt_parts.append(DESCRIPTION)
+    prompt_parts.append("Transcripcion en espanol informal hablado de Mexico, con muletillas y jerga tal como se dicen.")
     segments, info = model.transcribe(
         source_file,
         word_timestamps=True,
-        initial_prompt=DESCRIPTION if DESCRIPTION else None,
+        initial_prompt=" ".join(prompt_parts),
         vad_filter=True,
+        vad_parameters=dict(min_silence_duration_ms=300),
         beam_size=5,
+        language="es",
+        condition_on_previous_text=False,
     )
     segments = list(segments)
 
