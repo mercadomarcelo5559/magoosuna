@@ -68,7 +68,17 @@ def report_error(message):
 try:
     source_file = "source.mp4"
     print("== Downloading source video ==")
-    urllib.request.urlretrieve(SOURCE_URL, source_file)
+    # Macaly's asset CDN blocks requests carrying urllib's default
+    # User-Agent ("Python-urllib/3.x") as a bot-protection measure --
+    # returns a bare 403 with no other explanation. A normal browser-like
+    # UA (or curl's own default) passes fine, so this sets one explicitly
+    # instead of using urlretrieve's bare, header-less request.
+    dl_req = urllib.request.Request(
+        SOURCE_URL,
+        headers={"User-Agent": "Mozilla/5.0 (compatible; SubtitleWorker/1.0)"},
+    )
+    with urllib.request.urlopen(dl_req, timeout=120) as resp, open(source_file, "wb") as out:
+        out.write(resp.read())
 
     print("== Transcribing + building captions ==")
     from faster_whisper import WhisperModel
