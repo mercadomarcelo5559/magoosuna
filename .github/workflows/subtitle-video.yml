@@ -1,0 +1,45 @@
+name: Subtitle uploaded video
+
+on:
+  repository_dispatch:
+    types: [subtitle-video]
+
+jobs:
+  subtitle:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fontconfig
+
+      - name: Install Poppins font
+        run: |
+          mkdir -p ~/.fonts
+          cp worker/fonts/Poppins-ExtraBold.ttf ~/.fonts/
+          fc-cache -f
+
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-medium-model-v2
+
+      - name: Install Python dependencies
+        run: pip install --break-system-packages -U faster-whisper onnxruntime
+
+      - name: Subtitle video
+        env:
+          SOURCE_URL: ${{ github.event.client_payload.sourceUrl }}
+          DESCRIPTION: ${{ github.event.client_payload.description }}
+          VIDEO_EDIT_ID: ${{ github.event.client_payload.videoEditId }}
+          CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+        run: python3 worker/subtitle_video.py
