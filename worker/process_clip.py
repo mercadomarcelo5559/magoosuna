@@ -236,8 +236,18 @@ segments, info = model.transcribe(
 )
 segments = list(segments)
 
-avg_no_speech = sum(s.no_speech_prob for s in segments) / len(segments) if segments else 1.0
-audio_warning = avg_no_speech > 0.4
+# The old metric here averaged no_speech_prob across only the segments
+# Whisper DID detect speech in -- so a clip that's 88% silence but has
+# one confidently-transcribed 3-second line in it (exactly what happened
+# on a real clip: two short lines, 22 seconds apart, in an otherwise
+# silent 33-second clip) came out looking perfectly fine by that average,
+# even though almost the whole thing has no dialogue at all. This instead
+# measures how much of the CLIP'S OWN DURATION actually has detected
+# speech in it, which is what "should I review the audio on this one"
+# actually needs to know.
+speech_seconds = sum(s.end - s.start for s in segments)
+speech_coverage = speech_seconds / duration if duration > 0 else 0
+audio_warning = speech_coverage < 0.4
 
 # Extra safety net on top of the decoder-level anti-repeat options above:
 # if a hallucination loop still slips through, this skips a word that's
