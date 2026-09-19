@@ -247,7 +247,12 @@ segments = list(segments)
 # actually needs to know.
 speech_seconds = sum(s.end - s.start for s in segments)
 speech_coverage = speech_seconds / duration if duration > 0 else 0
-audio_warning = speech_coverage < 0.4
+# faster-whisper's segment.start/.end can come back as numpy float32, which
+# makes the comparison below a numpy.bool_ instead of a plain Python bool --
+# and numpy.bool_ isn't JSON-serializable, which broke the result upload
+# entirely (the clip rendered fine, but reporting the result back failed).
+# bool(...) forces it back to a plain, always-JSON-safe Python bool.
+audio_warning = bool(speech_coverage < 0.4)
 
 # Extra safety net on top of the decoder-level anti-repeat options above:
 # if a hallucination loop still slips through, this skips a word that's
