@@ -222,18 +222,39 @@ segments, info = model.transcribe(
     beam_size=5,
     initial_prompt=f"Topic of this clip: {TITLE}",
     condition_on_previous_text=False,
+    # A low-speech stretch (a reaction shot, a sound-effect-only beat, a
+    # laugh with no clear words) can make Whisper "hallucinate" -- instead
+    # of correctly outputting nothing, it gets stuck looping the same
+    # phrase over and over for many seconds. These two options are the
+    # standard mitigation: no_repeat_ngram_size blocks the decoder from
+    # repeating the same 3-word sequence back to back, and
+    # repetition_penalty further discourages it from choosing an
+    # already-used word again. Normal, non-repetitive speech is
+    # unaffected by either.
+    no_repeat_ngram_size=3,
+    repetition_penalty=1.2,
 )
 segments = list(segments)
 
 avg_no_speech = sum(s.no_speech_prob for s in segments) / len(segments) if segments else 1.0
 audio_warning = avg_no_speech > 0.4
 
+# Extra safety net on top of the decoder-level anti-repeat options above:
+# if a hallucination loop still slips through, this skips a word that's
+# the exact same text as the one right before it with barely any gap in
+# between (a real person repeating a word for emphasis pauses noticeably
+# longer than a looping hallucination does), so a burned-in caption never
+# visibly freezes on the same phrase for many seconds even in that
+# fallback case.
 words = []
 for seg in segments:
     for w in seg.words:
         wd = w.word.strip()
-        if wd:
-            words.append((w.start, w.end, wd))
+        if not wd:
+            continue
+        if words and words[-1][2].strip().lower() == wd.lower() and (w.start - words[-1][1]) < 0.25:
+            continue
+        words.append((w.start, w.end, wd))
 
 ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
 CONTEXT_BEFORE, CONTEXT_AFTER = 1, 1
