@@ -109,15 +109,31 @@ try:
         vad_parameters=dict(min_silence_duration_ms=300),
         beam_size=5,
         condition_on_previous_text=False,
+        # Same anti-hallucination guard as process_clip.py: a low-speech
+        # stretch (silence, music, a long pause) can make Whisper get
+        # stuck looping the same phrase for many seconds instead of
+        # correctly outputting nothing there.
+        no_repeat_ngram_size=3,
+        repetition_penalty=1.2,
     )
     segments = list(segments)
 
+    # Extra safety net on top of the decoder-level anti-repeat options
+    # above: if a hallucination loop still slips through, this skips a
+    # word that's the exact same text as the one right before it with
+    # barely any gap in between (a real person repeating a word for
+    # emphasis pauses noticeably longer than a looping hallucination
+    # does), so a burned-in caption never visibly freezes on the same
+    # phrase for many seconds even in that fallback case.
     words = []
     for seg in segments:
         for w in seg.words:
             wd = w.word.strip()
-            if wd:
-                words.append((w.start, w.end, wd))
+            if not wd:
+                continue
+            if words and words[-1][2].strip().lower() == wd.lower() and (w.start - words[-1][1]) < 0.25:
+                continue
+            words.append((w.start, w.end, wd))
 
     CHUNK = 3
     ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
