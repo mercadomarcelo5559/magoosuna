@@ -73,4 +73,5 @@ jobs:
           CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
           WATERMARK_TEXT: ${{ github.event.client_payload.watermarkText }}
+          ASPECT_RATIO: ${{ github.event.client_payload.aspectRatio }}
         run: python3 worker/process_clip.py
