@@ -38,6 +38,9 @@ CONVEX_SITE_URL = env("CONVEX_INGEST_URL").rstrip("/")
 INGEST_SECRET = env("INGEST_SECRET")
 WATERMARK_TEXT = env("WATERMARK_TEXT", required=False, default="@tu_canal")
 FONT_FAMILY = env("FONT_FAMILY", required=False, default="Poppins ExtraBold")
+ASPECT_RATIO = env("ASPECT_RATIO", required=False, default="9:16")
+ASPECT_DIMENSIONS = {"9:16": (1080, 1920), "1:1": (1080, 1080), "16:9": (1920, 1080)}
+OUT_W, OUT_H = ASPECT_DIMENSIONS.get(ASPECT_RATIO, (1080, 1920))
 
 WORKDIR = "/tmp/clip-work"
 os.makedirs(WORKDIR, exist_ok=True)
@@ -105,11 +108,12 @@ run([
     f"{name}_cut.mp4", "-loglevel", "error",
 ])
 
-print("== Converting to 9:16 vertical ==")
+print(f"== Converting to {ASPECT_RATIO} ({OUT_W}x{OUT_H}) ==")
 run([
     "ffmpeg", "-y", "-i", f"{name}_cut.mp4", "-filter_complex",
-    "[0:v]scale=1080:1920:force_original_aspect_ratio=increase,crop=1080:1920,"
-    "gblur=sigma=25[bg];[0:v]scale=1080:-2[fg];[bg][fg]overlay=(W-w)/2:(H-h)/2[outv]",
+    f"[0:v]scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=increase,crop={OUT_W}:{OUT_H},"
+    f"gblur=sigma=25[bg];[0:v]scale={OUT_W}:{OUT_H}:force_original_aspect_ratio=decrease[fg];"
+    "[bg][fg]overlay=(W-w)/2:(H-h)/2[outv]",
     "-map", "[outv]", "-map", "0:a", "-c:v", "libx264", "-preset", "veryfast",
     "-crf", "20", "-c:a", "aac", "-b:a", "192k", f"{name}.mp4", "-loglevel", "error",
 ])
@@ -271,11 +275,44 @@ for seg in segments:
             continue
         words.append((w.start, w.end, wd))
 
+# Keyword -> emoji, appended after the highlighted word when it matches —
+# the same kind of reaction-emoji clippers add by hand, but automatic. Only
+# the CURRENTLY highlighted word is checked (not the whole context window)
+# so at most one emoji shows per line, keeping it a light touch rather than
+# cluttering every caption. Checked as a whole-word match on the stripped,
+# lowercased, accent-insensitive token so plurals/punctuation don't miss.
+EMOJI_KEYWORDS = {
+    "dinero": "💰", "pesos": "💰", "dolares": "💰", "plata": "💰",
+    "dios": "🙏", "amor": "❤️", "fuego": "🔥", "increible": "🤯",
+    "loco": "🤯", "locura": "🤯", "miedo": "😱", "asustado": "😱",
+    "triste": "😢", "llorar": "😢", "risa": "😂", "reir": "😂",
+    "ganar": "🏆", "perder": "📉", "exito": "🚀", "negocio": "💼",
+    "tiempo": "⏰", "rapido": "⚡", "cuidado": "⚠️", "peligro": "⚠️",
+    "secreto": "🤫", "mentira": "🤥", "verdad": "💯", "muerte": "💀",
+    "corazon": "❤️", "familia": "👪", "trabajo": "💼", "idea": "💡",
+}
+import unicodedata as _ud
+
+
+def _emoji_for(word_raw: str):
+    stripped = word_raw.strip('.,!?¡¿"\'():;').lower()
+    normalized = "".join(
+        c for c in _ud.normalize("NFD", stripped) if _ud.category(c) != "Mn"
+    )
+    return EMOJI_KEYWORDS.get(normalized)
+
+
 ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
 CONTEXT_BEFORE, CONTEXT_AFTER = 1, 1
 MAX_GAP_BRIDGE = 0.15
-res_w, res_h = 1080, 1920
-fontsize = max(18, round(res_h * 0.075))
+res_w, res_h = OUT_W, OUT_H
+# Caption/headline sizing scales off the SHORTER side so text stays a
+# sensible size whether the frame is tall (9:16), square (1:1), or wide
+# (16:9) — sizing purely off res_h (as before, when this was always
+# 1080x1920) would make captions comically huge on a 1920x1080 horizontal
+# clip.
+short_side = min(res_w, res_h)
+fontsize = max(18, round(short_side * 0.075))
 
 lines = []
 for i, (ws, we, wd) in enumerate(words):
@@ -287,7 +324,9 @@ for i, (ws, we, wd) in enumerate(words):
     for j, (jw_s, jw_e, jw_t) in enumerate(window):
         word = jw_t.upper()
         if start_idx + j == i:
-            parts.append("{\\c%s\\fscx128\\fscy128}%s{\\r}" % (accent, word))
+            emoji = _emoji_for(jw_t)
+            display = f"{word} {emoji}" if emoji else word
+            parts.append("{\\c%s\\fscx128\\fscy128}%s{\\r}" % (accent, display))
         else:
             parts.append(word)
     text = " ".join(parts)
@@ -298,7 +337,7 @@ for i, (ws, we, wd) in enumerate(words):
             display_end = we + min(gap, MAX_GAP_BRIDGE)
     lines.append(f"Dialogue: 0,{ass_time(ws)},{ass_time(display_end)},Default,,0,0,0,,{text}")
 
-watermark_fontsize = max(14, round(res_h * 0.022))
+watermark_fontsize = max(14, round(short_side * 0.022))
 lines.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration)},Watermark,,0,0,0,,{WATERMARK_TEXT}")
 
 headline = TITLE.replace("{", "").replace("}", "").replace("\n", " ")
@@ -319,7 +358,7 @@ ScaledBorderAndShadow: yes
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
 Style: Default,{FONT_FAMILY},{fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{max(2, round(fontsize * 0.11))},0,2,10,10,{round(res_h * 0.16)},1
 Style: Watermark,Poppins ExtraBold,{watermark_fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,3,1,0,9,20,40,50,1
-Style: Headline,{FONT_FAMILY},{round(res_h * 0.085)},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{round(res_h * 0.011)},0,8,60,60,{round(res_h * 0.09)},1
+Style: Headline,{FONT_FAMILY},{round(short_side * 0.085)},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{round(short_side * 0.011)},0,8,60,60,{round(res_h * 0.09)},1
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
