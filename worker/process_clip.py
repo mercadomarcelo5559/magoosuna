@@ -213,10 +213,14 @@ def ass_time(t):
 # Spanish. The bigger model + tighter VAD below already make that
 # auto-detection meaningfully more reliable than it was on "medium".
 #
-# initial_prompt primes the decoder with the clip's own AI-written title
-# as a light content/vocabulary hint (names, topic words it might
-# otherwise mishear) -- kept language-neutral so it doesn't itself bias
-# detection toward Spanish on non-Spanish audio.
+# NO initial_prompt on purpose. It used to prime the decoder with the
+# clip's AI-written title as a vocabulary hint, but that backfired badly:
+# the top-scored clip's title paraphrases what's said in it most closely,
+# and Whisper would echo the prompt back as the "transcript" instead of
+# listening -- e.g. a 33s clip came out as just the title text for the
+# first 30s (15 words total) vs 126 real words without the prompt. It hit
+# clip 0 on essentially every video. A Spanish title on English audio made
+# it worse. Plain transcription is strictly more reliable here.
 model = WhisperModel("large-v3", device="cpu", compute_type="int8")
 segments, info = model.transcribe(
     f"{name}.mp4",
@@ -224,7 +228,6 @@ segments, info = model.transcribe(
     vad_filter=True,
     vad_parameters=dict(min_silence_duration_ms=300),
     beam_size=5,
-    initial_prompt=f"Topic of this clip: {TITLE}",
     condition_on_previous_text=False,
     # A low-speech stretch (a reaction shot, a sound-effect-only beat, a
     # laugh with no clear words) can make Whisper "hallucinate" -- instead
