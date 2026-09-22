@@ -23,6 +23,9 @@ OUT_DIR = os.path.abspath(os.environ.get("SEGMENTS_DIR", "segments"))
 os.makedirs(OUT_DIR, exist_ok=True)
 
 FORMAT_SELECTOR = "bv*[height<=1080]+ba/b[height<=1080]"
+# Extra margin around each moment so process_clip.py can snap the final
+# cut to sentence boundaries. Must match process_clip.py's constants.
+PAD_BEFORE, PAD_AFTER = 3.0, 8.0
 
 
 def run(cmd):
@@ -67,7 +70,8 @@ if last_err:
     raise last_err
 
 for m in MOMENTS:
-    idx, start, end = m["i"], float(m["s"]), float(m["e"])
+    idx = m["i"]
+    start, end = max(0.0, float(m["s"]) - PAD_BEFORE), float(m["e"]) + PAD_AFTER
     out = os.path.join(OUT_DIR, f"seg_{idx}.mp4")
     print(f"== Cutting moment {idx}: {start}-{end}s ==")
     run(["ffmpeg", "-y", "-ss", str(start), "-to", str(end), "-i", source_file,
