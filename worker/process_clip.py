@@ -330,26 +330,27 @@ if words:
     def _ends_sentence(j):
         return j == len(words) - 1 or words[j][2].endswith(_END_PUNCT) or words[j + 1][0] - words[j][1] >= 0.5
 
-    starts = [i for i in range(len(words)) if _starts_sentence(i) and target_s - 3.0 <= words[i][0] <= target_s + 2.0]
-    if starts:
-        si = min(starts, key=lambda i: abs(words[i][0] - target_s))
-    else:  # no clean sentence start nearby: at least start on a whole word
-        si = next((i for i in range(len(words)) if words[i][0] >= target_s - 0.2), 0)
-    ends = [j for j in range(si, len(words)) if _ends_sentence(j) and target_e - 1.0 <= words[j][1] <= target_e + PAD_AFTER]
+    # START: only move it when the target lands inside speech. If nobody is
+    # talking at the target (action, music, reaction) keep it as-is, so a
+    # non-verbal hook is never trimmed away.
+    overlap_s = next((i for i, w in enumerate(words) if w[0] < target_s < w[1]), None)
+    in_speech = overlap_s is not None or any(0 < target_s - w[1] < 0.35 for w in words)
+    if in_speech:
+        near = [i for i in range(len(words)) if _starts_sentence(i) and target_s - 3.0 <= words[i][0] <= target_s + 0.5]
+        if near:
+            new_start = max(0.0, words[min(near, key=lambda i: abs(words[i][0] - target_s))][0] - 0.15)
+        elif overlap_s is not None:
+            new_start = max(0.0, words[overlap_s][0] - 0.15)  # at least a whole word
+    # END: finish the sentence (up to PAD_AFTER extra), never mid-word.
+    after = [j for j in range(len(words)) if words[j][0] >= new_start - 0.05]
+    ends = [j for j in after if _ends_sentence(j) and target_e - 1.0 <= words[j][1] <= target_e + PAD_AFTER]
+    overlap_e = next((j for j in after if words[j][0] < target_e < words[j][1]), None)
     if ends:
-        ej = ends[0]
-    else:  # no sentence end in range: end on the whole word nearest the target
-        cand = [j for j in range(si, len(words)) if words[j][1] <= target_e + PAD_AFTER] or [len(words) - 1]
-        ej = min(cand, key=lambda j: abs(words[j][1] - target_e))
-    # Guard against a degenerate snap (e.g. a far-off sentence boundary
-    # shrinking the clip): fall back to plain whole-word boundaries around
-    # the targets -- still never mid-word, never the raw estimate.
-    if words[ej][1] - words[si][0] < 0.6 * max(1.0, target_e - target_s):
-        si = next((i for i in range(len(words)) if words[i][0] >= target_s - 0.2), 0)
-        cand = [j for j in range(si, len(words)) if words[j][1] <= target_e + 1.0] or [len(words) - 1]
-        ej = max(cand)
-    new_start = max(0.0, words[si][0] - 0.15)
-    new_end = min(duration, words[ej][1] + 0.35)
+        new_end = min(duration, words[ends[0]][1] + 0.35)
+    elif overlap_e is not None:
+        new_end = min(duration, words[overlap_e][1] + 0.35)
+    if new_end - new_start < 0.6 * max(1.0, target_e - target_s):
+        new_end = min(duration, max(new_end, target_e))
 print(f"target {target_s:.2f}-{target_e:.2f}s -> snapped {new_start:.2f}-{new_end:.2f}s")
 
 snapped = f"{name}_snap.mp4"
