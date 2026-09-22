@@ -99,6 +99,7 @@ jobs:
           MOMENT_TITLE: ${{ matrix.moment.title }}
           ANALYSIS_ID: ${{ github.event.client_payload.analysisId }}
           MOMENT_INDEX: ${{ matrix.moment.i }}
+          EXACT_TIMES: ${{ matrix.moment.exact }}
           FONT_FAMILY: ${{ github.event.client_payload.fontFamily }}
           CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
