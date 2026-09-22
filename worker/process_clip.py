@@ -72,7 +72,10 @@ name = f"clip_{MOMENT_INDEX}"
 # after transcription (see "Snapping to sentence boundaries" below), so a
 # clip never starts or ends mid-word/mid-thought. Must match
 # download_segments.py's PAD_BEFORE/PAD_AFTER.
-PAD_BEFORE, PAD_AFTER = 3.0, 8.0
+PAD_BEFORE, PAD_AFTER = 3.0, 20.0
+# Extending to finish a thought never pushes a clip past 1 minute
+# (unless the AI/user already asked for a longer moment).
+MAX_CLIP_SECONDS = 60.0
 SEG_START = max(0.0, START - PAD_BEFORE)
 SEG_END = END + PAD_AFTER
 REL_START, REL_END = START - SEG_START, END - SEG_START
@@ -343,10 +346,19 @@ if words:
             new_start = max(0.0, words[overlap_s][0] - 0.15)  # at least a whole word
     # END: finish the sentence (up to PAD_AFTER extra), never mid-word.
     after = [j for j in range(len(words)) if words[j][0] >= new_start - 0.05]
-    ends = [j for j in after if _ends_sentence(j) and target_e - 1.0 <= words[j][1] <= target_e + PAD_AFTER]
+    end_limit = min(target_e + PAD_AFTER, max(new_start + MAX_CLIP_SECONDS, target_e))
+    # First sentence end at/after the target = shortest clip that still
+    # closes the idea (short, clip-friendly whenever the talk allows it).
+    ends = [j for j in after if _ends_sentence(j) and target_e - 1.0 <= words[j][1] <= end_limit]
     overlap_e = next((j for j in after if words[j][0] < target_e < words[j][1]), None)
+    # No sentence closes within the limit: end on the first natural pause
+    # (a breath between words) instead of mid-phrase.
+    pauses = [j for j in after if j < len(words) - 1 and words[j + 1][0] - words[j][1] >= 0.25
+              and target_e - 1.0 <= words[j][1] <= end_limit]
     if ends:
         new_end = min(duration, words[ends[0]][1] + 0.35)
+    elif pauses:
+        new_end = min(duration, words[pauses[0]][1] + 0.25)
     elif overlap_e is not None:
         new_end = min(duration, words[overlap_e][1] + 0.35)
     if new_end - new_start < 0.6 * max(1.0, target_e - target_s):
