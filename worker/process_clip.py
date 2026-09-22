@@ -76,6 +76,10 @@ PAD_BEFORE, PAD_AFTER = 3.0, 20.0
 # Extending to finish a thought never pushes a clip past 1 minute
 # (unless the AI/user already asked for a longer moment).
 MAX_CLIP_SECONDS = 60.0
+# User hand-edited times ("exact"): no margin, no sentence snapping.
+EXACT_TIMES = os.environ.get("EXACT_TIMES", "").lower() == "true"
+if EXACT_TIMES:
+    PAD_BEFORE, PAD_AFTER = 0.0, 0.0
 SEG_START = max(0.0, START - PAD_BEFORE)
 SEG_END = END + PAD_AFTER
 REL_START, REL_END = START - SEG_START, END - SEG_START
@@ -326,7 +330,7 @@ def _map_time(t):
 _END_PUNCT = (".", "?", "!", "\u2026", "\u3002")
 target_s, target_e = _map_time(REL_START), _map_time(REL_END)
 new_start, new_end = target_s, min(target_e, duration)
-if words:
+if words and not EXACT_TIMES:
     def _starts_sentence(i):
         return i == 0 or words[i - 1][2].endswith(_END_PUNCT) or words[i][0] - words[i - 1][1] >= 0.35
 
