@@ -25,7 +25,7 @@ os.makedirs(OUT_DIR, exist_ok=True)
 FORMAT_SELECTOR = "bv*[height<=1080]+ba/b[height<=1080]"
 # Extra margin around each moment so process_clip.py can snap the final
 # cut to sentence boundaries. Must match process_clip.py's constants.
-PAD_BEFORE, PAD_AFTER = 3.0, 8.0
+PAD_BEFORE, PAD_AFTER = 3.0, 20.0
 
 
 def run(cmd):
