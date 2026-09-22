@@ -63,10 +63,21 @@ def extract_video_id(url):
     raise ValueError("Could not extract video ID from " + url)
 
 
+name = f"clip_{MOMENT_INDEX}"
+
+# When run from the process-video workflow, the source was already
+# downloaded ONCE and this moment's range pre-cut by download_segments.py
+# (same ffmpeg settings as the cut below) -- so skip YouTube entirely.
+SEGMENT_FILE = os.environ.get("SEGMENT_FILE")
+if SEGMENT_FILE:
+    print(f"== Using pre-cut segment {SEGMENT_FILE} (no YouTube download) ==")
+    import shutil
+    shutil.copy(SEGMENT_FILE, f"{name}_cut.mp4")
+
 video_id = extract_video_id(VIDEO_URL)
 source_file = f"source_{video_id}.mp4"
 
-if not os.path.exists(source_file):
+if not SEGMENT_FILE and not os.path.exists(source_file):
     print("== Downloading source video ==")
     strategies = [
         ["--js-runtimes", "node", "--remote-components", "ejs:github"],
@@ -95,18 +106,17 @@ if not os.path.exists(source_file):
             time.sleep(8)
     if last_err:
         raise last_err
-else:
+elif not SEGMENT_FILE:
     print("== Source already cached ==")
 
-name = f"clip_{MOMENT_INDEX}"
-
-print(f"== Cutting {START}-{END}s ==")
-run([
-    "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
-    "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
-    "-c:a", "aac", "-b:a", "192k",
-    f"{name}_cut.mp4", "-loglevel", "error",
-])
+if not SEGMENT_FILE:
+    print(f"== Cutting {START}-{END}s ==")
+    run([
+        "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
+        "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
+        "-c:a", "aac", "-b:a", "192k",
+        f"{name}_cut.mp4", "-loglevel", "error",
+    ])
 
 print(f"== Converting to {ASPECT_RATIO} ({OUT_W}x{OUT_H}) ==")
 run([
