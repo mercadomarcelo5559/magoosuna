@@ -68,6 +68,15 @@ name = f"clip_{MOMENT_INDEX}"
 # When run from the process-video workflow, the source was already
 # downloaded ONCE and this moment's range pre-cut by download_segments.py
 # (same ffmpeg settings as the cut below) -- so skip YouTube entirely.
+# Clips are cut with extra margin and then snapped to sentence boundaries
+# after transcription (see "Snapping to sentence boundaries" below), so a
+# clip never starts or ends mid-word/mid-thought. Must match
+# download_segments.py's PAD_BEFORE/PAD_AFTER.
+PAD_BEFORE, PAD_AFTER = 3.0, 8.0
+SEG_START = max(0.0, START - PAD_BEFORE)
+SEG_END = END + PAD_AFTER
+REL_START, REL_END = START - SEG_START, END - SEG_START
+
 SEGMENT_FILE = os.environ.get("SEGMENT_FILE")
 if SEGMENT_FILE:
     print(f"== Using pre-cut segment {SEGMENT_FILE} (no YouTube download) ==")
@@ -110,9 +119,9 @@ elif not SEGMENT_FILE:
     print("== Source already cached ==")
 
 if not SEGMENT_FILE:
-    print(f"== Cutting {START}-{END}s ==")
+    print(f"== Cutting {SEG_START}-{SEG_END}s (padded) ==")
     run([
-        "ffmpeg", "-y", "-ss", str(START), "-to", str(END), "-i", source_file,
+        "ffmpeg", "-y", "-ss", str(SEG_START), "-to", str(SEG_END), "-i", source_file,
         "-c:v", "libx264", "-preset", "veryfast", "-crf", "18",
         "-c:a", "aac", "-b:a", "192k",
         f"{name}_cut.mp4", "-loglevel", "error",
@@ -154,6 +163,7 @@ duration = get_duration(f"{name}.mp4")
 silences = detect_silences(f"{name}.mp4")
 cut_ranges = [(s + PAD, e - PAD) for s, e in silences if (e - PAD) - (s + PAD) > 0.05]
 
+KEEP_RANGES = [(0.0, duration)]
 if cut_ranges:
     keep = []
     prev = 0.0
@@ -164,6 +174,7 @@ if cut_ranges:
     if prev < duration:
         keep.append((prev, duration))
     keep = keep[:30]
+    KEEP_RANGES = list(keep)
 
     parts, concat_in = [], []
     for idx, (s, e) in enumerate(keep):
@@ -287,6 +298,67 @@ for seg in segments:
         if words and words[-1][2].strip().lower() == wd.lower() and (w.start - words[-1][1]) < 0.25:
             continue
         words.append((w.start, w.end, wd))
+
+# == Snapping to sentence boundaries ==
+# The AI's moment times are estimates in whole seconds, so cutting exactly
+# on them often lands mid-sentence or mid-word. The clip was cut with
+# PAD_BEFORE/PAD_AFTER margin; now pick the real start/end from Whisper's
+# word timings: start on the first word of a sentence near the target,
+# end on the last word of a sentence at/after the target (letting a
+# thought finish, up to PAD_AFTER extra), never splitting a word.
+print("== Snapping to sentence boundaries ==")
+
+
+def _map_time(t):
+    acc = 0.0
+    for s, e in KEEP_RANGES:
+        if t < s:
+            return acc
+        if t <= e:
+            return acc + (t - s)
+        acc += e - s
+    return acc
+
+
+_END_PUNCT = (".", "?", "!", "\u2026", "\u3002")
+target_s, target_e = _map_time(REL_START), _map_time(REL_END)
+new_start, new_end = target_s, min(target_e, duration)
+if words:
+    def _starts_sentence(i):
+        return i == 0 or words[i - 1][2].endswith(_END_PUNCT) or words[i][0] - words[i - 1][1] >= 0.35
+
+    def _ends_sentence(j):
+        return j == len(words) - 1 or words[j][2].endswith(_END_PUNCT) or words[j + 1][0] - words[j][1] >= 0.5
+
+    starts = [i for i in range(len(words)) if _starts_sentence(i) and target_s - 3.0 <= words[i][0] <= target_s + 2.0]
+    if starts:
+        si = min(starts, key=lambda i: abs(words[i][0] - target_s))
+    else:  # no clean sentence start nearby: at least start on a whole word
+        si = next((i for i in range(len(words)) if words[i][0] >= target_s - 0.2), 0)
+    ends = [j for j in range(si, len(words)) if _ends_sentence(j) and target_e - 1.0 <= words[j][1] <= target_e + PAD_AFTER]
+    if ends:
+        ej = ends[0]
+    else:  # no sentence end in range: end on the whole word nearest the target
+        cand = [j for j in range(si, len(words)) if words[j][1] <= target_e + PAD_AFTER] or [len(words) - 1]
+        ej = min(cand, key=lambda j: abs(words[j][1] - target_e))
+    # Guard against a degenerate snap (e.g. a far-off sentence boundary
+    # shrinking the clip): fall back to plain whole-word boundaries around
+    # the targets -- still never mid-word, never the raw estimate.
+    if words[ej][1] - words[si][0] < 0.6 * max(1.0, target_e - target_s):
+        si = next((i for i in range(len(words)) if words[i][0] >= target_s - 0.2), 0)
+        cand = [j for j in range(si, len(words)) if words[j][1] <= target_e + 1.0] or [len(words) - 1]
+        ej = max(cand)
+    new_start = max(0.0, words[si][0] - 0.15)
+    new_end = min(duration, words[ej][1] + 0.35)
+print(f"target {target_s:.2f}-{target_e:.2f}s -> snapped {new_start:.2f}-{new_end:.2f}s")
+
+snapped = f"{name}_snap.mp4"
+run(["ffmpeg", "-y", "-ss", f"{new_start:.3f}", "-to", f"{new_end:.3f}", "-i", f"{name}.mp4",
+     "-c:v", "libx264", "-preset", "veryfast", "-crf", "18", "-c:a", "aac", "-b:a", "192k",
+     snapped, "-loglevel", "error"])
+os.replace(snapped, f"{name}.mp4")
+words = [(s - new_start, e - new_start, t) for s, e, t in words if s >= new_start - 0.05 and e <= new_end + 0.05]
+duration = get_duration(f"{name}.mp4")
 
 # Keyword -> emoji, appended after the highlighted word when it matches —
 # the same kind of reaction-emoji clippers add by hand, but automatic. Only
