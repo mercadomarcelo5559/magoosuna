@@ -1,0 +1,107 @@
+name: Process video clips
+
+# One dispatch per analysis (instead of one per clip): the source video is
+# downloaded from YouTube ONCE in the "download" job, each moment is
+# pre-cut into a small segment, and the segments are handed to parallel
+# "clip" jobs as an artifact. Same output as process-clip.yml, but a
+# 6-clip video costs 1 YouTube download instead of 6.
+on:
+  repository_dispatch:
+    types: [process-video]
+
+jobs:
+  download:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg
+      - name: Install yt-dlp
+        run: pip install --break-system-packages -U "yt-dlp[default]"
+      - name: Restore YouTube cookies
+        run: echo "${{ secrets.YOUTUBE_COOKIES_B64 }}" | base64 -d > /tmp/youtube_cookies.txt
+      - name: Cache PO token provider build
+        uses: actions/cache@v4
+        with:
+          path: /tmp/bgutil
+          key: bgutil-provider-v1
+      - name: Set up PO token provider
+        run: |
+          if [ ! -d /tmp/bgutil/server/build ]; then
+            git clone --depth 1 https://github.com/Brainicism/bgutil-ytdlp-pot-provider /tmp/bgutil
+            cd /tmp/bgutil/server
+            npm ci
+            npx tsc
+          fi
+          cd /tmp/bgutil/server
+          nohup node build/main.js > /tmp/bgutil.log 2>&1 &
+          sleep 3
+      - name: Download once + cut segments
+        env:
+          VIDEO_URL: ${{ github.event.client_payload.videoUrl }}
+          MOMENTS_JSON: ${{ toJSON(github.event.client_payload.moments) }}
+          SEGMENTS_DIR: segments
+        run: python3 worker/download_segments.py
+      - uses: actions/upload-artifact@v4
+        with:
+          name: segments
+          path: segments/
+          retention-days: 1
+
+  clip:
+    needs: download
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    strategy:
+      fail-fast: false
+      matrix:
+        moment: ${{ github.event.client_payload.moments }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+      - name: Install system dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq ffmpeg fontconfig
+      - name: Install Poppins font
+        run: |
+          mkdir -p ~/.fonts
+          cp worker/fonts/Poppins-ExtraBold.ttf ~/.fonts/
+          fc-cache -f
+      - name: Cache Whisper model
+        uses: actions/cache@v4
+        with:
+          path: ~/.cache/huggingface
+          key: whisper-large-v3-model-v1
+      - name: Install Python dependencies
+        run: pip install --break-system-packages -U faster-whisper onnxruntime
+      - uses: actions/download-artifact@v4
+        with:
+          name: segments
+          path: /tmp/segments
+      - name: Process clip
+        env:
+          SEGMENT_FILE: /tmp/segments/seg_${{ matrix.moment.i }}.mp4
+          VIDEO_URL: ${{ github.event.client_payload.videoUrl }}
+          START_SECONDS: ${{ matrix.moment.s }}
+          END_SECONDS: ${{ matrix.moment.e }}
+          MOMENT_TITLE: ${{ matrix.moment.title }}
+          ANALYSIS_ID: ${{ github.event.client_payload.analysisId }}
+          MOMENT_INDEX: ${{ matrix.moment.i }}
+          FONT_FAMILY: ${{ github.event.client_payload.fontFamily }}
+          CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
+          INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
+          WATERMARK_TEXT: ${{ github.event.client_payload.watermarkText }}
+          ASPECT_RATIO: ${{ github.event.client_payload.aspectRatio }}
+        run: python3 worker/process_clip.py
