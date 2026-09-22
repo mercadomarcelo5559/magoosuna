@@ -71,7 +71,10 @@ if last_err:
 
 for m in MOMENTS:
     idx = m["i"]
-    start, end = max(0.0, float(m["s"]) - PAD_BEFORE), float(m["e"]) + PAD_AFTER
+    if m.get("exact"):  # user hand-edited times: cut exactly there
+        start, end = float(m["s"]), float(m["e"])
+    else:
+        start, end = max(0.0, float(m["s"]) - PAD_BEFORE), float(m["e"]) + PAD_AFTER
     out = os.path.join(OUT_DIR, f"seg_{idx}.mp4")
     print(f"== Cutting moment {idx}: {start}-{end}s ==")
     run(["ffmpeg", "-y", "-ss", str(start), "-to", str(end), "-i", source_file,
