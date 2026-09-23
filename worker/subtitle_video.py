@@ -100,72 +100,22 @@ try:
     # one language would garble anything that isn't. initial_prompt still
     # leads with the user's own DESCRIPTION (their own words, whatever
     # language those happen to be in) as a light content/vocabulary hint.
-    model = WhisperModel("medium", device="cpu", compute_type="int8")
-    segments, info = model.transcribe(
-        source_file,
-        word_timestamps=True,
-        initial_prompt=DESCRIPTION if DESCRIPTION else None,
-        vad_filter=True,
-        vad_parameters=dict(min_silence_duration_ms=300),
-        beam_size=5,
-        condition_on_previous_text=False,
-        # Same anti-hallucination guard as process_clip.py: a low-speech
-        # stretch (silence, music, a long pause) can make Whisper get
-        # stuck looping the same phrase for many seconds instead of
-        # correctly outputting nothing there.
-        no_repeat_ngram_size=3,
-        repetition_penalty=1.2,
-    )
-    segments = list(segments)
+    import captions  # shared caption engine (worker/captions.py)
+    try:
+        model = WhisperModel("large-v3-turbo", device="cpu", compute_type="int8")
+    except Exception as err:
+        print(f"large-v3-turbo unavailable ({err}); falling back to large-v3")
+        model = WhisperModel("large-v3", device="cpu", compute_type="int8")
+    segments, info = captions.transcribe(model, source_file, hotwords=DESCRIPTION or None)
+    words = captions.words_from(segments)
 
-    # Extra safety net on top of the decoder-level anti-repeat options
-    # above: if a hallucination loop still slips through, this skips a
-    # word that's the exact same text as the one right before it with
-    # barely any gap in between (a real person repeating a word for
-    # emphasis pauses noticeably longer than a looping hallucination
-    # does), so a burned-in caption never visibly freezes on the same
-    # phrase for many seconds even in that fallback case.
-    words = []
-    for seg in segments:
-        for w in seg.words:
-            wd = w.word.strip()
-            if not wd:
-                continue
-            if words and words[-1][2].strip().lower() == wd.lower() and (w.start - words[-1][1]) < 0.25:
-                continue
-            words.append((w.start, w.end, wd))
-
-    CHUNK = 3
-    ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
-
-    # Read the actual video resolution so captions scale to fit any aspect
-    # ratio (this tool keeps the original, unlike the vertical clip
-    # pipeline in process_clip.py).
-    probe = subprocess.run(
-        ["ffprobe", "-v", "error", "-select_streams", "v:0",
-         "-show_entries", "stream=width,height", "-of", "csv=p=0", source_file],
-        capture_output=True, text=True, check=True,
-    )
-    res_w, res_h = [int(x) for x in probe.stdout.strip().split(",")]
-    fontsize = max(16, round(res_h * 0.055))
-
-    lines = []
-    for i in range(0, len(words), CHUNK):
-        chunk = words[i:i + CHUNK]
-        if not chunk:
-            continue
-        start, end = chunk[0][0], chunk[-1][1]
-        idx_emph = max(range(len(chunk)), key=lambda k: len(chunk[k][2]))
-        accent = ACCENTS[(i // CHUNK) % len(ACCENTS)]
-        parts = []
-        for j, (ws, we, wd) in enumerate(chunk):
-            word = wd.upper()
-            if j == idx_emph:
-                parts.append(f"{{\\c{accent}}}{word}{{\\r}}")
-            else:
-                parts.append(word)
-        text = " ".join(parts)
-        lines.append(f"Dialogue: 0,{ass_time(start)},{ass_time(end)},Default,,0,0,0,,{text}")
+    res_w, res_h = captions.probe_size(source_file)
+    duration = float(subprocess.run(
+        ["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", source_file],
+        capture_output=True, text=True,
+    ).stdout.strip() or 0)
+    fontsize = max(16, round(min(res_w, res_h) * (0.07 if res_h >= res_w else 0.06)))
+    lines = captions.build_events(words, res_w, res_h, duration, ass_time)
 
     header = f"""[Script Info]
 ScriptType: v4.00+
@@ -175,7 +125,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,Poppins ExtraBold,{fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{max(2, round(fontsize * 0.11))},0,2,10,10,{round(res_h * 0.08)},1
+{captions.style_line("Poppins ExtraBold", fontsize, res_w, res_h)}
 
 [Events]
 Format: Layer, Start, End, Style, Name, MarginL, MarginR, MarginV, Effect, Text
