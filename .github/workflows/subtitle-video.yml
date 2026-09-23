@@ -7,7 +7,7 @@ on:
 jobs:
   subtitle:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 60
     steps:
       - uses: actions/checkout@v4
 
@@ -40,6 +40,10 @@ jobs:
           SOURCE_URL: ${{ github.event.client_payload.sourceUrl }}
           DESCRIPTION: ${{ github.event.client_payload.description }}
           VIDEO_EDIT_ID: ${{ github.event.client_payload.videoEditId }}
+          CAPTION_LANGUAGE: ${{ github.event.client_payload.captionLanguage }}
+          CAPTION_COLOR: ${{ github.event.client_payload.captionColor }}
+          CAPTION_POSITION: ${{ github.event.client_payload.captionPosition }}
+          CAPTION_CASE: ${{ github.event.client_payload.captionCase }}
           CONVEX_INGEST_URL: ${{ secrets.CONVEX_INGEST_URL }}
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
         run: python3 worker/subtitle_video.py
