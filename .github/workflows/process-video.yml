@@ -105,4 +105,8 @@ jobs:
           INGEST_SECRET: ${{ secrets.INGEST_SECRET }}
           WATERMARK_TEXT: ${{ github.event.client_payload.watermarkText }}
           ASPECT_RATIO: ${{ github.event.client_payload.aspectRatio }}
+          CAPTION_LANGUAGE: ${{ github.event.client_payload.captionLanguage }}
+          CAPTION_COLOR: ${{ github.event.client_payload.captionColor }}
+          CAPTION_POSITION: ${{ github.event.client_payload.captionPosition }}
+          CAPTION_CASE: ${{ github.event.client_payload.captionCase }}
         run: python3 worker/process_clip.py
