@@ -249,27 +249,9 @@ def ass_time(t):
 # first 30s (15 words total) vs 126 real words without the prompt. It hit
 # clip 0 on essentially every video. A Spanish title on English audio made
 # it worse. Plain transcription is strictly more reliable here.
+import captions  # shared caption engine (worker/captions.py)
 model = WhisperModel("large-v3", device="cpu", compute_type="int8")
-segments, info = model.transcribe(
-    f"{name}.mp4",
-    word_timestamps=True,
-    vad_filter=True,
-    vad_parameters=dict(min_silence_duration_ms=300),
-    beam_size=5,
-    condition_on_previous_text=False,
-    # A low-speech stretch (a reaction shot, a sound-effect-only beat, a
-    # laugh with no clear words) can make Whisper "hallucinate" -- instead
-    # of correctly outputting nothing, it gets stuck looping the same
-    # phrase over and over for many seconds. These two options are the
-    # standard mitigation: no_repeat_ngram_size blocks the decoder from
-    # repeating the same 3-word sequence back to back, and
-    # repetition_penalty further discourages it from choosing an
-    # already-used word again. Normal, non-repetitive speech is
-    # unaffected by either.
-    no_repeat_ngram_size=3,
-    repetition_penalty=1.2,
-)
-segments = list(segments)
+segments, info = captions.transcribe(model, f"{name}.mp4")
 
 # The old metric here averaged no_speech_prob across only the segments
 # Whisper DID detect speech in -- so a clip that's 88% silence but has
@@ -296,15 +278,7 @@ audio_warning = bool(speech_coverage < 0.4)
 # longer than a looping hallucination does), so a burned-in caption never
 # visibly freezes on the same phrase for many seconds even in that
 # fallback case.
-words = []
-for seg in segments:
-    for w in seg.words:
-        wd = w.word.strip()
-        if not wd:
-            continue
-        if words and words[-1][2].strip().lower() == wd.lower() and (w.start - words[-1][1]) < 0.25:
-            continue
-        words.append((w.start, w.end, wd))
+words = captions.words_from(segments)
 
 # == Snapping to sentence boundaries ==
 # The AI's moment times are estimates in whole seconds, so cutting exactly
@@ -404,40 +378,10 @@ def _emoji_for(word_raw: str):
     return EMOJI_KEYWORDS.get(normalized)
 
 
-ACCENTS = ["&H0000FFFF&", "&H0014C8FC&", "&H00FF6EC7&", "&H0000FF66&"]
-CONTEXT_BEFORE, CONTEXT_AFTER = 1, 1
-MAX_GAP_BRIDGE = 0.15
 res_w, res_h = OUT_W, OUT_H
-# Caption/headline sizing scales off the SHORTER side so text stays a
-# sensible size whether the frame is tall (9:16), square (1:1), or wide
-# (16:9) — sizing purely off res_h (as before, when this was always
-# 1080x1920) would make captions comically huge on a 1920x1080 horizontal
-# clip.
 short_side = min(res_w, res_h)
 fontsize = max(18, round(short_side * 0.075))
-
-lines = []
-for i, (ws, we, wd) in enumerate(words):
-    start_idx = max(0, i - CONTEXT_BEFORE)
-    end_idx = min(len(words), i + CONTEXT_AFTER + 1)
-    window = words[start_idx:end_idx]
-    accent = ACCENTS[i % len(ACCENTS)]
-    parts = []
-    for j, (jw_s, jw_e, jw_t) in enumerate(window):
-        word = jw_t.upper()
-        if start_idx + j == i:
-            emoji = _emoji_for(jw_t)
-            display = f"{word} {emoji}" if emoji else word
-            parts.append("{\\c%s\\fscx128\\fscy128}%s{\\r}" % (accent, display))
-        else:
-            parts.append(word)
-    text = " ".join(parts)
-    display_end = we
-    if i + 1 < len(words):
-        gap = words[i + 1][0] - we
-        if gap > 0:
-            display_end = we + min(gap, MAX_GAP_BRIDGE)
-    lines.append(f"Dialogue: 0,{ass_time(ws)},{ass_time(display_end)},Default,,0,0,0,,{text}")
+lines = captions.build_events(words, res_w, res_h, duration, ass_time)
 
 watermark_fontsize = max(14, round(short_side * 0.022))
 lines.append(f"Dialogue: 0,{ass_time(0)},{ass_time(duration)},Watermark,,0,0,0,,{WATERMARK_TEXT}")
@@ -458,7 +402,7 @@ ScaledBorderAndShadow: yes
 
 [V4+ Styles]
 Format: Name, Fontname, Fontsize, PrimaryColour, SecondaryColour, OutlineColour, BackColour, Bold, Italic, Underline, StrikeOut, ScaleX, ScaleY, Spacing, Angle, BorderStyle, Outline, Shadow, Alignment, MarginL, MarginR, MarginV, Encoding
-Style: Default,{FONT_FAMILY},{fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{max(2, round(fontsize * 0.11))},0,2,10,10,{round(res_h * 0.16)},1
+{captions.style_line(FONT_FAMILY, fontsize, res_w, res_h)}
 Style: Watermark,Poppins ExtraBold,{watermark_fontsize},&H00FFFFFF,&H000000FF,&H00000000,&H80000000,-1,0,0,0,100,100,0,0,3,1,0,9,20,40,50,1
 Style: Headline,{FONT_FAMILY},{round(short_side * 0.085)},&H00FFFFFF,&H000000FF,&H00000000,&H00000000,-1,0,0,0,100,100,0,0,1,{round(short_side * 0.011)},0,8,60,60,{round(res_h * 0.09)},1
 
