@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="es-MX">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{% block title %}Pagoya{% endblock %}</title>
+<meta name="description" content="{% block meta %}Software de cobranza automática para academias y negocios con mensualidades.{% endblock %}">
+{% if canonical %}<link rel="canonical" href="{{ canonical }}">{% endif %}
+<style>
+:root{--brand:#0f52ba;--accent:#25d366;--ink:#1d2433;--muted:#5b6475;--bg:#fff;--soft:#f3f6fb}
+*{box-sizing:border-box}body{margin:0;font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;color:var(--ink);background:var(--bg);line-height:1.6}
+header{background:var(--brand);color:#fff;padding:14px 16px}header a{color:#fff;text-decoration:none;font-weight:700;font-size:20px}
+main{max-width:860px;margin:0 auto;padding:24px 16px 64px}h1{font-size:clamp(26px,5vw,38px);line-height:1.2}
+h2{margin-top:36px}.soft{background:var(--soft);border-radius:12px;padding:16px 20px}
+.cta{display:inline-block;background:var(--accent);color:#fff;font-weight:700;padding:14px 22px;border-radius:999px;text-decoration:none;font-size:17px}
+.cta:hover{filter:brightness(.95)}footer{color:var(--muted);font-size:14px;text-align:center;padding:24px 16px}
+input,button{font:inherit}input{width:100%;padding:12px;border:1px solid #c9d1de;border-radius:8px;margin:4px 0 12px}
+button{background:var(--brand);color:#fff;border:0;border-radius:8px;padding:12px 20px;font-weight:700;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px}.muted{color:var(--muted)}
+.wa-float{position:fixed;right:16px;bottom:16px;background:var(--accent);color:#fff;border-radius:999px;padding:12px 18px;font-weight:700;text-decoration:none;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+</style>
+</head>
+<body>
+<header><a href="https://www.pagoya.com.mx">Pagoya</a></header>
+<main>{% block body %}{% endblock %}
+<p style="margin-top:40px;text-align:center"><a class="cta" href="{{ wa }}">Agendar demo por WhatsApp</a></p>
+</main>
+<a class="wa-float" href="{{ wa }}">WhatsApp</a>
+<footer>Pagoya · Cobranza automática para academias · <a href="https://www.pagoya.com.mx">pagoya.com.mx</a></footer>
+</body>
+</html>

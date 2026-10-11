@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+{% block title %}{{ c.title }}{% endblock %}
+{% block meta %}{{ c.meta }}{% endblock %}
+{% block body %}
+<h1>{{ c.h1 }}</h1>
+{% for p in c.intro.split('\n') if p.strip() %}<p>{{ p }}</p>{% endfor %}
+<p><a class="cta" href="{{ wa }}">Agenda tu demo gratis por WhatsApp</a></p>
+<h2>Problemas de cobranza en {{ giro }}</h2>
+<ul>{% for x in c.problemas %}<li>{{ x }}</li>{% endfor %}</ul>
+<h2>Cómo te ayuda Pagoya</h2>
+<div class="grid">{% for x in c.como_ayuda %}<div class="soft">{{ x }}</div>{% endfor %}</div>
+<h2>Configuración gratis</h2>
+<p>Mándanos tu lista de alumnos en Excel o en foto y la cargamos a tu cuenta. En un día ya estás mandando recordatorios y cobrando con tarjeta y OXXO.</p>
+<p class="soft">¿Cuánto pierdes por pagos atrasados? <a href="/calculadora/">Haz el cálculo en 1 minuto</a>.</p>
+<h2>Preguntas frecuentes</h2>
+{% for f in c.faq %}<h3>{{ f.q }}</h3><p>{{ f.a }}</p>{% endfor %}
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{% for f in c.faq %}{"@type":"Question","name":{{ f.q|tojson }},"acceptedAnswer":{"@type":"Answer","text":{{ f.a|tojson }}}}{% if not loop.last %},{% endif %}{% endfor %}]}</script>
+{% endblock %}

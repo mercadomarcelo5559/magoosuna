@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Software de cobranza para academias y gimnasios | Pagoya{% endblock %}
+{% block body %}
+<h1>Cobranza automática por giro y ciudad</h1>
+<ul>{% for p in pages %}<li><a href="{{ p.url }}">{{ p.title }}</a></li>{% endfor %}</ul>
+{% endblock %}

@@ -1,0 +1,9 @@
+{% extends "base.html" %}
+{% block title %}{{ b.title }} | Blog Pagoya{% endblock %}
+{% block meta %}{{ b.meta }}{% endblock %}
+{% block body %}
+<p class="muted"><a href="/blog/">Blog</a> · {{ b.date }}</p>
+<h1>{{ b.title }}</h1>
+{{ b.html|safe }}
+<div class="soft"><b>¿Te gustaría dejar de perseguir pagos?</b> Pagoya manda recordatorios por WhatsApp y cobra con tarjeta y OXXO. Configuración gratis.</div>
+{% endblock %}

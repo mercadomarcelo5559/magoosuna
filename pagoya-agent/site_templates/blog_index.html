@@ -1,0 +1,6 @@
+{% extends "base.html" %}
+{% block title %}Blog de cobranza para academias | Pagoya{% endblock %}
+{% block body %}
+<h1>Blog: cobranza sin perseguir a nadie</h1>
+{% for b in posts %}<h2><a href="/blog/{{ b.slug }}/">{{ b.title }}</a></h2><p class="muted">{{ b.date }} · {{ b.meta }}</p>{% endfor %}
+{% endblock %}

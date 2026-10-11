@@ -1,0 +1,18 @@
+# Render Blueprint: https://render.com/docs/blueprint-spec
+services:
+  - type: web
+    name: pagoya-agent
+    runtime: docker
+    rootDir: pagoya-agent
+    plan: starter            # siempre encendido (el plan free se duerme y pierde webhooks y tareas)
+    healthCheckPath: /health
+    disk:
+      name: pagoya-data
+      mountPath: /app/data
+      sizeGB: 1
+    envVars:
+      - key: DATABASE_URL
+        value: sqlite:////app/data/pagoya.db
+      - key: ENABLE_SCHEDULER
+        value: "true"
+      # El resto de las llaves: en Render > Environment > "Add from .env" pega tu archivo .env

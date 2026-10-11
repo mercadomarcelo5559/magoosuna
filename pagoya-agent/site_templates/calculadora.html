@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% block title %}¿Cuánto dinero pierdes al año por pagos atrasados? | Calculadora Pagoya{% endblock %}
+{% block meta %}Calcula en 1 minuto cuánto le cuestan a tu academia o gimnasio los pagos atrasados.{% endblock %}
+{% block body %}
+<h1>¿Cuánto dinero pierdes al año por pagos atrasados?</h1>
+<form id="calc" class="soft">
+  <label>Número de alumnos activos<input name="students" type="number" min="1" required value="80"></label>
+  <label>Mensualidad promedio (MXN)<input name="fee" type="number" min="1" required value="800"></label>
+  <label>% de alumnos que pagan tarde cada mes<input name="late" type="number" min="0" max="100" required value="25"></label>
+  <button type="submit">Calcular</button>
+</form>
+<div id="teaser" hidden class="soft" style="margin-top:16px">
+  <p>Cada año se te atrasan <b id="t-late"></b> en mensualidades.</p>
+  <p>Para ver <b>cuánto de eso pierdes de verdad</b> (lo que nunca se recupera y el tiempo que se va en cobrar), déjanos tus datos:</p>
+  <form id="lead">
+    <label>Tu nombre<input name="name" required></label>
+    <label>Nombre de tu academia o negocio<input name="academy" required></label>
+    <label>WhatsApp (10 dígitos)<input name="whatsapp" required pattern="[0-9 +()-]{10,18}"></label>
+    <label style="display:flex;gap:8px;align-items:flex-start"><input type="checkbox" name="consent" required style="width:auto;margin-top:6px">
+      <span>Acepto que Pagoya me escriba por WhatsApp con mi resultado e información del servicio. Puedo darme de baja respondiendo BAJA.</span></label>
+    <button type="submit">Ver resultado completo</button>
+  </form>
+</div>
+<div id="full" hidden class="soft" style="margin-top:16px"></div>
+<script>
+const fmt=n=>'$'+Math.round(n).toLocaleString('es-MX');
+let vals={};
+document.getElementById('calc').addEventListener('submit',e=>{e.preventDefault();
+  const f=new FormData(e.target);vals={students:+f.get('students'),fee:+f.get('fee'),late:+f.get('late')};
+  document.getElementById('t-late').textContent=fmt(vals.students*vals.fee*vals.late/100*12);
+  document.getElementById('teaser').hidden=false;});
+document.getElementById('lead').addEventListener('submit',async e=>{e.preventDefault();
+  const f=new FormData(e.target);const btn=e.target.querySelector('button');btn.disabled=true;
+  try{const r=await fetch('{{ api }}/api/lead',{method:'POST',headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({...vals,name:f.get('name'),academy:f.get('academy'),whatsapp:f.get('whatsapp'),consent:!!f.get('consent'),page:location.href})});
+    const d=await r.json();if(!r.ok)throw new Error(d.detail||'Error');const c=d.calc;
+    document.getElementById('full').innerHTML=`<h2>Tu resultado</h2>
+      <p>Atrasado al año: <b>${fmt(c.atrasado_anual)}</b></p>
+      <p>Lo que probablemente nunca recuperas (bajas sin pagar): <b>${fmt(c.no_recuperado)}</b></p>
+      <p>Horas al año persiguiendo pagos: <b>${c.horas_persiguiendo} h</b> (≈ ${fmt(c.costo_tiempo)})</p>
+      <p style="font-size:22px">Pérdida estimada: <b>${fmt(c.perdida_anual)} al año</b></p>
+      <p>En unos minutos te escribimos por WhatsApp para mostrarte cómo recuperarlo.</p>`;
+    document.getElementById('full').hidden=false;document.getElementById('teaser').hidden=true;
+  }catch(err){alert('No pudimos enviar tus datos: '+err.message);btn.disabled=false;}});
+</script>
+{% endblock %}

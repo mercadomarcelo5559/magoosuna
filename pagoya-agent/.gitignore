@@ -1,0 +1,7 @@
+.env
+*.db
+data/*
+!data/.gitkeep
+__pycache__/
+.pytest_cache/
+reporte.html
