@@ -1,0 +1,23 @@
+[
+  { "output": { "nota": 6, "motivo": "Sin web propia ni agenda en línea: fuera de horario nadie puede pedir cita.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web propia ni agenda en línea: las citas dependen de que alguien conteste.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 5, "motivo": "Tiene web, pero no se pudo confirmar si tiene chat o agenda en línea.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 4, "motivo": "Tiene web propia (sin confirmar chat); sin horario ni reseñas para medir volumen.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea; 28 reseñas con ★4.5 muestran pacientes activos.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 5, "motivo": "Sin web propia ni agenda en línea; pocos datos públicos del consultorio.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 3, "motivo": "Ya recibe citas en línea por Doctoralia.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 8, "motivo": "Cierra 19:00, no abre domingo y no tiene web: las noches y domingos quedan sin atender.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 5, "motivo": "Tiene web, pero no se pudo confirmar si tiene chat o agenda en línea.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten el teléfono.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Consultorio sin web ni agenda en línea: todo depende del teléfono.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten el teléfono.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea; su número es 800, no tiene WhatsApp visible.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 8, "motivo": "241 reseñas (mucho volumen), cierra 19:00, sábado 14:00 y no abre domingo.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 4, "motivo": "Abre todos los días de 8:00 a 20:00; tiene web propia.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Cierra 20:00, sábado 14:00 y no abre domingo; no se confirmó chat en su web.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "Cierra 20:00 y no abre domingo; no se confirmó chat ni agenda en su web.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 7, "motivo": "Solo tiene Facebook, sin web propia ni agenda: los mensajes dependen de que alguien conteste.", "evidencia": "", "servicios": [] } },
+  { "output": { "nota": 6, "motivo": "211 reseñas (mucho volumen); no se pudo confirmar chat en su web y usa un número 800.", "evidencia": "", "servicios": [] } }
+]
