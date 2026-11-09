@@ -1,18 +1,18 @@
 [
   {
-    "id": "4um16o6alko6",
-    "nota": 8,
-    "nombre": "MF Dental Center",
-    "motivo": "241 reseñas (mucho volumen), cierra 19:00, sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · No se pudo leer su web · ★5 (241 reseñas)",
-    "evidencia": ""
-  },
-  {
     "id": "l17j80r3i9di",
     "nota": 8,
     "nombre": "Kiyodent Dental Clinic Chapultepec",
     "motivo": "Cierra 19:00, no abre domingo y no tiene web: las noches y domingos quedan sin atender.",
     "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "4um16o6alko6",
+    "nota": 7,
+    "nombre": "MF Dental Center",
+    "motivo": "241 reseñas y cierra 19:00; tiene agenda en línea pero ningún chat que conteste al momento.",
+    "senales": "Cierra 19:00 · Sin chat en la web · Agenda en línea · ★5 (241 reseñas)",
     "evidencia": ""
   },
   {
@@ -24,11 +24,19 @@
     "evidencia": ""
   },
   {
-    "id": "bsf2j1yv4nvv",
+    "id": "vj87uj5b6jfl",
     "nota": 6,
-    "nombre": "Dentalia Real Center",
-    "motivo": "211 reseñas (mucho volumen); no se pudo confirmar chat en su web y usa un número 800.",
-    "senales": "No se pudo leer su web · ★4.4 (211 reseñas)",
+    "nombre": "Cabdental Providencia",
+    "motivo": "Sin chat ni agenda en línea; solo un botón de WhatsApp que depende de que alguien conteste.",
+    "senales": "Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "pmv53ygmicf4",
+    "nota": 6,
+    "nombre": "Odontología Moderna",
+    "motivo": "Su web pide llamar o dejar un formulario: no hay chat ni respuesta inmediata.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
@@ -72,14 +80,6 @@
     "evidencia": ""
   },
   {
-    "id": "46dp2r4qzh31",
-    "nota": 6,
-    "nombre": "Dentist Vibliorio",
-    "motivo": "Cierra 20:00, sábado 14:00 y no abre domingo; no se confirmó chat en su web.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
     "id": "dc924d0kz0yv",
     "nota": 6,
     "nombre": "Dento Metric",
@@ -120,6 +120,14 @@
     "evidencia": ""
   },
   {
+    "id": "46dp2r4qzh31",
+    "nota": 5,
+    "nombre": "Dentist Vibliorio",
+    "motivo": "Agenda en línea y WhatsApp, pero sin chat; sábado cierra 14:00 y domingo no abre.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
     "id": "jwi5mua43sx8",
     "nota": 5,
     "nombre": "Dr. Carlos Taitó Takahashi Aguilar",
@@ -128,35 +136,27 @@
     "evidencia": ""
   },
   {
-    "id": "vj87uj5b6jfl",
-    "nota": 5,
-    "nombre": "Cabdental Providencia",
-    "motivo": "Tiene web, pero no se pudo confirmar si tiene chat o agenda en línea.",
-    "senales": "No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "pmv53ygmicf4",
-    "nota": 5,
-    "nombre": "Odontología Moderna",
-    "motivo": "Tiene web, pero no se pudo confirmar si tiene chat o agenda en línea.",
-    "senales": "No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "ddrm0sbnbmsi",
+    "id": "bsf2j1yv4nvv",
     "nota": 4,
-    "nombre": "Clínica Dental La Zapopana (Matriz Zapopan)",
-    "motivo": "Abre todos los días de 8:00 a 20:00; tiene web propia.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
+    "nombre": "Dentalia Real Center",
+    "motivo": "211 reseñas, pero su web es la de la cadena con agenda de citas propia.",
+    "senales": "Sin chat en la web · ★4.4 (211 reseñas)",
+    "evidencia": ""
+  },
+  {
+    "id": "h5rpo3kq1bc9",
+    "nota": 3,
+    "nombre": "Dra. Brenda Sánchez García",
+    "motivo": "Ya recibe citas en línea por Doctoralia.",
+    "senales": "Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
     "id": "vr8kugrqyste",
-    "nota": 4,
+    "nota": 3,
     "nombre": "Dentalia Guadalajara",
-    "motivo": "Tiene web propia (sin confirmar chat); sin horario ni reseñas para medir volumen.",
-    "senales": "No se pudo leer su web",
+    "motivo": "Su web es la de la cadena, con agenda de citas propia; la sucursal no decide sola.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   }
 ]
