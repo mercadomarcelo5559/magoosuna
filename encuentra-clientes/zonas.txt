@@ -1,26 +1,55 @@
-# Zonas para "Encuentra clientes" (dentista · Guadalajara, Jalisco). Cada corrida semanal toma las 3 primeras pendientes.
+# Zonas para "Encuentra clientes" (dentista · todo México). Cada corrida semanal toma las 3 primeras pendientes.
+# Formato: Zona, Ciudad, Estado  (se corre con CIUDAD='' porque cada línea ya trae su ciudad)
 # HECHAS
-Providencia
-Chapultepec
-Zapopan Centro
+Providencia, Guadalajara, Jalisco
+Chapultepec, Guadalajara, Jalisco
+Zapopan Centro, Zapopan, Jalisco
 # PENDIENTES
-Americana
-Chapalita
-Jardines del Bosque
-Country Club
-Ladrón de Guevara
-Arcos Vallarta
-Puerta de Hierro
-Valle Real
-Andares
-Ciudad del Sol
-Plaza del Sol
-Las Águilas
-Santa Tere
-Colinas de San Javier
-Lomas del Valle
-Bugambilias
-Guadalajara Centro
-Tlaquepaque Centro
-Tonalá Centro
-Tlajomulco Centro
+Polanco, Ciudad de México
+Roma Norte, Ciudad de México
+Del Valle, Ciudad de México
+San Pedro Garza García, Nuevo León
+Cumbres, Monterrey, Nuevo León
+Centro, Monterrey, Nuevo León
+Angelópolis, Puebla, Puebla
+La Paz, Puebla, Puebla
+Centro, Puebla, Puebla
+Juriquilla, Querétaro, Querétaro
+Centro Sur, Querétaro, Querétaro
+El Refugio, Querétaro, Querétaro
+García Ginerés, Mérida, Yucatán
+Altabrisa, Mérida, Yucatán
+Montebello, Mérida, Yucatán
+Zona Río, Tijuana, Baja California
+Otay, Tijuana, Baja California
+Playas de Tijuana, Tijuana, Baja California
+Centro, Cancún, Quintana Roo
+Malecón Tajamar, Cancún, Quintana Roo
+Playa del Carmen Centro, Solidaridad, Quintana Roo
+Campestre, León, Guanajuato
+Centro, León, Guanajuato
+Jardines del Moral, León, Guanajuato
+Coyoacán, Ciudad de México
+Narvarte, Ciudad de México
+Santa Fe, Ciudad de México
+Metepec Centro, Metepec, Estado de México
+Satélite, Naucalpan, Estado de México
+Interlomas, Huixquilucan, Estado de México
+Lomas, San Luis Potosí, San Luis Potosí
+Centro, Aguascalientes, Aguascalientes
+Altozano, Morelia, Michoacán
+Distrito Uno, Chihuahua, Chihuahua
+Centro, Hermosillo, Sonora
+Tres Ríos, Culiacán, Sinaloa
+Boca del Río, Veracruz
+Centro, Oaxaca de Juárez, Oaxaca
+Centro, Saltillo, Coahuila
+Centro, Torreón, Coahuila
+Tabasco 2000, Villahermosa, Tabasco
+Zona Dorada, Mazatlán, Sinaloa
+Juárez Centro, Ciudad Juárez, Chihuahua
+Cuernavaca Centro, Cuernavaca, Morelos
+Pachuca Centro, Pachuca, Hidalgo
+Americana, Guadalajara, Jalisco
+Chapalita, Guadalajara, Jalisco
+Puerta de Hierro, Zapopan, Jalisco

@@ -16,7 +16,8 @@ const guarda = (f, v) => fs.writeFileSync(path.join(D, f), JSON.stringify(v, nul
 // ---- Formulario "Busca clientes" + "Tus datos"
 const formulario = {
   nicho: process.env.NICHO || 'dentista',
-  ciudad: process.env.CIUDAD || 'Guadalajara, Jalisco',
+  // CIUDAD='' cuando cada zona ya trae su ciudad ("Polanco, Ciudad de México")
+  ciudad: process.env.CIUDAD ?? 'Guadalajara, Jalisco',
   zonas: process.env.ZONAS || 'Providencia\nChapultepec\nZapopan Centro',
   cuantos: Number(process.env.CUANTOS || 20),
 };
