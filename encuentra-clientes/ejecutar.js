@@ -24,7 +24,8 @@ const formulario = {
 const n8nUrl = String(process.env.N8N_URL || '').replace(/\/+$/, '');
 const tusDatos = {
   ...formulario,
-  tuNombre: process.env.TU_NOMBRE || 'Marcelo',
+  tuNombre: process.env.TU_NOMBRE || 'Marcelo · Pagoya',
+  tuWhatsApp: '528120077728', // WhatsApp de Pagoya: desde aquí se envían los mensajes
   demoUrl: n8nUrl ? `${n8nUrl}/webhook/demo-recepcionista` : '',
   idioma: 'es',
   region: 'MX',
@@ -425,7 +426,7 @@ article header{display:flex;gap:12px;align-items:flex-start}h2{font-size:16px;ma
 pre{white-space:pre-wrap;font:inherit;background:var(--fondo);border-radius:10px;padding:10px;margin:10px 0}
 nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}nav a{color:var(--marca);font-weight:600;text-decoration:none;padding:8px 10px}
 nav a.wa{background:var(--wa);color:#fff;border-radius:10px;padding:10px 14px}.sin{color:var(--suave);font-size:13px}
-</style></head><body><main><h1>Mensajes de hoy</h1><p class="sub">${FECHA} · ${esc(zonasHoy)} · ${filas.length} prospectos, de mayor a menor nota</p>${tarjetas}</main></body></html>`);
+</style></head><body><main><h1>Mensajes de hoy</h1><p class="sub"><b>Abre esta página en el celular con el WhatsApp de Pagoya (81 2007 7728)</b>: cada botón abre el chat con el mensaje escrito, tú solo presionas enviar.</p><p class="sub">${FECHA} · ${esc(zonasHoy)} · ${filas.length} prospectos, de mayor a menor nota</p>${tarjetas}</main></body></html>`);
 
 // ---- guarda en el historial lo que salió hoy
 const deHoy = filas.map((f) => ({ fecha: FECHA, nombre: f['Clínica'], telefono: f['Teléfono'], id: f.ID }));
