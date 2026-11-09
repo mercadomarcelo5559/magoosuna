@@ -1,162 +1,138 @@
 [
   {
-    "id": "l17j80r3i9di",
+    "id": "geg6m1j3xn2b",
     "nota": 8,
-    "nombre": "Kiyodent Dental Clinic Chapultepec",
-    "motivo": "Cierra 19:00, no abre domingo y no tiene web: las noches y domingos quedan sin atender.",
-    "senales": "Cierra 19:00 · Sin web",
+    "nombre": "Vitadent Pro",
+    "motivo": "Solo atiende por teléfono: sin chat ni WhatsApp, cierra 19:00 y no abre fin de semana.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "4um16o6alko6",
+    "id": "nuq9ke93ga2c",
+    "nota": 8,
+    "nombre": "Odontología Especializada del Valle",
+    "motivo": "Cierran de 14:00 a 16:00 y a las 20:00; sin chat, solo formulario.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "qjte755bytjb",
     "nota": 7,
-    "nombre": "MF Dental Center",
-    "motivo": "241 reseñas y cierra 19:00; tiene agenda en línea pero ningún chat que conteste al momento.",
-    "senales": "Cierra 19:00 · Sin chat en la web · Agenda en línea · ★5 (241 reseñas)",
+    "nombre": "DDS Dental Studio",
+    "motivo": "Sin chat ni WhatsApp en su web; cierra 19:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "6ysee6vql6po",
-    "nota": 7,
-    "nombre": "Dentista Lomas de Zapopan",
-    "motivo": "Solo tiene Facebook, sin web propia ni agenda: los mensajes dependen de que alguien conteste.",
-    "senales": "Solo redes, sin web propia",
-    "evidencia": ""
-  },
-  {
-    "id": "vj87uj5b6jfl",
+    "id": "pa1acqtrulo8",
     "nota": 6,
-    "nombre": "Cabdental Providencia",
-    "motivo": "Sin chat ni agenda en línea; solo un botón de WhatsApp que depende de que alguien conteste.",
-    "senales": "Sin chat en la web",
+    "nombre": "Lumbra Dental Roma",
+    "motivo": "Sin web; no abre domingo y el sábado cierra 17:00.",
+    "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "pmv53ygmicf4",
+    "id": "y0gvbdb2s3wv",
     "nota": 6,
-    "nombre": "Odontología Moderna",
-    "motivo": "Su web pide llamar o dejar un formulario: no hay chat ni respuesta inmediata.",
-    "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "s8nzb9vmodrj",
-    "nota": 6,
-    "nombre": "DHIC Dental Health & Implant Center (Providencia)",
-    "motivo": "Sin web ni agenda en línea; 28 reseñas con ★4.5 muestran pacientes activos.",
-    "senales": "Sin web · ★4.5 (28 reseñas)",
-    "evidencia": ""
-  },
-  {
-    "id": "slkaays7il7k",
-    "nota": 6,
-    "nombre": "Clínica Dental Americana",
-    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "h9ws8yocd30s",
-    "nota": 6,
-    "nombre": "Consultorio Dental Americana (Dental Paz)",
-    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "krc7un36sh6p",
-    "nota": 6,
-    "nombre": "Dental Clinic UNE",
+    "nombre": "Clínica Dental Polanco (Hegel)",
     "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "a8fvq01bkrl6",
+    "id": "5nexvldbmnr3",
     "nota": 6,
-    "nombre": "Dentimex Lafayette",
-    "motivo": "Sin web ni agenda en línea; su número es 800, no tiene WhatsApp visible.",
+    "nombre": "Edenta Odontología Integral",
+    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "dc924d0kz0yv",
+    "id": "e0me5u77p2as",
     "nota": 6,
-    "nombre": "Dento Metric",
-    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+    "nombre": "La Clínica Dental Roma",
+    "motivo": "Sin web propia ni agenda en línea: todo depende del teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "hu9hxlohmqo7",
+    "id": "rdcxpzj6f87t",
     "nota": 6,
-    "nombre": "Dra. Leticia del Rayo Mejorada Huerta",
-    "motivo": "Consultorio sin web ni agenda en línea: todo depende del teléfono.",
+    "nombre": "Salas Díaz Roman",
+    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "2t9etsgity6e",
-    "nota": 6,
-    "nombre": "La Clínica Dental Zapopan",
-    "motivo": "Cierra 20:00 y no abre domingo; no se confirmó chat ni agenda en su web.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "jn6yfh6o9nar",
-    "nota": 6,
-    "nombre": "Odontología Especializada Providencia",
-    "motivo": "Sin web propia ni agenda en línea: fuera de horario nadie puede pedir cita.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "6xip5qoub6rw",
-    "nota": 6,
-    "nombre": "Providental Ortodoncia e Implantes",
-    "motivo": "Sin web propia ni agenda en línea: las citas dependen de que alguien conteste.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "46dp2r4qzh31",
+    "id": "62d0ntafiz1f",
     "nota": 5,
-    "nombre": "Dentist Vibliorio",
-    "motivo": "Agenda en línea y WhatsApp, pero sin chat; sábado cierra 14:00 y domingo no abre.",
+    "nombre": "Clínica Dental Mariscal y Sucre",
+    "motivo": "Agenda y WhatsApp en su web, pero sin chat; no abre domingo.",
     "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "jwi5mua43sx8",
+    "id": "k7d8cjhv5dap",
     "nota": 5,
-    "nombre": "Dr. Carlos Taitó Takahashi Aguilar",
-    "motivo": "Sin web propia ni agenda en línea; pocos datos públicos del consultorio.",
+    "nombre": "RL Orthodontics",
+    "motivo": "Agenda por WhatsApp a mano, sin chat que conteste solo; no abre domingo.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "gymfkgaul2ga",
+    "nota": 5,
+    "nombre": "Clínica DrDiente Roma Norte",
+    "motivo": "Sucursal nueva con agenda en línea, pero sin chat que conteste dudas al momento.",
+    "senales": "Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "1cxsa84voeg6",
+    "nota": 5,
+    "nombre": "Consultorio Dental Del Ángel",
+    "motivo": "Sin web ni teléfono público: muy difícil contactarlos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "bsf2j1yv4nvv",
-    "nota": 4,
-    "nombre": "Dentalia Real Center",
-    "motivo": "211 reseñas, pero su web es la de la cadena con agenda de citas propia.",
-    "senales": "Sin chat en la web · ★4.4 (211 reseñas)",
+    "id": "8uv8ns120a2y",
+    "nota": 3,
+    "nombre": "La Clínica Dental Del Valle",
+    "motivo": "Su web ya ofrece «Chat en Línea» y solicitud de cita.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "h5rpo3kq1bc9",
+    "id": "26avaj9m8u7l",
     "nota": 3,
-    "nombre": "Dra. Brenda Sánchez García",
-    "motivo": "Ya recibe citas en línea por Doctoralia.",
-    "senales": "Sin chat en la web · Agenda en línea",
+    "nombre": "La Clínica Dental Polanco",
+    "motivo": "Su web ya ofrece «Chat en Línea» y solicitud de cita.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "vr8kugrqyste",
+    "id": "q5bh0yjvprz8",
     "nota": 3,
-    "nombre": "Dentalia Guadalajara",
-    "motivo": "Su web es la de la cadena, con agenda de citas propia; la sucursal no decide sola.",
-    "senales": "Sin chat en la web",
+    "nombre": "dentalia City Shops Del Valle",
+    "motivo": "Sucursal de cadena con agenda de citas propia y horario de fin de semana.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "b406910ebjyj",
+    "nota": 2,
+    "nombre": "Moons Polanco",
+    "motivo": "Cadena de alineadores que ya tiene chat propio en su web («Chatea con nosotros»).",
+    "senales": "Cierra 18:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "sycqdon88yym",
+    "nota": 2,
+    "nombre": "La Clínica Dental Polanco V",
+    "motivo": "Ya tiene chat (Tawk.to) y agenda en su web.",
+    "senales": "Cierra 20:00 · Chat en la web (Tawk.to) · Agenda en línea",
     "evidencia": ""
   }
 ]

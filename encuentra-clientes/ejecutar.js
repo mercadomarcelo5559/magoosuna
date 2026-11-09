@@ -351,7 +351,23 @@ const leeSuWeb = (lugares) =>
 // ================= Ejecución
 salidas['Arma las búsquedas'] = corre(armaLasBusquedas, []);
 console.log('Búsquedas:', salidas['Arma las búsquedas'].map((b) => b.textQuery));
-salidas['Busca en Google Maps'] = buscaEnMaps(salidas['Arma las búsquedas']);
+// ---- Historial: negocios que ya salieron en días anteriores no se repiten (mismo nombre o mismo teléfono)
+const pad = (n) => String(n).padStart(2, '0');
+const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Mexico_City' }));
+const FECHA = process.env.FECHA || `${ahora.getFullYear()}-${pad(ahora.getMonth() + 1)}-${pad(ahora.getDate())}`;
+const plano = (s) => String(s ?? '').normalize('NFD').replace(/[̀-ͯ]/g, '').toLowerCase().replace(/[^a-z0-9]/g, '');
+const digitos = (s) => String(s ?? '').replace(/\D/g, '').slice(-10);
+const historial = lee('historial.json') || [];
+const previos = historial.filter((h) => h.fecha !== FECHA);
+const yaNombre = new Set(previos.map((h) => plano(h.nombre)));
+const yaTel = new Set(previos.map((h) => digitos(h.telefono)).filter((t) => t.length === 10));
+salidas['Busca en Google Maps'] = buscaEnMaps(salidas['Arma las búsquedas']).map((r) => ({
+  ...r,
+  places: (r.places || []).filter((p) => {
+    const t = digitos(p.internationalPhoneNumber || p.nationalPhoneNumber);
+    return !yaNombre.has(plano(p.displayName?.text)) && !(t.length === 10 && yaTel.has(t));
+  }),
+}));
 salidas['Junta las clínicas'] = corre(juntaLasClinicas, salidas['Busca en Google Maps']);
 console.log('Negocios únicos:', salidas['Junta las clínicas'].length);
 salidas['Lee su web'] = leeSuWeb(salidas['Junta las clínicas']);
@@ -370,9 +386,7 @@ if (!mensajes) { console.log('Listo elegidos.json. Falta mensajes.json (salida d
 salidas['Revisa el mensaje'] = corre(revisaElMensaje, mensajes);
 
 // ---- Guarda en Prospectos
-const pad = (n) => String(n).padStart(2, '0');
-const ahora = new Date(new Date().toLocaleString('en-US', { timeZone: 'America/Mexico_City' }));
-const buscado = `${ahora.getFullYear()}-${pad(ahora.getMonth() + 1)}-${pad(ahora.getDate())} ${pad(ahora.getHours())}:${pad(ahora.getMinutes())}`;
+const buscado =`${ahora.getFullYear()}-${pad(ahora.getMonth() + 1)}-${pad(ahora.getDate())} ${pad(ahora.getHours())}:${pad(ahora.getMinutes())}`;
 const filas = salidas['Revisa el mensaje'].map((j) => ({
   ID: j.id, Nota: j.nota, 'Clínica': j.nombre, Motivo: j.motivo, Evidencia: j.evidencia, 'Señales': j.senales,
   'Teléfono': j.telefono, WhatsApp: j.whatsapp, Web: j.web, 'Google Maps': j.maps, 'Dirección': j.direccion,
@@ -384,4 +398,36 @@ const cols = Object.keys(filas[0]);
 const csv = [cols, ...filas.map((f) => cols.map((c) => f[c]))].map((r) => r.map((v) => `"${String(v ?? '').replace(/"/g, '""')}"`).join(',')).join('\n');
 fs.writeFileSync(path.join(D, 'Prospectos.csv'), '﻿' + csv);
 execFileSync('python3', [path.join(D, 'a_xlsx.py'), path.join(D, 'prospectos.json'), path.join(D, 'Prospectos.xlsx')], { stdio: 'inherit' });
-console.log(`Hoja Prospectos: ${filas.length} filas -> Prospectos.xlsx / Prospectos.csv`);
+fs.copyFileSync(path.join(D, 'Prospectos.xlsx'), path.join(D, `Prospectos-${FECHA}.xlsx`));
+
+// ---- Mensajes de hoy: una página para el celular, un botón por prospecto
+const esc = (s) => String(s ?? '').replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+const tarjetas = filas.map((f, k) => `
+  <article>
+    <header><span class="nota">${esc(f.Nota)}</span><div><h2>${k + 1}. ${esc(f['Clínica'])}</h2><p>${esc(f['Dirección'])}</p></div></header>
+    <p class="motivo">${esc(f.Motivo)}</p>
+    <p class="senales">${esc(f['Señales'])}</p>
+    <pre>${esc(f.Mensaje)}</pre>
+    <nav>${f['Abrir en WhatsApp'] ? `<a class="wa" href="${esc(f['Abrir en WhatsApp'])}">Abrir en WhatsApp</a>` : '<span class="sin">Sin WhatsApp: llama al ' + esc(f['Teléfono'] || 'número de Maps') + '</span>'}
+    <a href="${esc(f['Google Maps'])}">Maps</a>${f.Web ? ` <a href="${esc(f.Web)}">Web</a>` : ''}</nav>
+  </article>`).join('');
+const zonasHoy = salidas['Arma las búsquedas'].map((b) => b.textQuery.replace(/^.*? en /, '')).join(' · ');
+fs.writeFileSync(path.join(D, `Mensajes-${FECHA}.html`), `<!doctype html><html lang="es"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Mensajes de hoy · ${FECHA}</title><style>
+:root{--fondo:#f4f6f5;--tarjeta:#fff;--tinta:#14201e;--suave:#5b6b68;--linea:#dce5e2;--marca:#0f766e;--wa:#1f9d55}
+@media (prefers-color-scheme:dark){:root{--fondo:#0e1413;--tarjeta:#16201e;--tinta:#e6efed;--suave:#9aaba7;--linea:#26332f;--marca:#2dd4bf;--wa:#22c55e}}
+*{box-sizing:border-box}body{margin:0;background:var(--fondo);color:var(--tinta);font:15px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif}
+main{max-width:640px;margin:0 auto;padding:16px}h1{font-size:22px;margin:8px 0 2px}.sub{color:var(--suave);margin:0 0 16px}
+article{background:var(--tarjeta);border:1px solid var(--linea);border-radius:14px;padding:14px;margin-bottom:12px}
+article header{display:flex;gap:12px;align-items:flex-start}h2{font-size:16px;margin:0}article header p{margin:2px 0 0;color:var(--suave);font-size:13px}
+.nota{flex:none;width:34px;height:34px;border-radius:50%;background:var(--marca);color:#fff;display:grid;place-items:center;font-weight:700}
+.motivo{margin:10px 0 4px;font-weight:600}.senales{margin:0;color:var(--suave);font-size:13px}
+pre{white-space:pre-wrap;font:inherit;background:var(--fondo);border-radius:10px;padding:10px;margin:10px 0}
+nav{display:flex;gap:8px;flex-wrap:wrap;align-items:center}nav a{color:var(--marca);font-weight:600;text-decoration:none;padding:8px 10px}
+nav a.wa{background:var(--wa);color:#fff;border-radius:10px;padding:10px 14px}.sin{color:var(--suave);font-size:13px}
+</style></head><body><main><h1>Mensajes de hoy</h1><p class="sub">${FECHA} · ${esc(zonasHoy)} · ${filas.length} prospectos, de mayor a menor nota</p>${tarjetas}</main></body></html>`);
+
+// ---- guarda en el historial lo que salió hoy
+const deHoy = filas.map((f) => ({ fecha: FECHA, nombre: f['Clínica'], telefono: f['Teléfono'], id: f.ID }));
+guarda('historial.json', [...previos, ...deHoy]);
+console.log(`Hoja Prospectos: ${filas.length} filas -> Prospectos-${FECHA}.xlsx · Mensajes-${FECHA}.html`);

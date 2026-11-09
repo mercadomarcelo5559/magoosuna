@@ -1,14 +1,18 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
+// Lote del 2026-11-09: Polanco, Roma Norte y Del Valle (CDMX).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
 // h: { 1: [9, 19], ..., 6: [10, 14] }  (0 = domingo)
+const hm = (x) => ({ hour: Math.floor(x), minute: Math.round((x % 1) * 60) });
+const txt = (x) => `${Math.floor(x)}:${String(Math.round((x % 1) * 60)).padStart(2, '0')}`;
+const rangos = (v) => (Array.isArray(v[0]) ? v : [v]);
 const horario = (h) => {
   if (!h) return undefined;
-  const periods = Object.entries(h).map(([d, [a, c]]) => ({ open: { day: +d, hour: a, minute: 0 }, close: { day: +d, hour: c, minute: 0 } }));
+  const periods = Object.entries(h).flatMap(([d, v]) => rangos(v).map(([a, c]) => ({ open: { day: +d, ...hm(a) }, close: { day: +d, ...hm(c) } })));
   const orden = [1, 2, 3, 4, 5, 6, 0];
-  const weekdayDescriptions = orden.map((d) => `${DIAS[d]}: ${h[d] ? `${h[d][0]}:00–${h[d][1]}:00` : 'Cerrado'}`);
+  const weekdayDescriptions = orden.map((d) => `${DIAS[d]}: ${h[d] ? rangos(h[d]).map(([a, c]) => `${txt(a)}–${txt(c)}`).join(', ') : 'Cerrado'}`);
   return { periods, weekdayDescriptions };
 };
 const semana = (a, c, sab, dom) => {
@@ -32,41 +36,38 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
   businessStatus: 'OPERATIONAL',
 });
 
+const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Providencia, Guadalajara, Jalisco',
+    textQuery: 'dentista en Polanco, Ciudad de México',
     places: [
-      lugar('odontologia-esp-providencia', 'Odontología Especializada Providencia', 'Av. Manuel Acuña 2942, Providencia, Guadalajara, Jal.', '', ''),
-      lugar('providental', 'Providental Ortodoncia e Implantes', 'Av. Providencia 2854, Providencia, Guadalajara, Jal.', '+52 33 1230 8217', ''),
-      lugar('cabdental-providencia', 'Cabdental Providencia', 'Av. Terranova 563, Providencia, Guadalajara, Jal.', '+52 33 3640 6313', 'https://cabdental.com/dentista-en-providencia-guadalajara/'),
-      lugar('dentalia-guadalajara', 'Dentalia Guadalajara', 'Valparaíso 2367, Providencia, Guadalajara, Jal.', '+52 33 3817 1929', 'https://www.dentalia.com/'),
-      lugar('dhic-providencia', 'DHIC Dental Health & Implant Center (Providencia)', 'Providencia, Guadalajara, Jal.', '', '', { rating: 4.5, total: 28 }),
-      lugar('takahashi', 'Dr. Carlos Taitó Takahashi Aguilar', 'Loma de Providencia, Guadalajara, Jal.', '', ''),
-      lugar('brenda-sanchez', 'Dra. Brenda Sánchez García', 'Guadalajara, Jal.', '', 'https://www.doctoralia.com.mx/perfil/brenda-sanchez-garcia', { total: 38 }),
+      lugar('moons-polanco', 'Moons Polanco', 'Lafontaine 73, piso 3, Polanco III Secc., Miguel Hidalgo, 11540 CDMX', '+52 55 4440 8128', 'https://mymoons.mx/ubicaciones/cdmx-polanco', { h: { ...LV([10, 18]), 6: [10, 18] } }),
+      lugar('la-clinica-dental-polanco', 'La Clínica Dental Polanco', 'Presa Sanalona 8, Irrigación, Miguel Hidalgo, 11500 CDMX', '+52 55 8854 8351', 'https://laclinicapolanco.dental/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
+      lugar('dental-polanco-v', 'La Clínica Dental Polanco V', 'Petrarca 223, Polanco V Secc., Miguel Hidalgo, CDMX', '+52 55 5014 0326', 'https://dentalpolanco.dentist/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
+      lugar('vitadent-pro', 'Vitadent Pro', 'Calderón de la Barca 359-402, Polanco, Miguel Hidalgo, CDMX', '+52 55 5545 9190', 'https://www.vitadentpro.com/', { h: LV([9.5, 19]) }),
+      lugar('dds-dental-studio', 'DDS Dental Studio', 'Torcuato Tasso 315, Polanco, Miguel Hidalgo, CDMX', '+52 55 9039 1270', 'https://www.ddsdentalstudio.com/', { h: { ...LV([10, 19]), 6: [10, 15] } }),
+      lugar('clinica-dental-polanco-hegel', 'Clínica Dental Polanco (Hegel)', 'Hegel 209, Polanco V Secc., Miguel Hidalgo, CDMX', '+52 55 5255 1817', ''),
     ],
   },
   {
-    textQuery: 'dentista en Chapultepec, Guadalajara, Jalisco',
+    textQuery: 'dentista en Roma Norte, Ciudad de México',
     places: [
-      lugar('kiyodent-chapultepec', 'Kiyodent Dental Clinic Chapultepec', 'C. Colonias 691-L 1, Moderna, 44190 Guadalajara, Jal.', '+52 33 2810 9300', '', { h: semana(9, 19, [10, 19]) }),
-      lugar('une-chapultepec', 'Dental Clinic UNE', 'Av. Chapultepec Sur 734, Guadalajara, Jal.', '+52 33 8000 0825', ''),
-      lugar('odontologia-moderna', 'Odontología Moderna', 'C. Manuel López Cotilla 1481B, Zona Chapultepec, Guadalajara, Jal.', '+52 33 1705 5871', 'https://dentistaenguadalajara.com/contacto/'),
-      lugar('dental-paz', 'Consultorio Dental Americana (Dental Paz)', 'Av. de la Paz 1699, Americana, Guadalajara, Jal.', '+52 33 1359 6262', ''),
-      lugar('mejorada-huerta', 'Dra. Leticia del Rayo Mejorada Huerta', 'C. José María Morelos 1863, Lafayette, Guadalajara, Jal.', '+52 33 3615 6182', ''),
-      lugar('clinica-dental-americana', 'Clínica Dental Americana', 'Prolongación Américas 2145, Guadalajara, Jal.', '+52 33 3636 2602', ''),
-      lugar('dentimex-lafayette', 'Dentimex Lafayette', 'Chapultepec Norte 83, Lafayette, Guadalajara, Jal.', '+52 800 901 3888', ''),
-      lugar('dento-metric', 'Dento Metric', 'Chapultepec Country, Guadalajara, Jal.', '+52 33 3817 1448', ''),
+      lugar('lumbra-dental-roma', 'Lumbra Dental Roma', 'Querétaro 227, Roma Norte, Cuauhtémoc, CDMX', '+52 56 1139 1093', '', { h: { ...LV([11, 20]), 6: [11, 17] } }),
+      lugar('rl-orthodontics', 'RL Orthodontics', 'Durango 33, Roma Norte, Cuauhtémoc, CDMX', '+52 55 7261 3287', 'https://rlorthodontics.com/en/index.html', { h: { 1: [10, 19], 2: [11, 20], 3: [10, 19], 4: [11, 20], 5: [10, 19], 6: [10, 16] } }),
+      lugar('drdiente-roma-norte', 'Clínica DrDiente Roma Norte', 'Monterrey 147, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 56 1016 7727', 'https://www.clinicadrdiente.com/dentista-roma-norte'),
+      lugar('la-clinica-dental-roma', 'La Clínica Dental Roma', 'Cozumel 22, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 55 8854 5891', ''),
+      lugar('edenta', 'Edenta Odontología Integral', 'Guanajuato 92, Roma Norte, Cuauhtémoc, CDMX', '+52 55 3992 3539', ''),
+      lugar('salas-diaz-roman', 'Salas Díaz Roman', 'Durango 49, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 55 5207 2247', ''),
+      lugar('dental-del-angel', 'Consultorio Dental Del Ángel', 'Durango 243, despacho 902, Roma Norte, 06700 CDMX', '', ''),
     ],
   },
   {
-    textQuery: 'dentista en Zapopan Centro, Guadalajara, Jalisco',
+    textQuery: 'dentista en Del Valle, Ciudad de México',
     places: [
-      lugar('mf-dental-center', 'MF Dental Center', '28 de Enero 93, planta alta, Zapopan Centro, Zapopan, Jal.', '+52 33 1071 9742', 'https://mfdentalcenter.com/', { rating: 5, total: 241, h: semana(10, 19, [10, 14]) }),
-      lugar('la-zapopana-matriz', 'Clínica Dental La Zapopana (Matriz Zapopan)', 'Emiliano Zapata 80, Zapopan Centro, Zapopan, Jal.', '+52 33 3633 7369', 'https://www.dentallazapopana.com/', { h: semana(8, 20, [8, 20], [8, 20]) }),
-      lugar('vibliorio', 'Dentist Vibliorio', 'Zapopan, Jal.', '+52 33 3656 1823', 'https://www.dentistvibliorio.com.mx/', { h: semana(10, 20, [10, 14]) }),
-      lugar('clinica-dental-zapopan', 'La Clínica Dental Zapopan', 'Zapopan, Jal.', '+52 33 1580 9893', 'https://dentalguadalajara.com.mx/zapopan/', { h: semana(9, 20, [9, 16]) }),
-      lugar('lomas-de-zapopan', 'Dentista Lomas de Zapopan', 'Av. de la Mancha 798, local 8, Zapopan, Jal.', '+52 33 1699 5436', 'https://www.facebook.com/p/Dentista-Lomas-De-Zapopan-100063626723331/'),
-      lugar('dentalia-real-center', 'Dentalia Real Center', 'Santa Margarita, Zapopan, Jal.', '+52 800 003 3682', 'https://www.dentalia.com/dentistas/zapopan', { rating: 4.4, total: 211 }),
+      lugar('la-clinica-del-valle', 'La Clínica Dental Del Valle', 'Av. Universidad 845, Del Valle Sur, Benito Juárez, CDMX', '+52 55 8950 9513', 'https://laclinicadelvalle.com.mx/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
+      lugar('oev', 'Odontología Especializada del Valle', 'Gabriel Mancera 718, E-1, Del Valle, Benito Juárez, CDMX', '+52 55 5605 4863', 'https://odontologiaespecializadadelvalle.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [9, 15] } }),
+      lugar('mariscal-sucre', 'Clínica Dental Mariscal y Sucre', 'Parque Mariscal Sucre 46, piso 1, int. 11, Del Valle Centro, Benito Juárez, CDMX', '+52 56 5768 3502', 'https://clinicadentalmariscal.com/', { h: { ...LV([9, 20]), 6: [10, 17] } }),
+      lugar('dentalia-city-shops', 'dentalia City Shops Del Valle', 'Plaza City Shops, Del Valle, Benito Juárez, CDMX', '+52 55 5335 0717', 'https://www.dentalia.com/clinica/dentalia-city-shops-del-valle', { h: { ...LV([9, 20]), 6: [9, 18], 0: [9, 18] } }),
     ],
   },
 ];

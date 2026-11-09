@@ -1,13 +1,13 @@
-# Zonas para "Encuentra clientes" (dentista · todo México). Cada corrida semanal toma las 3 primeras pendientes.
+# Zonas para "Encuentra clientes" (dentista · todo México). Cada corrida diaria toma las 3 primeras pendientes.
 # Formato: Zona, Ciudad, Estado  (se corre con CIUDAD='' porque cada línea ya trae su ciudad)
 # HECHAS
 Providencia, Guadalajara, Jalisco
 Chapultepec, Guadalajara, Jalisco
 Zapopan Centro, Zapopan, Jalisco
-# PENDIENTES
 Polanco, Ciudad de México
 Roma Norte, Ciudad de México
 Del Valle, Ciudad de México
+# PENDIENTES
 San Pedro Garza García, Nuevo León
 Cumbres, Monterrey, Nuevo León
 Centro, Monterrey, Nuevo León
