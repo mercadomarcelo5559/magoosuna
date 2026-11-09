@@ -1,0 +1,26 @@
+# Zonas para "Encuentra clientes" (dentista · Guadalajara, Jalisco). Cada corrida semanal toma las 3 primeras pendientes.
+# HECHAS
+Providencia
+Chapultepec
+Zapopan Centro
+# PENDIENTES
+Americana
+Chapalita
+Jardines del Bosque
+Country Club
+Ladrón de Guevara
+Arcos Vallarta
+Puerta de Hierro
+Valle Real
+Andares
+Ciudad del Sol
+Plaza del Sol
+Las Águilas
+Santa Tere
+Colinas de San Javier
+Lomas del Valle
+Bugambilias
+Guadalajara Centro
+Tlaquepaque Centro
+Tonalá Centro
+Tlajomulco Centro
