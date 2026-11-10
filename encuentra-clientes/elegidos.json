@@ -1,138 +1,146 @@
 [
   {
-    "id": "geg6m1j3xn2b",
+    "id": "ey6t6qwxdsv8",
     "nota": 8,
-    "nombre": "Vitadent Pro",
-    "motivo": "Solo atiende por teléfono: sin chat ni WhatsApp, cierra 19:00 y no abre fin de semana.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
+    "nombre": "Dental Clinic (Mitras Centro)",
+    "motivo": "Cierra 18:00 y no abre sábado ni domingo; su web solo tiene un botón de mensaje.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "nuq9ke93ga2c",
+    "id": "azt51tpcfai7",
     "nota": 8,
-    "nombre": "Odontología Especializada del Valle",
-    "motivo": "Cierran de 14:00 a 16:00 y a las 20:00; sin chat, solo formulario.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
+    "nombre": "Health and Wellness Dental Center",
+    "motivo": "Cierra 18:30, sábado 13:30 y no abre domingo; sin web ni agenda en línea.",
+    "senales": "Cierra 18:30 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "qjte755bytjb",
-    "nota": 7,
-    "nombre": "DDS Dental Studio",
-    "motivo": "Sin chat ni WhatsApp en su web; cierra 19:00, sábado 15:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "pa1acqtrulo8",
-    "nota": 6,
-    "nombre": "Lumbra Dental Roma",
-    "motivo": "Sin web; no abre domingo y el sábado cierra 17:00.",
+    "id": "bub6ppuwkisf",
+    "nota": 8,
+    "nombre": "Clínica Dental Dentjoy",
+    "motivo": "Solo abre por la tarde (15:00–20:00), sin web y sin abrir domingo: las mañanas nadie contesta.",
     "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "y0gvbdb2s3wv",
+    "id": "9vvt5j66jbjt",
+    "nota": 7,
+    "nombre": "Clínica Dental Smile",
+    "motivo": "Cierra de 14:00 a 15:00 y a las 19:00; tiene WhatsApp pero ningún chat que conteste solo.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "02ul2yddtj50",
+    "nota": 7,
+    "nombre": "Dentistas Terán",
+    "motivo": "Cierra de 13:00 a 15:00 y a las 19:00; WhatsApp y correo, pero sin chat que conteste al momento.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "2ivq0a08t038",
+    "nota": 7,
+    "nombre": "Centro Dental Cumbres",
+    "motivo": "Sin web; cierra 19:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "6r1g4z6tpj95",
+    "nota": 7,
+    "nombre": "Dental Klinik Especialistas",
+    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "50x4x58q4bej",
+    "nota": 7,
+    "nombre": "Orthostetics Dental Clinic",
+    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "62tkyeamdzmk",
     "nota": 6,
-    "nombre": "Clínica Dental Polanco (Hegel)",
+    "nombre": "Dental Care Kids Cumbres",
+    "motivo": "Sin web; sábado cierra 13:00 y no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "ssin9iv737vk",
+    "nota": 6,
+    "nombre": "M&C Dentistas",
+    "motivo": "Sin web ni agenda en línea; no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "9xt2nballh99",
+    "nota": 6,
+    "nombre": "Odontología Cumbres",
+    "motivo": "Consultorio de un solo doctor, sin chat ni agenda en línea.",
+    "senales": "Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "j2s9m8gdm3w2",
+    "nota": 5,
+    "nombre": "Centro Odontológico Familiar",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "gtw3nfgkzo35",
+    "nota": 5,
+    "nombre": "Ciel Dentistas Cumbres",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "u2cu2u0sqivw",
+    "nota": 5,
+    "nombre": "Clínica Dental México",
     "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "5nexvldbmnr3",
-    "nota": 6,
-    "nombre": "Edenta Odontología Integral",
-    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten.",
+    "id": "imnjq8qlyjra",
+    "nota": 5,
+    "nombre": "Clínica Dental Reyna",
+    "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "e0me5u77p2as",
-    "nota": 6,
-    "nombre": "La Clínica Dental Roma",
-    "motivo": "Sin web propia ni agenda en línea: todo depende del teléfono.",
+    "id": "xjx5m1iow2fz",
+    "nota": 5,
+    "nombre": "Dental.mx San Pedro",
+    "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "rdcxpzj6f87t",
-    "nota": 6,
-    "nombre": "Salas Díaz Roman",
-    "motivo": "Sin web ni agenda en línea: las citas dependen de que contesten.",
-    "senales": "Sin web",
+    "id": "1xxtikz9a64u",
+    "nota": 4,
+    "nombre": "Regiodental Centro",
+    "motivo": "Cadena con varias sucursales, agenda de citas y WhatsApp en su web.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "62d0ntafiz1f",
-    "nota": 5,
-    "nombre": "Clínica Dental Mariscal y Sucre",
-    "motivo": "Agenda y WhatsApp en su web, pero sin chat; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "k7d8cjhv5dap",
-    "nota": 5,
-    "nombre": "RL Orthodontics",
-    "motivo": "Agenda por WhatsApp a mano, sin chat que conteste solo; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "gymfkgaul2ga",
-    "nota": 5,
-    "nombre": "Clínica DrDiente Roma Norte",
-    "motivo": "Sucursal nueva con agenda en línea, pero sin chat que conteste dudas al momento.",
+    "id": "b0iy9zx279vt",
+    "nota": 3,
+    "nombre": "dentalia Plaza Cumbres",
+    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
     "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "1cxsa84voeg6",
-    "nota": 5,
-    "nombre": "Consultorio Dental Del Ángel",
-    "motivo": "Sin web ni teléfono público: muy difícil contactarlos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "8uv8ns120a2y",
-    "nota": 3,
-    "nombre": "La Clínica Dental Del Valle",
-    "motivo": "Su web ya ofrece «Chat en Línea» y solicitud de cita.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "26avaj9m8u7l",
-    "nota": 3,
-    "nombre": "La Clínica Dental Polanco",
-    "motivo": "Su web ya ofrece «Chat en Línea» y solicitud de cita.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "q5bh0yjvprz8",
-    "nota": 3,
-    "nombre": "dentalia City Shops Del Valle",
-    "motivo": "Sucursal de cadena con agenda de citas propia y horario de fin de semana.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "b406910ebjyj",
-    "nota": 2,
-    "nombre": "Moons Polanco",
-    "motivo": "Cadena de alineadores que ya tiene chat propio en su web («Chatea con nosotros»).",
-    "senales": "Cierra 18:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "sycqdon88yym",
-    "nota": 2,
-    "nombre": "La Clínica Dental Polanco V",
-    "motivo": "Ya tiene chat (Tawk.to) y agenda en su web.",
-    "senales": "Cierra 20:00 · Chat en la web (Tawk.to) · Agenda en línea",
     "evidencia": ""
   }
 ]

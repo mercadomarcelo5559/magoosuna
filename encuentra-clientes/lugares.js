@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-09: Polanco, Roma Norte y Del Valle (CDMX).
+// Lote del 2026-11-10: San Pedro Garza García, Cumbres y Centro (Monterrey, NL).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,35 +39,36 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Polanco, Ciudad de México',
+    textQuery: 'dentista en San Pedro Garza García, Nuevo León',
     places: [
-      lugar('moons-polanco', 'Moons Polanco', 'Lafontaine 73, piso 3, Polanco III Secc., Miguel Hidalgo, 11540 CDMX', '+52 55 4440 8128', 'https://mymoons.mx/ubicaciones/cdmx-polanco', { h: { ...LV([10, 18]), 6: [10, 18] } }),
-      lugar('la-clinica-dental-polanco', 'La Clínica Dental Polanco', 'Presa Sanalona 8, Irrigación, Miguel Hidalgo, 11500 CDMX', '+52 55 8854 8351', 'https://laclinicapolanco.dental/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
-      lugar('dental-polanco-v', 'La Clínica Dental Polanco V', 'Petrarca 223, Polanco V Secc., Miguel Hidalgo, CDMX', '+52 55 5014 0326', 'https://dentalpolanco.dentist/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
-      lugar('vitadent-pro', 'Vitadent Pro', 'Calderón de la Barca 359-402, Polanco, Miguel Hidalgo, CDMX', '+52 55 5545 9190', 'https://www.vitadentpro.com/', { h: LV([9.5, 19]) }),
-      lugar('dds-dental-studio', 'DDS Dental Studio', 'Torcuato Tasso 315, Polanco, Miguel Hidalgo, CDMX', '+52 55 9039 1270', 'https://www.ddsdentalstudio.com/', { h: { ...LV([10, 19]), 6: [10, 15] } }),
-      lugar('clinica-dental-polanco-hegel', 'Clínica Dental Polanco (Hegel)', 'Hegel 209, Polanco V Secc., Miguel Hidalgo, CDMX', '+52 55 5255 1817', ''),
+      lugar('dentjoy', 'Clínica Dental Dentjoy', 'Calz. del Valle 355, local 2-2, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 1620 5131', '', { h: { ...LV([15, 20]), 6: [9, 15] } }),
+      lugar('orthostetics', 'Orthostetics Dental Clinic', 'Plaza Punto Lomas, Lomas del Valle 430, piso 3, local 6, 66256 San Pedro Garza García, N.L.', '+52 81 8335 5867', '', { h: { ...LV([10, 19]), 6: [9, 14] } }),
+      lugar('health-wellness-dental', 'Health and Wellness Dental Center', 'Río Manzanares 415, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 8335 9747', '', { h: { ...LV([10, 18.5]), 6: [8, 13.5] } }),
+      lugar('mc-dentistas', 'M&C Dentistas', 'Río Missouri 500, Valle de Santa Engracia, 66268 San Pedro Garza García, N.L.', '+52 81 2230 5463', '', { h: { ...LV([10, 20]), 6: [10, 19] } }),
+      lugar('dentalmx-san-pedro', 'Dental.mx San Pedro', 'Río Colorado 226, local 1, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 1912 0519', ''),
+      lugar('dental-klinik', 'Dental Klinik Especialistas', 'Plaza Punto Lomas, Lomas del Valle 430, 66256 San Pedro Garza García, N.L.', '+52 81 8335 4184', '', { h: { ...LV([10, 19]), 6: [10, 14] } }),
+      lugar('dental-reyna', 'Clínica Dental Reyna', 'Privada Benito Juárez 124, Lomas de Tampiquito, 66240 San Pedro Garza García, N.L.', '+52 81 8087 9415', ''),
     ],
   },
   {
-    textQuery: 'dentista en Roma Norte, Ciudad de México',
+    textQuery: 'dentista en Cumbres, Monterrey, Nuevo León',
     places: [
-      lugar('lumbra-dental-roma', 'Lumbra Dental Roma', 'Querétaro 227, Roma Norte, Cuauhtémoc, CDMX', '+52 56 1139 1093', '', { h: { ...LV([11, 20]), 6: [11, 17] } }),
-      lugar('rl-orthodontics', 'RL Orthodontics', 'Durango 33, Roma Norte, Cuauhtémoc, CDMX', '+52 55 7261 3287', 'https://rlorthodontics.com/en/index.html', { h: { 1: [10, 19], 2: [11, 20], 3: [10, 19], 4: [11, 20], 5: [10, 19], 6: [10, 16] } }),
-      lugar('drdiente-roma-norte', 'Clínica DrDiente Roma Norte', 'Monterrey 147, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 56 1016 7727', 'https://www.clinicadrdiente.com/dentista-roma-norte'),
-      lugar('la-clinica-dental-roma', 'La Clínica Dental Roma', 'Cozumel 22, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 55 8854 5891', ''),
-      lugar('edenta', 'Edenta Odontología Integral', 'Guanajuato 92, Roma Norte, Cuauhtémoc, CDMX', '+52 55 3992 3539', ''),
-      lugar('salas-diaz-roman', 'Salas Díaz Roman', 'Durango 49, Roma Norte, Cuauhtémoc, 06700 CDMX', '+52 55 5207 2247', ''),
-      lugar('dental-del-angel', 'Consultorio Dental Del Ángel', 'Durango 243, despacho 902, Roma Norte, 06700 CDMX', '', ''),
+      lugar('dental-smile-cumbres', 'Clínica Dental Smile', 'Paseo de los Leones 1613-1, Cumbres, Monterrey, N.L.', '+52 81 1365 1610', 'https://dental-smile.mx/', { h: { ...LV([[10, 14], [15, 19]]), 6: [10, 14] } }),
+      lugar('odontologia-cumbres', 'Odontología Cumbres', 'Paseo de los Leones 1388, L-6 altos, Cumbres 1er Sector, 64610 Monterrey, N.L.', '+52 81 8347 0246', 'https://odontologiacumbres.com/nosotros'),
+      lugar('ciel-cumbres', 'Ciel Dentistas Cumbres', 'Alejandro de Rodas 3102, local 21, 64610 Monterrey, N.L.', '+52 81 8310 0800', ''),
+      lugar('centro-odontologico-familiar', 'Centro Odontológico Familiar', '15va Avenida 474, Cumbres 2º Sector, 64610 Monterrey, N.L.', '+52 81 8881 8990', ''),
+      lugar('centro-dental-cumbres', 'Centro Dental Cumbres', 'Alejandro de Rodas 4401-B, Pedregal de las Cumbres, Monterrey, N.L.', '+52 81 4444 6989', '', { h: { ...LV([9, 19]), 6: [9, 15] } }),
+      lugar('dental-care-kids-cumbres', 'Dental Care Kids Cumbres', 'Paseo de los Leones 105, Cumbres Elite, 64349 Monterrey, N.L.', '+52 81 2470 0352', '', { h: { ...LV([10, 20]), 6: [9, 13] } }),
+      lugar('dentalia-plaza-cumbres', 'dentalia Plaza Cumbres', 'Paseo de los Leones 3399, local 1104, Bosques de las Cumbres, 64619 Monterrey, N.L.', '+52 81 1095 2138', 'https://www.dentalia.com/'),
     ],
   },
   {
-    textQuery: 'dentista en Del Valle, Ciudad de México',
+    textQuery: 'dentista en Centro, Monterrey, Nuevo León',
     places: [
-      lugar('la-clinica-del-valle', 'La Clínica Dental Del Valle', 'Av. Universidad 845, Del Valle Sur, Benito Juárez, CDMX', '+52 55 8950 9513', 'https://laclinicadelvalle.com.mx/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
-      lugar('oev', 'Odontología Especializada del Valle', 'Gabriel Mancera 718, E-1, Del Valle, Benito Juárez, CDMX', '+52 55 5605 4863', 'https://odontologiaespecializadadelvalle.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [9, 15] } }),
-      lugar('mariscal-sucre', 'Clínica Dental Mariscal y Sucre', 'Parque Mariscal Sucre 46, piso 1, int. 11, Del Valle Centro, Benito Juárez, CDMX', '+52 56 5768 3502', 'https://clinicadentalmariscal.com/', { h: { ...LV([9, 20]), 6: [10, 17] } }),
-      lugar('dentalia-city-shops', 'dentalia City Shops Del Valle', 'Plaza City Shops, Del Valle, Benito Juárez, CDMX', '+52 55 5335 0717', 'https://www.dentalia.com/clinica/dentalia-city-shops-del-valle', { h: { ...LV([9, 20]), 6: [9, 18], 0: [9, 18] } }),
+      lugar('regiodental-centro', 'Regiodental Centro', 'Juan Álvarez 443, Centro, 64000 Monterrey, N.L.', '+52 81 8004 0354', 'https://regiodental.com/', { h: { ...LV([10, 19]), 6: [9, 16] } }),
+      lugar('clinica-dental-mexico', 'Clínica Dental México', 'C. Ruperto Martínez Ote. 617, Centro, 64000 Monterrey, N.L.', '+52 81 8343 5807', ''),
+      lugar('dental-clinic-mitras', 'Dental Clinic (Mitras Centro)', 'Mitras Centro, Monterrey, N.L.', '+52 81 2886 8486', 'https://dental-clinic-12.ueniweb.com/', { h: LV([7, 18]) }),
+      lugar('dentistas-teran', 'Dentistas Terán', 'Arquitectos 102, Tecnológico, Monterrey, N.L.', '+52 81 8358 4994', 'https://dentistasteran.com.mx/', { h: { ...LV([[9, 13], [15, 19]]), 6: [9, 13] } }),
     ],
   },
 ];

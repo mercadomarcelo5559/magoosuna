@@ -7,10 +7,10 @@ Zapopan Centro, Zapopan, Jalisco
 Polanco, Ciudad de México
 Roma Norte, Ciudad de México
 Del Valle, Ciudad de México
-# PENDIENTES
 San Pedro Garza García, Nuevo León
 Cumbres, Monterrey, Nuevo León
 Centro, Monterrey, Nuevo León
+# PENDIENTES
 Angelópolis, Puebla, Puebla
 La Paz, Puebla, Puebla
 Centro, Puebla, Puebla
