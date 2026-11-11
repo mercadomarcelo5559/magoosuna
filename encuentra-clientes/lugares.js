@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-10: San Pedro Garza García, Cumbres y Centro (Monterrey, NL).
+// Lote del 2026-11-11: Angelópolis, La Paz y Centro (Puebla).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,36 +39,28 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en San Pedro Garza García, Nuevo León',
+    textQuery: 'dentista en Angelópolis, Puebla, Puebla',
     places: [
-      lugar('dentjoy', 'Clínica Dental Dentjoy', 'Calz. del Valle 355, local 2-2, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 1620 5131', '', { h: { ...LV([15, 20]), 6: [9, 15] } }),
-      lugar('orthostetics', 'Orthostetics Dental Clinic', 'Plaza Punto Lomas, Lomas del Valle 430, piso 3, local 6, 66256 San Pedro Garza García, N.L.', '+52 81 8335 5867', '', { h: { ...LV([10, 19]), 6: [9, 14] } }),
-      lugar('health-wellness-dental', 'Health and Wellness Dental Center', 'Río Manzanares 415, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 8335 9747', '', { h: { ...LV([10, 18.5]), 6: [8, 13.5] } }),
-      lugar('mc-dentistas', 'M&C Dentistas', 'Río Missouri 500, Valle de Santa Engracia, 66268 San Pedro Garza García, N.L.', '+52 81 2230 5463', '', { h: { ...LV([10, 20]), 6: [10, 19] } }),
-      lugar('dentalmx-san-pedro', 'Dental.mx San Pedro', 'Río Colorado 226, local 1, Del Valle, 66220 San Pedro Garza García, N.L.', '+52 81 1912 0519', ''),
-      lugar('dental-klinik', 'Dental Klinik Especialistas', 'Plaza Punto Lomas, Lomas del Valle 430, 66256 San Pedro Garza García, N.L.', '+52 81 8335 4184', '', { h: { ...LV([10, 19]), 6: [10, 14] } }),
-      lugar('dental-reyna', 'Clínica Dental Reyna', 'Privada Benito Juárez 124, Lomas de Tampiquito, 66240 San Pedro Garza García, N.L.', '+52 81 8087 9415', ''),
+      lugar('dental-angelopolis', 'Dental Angelópolis', '33 Sur 2310, consultorios 203 y 204, Santa Cruz Los Ángeles, 72400 Puebla, Pue.', '+52 222 249 4940', 'https://www.dentalangelopolis.com/', { h: { ...LV([[10.5, 14], [16.5, 19.5]]), 6: [10.5, 14] } }),
+      lugar('clinica-dental-77', 'Clínica Dental 77', 'Torres Médicas Angelópolis, Torre 2, piso 20, consultorio 2004, 72820 San Andrés Cholula, Pue.', '+52 221 187 5666', 'https://clinicadental77.com/', { h: { ...LV([9, 20]), 6: [9, 16] } }),
+      lugar('endodoncia-puebla', 'Endodoncia Puebla · Dr. José Antonio Con', 'Torres Médicas Angelópolis, Torre 1, piso 11, consultorio 1129, 72820 Puebla, Pue.', '+52 221 346 9691', 'https://www.endodonciapuebla.mx/', { h: LV([10, 19]) }),
     ],
   },
   {
-    textQuery: 'dentista en Cumbres, Monterrey, Nuevo León',
+    textQuery: 'dentista en La Paz, Puebla, Puebla',
     places: [
-      lugar('dental-smile-cumbres', 'Clínica Dental Smile', 'Paseo de los Leones 1613-1, Cumbres, Monterrey, N.L.', '+52 81 1365 1610', 'https://dental-smile.mx/', { h: { ...LV([[10, 14], [15, 19]]), 6: [10, 14] } }),
-      lugar('odontologia-cumbres', 'Odontología Cumbres', 'Paseo de los Leones 1388, L-6 altos, Cumbres 1er Sector, 64610 Monterrey, N.L.', '+52 81 8347 0246', 'https://odontologiacumbres.com/nosotros'),
-      lugar('ciel-cumbres', 'Ciel Dentistas Cumbres', 'Alejandro de Rodas 3102, local 21, 64610 Monterrey, N.L.', '+52 81 8310 0800', ''),
-      lugar('centro-odontologico-familiar', 'Centro Odontológico Familiar', '15va Avenida 474, Cumbres 2º Sector, 64610 Monterrey, N.L.', '+52 81 8881 8990', ''),
-      lugar('centro-dental-cumbres', 'Centro Dental Cumbres', 'Alejandro de Rodas 4401-B, Pedregal de las Cumbres, Monterrey, N.L.', '+52 81 4444 6989', '', { h: { ...LV([9, 19]), 6: [9, 15] } }),
-      lugar('dental-care-kids-cumbres', 'Dental Care Kids Cumbres', 'Paseo de los Leones 105, Cumbres Elite, 64349 Monterrey, N.L.', '+52 81 2470 0352', '', { h: { ...LV([10, 20]), 6: [9, 13] } }),
-      lugar('dentalia-plaza-cumbres', 'dentalia Plaza Cumbres', 'Paseo de los Leones 3399, local 1104, Bosques de las Cumbres, 64619 Monterrey, N.L.', '+52 81 1095 2138', 'https://www.dentalia.com/'),
+      lugar('consultorio-23-sur', 'Consultorio Dental 23 Sur', 'Calle 23 Sur, La Paz, Puebla, Pue.', '+52 222 231 9204', ''),
+      lugar('montdent-la-paz', 'Clínica Dental Montdent La Paz', 'C. Tlaxco 136, La Paz, Puebla, Pue.', '+52 222 273 2950', '', { h: { ...LV([15, 20]), 6: [15, 20], 0: [9, 16] } }),
     ],
   },
   {
-    textQuery: 'dentista en Centro, Monterrey, Nuevo León',
+    textQuery: 'dentista en Centro, Puebla, Puebla',
     places: [
-      lugar('regiodental-centro', 'Regiodental Centro', 'Juan Álvarez 443, Centro, 64000 Monterrey, N.L.', '+52 81 8004 0354', 'https://regiodental.com/', { h: { ...LV([10, 19]), 6: [9, 16] } }),
-      lugar('clinica-dental-mexico', 'Clínica Dental México', 'C. Ruperto Martínez Ote. 617, Centro, 64000 Monterrey, N.L.', '+52 81 8343 5807', ''),
-      lugar('dental-clinic-mitras', 'Dental Clinic (Mitras Centro)', 'Mitras Centro, Monterrey, N.L.', '+52 81 2886 8486', 'https://dental-clinic-12.ueniweb.com/', { h: LV([7, 18]) }),
-      lugar('dentistas-teran', 'Dentistas Terán', 'Arquitectos 102, Tecnológico, Monterrey, N.L.', '+52 81 8358 4994', 'https://dentistasteran.com.mx/', { h: { ...LV([[9, 13], [15, 19]]), 6: [9, 13] } }),
+      lugar('dentista-puebla-10-ote', 'Dentista Puebla', 'Av. 10 Ote. 216, Centro histórico, Puebla, Pue.', '+52 222 703 2561', ''),
+      lugar('clinica-dental-moderna-puebla', 'Clínica Dental Moderna', 'Av. 8 Pte. 120, Centro histórico, Puebla, Pue.', '+52 222 242 0844', ''),
+      lugar('cirujano-dentistas-5-nte', 'Cirujano Dentistas', 'Calle 5 Nte. 1208, alto 3, Centro histórico, Puebla, Pue.', '+52 222 246 6003', ''),
+      lugar('maxilofacial-implantes-puebla', 'Maxilofacial Implantes Puebla · Dr. Juan Peña Lares', 'Av. 5 Pte. 715, Centro histórico, Puebla, Pue.', '+52 222 325 5305', ''),
+      lugar('dra-ernestina-gasca', 'Dra. Ernestina Gasca', '5 de Mayo 1003, Centro histórico, Puebla, Pue.', '+52 222 128 2452', ''),
     ],
   },
 ];

@@ -1,115 +1,8 @@
 [
   {
     "output": {
-      "nota": 8,
-      "motivo": "Solo abre por la tarde (15:00–20:00), sin web y sin abrir domingo: las mañanas nadie contesta.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
       "nota": 7,
-      "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 8,
-      "motivo": "Cierra 18:30, sábado 13:30 y no abre domingo; sin web ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web ni agenda en línea; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 15:00 y a las 19:00; tiene WhatsApp pero ningún chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Consultorio de un solo doctor, sin chat ni agenda en línea.",
-      "evidencia": "",
-      "servicios": [
-        "Restauraciones",
-        "Tratamientos estéticos"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Sin web; cierra 19:00, sábado 15:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web; sábado cierra 13:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
+      "motivo": "Cierra de 14:00 a 16:30 y a las 19:30; sábado 14:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -117,18 +10,26 @@
   {
     "output": {
       "nota": 4,
-      "motivo": "Cadena con varias sucursales, agenda de citas y WhatsApp en su web.",
+      "motivo": "Abre los 7 días y atiende urgencias por teléfono y WhatsApp; sin chat que conteste solo.",
       "evidencia": "",
       "servicios": [
-        "Ortodoncia",
-        "Ortodoncia invisible",
-        "Blanqueamiento dental",
+        "Odontología estética",
+        "Diseño de sonrisa",
+        "Prótesis restauradora",
         "Endodoncia",
         "Periodoncia",
-        "Implantología",
-        "Cirugia Oral",
-        "Dentista para Niños"
+        "Cirugía Maxilofacial",
+        "Odontopediatría",
+        "Implantes dentales"
       ]
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Especialista con cita previa: cierra 19:00 y el sábado solo con cita.",
+      "evidencia": "",
+      "servicios": []
     }
   },
   {
@@ -141,27 +42,50 @@
   },
   {
     "output": {
-      "nota": 8,
-      "motivo": "Cierra 18:00 y no abre sábado ni domingo; su web solo tiene un botón de mensaje.",
+      "nota": 7,
+      "motivo": "Solo abre por la tarde (15:00–20:00) entre semana y no tiene web: las mañanas nadie contesta.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra de 13:00 a 15:00 y a las 19:00; WhatsApp y correo, pero sin chat que conteste al momento.",
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
       "evidencia": "",
-      "servicios": [
-        "Ortodoncia",
-        "Odontopediatría",
-        "Endodoncia",
-        "Periodoncia",
-        "Implantes Dentales",
-        "Cirugía Maxilofacial",
-        "Prostodoncia",
-        "Blanqueamiento"
-      ]
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Especialista sin web ni agenda en línea: las consultas dependen del teléfono.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 4,
+      "motivo": "Sin web ni agenda en línea; sus datos públicos son antiguos.",
+      "evidencia": "",
+      "servicios": []
     }
   }
 ]

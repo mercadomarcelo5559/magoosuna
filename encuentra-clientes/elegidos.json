@@ -1,146 +1,82 @@
 [
   {
-    "id": "ey6t6qwxdsv8",
-    "nota": 8,
-    "nombre": "Dental Clinic (Mitras Centro)",
-    "motivo": "Cierra 18:00 y no abre sábado ni domingo; su web solo tiene un botón de mensaje.",
-    "senales": "Cierra 18:00 · Sin chat en la web",
+    "id": "fvpr4cbsglk6",
+    "nota": 7,
+    "nombre": "Dental Angelópolis",
+    "motivo": "Cierra de 14:00 a 16:30 y a las 19:30; sábado 14:00 y no abre domingo.",
+    "senales": "Cierra 19:30 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "azt51tpcfai7",
-    "nota": 8,
-    "nombre": "Health and Wellness Dental Center",
-    "motivo": "Cierra 18:30, sábado 13:30 y no abre domingo; sin web ni agenda en línea.",
-    "senales": "Cierra 18:30 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "bub6ppuwkisf",
-    "nota": 8,
-    "nombre": "Clínica Dental Dentjoy",
-    "motivo": "Solo abre por la tarde (15:00–20:00), sin web y sin abrir domingo: las mañanas nadie contesta.",
+    "id": "attkyn8v97fp",
+    "nota": 7,
+    "nombre": "Clínica Dental Montdent La Paz",
+    "motivo": "Solo abre por la tarde (15:00–20:00) entre semana y no tiene web: las mañanas nadie contesta.",
     "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "9vvt5j66jbjt",
-    "nota": 7,
-    "nombre": "Clínica Dental Smile",
-    "motivo": "Cierra de 14:00 a 15:00 y a las 19:00; tiene WhatsApp pero ningún chat que conteste solo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "02ul2yddtj50",
-    "nota": 7,
-    "nombre": "Dentistas Terán",
-    "motivo": "Cierra de 13:00 a 15:00 y a las 19:00; WhatsApp y correo, pero sin chat que conteste al momento.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "2ivq0a08t038",
-    "nota": 7,
-    "nombre": "Centro Dental Cumbres",
-    "motivo": "Sin web; cierra 19:00, sábado 15:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "6r1g4z6tpj95",
-    "nota": 7,
-    "nombre": "Dental Klinik Especialistas",
-    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "50x4x58q4bej",
-    "nota": 7,
-    "nombre": "Orthostetics Dental Clinic",
-    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "62tkyeamdzmk",
+    "id": "ef46jiyvw7xg",
     "nota": 6,
-    "nombre": "Dental Care Kids Cumbres",
-    "motivo": "Sin web; sábado cierra 13:00 y no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
+    "nombre": "Endodoncia Puebla · Dr. José Antonio Con",
+    "motivo": "Especialista con cita previa: cierra 19:00 y el sábado solo con cita.",
+    "senales": "Cierra 19:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "ssin9iv737vk",
-    "nota": 6,
-    "nombre": "M&C Dentistas",
-    "motivo": "Sin web ni agenda en línea; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "9xt2nballh99",
-    "nota": 6,
-    "nombre": "Odontología Cumbres",
-    "motivo": "Consultorio de un solo doctor, sin chat ni agenda en línea.",
-    "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "j2s9m8gdm3w2",
+    "id": "wojphnym9b9d",
     "nota": 5,
-    "nombre": "Centro Odontológico Familiar",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "gtw3nfgkzo35",
-    "nota": 5,
-    "nombre": "Ciel Dentistas Cumbres",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "u2cu2u0sqivw",
-    "nota": 5,
-    "nombre": "Clínica Dental México",
+    "nombre": "Cirujano Dentistas",
     "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "imnjq8qlyjra",
+    "id": "clresnkhlrh9",
     "nota": 5,
-    "nombre": "Clínica Dental Reyna",
-    "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
+    "nombre": "Clínica Dental Moderna",
+    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "xjx5m1iow2fz",
+    "id": "ctfss46pbm56",
     "nota": 5,
-    "nombre": "Dental.mx San Pedro",
-    "motivo": "Sin web propia ni agenda en línea; pocos datos públicos.",
+    "nombre": "Consultorio Dental 23 Sur",
+    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "1xxtikz9a64u",
+    "id": "bp04nf55t205",
+    "nota": 5,
+    "nombre": "Dentista Puebla",
+    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "d2zxfulqjpf4",
+    "nota": 5,
+    "nombre": "Maxilofacial Implantes Puebla · Dr. Juan Peña Lares",
+    "motivo": "Especialista sin web ni agenda en línea: las consultas dependen del teléfono.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "iek0xvdyodnd",
     "nota": 4,
-    "nombre": "Regiodental Centro",
-    "motivo": "Cadena con varias sucursales, agenda de citas y WhatsApp en su web.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
+    "nombre": "Clínica Dental 77",
+    "motivo": "Abre los 7 días y atiende urgencias por teléfono y WhatsApp; sin chat que conteste solo.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "b0iy9zx279vt",
-    "nota": 3,
-    "nombre": "dentalia Plaza Cumbres",
-    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
-    "senales": "Sin chat en la web",
+    "id": "l2z3y9zualjb",
+    "nota": 4,
+    "nombre": "Dra. Ernestina Gasca",
+    "motivo": "Sin web ni agenda en línea; sus datos públicos son antiguos.",
+    "senales": "Sin web",
     "evidencia": ""
   }
 ]

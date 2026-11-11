@@ -10,10 +10,10 @@ Del Valle, Ciudad de México
 San Pedro Garza García, Nuevo León
 Cumbres, Monterrey, Nuevo León
 Centro, Monterrey, Nuevo León
-# PENDIENTES
 Angelópolis, Puebla, Puebla
 La Paz, Puebla, Puebla
 Centro, Puebla, Puebla
+# PENDIENTES
 Juriquilla, Querétaro, Querétaro
 Centro Sur, Querétaro, Querétaro
 El Refugio, Querétaro, Querétaro
