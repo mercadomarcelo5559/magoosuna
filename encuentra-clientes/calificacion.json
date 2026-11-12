@@ -1,33 +1,73 @@
 [
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 16:30 y a las 19:30; sábado 14:00 y no abre domingo.",
+      "nota": 2,
+      "motivo": "Sucursal de cadena nacional que abre los 7 días.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 4,
-      "motivo": "Abre los 7 días y atiende urgencias por teléfono y WhatsApp; sin chat que conteste solo.",
+      "nota": 3,
+      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
       "evidencia": "",
       "servicios": [
-        "Odontología estética",
-        "Diseño de sonrisa",
-        "Prótesis restauradora",
+        "Cirugía Maxilofacial",
         "Endodoncia",
         "Periodoncia",
-        "Cirugía Maxilofacial",
+        "Implantes Dentales",
+        "Ortodoncia",
         "Odontopediatría",
-        "Implantes dentales"
+        "Carillas Dentales",
+        "Blanqueamiento Dental"
       ]
     }
   },
   {
     "output": {
       "nota": 6,
-      "motivo": "Especialista con cita previa: cierra 19:00 y el sábado solo con cita.",
+      "motivo": "Atiende urgencias, pero su web solo pide llamar o escribir por WhatsApp: sin respuesta automática.",
+      "evidencia": "",
+      "servicios": [
+        "Urgencias dentofaciales",
+        "Implantes dentales",
+        "Cirugía bucal y maxilofacial",
+        "Odontopediatría",
+        "Rehabilitación bucal",
+        "Implantología"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Atiende con cita previa y su web no tiene chat, WhatsApp ni agenda: todo es por teléfono.",
+      "evidencia": "",
+      "servicios": [
+        "Prótesis bucal",
+        "Implantología",
+        "Endodoncia",
+        "Ortodoncia",
+        "Odontopediatría",
+        "Blanqueamiento dental"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+      "evidencia": "",
+      "servicios": [
+        "Carillas dentales"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
       "evidencia": "",
       "servicios": []
     }
@@ -35,7 +75,15 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "No abre viernes y el jueves cierra 14:30; WhatsApp sin chat que conteste solo.",
       "evidencia": "",
       "servicios": []
     }
@@ -43,7 +91,7 @@
   {
     "output": {
       "nota": 7,
-      "motivo": "Solo abre por la tarde (15:00–20:00) entre semana y no tiene web: las mañanas nadie contesta.",
+      "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; el sábado solo con cita.",
       "evidencia": "",
       "servicios": []
     }
@@ -51,7 +99,15 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "motivo": "Sin web propia ni agenda en línea.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Solo tiene Facebook; sábado cierra 14:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -59,7 +115,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
       "evidencia": "",
       "servicios": []
     }
@@ -67,25 +123,30 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "motivo": "Sin web propia ni agenda en línea.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "Especialista sin web ni agenda en línea: las consultas dependen del teléfono.",
+      "nota": 6,
+      "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 4,
-      "motivo": "Sin web ni agenda en línea; sus datos públicos son antiguos.",
+      "nota": 6,
+      "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; no abre domingo.",
       "evidencia": "",
-      "servicios": []
+      "servicios": [
+        "Invisalign",
+        "Limpieza dental",
+        "Carillas",
+        "Ortodoncia"
+      ]
     }
   }
 ]

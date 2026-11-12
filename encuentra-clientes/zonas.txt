@@ -13,10 +13,10 @@ Centro, Monterrey, Nuevo León
 Angelópolis, Puebla, Puebla
 La Paz, Puebla, Puebla
 Centro, Puebla, Puebla
-# PENDIENTES
 Juriquilla, Querétaro, Querétaro
 Centro Sur, Querétaro, Querétaro
 El Refugio, Querétaro, Querétaro
+# PENDIENTES
 García Ginerés, Mérida, Yucatán
 Altabrisa, Mérida, Yucatán
 Montebello, Mérida, Yucatán

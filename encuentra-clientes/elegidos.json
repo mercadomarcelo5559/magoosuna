@@ -1,82 +1,122 @@
 [
   {
-    "id": "fvpr4cbsglk6",
+    "id": "4i6anpk6vnr7",
     "nota": 7,
-    "nombre": "Dental Angelópolis",
-    "motivo": "Cierra de 14:00 a 16:30 y a las 19:30; sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:30 · No se pudo leer su web",
+    "nombre": "Clínica Dental Juriquilla",
+    "motivo": "Atiende con cita previa y su web no tiene chat, WhatsApp ni agenda: todo es por teléfono.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "attkyn8v97fp",
+    "id": "ad4w31upxpu3",
     "nota": 7,
-    "nombre": "Clínica Dental Montdent La Paz",
-    "motivo": "Solo abre por la tarde (15:00–20:00) entre semana y no tiene web: las mañanas nadie contesta.",
-    "senales": "Cierra 20:00 · Sin web",
+    "nombre": "Clínica Dental Especializada",
+    "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; el sábado solo con cita.",
+    "senales": "Cierra 20:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "ef46jiyvw7xg",
+    "id": "kf2rk4372ray",
     "nota": 6,
-    "nombre": "Endodoncia Puebla · Dr. José Antonio Con",
-    "motivo": "Especialista con cita previa: cierra 19:00 y el sábado solo con cita.",
-    "senales": "Cierra 19:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "wojphnym9b9d",
-    "nota": 5,
-    "nombre": "Cirujano Dentistas",
-    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "clresnkhlrh9",
-    "nota": 5,
-    "nombre": "Clínica Dental Moderna",
-    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "ctfss46pbm56",
-    "nota": 5,
-    "nombre": "Consultorio Dental 23 Sur",
-    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "bp04nf55t205",
-    "nota": 5,
-    "nombre": "Dentista Puebla",
-    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "d2zxfulqjpf4",
-    "nota": 5,
-    "nombre": "Maxilofacial Implantes Puebla · Dr. Juan Peña Lares",
-    "motivo": "Especialista sin web ni agenda en línea: las consultas dependen del teléfono.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "iek0xvdyodnd",
-    "nota": 4,
-    "nombre": "Clínica Dental 77",
-    "motivo": "Abre los 7 días y atiende urgencias por teléfono y WhatsApp; sin chat que conteste solo.",
+    "nombre": "Happy Dental House",
+    "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; no abre domingo.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "l2z3y9zualjb",
-    "nota": 4,
-    "nombre": "Dra. Ernestina Gasca",
-    "motivo": "Sin web ni agenda en línea; sus datos públicos son antiguos.",
+    "id": "rjw3k3out741",
+    "nota": 6,
+    "nombre": "Clínica Dental Centro Sur",
+    "motivo": "No abre viernes y el jueves cierra 14:30; WhatsApp sin chat que conteste solo.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "amisie8lyw04",
+    "nota": 6,
+    "nombre": "Dental 360°",
+    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "syfbrm2ghcoc",
+    "nota": 6,
+    "nombre": "Dental Arch Clinic",
+    "motivo": "Atiende urgencias, pero su web solo pide llamar o escribir por WhatsApp: sin respuesta automática.",
+    "senales": "Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "va5i7pg2y2yb",
+    "nota": 6,
+    "nombre": "Dental Center Sur",
+    "motivo": "Solo tiene Facebook; sábado cierra 14:00 y no abre domingo.",
+    "senales": "Cierra 20:00 · Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "z10dw5jkrjxj",
+    "nota": 5,
+    "nombre": "Dental Center Juriquilla",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "k1dzaritgb25",
+    "nota": 5,
+    "nombre": "Denti Smiles Centro Sur",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "t3i837cxd519",
+    "nota": 5,
+    "nombre": "DentNuvó · Dra. Maripaz Aguilar",
+    "motivo": "Sin web propia ni agenda en línea.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "n9zq159mp4rr",
+    "nota": 5,
+    "nombre": "Neident",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "rsr1qdcw0euj",
+    "nota": 5,
+    "nombre": "Smile Solution Querétaro",
+    "motivo": "Sin web propia ni agenda en línea.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "azpstswclmxu",
+    "nota": 3,
+    "nombre": "La Clínica Dental Querétaro (Juriquilla)",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "senales": "Cierra 19:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "jbb3filwzodc",
+    "nota": 3,
+    "nombre": "Centro Dental Querétaro · Dr. Jorge Arias",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "senales": "Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "vk7q2hkvl4hn",
+    "nota": 2,
+    "nombre": "dentalia Juriquilla",
+    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   }
 ]

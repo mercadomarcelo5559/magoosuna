@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-11: Angelópolis, La Paz y Centro (Puebla).
+// Lote del 2026-11-12: Juriquilla, Centro Sur y El Refugio (Querétaro).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,28 +39,33 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Angelópolis, Puebla, Puebla',
+    textQuery: 'dentista en Juriquilla, Querétaro, Querétaro',
     places: [
-      lugar('dental-angelopolis', 'Dental Angelópolis', '33 Sur 2310, consultorios 203 y 204, Santa Cruz Los Ángeles, 72400 Puebla, Pue.', '+52 222 249 4940', 'https://www.dentalangelopolis.com/', { h: { ...LV([[10.5, 14], [16.5, 19.5]]), 6: [10.5, 14] } }),
-      lugar('clinica-dental-77', 'Clínica Dental 77', 'Torres Médicas Angelópolis, Torre 2, piso 20, consultorio 2004, 72820 San Andrés Cholula, Pue.', '+52 221 187 5666', 'https://clinicadental77.com/', { h: { ...LV([9, 20]), 6: [9, 16] } }),
-      lugar('endodoncia-puebla', 'Endodoncia Puebla · Dr. José Antonio Con', 'Torres Médicas Angelópolis, Torre 1, piso 11, consultorio 1129, 72820 Puebla, Pue.', '+52 221 346 9691', 'https://www.endodonciapuebla.mx/', { h: LV([10, 19]) }),
+      lugar('dentalia-juriquilla', 'dentalia Juriquilla', 'Residencial Caletto, 2º piso, Juriquilla, Querétaro, Qro.', '+52 442 688 1100', 'https://www.dentalia.com/clinica/dentalia-juriquilla', { h: { ...LV([9, 20]), 6: [9, 18], 0: [10, 17] } }),
+      lugar('la-clinica-dental-qro-juriquilla', 'La Clínica Dental Querétaro (Juriquilla)', 'Juriquilla, Querétaro, Qro.', '+52 442 456 0193', 'https://dentalqueretaro.com/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
+      lugar('dental-arch-clinic', 'Dental Arch Clinic', 'Plaza Juriquilla, junto al Restaurante Emilio\'s, Juriquilla, Querétaro, Qro.', '+52 442 379 7079', 'https://dentalarchclinic.com/'),
+      lugar('clinica-dental-juriquilla', 'Clínica Dental Juriquilla', 'Corporativo Omega #512, oficina 102, Juriquilla, Querétaro, Qro.', '+52 442 234 1404', 'https://www.clinicadentaljuriquilla.com/'),
+      lugar('centro-dental-qro-arias', 'Centro Dental Querétaro · Dr. Jorge Arias', 'Av. de las Ciencias 2058, piso 31, consultorio 3104, Juriquilla, 76226 Querétaro, Qro.', '', 'https://www.dentistasenqro.mx/'),
+      lugar('dental-center-juriquilla', 'Dental Center Juriquilla', 'Juriquilla, Querétaro, Qro.', '+52 442 688 5562', ''),
+      lugar('neident', 'Neident', 'Juriquilla, Querétaro, Qro.', '+52 442 234 2105', ''),
     ],
   },
   {
-    textQuery: 'dentista en La Paz, Puebla, Puebla',
+    textQuery: 'dentista en Centro Sur, Querétaro, Querétaro',
     places: [
-      lugar('consultorio-23-sur', 'Consultorio Dental 23 Sur', 'Calle 23 Sur, La Paz, Puebla, Pue.', '+52 222 231 9204', ''),
-      lugar('montdent-la-paz', 'Clínica Dental Montdent La Paz', 'C. Tlaxco 136, La Paz, Puebla, Pue.', '+52 222 273 2950', '', { h: { ...LV([15, 20]), 6: [15, 20], 0: [9, 16] } }),
+      lugar('clinica-dental-centro-sur', 'Clínica Dental Centro Sur', 'Av. Fray Luis de León 7072, consultorio 410 (Momentum Centro Sur), Querétaro, Qro.', '+52 442 142 9871', 'https://clinicadentalcentrosur.com/', { h: { 1: [9.5, 20], 2: [9.5, 20], 3: [9.5, 20], 4: [9, 14.5], 6: [9.5, 20], 0: [9.5, 20] } }),
+      lugar('clinica-dental-especializada-qro', 'Clínica Dental Especializada', 'Av. Manuel Gómez Morín 3970, int. 101, Centro Sur, Querétaro, Qro.', '+52 442 295 5761', 'http://clinicadentalespecializada.com/', { h: LV([[10, 14], [16, 20]]) }),
+      lugar('dentnuvo', 'DentNuvó · Dra. Maripaz Aguilar', 'Av. Colinas del Cimatario 401, consultorio 303, Querétaro, Qro.', '+52 442 609 8988', ''),
+      lugar('dental-center-sur', 'Dental Center Sur', 'Cerro Escondido 101, Querétaro, Qro.', '+52 442 365 7455', 'https://www.facebook.com/p/Dental-Center-Sur-100084280477713/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
+      lugar('denti-smiles-centro-sur', 'Denti Smiles Centro Sur', 'Blvd. Centro Sur 40, La Alhambra, Querétaro, Qro.', '+52 442 716 1274', ''),
     ],
   },
   {
-    textQuery: 'dentista en Centro, Puebla, Puebla',
+    textQuery: 'dentista en El Refugio, Querétaro, Querétaro',
     places: [
-      lugar('dentista-puebla-10-ote', 'Dentista Puebla', 'Av. 10 Ote. 216, Centro histórico, Puebla, Pue.', '+52 222 703 2561', ''),
-      lugar('clinica-dental-moderna-puebla', 'Clínica Dental Moderna', 'Av. 8 Pte. 120, Centro histórico, Puebla, Pue.', '+52 222 242 0844', ''),
-      lugar('cirujano-dentistas-5-nte', 'Cirujano Dentistas', 'Calle 5 Nte. 1208, alto 3, Centro histórico, Puebla, Pue.', '+52 222 246 6003', ''),
-      lugar('maxilofacial-implantes-puebla', 'Maxilofacial Implantes Puebla · Dr. Juan Peña Lares', 'Av. 5 Pte. 715, Centro histórico, Puebla, Pue.', '+52 222 325 5305', ''),
-      lugar('dra-ernestina-gasca', 'Dra. Ernestina Gasca', '5 de Mayo 1003, Centro histórico, Puebla, Pue.', '+52 222 128 2452', ''),
+      lugar('smile-solution-qro', 'Smile Solution Querétaro', 'Anillo Vial Fray Junípero Serra 9390, local 21, El Refugio, Querétaro, Qro.', '+52 442 379 3134', ''),
+      lugar('dental-360-refugio', 'Dental 360°', 'Calle Campo Real 1606, El Refugio, Querétaro, Qro.', '+52 442 471 4066', '', { h: { ...LV([8, 20]), 6: [8, 14] } }),
+      lugar('happy-dental-house', 'Happy Dental House', 'Campo Real 1419, El Refugio, Querétaro, Qro.', '+52 442 779 1239', 'https://happydentalhouse.com/', { h: { ...LV([10, 20]), 6: [10, 15] } }),
     ],
   },
 ];
