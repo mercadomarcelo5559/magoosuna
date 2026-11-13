@@ -1,122 +1,90 @@
 [
   {
-    "id": "4i6anpk6vnr7",
-    "nota": 7,
-    "nombre": "Clínica Dental Juriquilla",
-    "motivo": "Atiende con cita previa y su web no tiene chat, WhatsApp ni agenda: todo es por teléfono.",
-    "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "ad4w31upxpu3",
-    "nota": 7,
-    "nombre": "Clínica Dental Especializada",
-    "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; el sábado solo con cita.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "kf2rk4372ray",
-    "nota": 6,
-    "nombre": "Happy Dental House",
-    "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; no abre domingo.",
+    "id": "t3ga0x0tsvgr",
+    "nota": 8,
+    "nombre": "Smile Center Mérida",
+    "motivo": "Cierra de 13:30 a 16:30 y a las 20:00, no abre domingo; tiene WhatsApp pero sin chat que conteste solo.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "rjw3k3out741",
-    "nota": 6,
-    "nombre": "Clínica Dental Centro Sur",
-    "motivo": "No abre viernes y el jueves cierra 14:30; WhatsApp sin chat que conteste solo.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "amisie8lyw04",
-    "nota": 6,
-    "nombre": "Dental 360°",
-    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+    "id": "c6ec6ye5y97g",
+    "nota": 7,
+    "nombre": "Espacio Dental",
+    "motivo": "Cierra de 13:00 a 16:00 y a las 20:00, no abre domingo y no tiene web.",
     "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "syfbrm2ghcoc",
-    "nota": 6,
-    "nombre": "Dental Arch Clinic",
-    "motivo": "Atiende urgencias, pero su web solo pide llamar o escribir por WhatsApp: sin respuesta automática.",
+    "id": "kf8c8sva25qy",
+    "nota": 7,
+    "nombre": "Quality Dental",
+    "motivo": "Cierra 19:00, el viernes 15:00, el sábado 13:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "0hpcdracqwox",
+    "nota": 5,
+    "nombre": "Grupo Dental Bosques",
+    "motivo": "Agenda en su web y correo de citas, pero sin chat ni WhatsApp que conteste al momento.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "va5i7pg2y2yb",
-    "nota": 6,
-    "nombre": "Dental Center Sur",
-    "motivo": "Solo tiene Facebook; sábado cierra 14:00 y no abre domingo.",
-    "senales": "Cierra 20:00 · Solo redes, sin web propia",
-    "evidencia": ""
-  },
-  {
-    "id": "z10dw5jkrjxj",
+    "id": "i74jthra7363",
     "nota": 5,
-    "nombre": "Dental Center Juriquilla",
+    "nombre": "Centro Estético Odontológico",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "k1dzaritgb25",
+    "id": "6bnes9ap6c2v",
     "nota": 5,
-    "nombre": "Denti Smiles Centro Sur",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "t3i837cxd519",
-    "nota": 5,
-    "nombre": "DentNuvó · Dra. Maripaz Aguilar",
+    "nombre": "Confidence Dental Group",
     "motivo": "Sin web propia ni agenda en línea.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "n9zq159mp4rr",
+    "id": "2zvx6gogw91m",
     "nota": 5,
-    "nombre": "Neident",
+    "nombre": "Dental Int",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "rsr1qdcw0euj",
+    "id": "hc81gzwjq7wd",
     "nota": 5,
-    "nombre": "Smile Solution Querétaro",
-    "motivo": "Sin web propia ni agenda en línea.",
+    "nombre": "iDent Design Plaza Luxury",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "azpstswclmxu",
-    "nota": 3,
-    "nombre": "La Clínica Dental Querétaro (Juriquilla)",
-    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-    "senales": "Cierra 19:00 · Sin chat en la web · Agenda en línea",
+    "id": "yu016zydvbhl",
+    "nota": 5,
+    "nombre": "Unidad Médica García Ginerés (Dentista Especialista)",
+    "motivo": "Especialista sin web ni agenda en línea: todo pasa por el teléfono.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "jbb3filwzodc",
+    "id": "onhy743bm6m2",
     "nota": 3,
-    "nombre": "Centro Dental Querétaro · Dr. Jorge Arias",
-    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-    "senales": "Sin chat en la web · Agenda en línea",
+    "nombre": "Biopediatrics",
+    "motivo": "Ya recibe citas en línea por Doctoralia.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "vk7q2hkvl4hn",
+    "id": "8zi9sapwcykk",
     "nota": 2,
-    "nombre": "dentalia Juriquilla",
-    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
+    "nombre": "dentalia Altabrisa",
+    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   }
 ]

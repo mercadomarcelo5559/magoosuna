@@ -1,152 +1,104 @@
 [
   {
     "output": {
-      "nota": 2,
-      "motivo": "Sucursal de cadena nacional que abre los 7 días.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+      "nota": 8,
+      "motivo": "Cierra de 13:30 a 16:30 y a las 20:00, no abre domingo; tiene WhatsApp pero sin chat que conteste solo.",
       "evidencia": "",
       "servicios": [
-        "Cirugía Maxilofacial",
-        "Endodoncia",
-        "Periodoncia",
-        "Implantes Dentales",
-        "Ortodoncia",
-        "Odontopediatría",
-        "Carillas Dentales",
-        "Blanqueamiento Dental"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Atiende urgencias, pero su web solo pide llamar o escribir por WhatsApp: sin respuesta automática.",
-      "evidencia": "",
-      "servicios": [
-        "Urgencias dentofaciales",
-        "Implantes dentales",
-        "Cirugía bucal y maxilofacial",
-        "Odontopediatría",
-        "Rehabilitación bucal",
-        "Implantología"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Atiende con cita previa y su web no tiene chat, WhatsApp ni agenda: todo es por teléfono.",
-      "evidencia": "",
-      "servicios": [
-        "Prótesis bucal",
-        "Implantología",
-        "Endodoncia",
-        "Ortodoncia",
-        "Odontopediatría",
-        "Blanqueamiento dental"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-      "evidencia": "",
-      "servicios": [
-        "Carillas dentales"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "No abre viernes y el jueves cierra 14:30; WhatsApp sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; el sábado solo con cita.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Solo tiene Facebook; sábado cierra 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; no abre domingo.",
-      "evidencia": "",
-      "servicios": [
+        "Brackets",
         "Invisalign",
-        "Limpieza dental",
-        "Carillas",
-        "Ortodoncia"
+        "Limpieza Dental",
+        "Blanqueamiento dental",
+        "Estética dental",
+        "Implantes dentales",
+        "Prótesis dentales",
+        "Extracción de muelas"
       ]
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra de 13:00 a 16:00 y a las 20:00, no abre domingo y no tiene web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Especialista sin web ni agenda en línea: todo pasa por el teléfono.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 2,
+      "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra 19:00, el viernes 15:00, el sábado 13:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web propia ni agenda en línea.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda en su web y correo de citas, pero sin chat ni WhatsApp que conteste al momento.",
+      "evidencia": "",
+      "servicios": [
+        "Prevención",
+        "Estética y diseño de sonrisa",
+        "Rehabilitación y Restauraciones",
+        "Cirugía e Implantología"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Ya recibe citas en línea por Doctoralia.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
     }
   }
 ]

@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-12: Juriquilla, Centro Sur y El Refugio (Querétaro).
+// Lote del 2026-11-13: García Ginerés, Altabrisa y Montebello (Mérida, Yucatán).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,33 +39,29 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Juriquilla, Querétaro, Querétaro',
+    textQuery: 'dentista en García Ginerés, Mérida, Yucatán',
     places: [
-      lugar('dentalia-juriquilla', 'dentalia Juriquilla', 'Residencial Caletto, 2º piso, Juriquilla, Querétaro, Qro.', '+52 442 688 1100', 'https://www.dentalia.com/clinica/dentalia-juriquilla', { h: { ...LV([9, 20]), 6: [9, 18], 0: [10, 17] } }),
-      lugar('la-clinica-dental-qro-juriquilla', 'La Clínica Dental Querétaro (Juriquilla)', 'Juriquilla, Querétaro, Qro.', '+52 442 456 0193', 'https://dentalqueretaro.com/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
-      lugar('dental-arch-clinic', 'Dental Arch Clinic', 'Plaza Juriquilla, junto al Restaurante Emilio\'s, Juriquilla, Querétaro, Qro.', '+52 442 379 7079', 'https://dentalarchclinic.com/'),
-      lugar('clinica-dental-juriquilla', 'Clínica Dental Juriquilla', 'Corporativo Omega #512, oficina 102, Juriquilla, Querétaro, Qro.', '+52 442 234 1404', 'https://www.clinicadentaljuriquilla.com/'),
-      lugar('centro-dental-qro-arias', 'Centro Dental Querétaro · Dr. Jorge Arias', 'Av. de las Ciencias 2058, piso 31, consultorio 3104, Juriquilla, 76226 Querétaro, Qro.', '', 'https://www.dentistasenqro.mx/'),
-      lugar('dental-center-juriquilla', 'Dental Center Juriquilla', 'Juriquilla, Querétaro, Qro.', '+52 442 688 5562', ''),
-      lugar('neident', 'Neident', 'Juriquilla, Querétaro, Qro.', '+52 442 234 2105', ''),
+      lugar('smile-center-merida', 'Smile Center Mérida', 'Calle 7 #215a, int. 206, x 32 y 34, García Ginerés, Mérida, Yuc.', '+52 999 943 9183', 'https://smilecentermerida.com/', { h: { ...LV([[9, 13.5], [16.5, 20]]), 6: [9, 14] } }),
+      lugar('centro-estetico-odontologico', 'Centro Estético Odontológico', 'Av. Cupules 74 x 6 y 8, García Ginerés, Mérida, Yuc.', '+52 999 920 2461', ''),
+      lugar('espacio-dental-merida', 'Espacio Dental', 'Calle 20 #210, García Ginerés, Mérida, Yuc.', '+52 999 920 8683', '', { h: { ...LV([[9, 13], [16, 20]]), 6: [[9, 13], [16, 20]] } }),
+      lugar('dental-int', 'Dental Int', 'Calle 9 #210, García Ginerés, 97070 Mérida, Yuc.', '+52 999 532 7977', ''),
+      lugar('unidad-medica-garcia-gineres', 'Unidad Médica García Ginerés (Dentista Especialista)', 'Calle 27 #190, García Ginerés, Mérida, Yuc.', '+52 999 925 9614', ''),
     ],
   },
   {
-    textQuery: 'dentista en Centro Sur, Querétaro, Querétaro',
+    textQuery: 'dentista en Altabrisa, Mérida, Yucatán',
     places: [
-      lugar('clinica-dental-centro-sur', 'Clínica Dental Centro Sur', 'Av. Fray Luis de León 7072, consultorio 410 (Momentum Centro Sur), Querétaro, Qro.', '+52 442 142 9871', 'https://clinicadentalcentrosur.com/', { h: { 1: [9.5, 20], 2: [9.5, 20], 3: [9.5, 20], 4: [9, 14.5], 6: [9.5, 20], 0: [9.5, 20] } }),
-      lugar('clinica-dental-especializada-qro', 'Clínica Dental Especializada', 'Av. Manuel Gómez Morín 3970, int. 101, Centro Sur, Querétaro, Qro.', '+52 442 295 5761', 'http://clinicadentalespecializada.com/', { h: LV([[10, 14], [16, 20]]) }),
-      lugar('dentnuvo', 'DentNuvó · Dra. Maripaz Aguilar', 'Av. Colinas del Cimatario 401, consultorio 303, Querétaro, Qro.', '+52 442 609 8988', ''),
-      lugar('dental-center-sur', 'Dental Center Sur', 'Cerro Escondido 101, Querétaro, Qro.', '+52 442 365 7455', 'https://www.facebook.com/p/Dental-Center-Sur-100084280477713/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
-      lugar('denti-smiles-centro-sur', 'Denti Smiles Centro Sur', 'Blvd. Centro Sur 40, La Alhambra, Querétaro, Qro.', '+52 442 716 1274', ''),
+      lugar('dentalia-altabrisa', 'dentalia Altabrisa', 'Fraccionamiento Altabrisa, 97133 Mérida, Yuc.', '+52 999 167 9475', 'https://www.dentalia.com/'),
+      lugar('quality-dental', 'Quality Dental', 'C. 26 212 x 7, Altabrisa Med Plaza, Mérida, Yuc.', '+52 999 233 5331', 'http://dentistayucatan.com/', { h: { 1: [9, 19], 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 15], 6: [9, 13] } }),
+      lugar('confidence-dental-group', 'Confidence Dental Group', 'Plaza Puerta de Hierro, C. 15 521, local 14, Altabrisa, 97130 Mérida, Yuc.', '+52 999 429 1747', ''),
     ],
   },
   {
-    textQuery: 'dentista en El Refugio, Querétaro, Querétaro',
+    textQuery: 'dentista en Montebello, Mérida, Yucatán',
     places: [
-      lugar('smile-solution-qro', 'Smile Solution Querétaro', 'Anillo Vial Fray Junípero Serra 9390, local 21, El Refugio, Querétaro, Qro.', '+52 442 379 3134', ''),
-      lugar('dental-360-refugio', 'Dental 360°', 'Calle Campo Real 1606, El Refugio, Querétaro, Qro.', '+52 442 471 4066', '', { h: { ...LV([8, 20]), 6: [8, 14] } }),
-      lugar('happy-dental-house', 'Happy Dental House', 'Campo Real 1419, El Refugio, Querétaro, Qro.', '+52 442 779 1239', 'https://happydentalhouse.com/', { h: { ...LV([10, 20]), 6: [10, 15] } }),
+      lugar('grupo-dental-bosques', 'Grupo Dental Bosques', 'Calle 36 Diagonal 306 x 28, Montebello, 97113 Mérida, Yuc.', '+52 999 913 9427', 'https://gdb.com.mx/'),
+      lugar('biopediatrics', 'Biopediatrics', 'Calle 16 No. 481 x 33, Montebello, Mérida, Yuc.', '+52 999 847 1072', 'https://www.biopediatricsdentistry.com/es/odontopediatra-meridayucatan-1', { h: { ...LV([9, 20]), 6: [9, 14] } }),
+      lugar('ident-design', 'iDent Design Plaza Luxury', 'Montebello, Mérida, Yuc.', '+52 999 922 8391', ''),
     ],
   },
 ];

@@ -16,10 +16,10 @@ Centro, Puebla, Puebla
 Juriquilla, Querétaro, Querétaro
 Centro Sur, Querétaro, Querétaro
 El Refugio, Querétaro, Querétaro
-# PENDIENTES
 García Ginerés, Mérida, Yucatán
 Altabrisa, Mérida, Yucatán
 Montebello, Mérida, Yucatán
+# PENDIENTES
 Zona Río, Tijuana, Baja California
 Otay, Tijuana, Baja California
 Playas de Tijuana, Tijuana, Baja California
