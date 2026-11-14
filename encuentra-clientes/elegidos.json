@@ -1,90 +1,154 @@
 [
   {
-    "id": "t3ga0x0tsvgr",
+    "id": "348wddly88uf",
     "nota": 8,
-    "nombre": "Smile Center Mérida",
-    "motivo": "Cierra de 13:30 a 16:30 y a las 20:00, no abre domingo; tiene WhatsApp pero sin chat que conteste solo.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
+    "nombre": "Muela Dental",
+    "motivo": "Entre semana cierra a las 16:00, no abre domingo y no tiene web.",
+    "senales": "Cierra 16:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "c6ec6ye5y97g",
+    "id": "bg9rpek82v6o",
     "nota": 7,
-    "nombre": "Espacio Dental",
-    "motivo": "Cierra de 13:00 a 16:00 y a las 20:00, no abre domingo y no tiene web.",
-    "senales": "Cierra 20:00 · Sin web",
+    "nombre": "Vides Dental Group",
+    "motivo": "Cierra 17:00, sábado 14:00 y no abre domingo; atiende urgencias pero sin chat que conteste solo.",
+    "senales": "Cierra 17:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "kf8c8sva25qy",
+    "id": "aah2bm28vvwg",
     "nota": 7,
-    "nombre": "Quality Dental",
-    "motivo": "Cierra 19:00, el viernes 15:00, el sábado 13:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · No se pudo leer su web",
+    "nombre": "Otay Dental Center",
+    "motivo": "Cierra 17:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 17:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "0hpcdracqwox",
-    "nota": 5,
-    "nombre": "Grupo Dental Bosques",
-    "motivo": "Agenda en su web y correo de citas, pero sin chat ni WhatsApp que conteste al momento.",
-    "senales": "Sin chat en la web",
+    "id": "pirrkg8ce1q2",
+    "nota": 6,
+    "nombre": "Advanced Smiles Dentistry",
+    "motivo": "Clínica grande con muchos doctores; cierra 18:00, sábado 14:00, no abre domingo y sin chat.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "i74jthra7363",
+    "id": "m2507n3f7qjd",
+    "nota": 6,
+    "nombre": "Clínica Dental Coronel",
+    "motivo": "Cierra 18:00 y no abre domingo; tiene WhatsApp pero ningún chat que conteste solo.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "e5a9e95xsalr",
+    "nota": 6,
+    "nombre": "Dentiland",
+    "motivo": "Dentista familiar y pediátrico; cierra 18:00, sábado 14:00, no abre domingo y sin chat.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "qhi1eydc2eio",
+    "nota": 6,
+    "nombre": "Dental Río",
+    "motivo": "Atiende urgencias todos los días, pero cierra a las 17:00 y su web no tiene chat ni WhatsApp.",
+    "senales": "Cierra 17:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "vt3652p7r4a0",
+    "nota": 6,
+    "nombre": "Otay Dental Group",
+    "motivo": "Sin web; cierra 18:00 y no abre domingo.",
+    "senales": "Cierra 18:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "ikawwbj8jb2p",
+    "nota": 6,
+    "nombre": "Dental Clinic Otay",
+    "motivo": "Solo tiene Facebook, sin web ni agenda en línea.",
+    "senales": "Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "lpa0zqeg2vzc",
+    "nota": 6,
+    "nombre": "Dental Sparks Playas",
+    "motivo": "Solo tiene Facebook y atiende con cita previa por teléfono.",
+    "senales": "Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "n6lpdop457ky",
+    "nota": 6,
+    "nombre": "Dental Vancouver Otay",
+    "motivo": "Solo tiene Facebook y WhatsApp, sin web ni agenda en línea.",
+    "senales": "Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "jqp5rbw9scgh",
     "nota": 5,
-    "nombre": "Centro Estético Odontológico",
+    "nombre": "Dental Ramos Clínica",
+    "motivo": "Tiene botón para reservar y WhatsApp; cierra 18:00 y el domingo solo con cita especial.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "fp20kkswlmri",
+    "nota": 5,
+    "nombre": "Dentistas Tijuana",
+    "motivo": "Reserva por WhatsApp a mano; cierra 18:00 y el sábado 14:00.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "groqek0tj2uy",
+    "nota": 5,
+    "nombre": "Clínica Dental Perlita",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "6bnes9ap6c2v",
+    "id": "gwoy0b1xv32t",
     "nota": 5,
-    "nombre": "Confidence Dental Group",
-    "motivo": "Sin web propia ni agenda en línea.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "2zvx6gogw91m",
-    "nota": 5,
-    "nombre": "Dental Int",
+    "nombre": "Dental Care Playas",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "hc81gzwjq7wd",
+    "id": "ytv2rrvxnabd",
     "nota": 5,
-    "nombre": "iDent Design Plaza Luxury",
+    "nombre": "International Dental Center",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "yu016zydvbhl",
+    "id": "9lcl2uuzsvts",
     "nota": 5,
-    "nombre": "Unidad Médica García Ginerés (Dentista Especialista)",
-    "motivo": "Especialista sin web ni agenda en línea: todo pasa por el teléfono.",
+    "nombre": "Otay Dental Care",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "onhy743bm6m2",
+    "id": "obtv8jnohohd",
+    "nota": 4,
+    "nombre": "Dental H&C Tijuana",
+    "motivo": "Abre los 7 días; no se pudo revisar si su web tiene chat.",
+    "senales": "Cierra 18:30 · No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "4tj67lbx6fd7",
     "nota": 3,
-    "nombre": "Biopediatrics",
-    "motivo": "Ya recibe citas en línea por Doctoralia.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "8zi9sapwcykk",
-    "nota": 2,
-    "nombre": "dentalia Altabrisa",
-    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
-    "senales": "Sin chat en la web",
+    "nombre": "Dental Image Specialty Center Playas",
+    "motivo": "Cadena con agenda en línea propia.",
+    "senales": "Cierra 19:30 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   }
 ]

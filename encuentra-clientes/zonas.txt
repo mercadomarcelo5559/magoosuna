@@ -19,10 +19,10 @@ El Refugio, Querétaro, Querétaro
 García Ginerés, Mérida, Yucatán
 Altabrisa, Mérida, Yucatán
 Montebello, Mérida, Yucatán
-# PENDIENTES
 Zona Río, Tijuana, Baja California
 Otay, Tijuana, Baja California
 Playas de Tijuana, Tijuana, Baja California
+# PENDIENTES
 Centro, Cancún, Quintana Roo
 Malecón Tajamar, Cancún, Quintana Roo
 Playa del Carmen Centro, Solidaridad, Quintana Roo

@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-13: García Ginerés, Altabrisa y Montebello (Mérida, Yucatán).
+// Lote del 2026-11-14: Zona Río, Otay y Playas de Tijuana (Tijuana, BC).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,29 +39,37 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en García Ginerés, Mérida, Yucatán',
+    textQuery: 'dentista en Zona Río, Tijuana, Baja California',
     places: [
-      lugar('smile-center-merida', 'Smile Center Mérida', 'Calle 7 #215a, int. 206, x 32 y 34, García Ginerés, Mérida, Yuc.', '+52 999 943 9183', 'https://smilecentermerida.com/', { h: { ...LV([[9, 13.5], [16.5, 20]]), 6: [9, 14] } }),
-      lugar('centro-estetico-odontologico', 'Centro Estético Odontológico', 'Av. Cupules 74 x 6 y 8, García Ginerés, Mérida, Yuc.', '+52 999 920 2461', ''),
-      lugar('espacio-dental-merida', 'Espacio Dental', 'Calle 20 #210, García Ginerés, Mérida, Yuc.', '+52 999 920 8683', '', { h: { ...LV([[9, 13], [16, 20]]), 6: [[9, 13], [16, 20]] } }),
-      lugar('dental-int', 'Dental Int', 'Calle 9 #210, García Ginerés, 97070 Mérida, Yuc.', '+52 999 532 7977', ''),
-      lugar('unidad-medica-garcia-gineres', 'Unidad Médica García Ginerés (Dentista Especialista)', 'Calle 27 #190, García Ginerés, Mérida, Yuc.', '+52 999 925 9614', ''),
+      lugar('vides-dental', 'Vides Dental Group', 'Leona Vicario 1451, int. 207, Zona Urbana Río, Tijuana, B.C.', '+52 663 237 7777', 'https://videsdentalgroup.com/', { h: { ...LV([9, 17]), 6: [9, 14] } }),
+      lugar('dental-rio-tijuana', 'Dental Río', 'Leona Vicario 1450, int. 204-A, Zona Río, Tijuana, B.C.', '+52 664 321 3663', 'https://dentalriotijuana.com/', { h: { ...LV([8, 17]), 6: [8, 17], 0: [8, 17] } }),
+      lugar('dental-hc-tijuana', 'Dental H&C Tijuana', 'Paseo de los Héroes C 27-A, Plaza Río, Tijuana, B.C.', '+52 664 634 6307', 'https://www.dentalhctijuana.com/', { h: { ...LV([10, 18.5]), 6: [9, 16], 0: [10, 13] } }),
+      lugar('advanced-smiles', 'Advanced Smiles Dentistry', 'Calle Germán Gedovius 10489, local 102, Zona Río, Tijuana, B.C.', '+52 664 634 3978', 'https://advancedsmilesdentistry.com/', { h: { ...LV([9, 18]), 6: [9, 14] } }),
+      lugar('dentiland', 'Dentiland', 'Ignacio Comonfort 9350, Zona Urbana Río, Tijuana, B.C.', '+52 664 684 7285', 'https://www.dentiland.net/', { h: { ...LV([9, 18]), 6: [9, 14] } }),
+      lugar('clinica-dental-coronel', 'Clínica Dental Coronel', 'Fray Servando Teresa de Mier 1351, int. 101, Zona Río, Tijuana, B.C.', '+52 664 905 9388', 'https://clinicadentalcoronel.com/', { h: { ...LV([10, 18]), 6: [9, 16] } }),
+      lugar('dental-ramos', 'Dental Ramos Clínica', 'Blvd. Sánchez Taboada 10110, Plaza Financiera, Zona Río, Tijuana, B.C.', '+52 663 436 7008', 'https://dentalramosclinic.com/contact-us/', { h: { ...LV([10, 18]), 6: [10, 18] } }),
     ],
   },
   {
-    textQuery: 'dentista en Altabrisa, Mérida, Yucatán',
+    textQuery: 'dentista en Otay, Tijuana, Baja California',
     places: [
-      lugar('dentalia-altabrisa', 'dentalia Altabrisa', 'Fraccionamiento Altabrisa, 97133 Mérida, Yuc.', '+52 999 167 9475', 'https://www.dentalia.com/'),
-      lugar('quality-dental', 'Quality Dental', 'C. 26 212 x 7, Altabrisa Med Plaza, Mérida, Yuc.', '+52 999 233 5331', 'http://dentistayucatan.com/', { h: { 1: [9, 19], 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 15], 6: [9, 13] } }),
-      lugar('confidence-dental-group', 'Confidence Dental Group', 'Plaza Puerta de Hierro, C. 15 521, local 14, Altabrisa, 97130 Mérida, Yuc.', '+52 999 429 1747', ''),
+      lugar('otay-dental-center', 'Otay Dental Center', 'Carretera Aeropuerto 1900, local E-21, C.C. Otay Constituyentes, Tijuana, B.C.', '+52 663 206 4209', 'https://otaydentalcenter.com/', { h: { ...LV([9, 17]), 6: [9, 15] } }),
+      lugar('dentistas-tijuana-otay', 'Dentistas Tijuana', 'Av. Gral. Venustiano Carranza 19555, Otay Galerías, 22436 Tijuana, B.C.', '+52 664 624 6080', 'https://www.dentistastijuana.com/contact', { h: { ...LV([10, 18]), 6: [10, 14] } }),
+      lugar('otay-dental-care', 'Otay Dental Care', 'Plaza Centenario, Blvd. de las Bellas Artes 17638, local 10, Garita de Otay, Tijuana, B.C.', '+52 664 647 5258', ''),
+      lugar('dental-vancouver-otay', 'Dental Vancouver Otay', 'Blvd. Industrial 1715, local A-3, Plaza Amistad, Otay Constituyentes, Tijuana, B.C.', '+52 664 904 1233', 'https://www.facebook.com/dentalvancouverotay/'),
+      lugar('dental-clinic-otay', 'Dental Clinic Otay', 'Otay, Tijuana, B.C.', '+52 664 193 2917', 'https://www.facebook.com/Dentalclinicotay7175/'),
+      lugar('otay-dental-group', 'Otay Dental Group', 'Aeropuerto 16000, local 614, La Pechuga, Tijuana, B.C.', '+52 664 647 5013', '', { h: { ...LV([10, 18]), 6: [10, 18] } }),
     ],
   },
   {
-    textQuery: 'dentista en Montebello, Mérida, Yucatán',
+    textQuery: 'dentista en Playas de Tijuana, Tijuana, Baja California',
     places: [
-      lugar('grupo-dental-bosques', 'Grupo Dental Bosques', 'Calle 36 Diagonal 306 x 28, Montebello, 97113 Mérida, Yuc.', '+52 999 913 9427', 'https://gdb.com.mx/'),
-      lugar('biopediatrics', 'Biopediatrics', 'Calle 16 No. 481 x 33, Montebello, Mérida, Yuc.', '+52 999 847 1072', 'https://www.biopediatricsdentistry.com/es/odontopediatra-meridayucatan-1', { h: { ...LV([9, 20]), 6: [9, 14] } }),
-      lugar('ident-design', 'iDent Design Plaza Luxury', 'Montebello, Mérida, Yuc.', '+52 999 922 8391', ''),
+      lugar('muela-dental', 'Muela Dental', 'Paseo Pedregal 2308, Secc. El Dorado, Playas de Tijuana, B.C.', '+52 664 688 3455', '', { h: { ...LV([9, 16]), 6: [8, 15] } }),
+      lugar('dental-image-playas', 'Dental Image Specialty Center Playas', 'P.º del Pedregal 460, int. 4, Las Flores, Playas de Tijuana, B.C.', '+52 664 976 5911', 'https://dentalimage.com/other-pages', { h: { ...LV([10.5, 19.5]), 6: [9, 15] } }),
+      lugar('dental-sparks-playas', 'Dental Sparks Playas', 'Paseo Ensenada 1249-C, Secc. Jardines del Sol, Playas de Tijuana, B.C.', '+52 664 280 2921', 'https://www.facebook.com/dentalsparksplayas/'),
+      lugar('international-dental-center', 'International Dental Center', 'De La Lluvia 2720, Costa Hermosa, Playas de Tijuana, B.C.', '+52 664 630 1345', ''),
+      lugar('clinica-dental-perlita', 'Clínica Dental Perlita', 'Del Rocío 671, Jardines Playas de Tijuana, B.C.', '+52 664 631 1298', ''),
+      lugar('dental-care-playas', 'Dental Care Playas', 'Paseo Playas de Tijuana 1020, Playas de Tijuana, B.C.', '+52 664 631 8480', ''),
     ],
   },
 ];
