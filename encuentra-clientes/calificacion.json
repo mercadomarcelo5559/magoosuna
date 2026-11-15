@@ -1,121 +1,8 @@
 [
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra 17:00, sábado 14:00 y no abre domingo; atiende urgencias pero sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
       "nota": 6,
-      "motivo": "Atiende urgencias todos los días, pero cierra a las 17:00 y su web no tiene chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Abre los 7 días; no se pudo revisar si su web tiene chat.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Clínica grande con muchos doctores; cierra 18:00, sábado 14:00, no abre domingo y sin chat.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Dentista familiar y pediátrico; cierra 18:00, sábado 14:00, no abre domingo y sin chat.",
-      "evidencia": "",
-      "servicios": [
-        "Pediatric Dentistry",
-        "Invisalign",
-        "Root Canal for Kids",
-        "Pediatric Emergency Dentistry"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Cierra 18:00 y no abre domingo; tiene WhatsApp pero ningún chat que conteste solo.",
-      "evidencia": "",
-      "servicios": [
-        "Endodoncias",
-        "Implantes Dentales",
-        "Limpieza Dental",
-        "Restauraciones Dentales",
-        "Ortodoncia",
-        "Blanqueamiento Dental"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Tiene botón para reservar y WhatsApp; cierra 18:00 y el domingo solo con cita especial.",
-      "evidencia": "",
-      "servicios": [
-        "Dental Implants",
-        "Orthodontics",
-        "Periodontics",
-        "Root Canals"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra 17:00, sábado 15:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Reserva por WhatsApp a mano; cierra 18:00 y el sábado 14:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Solo tiene Facebook y WhatsApp, sin web ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Solo tiene Facebook, sin web ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web; cierra 18:00 y no abre domingo.",
+      "motivo": "Cierra 19:00, sábado 14:00 y no abre domingo; no encontré teléfono público.",
       "evidencia": "",
       "servicios": []
     }
@@ -123,15 +10,40 @@
   {
     "output": {
       "nota": 8,
-      "motivo": "Entre semana cierra a las 16:00, no abre domingo y no tiene web.",
+      "motivo": "Cierra 17:00 y no abre fin de semana; atiende pacientes internacionales sin chat ni WhatsApp.",
       "evidencia": "",
-      "servicios": []
+      "servicios": [
+        "Dental Implants",
+        "Veneers",
+        "Smile Design",
+        "Root Canal",
+        "Dental Cleaning",
+        "Laser Teeth Whitening",
+        "Dental Crowns",
+        "Sinus Lift"
+      ]
     }
   },
   {
     "output": {
-      "nota": 3,
-      "motivo": "Cadena con agenda en línea propia.",
+      "nota": 6,
+      "motivo": "Atiende con cita previa por WhatsApp o formulario; cierra 20:00, sábado 14:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": [
+        "Implantes dentales",
+        "All On 4",
+        "Diseño de sonrisa",
+        "Ortodoncia",
+        "Endodoncia",
+        "Periodoncia",
+        "Limpieza dental"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 4,
+      "motivo": "Ya tiene agenda en línea en su web.",
       "evidencia": "",
       "servicios": []
     }
@@ -139,7 +51,15 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Solo tiene Facebook y atiende con cita previa por teléfono.",
+      "motivo": "Sin web; cierra 20:00, sábado 15:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; sábado cierra 13:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -147,7 +67,64 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Ya recibe citas en línea por Doctoralia.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Cierra 19:00, no abre domingo y su web no tiene chat ni WhatsApp.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Clínica pequeña con WhatsApp pero sin chat que conteste solo; sábado 14:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra 18:00, sábado 14:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra 19:00 y no abre fin de semana; tiene WhatsApp pero ningún chat que conteste solo.",
+      "evidencia": "",
+      "servicios": [
+        "Extracciones dentales",
+        "Blanqueamiento",
+        "Carillas dentales",
+        "Endodoncia",
+        "Invisalign",
+        "Limpieza",
+        "Ortodoncia",
+        "Periodoncia"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Atiende pacientes nacionales e internacionales por WhatsApp, sin chat que conteste solo.",
       "evidencia": "",
       "servicios": []
     }
@@ -155,7 +132,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }

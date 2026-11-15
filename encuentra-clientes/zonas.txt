@@ -22,10 +22,10 @@ Montebello, Mérida, Yucatán
 Zona Río, Tijuana, Baja California
 Otay, Tijuana, Baja California
 Playas de Tijuana, Tijuana, Baja California
-# PENDIENTES
 Centro, Cancún, Quintana Roo
 Malecón Tajamar, Cancún, Quintana Roo
 Playa del Carmen Centro, Solidaridad, Quintana Roo
+# PENDIENTES
 Campestre, León, Guanajuato
 Centro, León, Guanajuato
 Jardines del Moral, León, Guanajuato
