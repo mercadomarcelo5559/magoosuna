@@ -25,10 +25,10 @@ Playas de Tijuana, Tijuana, Baja California
 Centro, Cancún, Quintana Roo
 Malecón Tajamar, Cancún, Quintana Roo
 Playa del Carmen Centro, Solidaridad, Quintana Roo
-# PENDIENTES
 Campestre, León, Guanajuato
 Centro, León, Guanajuato
 Jardines del Moral, León, Guanajuato
+# PENDIENTES
 Coyoacán, Ciudad de México
 Narvarte, Ciudad de México
 Santa Fe, Ciudad de México
