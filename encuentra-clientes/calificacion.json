@@ -1,16 +1,8 @@
 [
   {
     "output": {
-      "nota": 5,
-      "motivo": "Especialista sin web ni agenda en línea; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 16:00 y a las 20:00, sábado 14:00; su web no tiene chat ni WhatsApp.",
+      "nota": 2,
+      "motivo": "Sucursal de cadena nacional que abre los 7 días.",
       "evidencia": "",
       "servicios": []
     }
@@ -18,7 +10,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "motivo": "Sin web propia ni agenda en línea.",
       "evidencia": "",
       "servicios": []
     }
@@ -26,7 +18,24 @@
   {
     "output": {
       "nota": 3,
-      "motivo": "Clínica universitaria; no es un consultorio privado típico.",
+      "motivo": "Ya tiene agenda en línea en su web (Red Dental Premium).",
+      "evidencia": "",
+      "servicios": [
+        "Diseño de Sonrisa",
+        "Blanqueamiento Dental",
+        "Carillas Dentales",
+        "Ortodoncia",
+        "Endodoncia",
+        "Periodoncia",
+        "Odontopediatría",
+        "Cirugía Maxilofacial"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Agenda por formulario y WhatsApp, sin chat que conteste solo; no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -34,15 +43,39 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+      "motivo": "Su web pide llamar para agendar; sin chat ni WhatsApp.",
       "evidencia": "",
-      "servicios": []
+      "servicios": [
+        "Ortodoncia",
+        "Odontopediatra",
+        "Ortopedia Maxilar",
+        "Implantes dentales",
+        "Prótesis dentales",
+        "Carillas dentales"
+      ]
     }
   },
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
+      "nota": 3,
+      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+      "evidencia": "",
+      "servicios": [
+        "Diseño de Sonrisa",
+        "Blanqueamiento Dental",
+        "Carillas Dentales",
+        "Ortodoncia",
+        "Endodoncia",
+        "Periodoncia",
+        "Odontopediatría",
+        "Cirugía Maxilofacial"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Tiene WhatsApp pero sin chat que conteste solo; cierra 19:00, sábado 15:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -50,31 +83,15 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Consultorio dentro de hospital, sin web ni agenda en línea; cierra 21:00.",
+      "motivo": "No se pudo revisar su web; cierra 21:00.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 2,
-      "motivo": "Cadena con agenda en línea y WhatsApp en su web.",
+      "nota": 6,
+      "motivo": "Sin web; sábado cierra 15:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -86,61 +103,28 @@
       "evidencia": "",
       "servicios": [
         "Diseño de Sonrisa",
-        "Ortodoncia",
-        "Carillas Dentales",
-        "Implantología",
         "Blanqueamiento Dental",
+        "Carillas Dentales",
+        "Ortodoncia",
         "Endodoncia",
+        "Periodoncia",
         "Odontopediatría",
-        "Periodoncia"
+        "Cirugía Maxilofacial"
       ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web ni agenda en línea; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
     }
   },
   {
     "output": {
       "nota": 4,
-      "motivo": "Tiene formulario y agenda en su web, aunque sin chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": [
-        "Ortodoncia",
-        "Blanqueamiento",
-        "Endodoncia",
-        "Periodoncia",
-        "Implantología",
-        "Odontología infantil",
-        "Cirugía maxilofacial",
-        "Rehabilitación bucal"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; atiende por WhatsApp sin respuesta automática.",
+      "motivo": "Ya tiene agenda en línea y WhatsApp; cierra 18:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; su web no tiene chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web; cierra 19:30, sábado 14:00 y no abre domingo.",
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
       "evidencia": "",
       "servicios": []
     }

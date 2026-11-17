@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-16: Campestre, Centro y Jardines del Moral (León, Guanajuato).
+// Lote del 2026-11-17: Coyoacán, Narvarte y Santa Fe (CDMX).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,34 +39,30 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Campestre, León, Guanajuato',
+    textQuery: 'dentista en Coyoacán, Ciudad de México',
     places: [
-      lugar('dra-fatima-herrera', 'Dra. Fátima Herrera · Cirujana Maxilofacial', 'Campestre 3004, int. 9, Cañada del Refugio, León, Gto.', '+52 477 850 3000', ''),
-      lugar('sonrident-leon', 'Clínica Sonrident', 'Hacienda de los Cárcamos 108, Hacienda del Campestre, 37125 León, Gto.', '', 'https://clinicasonrident.com/', { h: { ...LV([[10, 14], [16, 20]]), 6: [10, 14] } }),
-      lugar('qualitydent-leon', 'Clínica Dental QualityDent', 'Valle de Bravo 201, Valle del Campestre, León, Gto.', '+52 477 717 2046', ''),
-      lugar('odontologia-campestre-lasalle', 'Clínica de Odontología Campestre (De La Salle)', 'Av. Universidad 602, Lomas del Campestre, León, Gto.', '+52 477 710 8500', ''),
-      lugar('dental-excellence-leon', 'Dental Excellence', 'Calle Plateros 107, Valle del Campestre, León, Gto.', '+52 477 774 0824', '', { h: { ...LV([9, 20]), 6: [9, 14] } }),
-      lugar('kenji-sashida', 'Kenji Sashida Clínica Dental', 'Manantial 802, Lomas del Campestre, León, Gto.', '+52 477 395 9161', '', { h: { ...LV([9, 17]), 6: [9, 17] } }),
+      lugar('dentalia-oasis-coyoacan', 'dentalia Oasis Coyoacán', 'Plaza Oasis Coyoacán, Av. Miguel Ángel de Quevedo / Romero de Terreros, sótano 1, Coyoacán, CDMX', '+52 55 5554 4990', 'https://www.dentalia.com/clinica/dentalia-oasis-coyoacan', { h: { ...LV([9, 20]), 6: [9, 18], 0: [9, 18] } }),
+      lugar('eolodent-coyoacan', 'Clínica Dental Eolodent Coyoacán', 'Av. Miguel Ángel de Quevedo 928, Parque San Andrés, Coyoacán, CDMX', '+52 56 4893 4006', ''),
+      lugar('la-clinica-dental-coyoacan', 'La Clínica Dental Coyoacán', 'Coyoacán, CDMX', '+52 55 7583 9457', 'https://dentistacoyoacan.com.mx/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
+      lugar('giordani-dental', 'Giordani · Dr. Jesús Alberto Aguirre', 'Calle Otomíes 212, Ajusco, Coyoacán, CDMX', '+52 55 3429 8381', 'https://giordani.lat/', { h: { ...LV([9, 20]), 6: [9, 16] } }),
+      lugar('dentrica', 'Dentrica Clínica Dental Coyoacán', 'Árbol de Fuego 21, Candelaria Coyoacán, CDMX', '+52 56 1348 6587', 'https://dentrica.com.mx/'),
     ],
   },
   {
-    textQuery: 'dentista en Centro, León, Guanajuato',
+    textQuery: 'dentista en Narvarte, Ciudad de México',
     places: [
-      lugar('clinica-dental-hr', 'Clínica Dental HR', '5 de Febrero 724, consultorio 112, Centro, 37000 León, Gto.', '+52 477 107 3224', '', { h: { ...LV([9, 21]), 6: [9, 14] } }),
-      lugar('consultorio-dental-del-centro-leon', 'Consultorio Dental Del Centro', 'Av. Miguel Alemán 203, Obrera, 37340 León, Gto.', '+52 477 364 8320', ''),
-      lugar('clinica-dental-miguel-aleman', 'Clínica Dental Miguel Alemán', 'Av. Miguel Alemán 503, Centro, 37000 León, Gto.', '+52 477 154 8733', ''),
-      lugar('mcdental-leon', 'McDental León', 'Mariano Escobedo 1501, local 7, Col. Andrade, 37370 León, Gto.', '+52 477 429 7423', 'https://cita.mcdental.com.mx/sucursal/leon', { h: { ...LV([9, 20]), 6: [9, 20] } }),
+      lugar('la-clinica-dental-narvarte', 'La Clínica Dental Narvarte', 'Xola 1312, Narvarte Poniente, Benito Juárez, 03020 CDMX', '+52 55 8854 7358', 'https://laclinica.mx/', { h: { ...LV([9, 20]), 6: [8, 16] } }),
+      lugar('odontologia-integral-gc', 'Odontología Integral GC', 'Casas Grandes 74, Narvarte Oriente, Benito Juárez, CDMX', '+52 55 1239 1476', 'https://odontologiaintegralgc.com/', { h: { ...LV([9, 19]), 6: [10, 15] } }),
+      lugar('wedental', 'WeDental', 'Heriberto Frías 847, Narvarte Poniente, Benito Juárez, CDMX', '+52 55 7938 3662', 'https://www.wedental.mx/contacto/', { h: { ...LV([9, 21]), 6: [9, 18] } }),
+      lugar('denxal-narvarte', 'Denxal Clínica Dental Narvarte', 'La Quemada 50, Narvarte Oriente, Benito Juárez, CDMX', '+52 55 2063 2729', '', { h: { ...LV([10, 20]), 6: [10, 15] } }),
     ],
   },
   {
-    textQuery: 'dentista en Jardines del Moral, León, Guanajuato',
+    textQuery: 'dentista en Santa Fe, Ciudad de México',
     places: [
-      lugar('la-clinica-dental-leon', 'La Clínica Dental León', 'Calle Cañada 405, Jardines del Moral, León, Gto.', '+52 477 454 0411', 'https://laclinicaleon.dental/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
-      lugar('dentistry-leon', 'Dentistry León Clínica Dental', 'Farallón 364, Jardines del Moral, 37160 León, Gto.', '+52 477 767 1913', '', { h: { ...LV([8, 20]), 6: [8, 20] } }),
-      lugar('dental-romo', 'Clínica Dental Romo', 'Av. Guanajuato 1302, Jardines del Moral, 37160 León, Gto.', '+52 477 717 5982', 'https://www.dentalromo.mx/contacto/'),
-      lugar('ortofacial-center', 'Ortofacial Center', 'Agua Azul 702, Jardines del Moral, 37160 León, Gto.', '+52 477 497 4929', 'https://www.ortofacialcenter.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [9, 14] } }),
-      lugar('bajio-dental-esthetics', 'Bajío Dental Esthetics', 'Paseo del Moral 415, Jardines del Moral, León, Gto.', '+52 477 407 2619', 'https://www.bajiodentalesthetics.com/', { h: { ...LV([[10, 14], [16, 20]]), 6: [9, 14] } }),
-      lugar('oh-dental-leon', 'Oh! Dental León', 'León 109, Jardines del Moral, 37160 León, Gto.', '+52 477 170 7874', '', { h: { ...LV([9, 19.5]), 6: [9, 14] } }),
+      lugar('la-clinica-dental-santa-fe', 'La Clínica Dental Santa Fe', 'Edificio Insitu, Torre A, Vasco de Quiroga 4001, piso 8 D1, Santa Fe, 05348 CDMX', '+52 55 8854 8352', 'https://laclinicadentalsantafe.com/contactanos/', { h: { ...LV([9, 20]), 6: [9, 20] } }),
+      lugar('dentology-santa-fe', 'Dentology Santa Fe', 'Santa Fe 498, Contadero, Cuajimalpa, 05348 CDMX', '+52 55 5110 9500', 'https://www.dentology.com.mx/santa-fe-cdmx', { h: { ...LV([9, 18]), 6: [9, 14] } }),
+      lugar('dex-santa-fe', 'DEX! Clínica Dental Santa Fe', 'Centro Infinito, Vasco de Quiroga 4299, local 306, Santa Fe, CDMX', '+52 55 3679 3441', ''),
     ],
   },
 ];

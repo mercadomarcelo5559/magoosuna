@@ -1,130 +1,98 @@
 [
   {
-    "id": "dmy5c3xhxfax",
-    "nota": 7,
-    "nombre": "Bajío Dental Esthetics",
-    "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; su web no tiene chat ni WhatsApp.",
+    "id": "t3apxlt0br2b",
+    "nota": 6,
+    "nombre": "Odontología Integral GC",
+    "motivo": "Tiene WhatsApp pero sin chat que conteste solo; cierra 19:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "l39n1ejng838",
+    "nota": 6,
+    "nombre": "Giordani · Dr. Jesús Alberto Aguirre",
+    "motivo": "Agenda por formulario y WhatsApp, sin chat que conteste solo; no abre domingo.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "4ik2m5l1gwmb",
-    "nota": 7,
-    "nombre": "Clínica Sonrident",
-    "motivo": "Cierra de 14:00 a 16:00 y a las 20:00, sábado 14:00; su web no tiene chat ni WhatsApp.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "7b5ncbjnl3c5",
-    "nota": 7,
-    "nombre": "Kenji Sashida Clínica Dental",
-    "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
-    "senales": "Cierra 17:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "0rr29ekj5nn4",
-    "nota": 7,
-    "nombre": "Ortofacial Center",
-    "motivo": "Cierra de 14:00 a 16:00 y a las 20:00; atiende por WhatsApp sin respuesta automática.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "3wkcizog0lbh",
+    "id": "xr9igs4qg7fm",
     "nota": 6,
-    "nombre": "Oh! Dental León",
-    "motivo": "Sin web; cierra 19:30, sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:30 · Sin web",
+    "nombre": "Dentrica Clínica Dental Coyoacán",
+    "motivo": "Su web pide llamar para agendar; sin chat ni WhatsApp.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "5sl4b6906pec",
+    "id": "ptbrgmnbu85s",
     "nota": 6,
-    "nombre": "Dental Excellence",
-    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+    "nombre": "Denxal Clínica Dental Narvarte",
+    "motivo": "Sin web; sábado cierra 15:00 y no abre domingo.",
     "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "hn46dj36goh9",
-    "nota": 6,
-    "nombre": "Dentistry León Clínica Dental",
-    "motivo": "Sin web ni agenda en línea; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
+    "id": "q6k7s64oh4ys",
+    "nota": 5,
+    "nombre": "Clínica Dental Eolodent Coyoacán",
+    "motivo": "Sin web propia ni agenda en línea.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "1sk93jzfjsk1",
+    "id": "2pwjax9bnxon",
     "nota": 5,
-    "nombre": "Clínica Dental HR",
-    "motivo": "Consultorio dentro de hospital, sin web ni agenda en línea; cierra 21:00.",
-    "senales": "Cierra 21:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "85thfdcihzej",
-    "nota": 5,
-    "nombre": "Clínica Dental Miguel Alemán",
+    "nombre": "DEX! Clínica Dental Santa Fe",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "wpfzud2bapyr",
+    "id": "h9ja74kns2jm",
     "nota": 5,
-    "nombre": "Clínica Dental QualityDent",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
+    "nombre": "WeDental",
+    "motivo": "No se pudo revisar su web; cierra 21:00.",
+    "senales": "Cierra 21:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "whxzw7kebio9",
-    "nota": 5,
-    "nombre": "Consultorio Dental Del Centro",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "bdxv4yskxko8",
-    "nota": 5,
-    "nombre": "Dra. Fátima Herrera · Cirujana Maxilofacial",
-    "motivo": "Especialista sin web ni agenda en línea; no abre domingo.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "xvm0ygeykpou",
+    "id": "lhvjpffdpywh",
     "nota": 4,
-    "nombre": "Clínica Dental Romo",
-    "motivo": "Tiene formulario y agenda en su web, aunque sin chat ni WhatsApp.",
-    "senales": "Sin chat en la web · Agenda en línea",
+    "nombre": "Dentology Santa Fe",
+    "motivo": "Ya tiene agenda en línea y WhatsApp; cierra 18:00 y no abre domingo.",
+    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "3fbw7pxu5627",
+    "id": "y3jq5i258zyc",
     "nota": 3,
-    "nombre": "La Clínica Dental León",
+    "nombre": "La Clínica Dental Coyoacán",
+    "motivo": "Ya tiene agenda en línea en su web (Red Dental Premium).",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "ujbv0ijeeozg",
+    "nota": 3,
+    "nombre": "La Clínica Dental Narvarte",
     "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
     "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "o2wq5hfk38ij",
+    "id": "wa8zjauh5e8k",
     "nota": 3,
-    "nombre": "Clínica de Odontología Campestre (De La Salle)",
-    "motivo": "Clínica universitaria; no es un consultorio privado típico.",
-    "senales": "Sin web",
+    "nombre": "La Clínica Dental Santa Fe",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "gayb0x5ut4zr",
+    "id": "snizew8ovbei",
     "nota": 2,
-    "nombre": "McDental León",
-    "motivo": "Cadena con agenda en línea y WhatsApp en su web.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "nombre": "dentalia Oasis Coyoacán",
+    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   }
 ]

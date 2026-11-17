@@ -28,10 +28,10 @@ Playa del Carmen Centro, Solidaridad, Quintana Roo
 Campestre, León, Guanajuato
 Centro, León, Guanajuato
 Jardines del Moral, León, Guanajuato
-# PENDIENTES
 Coyoacán, Ciudad de México
 Narvarte, Ciudad de México
 Santa Fe, Ciudad de México
+# PENDIENTES
 Metepec Centro, Metepec, Estado de México
 Satélite, Naucalpan, Estado de México
 Interlomas, Huixquilucan, Estado de México
