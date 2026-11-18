@@ -1,8 +1,33 @@
 [
   {
     "output": {
-      "nota": 2,
-      "motivo": "Sucursal de cadena nacional que abre los 7 días.",
+      "nota": 7,
+      "motivo": "Viernes cierra 16:00, sábado 15:00 y no abre domingo; WhatsApp sin chat que conteste solo.",
+      "evidencia": "",
+      "servicios": [
+        "Ortodoncia",
+        "Endodoncia",
+        "Periodoncia",
+        "Odontopediatría",
+        "Odontopediatría inclusiva",
+        "Cirugía oral y maxilofacial",
+        "Prótesis y rehabilitación",
+        "Tomografía dental 3D"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Más de 30 años y solo atiende por teléfono: sin chat, WhatsApp ni agenda en su web.",
       "evidencia": "",
       "servicios": []
     }
@@ -10,32 +35,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea en su web (Red Dental Premium).",
-      "evidencia": "",
-      "servicios": [
-        "Diseño de Sonrisa",
-        "Blanqueamiento Dental",
-        "Carillas Dentales",
-        "Ortodoncia",
-        "Endodoncia",
-        "Periodoncia",
-        "Odontopediatría",
-        "Cirugía Maxilofacial"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Agenda por formulario y WhatsApp, sin chat que conteste solo; no abre domingo.",
+      "motivo": "Tiene WhatsApp y botón para reservar, pero sin chat que conteste solo.",
       "evidencia": "",
       "servicios": []
     }
@@ -43,39 +43,7 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Su web pide llamar para agendar; sin chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": [
-        "Ortodoncia",
-        "Odontopediatra",
-        "Ortopedia Maxilar",
-        "Implantes dentales",
-        "Prótesis dentales",
-        "Carillas dentales"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-      "evidencia": "",
-      "servicios": [
-        "Diseño de Sonrisa",
-        "Blanqueamiento Dental",
-        "Carillas Dentales",
-        "Ortodoncia",
-        "Endodoncia",
-        "Periodoncia",
-        "Odontopediatría",
-        "Cirugía Maxilofacial"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Tiene WhatsApp pero sin chat que conteste solo; cierra 19:00, sábado 15:00 y no abre domingo.",
+      "motivo": "Su web solo tiene un botón de mensaje; sábado cierra 15:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -83,40 +51,79 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "No se pudo revisar su web; cierra 21:00.",
+      "motivo": "No se pudo revisar su web; sin horario confirmado.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 6,
-      "motivo": "Sin web; sábado cierra 15:00 y no abre domingo.",
+      "nota": 8,
+      "motivo": "Cierra a las 17:00, sábado 13:30, no abre domingo y no tiene web.",
       "evidencia": "",
       "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-      "evidencia": "",
-      "servicios": [
-        "Diseño de Sonrisa",
-        "Blanqueamiento Dental",
-        "Carillas Dentales",
-        "Ortodoncia",
-        "Endodoncia",
-        "Periodoncia",
-        "Odontopediatría",
-        "Cirugía Maxilofacial"
-      ]
     }
   },
   {
     "output": {
       "nota": 4,
-      "motivo": "Ya tiene agenda en línea y WhatsApp; cierra 18:00 y no abre domingo.",
+      "motivo": "Ya tiene cita en línea y WhatsApp; cierra 18:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 2,
+      "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 4,
+      "motivo": "No se pudo revisar su web y no encontré teléfono público.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Parte de una red con agenda en línea; no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Cierra 19:00, sábado 13:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Tiene WhatsApp y agenda por formulario, sin chat que conteste solo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }

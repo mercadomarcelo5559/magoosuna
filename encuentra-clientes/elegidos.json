@@ -1,98 +1,130 @@
 [
   {
-    "id": "t3apxlt0br2b",
-    "nota": 6,
-    "nombre": "Odontología Integral GC",
-    "motivo": "Tiene WhatsApp pero sin chat que conteste solo; cierra 19:00, sábado 15:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
+    "id": "kfwfrunzbyik",
+    "nota": 8,
+    "nombre": "Stetic Dental Design",
+    "motivo": "Cierra a las 17:00, sábado 13:30, no abre domingo y no tiene web.",
+    "senales": "Cierra 17:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "l39n1ejng838",
-    "nota": 6,
-    "nombre": "Giordani · Dr. Jesús Alberto Aguirre",
-    "motivo": "Agenda por formulario y WhatsApp, sin chat que conteste solo; no abre domingo.",
+    "id": "74truh8m6yrz",
+    "nota": 7,
+    "nombre": "Nishikawa Clínica Dental",
+    "motivo": "Más de 30 años y solo atiende por teléfono: sin chat, WhatsApp ni agenda en su web.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "xr9igs4qg7fm",
+    "id": "c7njnlbg51sf",
+    "nota": 7,
+    "nombre": "Novodent Clínica Dental Integral",
+    "motivo": "Viernes cierra 16:00, sábado 15:00 y no abre domingo; WhatsApp sin chat que conteste solo.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "p12geq0j4k4w",
     "nota": 6,
-    "nombre": "Dentrica Clínica Dental Coyoacán",
-    "motivo": "Su web pide llamar para agendar; sin chat ni WhatsApp.",
+    "nombre": "Dental Flores",
+    "motivo": "Su web solo tiene un botón de mensaje; sábado cierra 15:00 y no abre domingo.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "gho1v0v4dzym",
+    "nota": 6,
+    "nombre": "Smile Works Interlomas",
+    "motivo": "Cierra 19:00, sábado 13:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "qc0yacme6efm",
+    "nota": 5,
+    "nombre": "Dodental Tecnológico",
+    "motivo": "Tiene WhatsApp y botón para reservar, pero sin chat que conteste solo.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "ptbrgmnbu85s",
-    "nota": 6,
-    "nombre": "Denxal Clínica Dental Narvarte",
-    "motivo": "Sin web; sábado cierra 15:00 y no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
+    "id": "xem8mp8tor93",
+    "nota": 5,
+    "nombre": "Grupo Odontológico Lomas (Interlomas)",
+    "motivo": "Tiene WhatsApp y agenda por formulario, sin chat que conteste solo.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "q6k7s64oh4ys",
+    "id": "daucscwlvvx6",
     "nota": 5,
-    "nombre": "Clínica Dental Eolodent Coyoacán",
-    "motivo": "Sin web propia ni agenda en línea.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "2pwjax9bnxon",
-    "nota": 5,
-    "nombre": "DEX! Clínica Dental Santa Fe",
+    "nombre": "Centro de Estética Dental Interlomas · Dr. Héctor Cabañas",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "h9ja74kns2jm",
+    "id": "yf26tok95hv6",
     "nota": 5,
-    "nombre": "WeDental",
-    "motivo": "No se pudo revisar su web; cierra 21:00.",
-    "senales": "Cierra 21:00 · No se pudo leer su web",
+    "nombre": "Dental Care Metepec",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "lhvjpffdpywh",
+    "id": "lk766ybh5320",
+    "nota": 5,
+    "nombre": "White Dental Metepec",
+    "motivo": "No se pudo revisar su web; sin horario confirmado.",
+    "senales": "No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "w11tdn4zap6t",
+    "nota": 5,
+    "nombre": "Zendo Dental Interlomas",
+    "motivo": "No se pudo revisar su web; sin horario publicado.",
+    "senales": "No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "82a7s7ibbb91",
     "nota": 4,
-    "nombre": "Dentology Santa Fe",
-    "motivo": "Ya tiene agenda en línea y WhatsApp; cierra 18:00 y no abre domingo.",
-    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
+    "nombre": "4U Dental Studio",
+    "motivo": "Ya tiene cita en línea y WhatsApp; cierra 18:00.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "y3jq5i258zyc",
-    "nota": 3,
-    "nombre": "La Clínica Dental Coyoacán",
-    "motivo": "Ya tiene agenda en línea en su web (Red Dental Premium).",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "id": "9q0bt8chg9bq",
+    "nota": 4,
+    "nombre": "Consultorio Dental Satélite",
+    "motivo": "No se pudo revisar su web y no encontré teléfono público.",
+    "senales": "No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "ujbv0ijeeozg",
+    "id": "o25wf95gwu27",
     "nota": 3,
-    "nombre": "La Clínica Dental Narvarte",
+    "nombre": "La Clínica Dental Interlomas",
+    "motivo": "Parte de una red con agenda en línea; no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "4l7vwgm4d106",
+    "nota": 3,
+    "nombre": "La Clínica Dental Satélite",
     "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "senales": "Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "wa8zjauh5e8k",
-    "nota": 3,
-    "nombre": "La Clínica Dental Santa Fe",
-    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "snizew8ovbei",
+    "id": "xrp6jiho3xf8",
     "nota": 2,
-    "nombre": "dentalia Oasis Coyoacán",
-    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
+    "nombre": "dentalia Satélite",
+    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   }
 ]
