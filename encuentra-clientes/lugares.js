@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-18: Metepec, Satélite e Interlomas (Estado de México).
+// Lote del 2026-11-19: Lomas (San Luis Potosí), Centro (Aguascalientes) y Altozano/Centro (Morelia).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,35 +39,32 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Metepec Centro, Metepec, Estado de México',
+    textQuery: 'dentista en Lomas, San Luis Potosí, San Luis Potosí',
     places: [
-      lugar('novodent', 'Novodent Clínica Dental Integral', 'Blvd. Toluca-Metepec 601 Nte., lote 8, Plaza San Juan, La Purísima, 52169 Metepec, Méx.', '+52 722 917 0170', 'https://www.novodent.mx/clinica-dental/', { h: { 1: [10, 19], 2: [10, 20], 3: [10, 20], 4: [10, 20], 5: [10, 16], 6: [8, 15] } }),
-      lugar('dental-care-metepec', 'Dental Care Metepec', 'Guadalupe Victoria 1330L, La Purísima, Metepec, Méx.', '+52 722 107 6469', ''),
-      lugar('nishikawa', 'Nishikawa Clínica Dental', 'Calle Leona Vicario 204, Coaxustenco, 52140 Metepec, Méx.', '+52 722 270 2614', 'https://www.clinicadentalnishikawa.com/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
-      lugar('dodental-tecnologico', 'Dodental Tecnológico', 'Av. Tecnológico 733, Agrícola Bellavista, 52172 Metepec, Méx.', '+52 722 649 7576', 'https://dodental.mx/'),
-      lugar('dental-flores-metepec', 'Dental Flores', '16 de Septiembre 611-A, 52175 Metepec, Méx.', '+52 722 180 1273', 'https://dental-flores.ueniweb.com/', { h: { ...LV([9, 20]), 6: [9, 15] } }),
-      lugar('white-dental-metepec', 'White Dental Metepec', 'Calle Josefa Ortiz de Domínguez 538, Metepec, Méx.', '+52 722 347 6500', 'https://whitedentalmetepec.com/'),
-      lugar('stetic-dental-design', 'Stetic Dental Design', 'H. Ayuntamiento 203-C, La Municipal, 52168 Metepec, Méx.', '+52 722 459 9669', '', { h: { ...LV([8, 17]), 6: [8, 13.5] } }),
-      lugar('4u-dental-studio', '4U Dental Studio', 'Torre de Especialidades Hospital Médica MIA, 3er piso, consultorio 319, Metepec, Méx.', '+52 722 622 2462', 'https://4udentalstudio.com/', { h: { ...LV([9, 18]), 6: [9, 15] } }),
+      lugar('centro-dental-lomas-slp', 'Centro Dental Lomas', 'Cordillera de los Himalaya 106, Lomas 3ra Secc., San Luis Potosí, S.L.P.', '+52 444 813 6473', 'https://www.centrodentallomas.com/', { h: { ...LV([[11, 14], [16, 20]]), 6: [10, 15], 0: [10, 15] } }),
+      lugar('dra-caribel-andrade', 'Dra. Caribel Andrade', 'Montes Blancos 180, int. 13, Lomas 2da Secc., San Luis Potosí, S.L.P.', '+52 444 828 3251', ''),
+      lugar('perfect-smile-slp', 'The Perfect Smile Dental Laser Clinic', 'Av. Cordillera de los Himalaya 611-5, Lomas 4ta Secc., San Luis Potosí, S.L.P.', '+52 444 825 2253', '', { h: { 1: [10, 20.5], 2: [10, 20.5], 3: [10, 20.5], 4: [10, 20.5], 5: [10, 20], 6: [10, 14.5] } }),
+      lugar('odontologia-estetica-integral-slp', 'Odontología Estética e Integral', 'Cordillera de los Himalaya 130, Lomas 3ra Secc., San Luis Potosí, S.L.P.', '+52 444 859 4733', ''),
+      lugar('silva-herzog', 'Clínica Odontológica Silva-Herzog', 'Cofre de Perote 249, Lomas, San Luis Potosí, S.L.P.', '+52 444 825 2158', ''),
     ],
   },
   {
-    textQuery: 'dentista en Satélite, Naucalpan, Estado de México',
+    textQuery: 'dentista en Centro, Aguascalientes, Aguascalientes',
     places: [
-      lugar('la-clinica-dental-satelite', 'La Clínica Dental Satélite', 'Manuel E. Izaguirre #2, Ciudad Satélite, 53100 Naucalpan, Méx.', '+52 55 9435 7143', 'https://laclinicasatelite.mx/'),
-      lugar('dentalia-satelite', 'dentalia Satélite', 'Ciudad Satélite, Naucalpan, Méx.', '+52 55 1102 3864', 'https://www.dentalia.com/clinica/dentalia-satelite'),
-      lugar('consultorio-dental-satelite', 'Consultorio Dental Satélite', 'Circuito Historiadores S-44, local 3, Ciudad Satélite, Naucalpan, Méx.', '', 'http://consultoriodentalsatelite.com.mx/'),
+      lugar('dental-dr-alex', 'Clínica Dental Dr. Alex', 'Gral. Miguel Barragán 433, local 3, Zona Centro, 20000 Aguascalientes, Ags.', '+52 449 979 4402', ''),
+      lugar('especialidades-dentales-ags', 'Centro de Especialidades Dentales de Aguascalientes', 'Francisco Primo Verdad 241, Zona Centro, 20000 Aguascalientes, Ags.', '+52 449 915 1781', ''),
+      lugar('denut', 'Denut Clínica Dental', 'San Cayetano 239, San Cayetano, 20010 Aguascalientes, Ags.', '+52 449 186 4546', 'https://denut.ueniweb.com/'),
+      lugar('dental-corporativa-ags', 'Dental Corporativa', 'Fresnillo 210, Col. Primavera, 20050 Aguascalientes, Ags.', '+52 449 915 1559', ''),
     ],
   },
   {
-    textQuery: 'dentista en Interlomas, Huixquilucan, Estado de México',
+    textQuery: 'dentista en Altozano, Morelia, Michoacán',
     places: [
-      lugar('la-clinica-dental-interlomas', 'La Clínica Dental Interlomas', 'Corporativo Palmas Uno, Blvd. Palmas Hills 1, piso 5, Valle de las Palmas, 52787 Huixquilucan, Méx.', '+52 55 7583 9507', '', { h: { ...LV([9, 20]), 6: [9, 16] } }),
-      lugar('smile-works-interlomas', 'Smile Works Interlomas', 'Corporativo Terraz, Pasaje Interlomas 39, int. 301, 52787 Huixquilucan, Méx.', '+52 55 2685 4906', 'https://www.smileworksinterlomas.com/', { h: { ...LV([10, 19]), 6: [10, 13] } }),
-      lugar('grupo-odontologico-lomas', 'Grupo Odontológico Lomas (Interlomas)', 'Blvd. Interlomas 24-705, Lomas Anáhuac, Huixquilucan, Méx.', '+52 55 5989 9451', 'https://www.grupodontologicolomas.com/'),
-      lugar('zendo-dental', 'Zendo Dental Interlomas', 'Av. Jesús del Monte 37, 52764 Huixquilucan, Méx.', '+52 55 5247 7065', 'https://zendodental.com.mx/'),
-      lugar('dentalia-magnocentro', 'dentalia Magnocentro Interlomas', 'Blvd. Magnocentro 35, 52760 Huixquilucan, Méx.', '+52 800 003 3682', 'https://www.dentalia.com/'),
-      lugar('estetica-dental-interlomas-cabanas', 'Centro de Estética Dental Interlomas · Dr. Héctor Cabañas', 'Blvd. Interlomas 14-110, Huixquilucan, Méx.', '+52 55 5291 8176', ''),
+      lugar('dra-marijose-mayes', 'Dra. Marijose Mayes Merelles', 'Hospital Ángeles Altozano, consultorio 413 A, piso 4, Morelia, Mich.', '+52 443 530 0920', 'https://www.doctoralia.com.mx/perfil/marijose-mayes-merelles'),
+      lugar('agata-estetica-dental', 'Ágata Estética Dental', 'Torre B, piso 3, consultorio 306B, Altozano, Morelia, Mich.', '+52 443 330 7681', 'https://agataesteticadental.mx/agata/morelia'),
+      lugar('cenit-morelia', 'CÉNIT Odontología Avanzada', 'Ana María Gallaga 911, int. 102/105, Torre Médica Centro, Morelia, Mich.', '+52 443 703 0405', ''),
+      lugar('dental-white-morelia', 'Dental White', 'Virrey de Mendoza 435, Centro, Morelia, Mich.', '+52 443 360 5858', 'https://dental-white-1.ueniweb.com/'),
+      lugar('san-dental-morelia', 'San Dental', 'Revolución 359, Morelia, Mich.', '+52 443 236 0615', ''),
     ],
   },
 ];

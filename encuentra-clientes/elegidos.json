@@ -1,130 +1,114 @@
 [
   {
-    "id": "kfwfrunzbyik",
-    "nota": 8,
-    "nombre": "Stetic Dental Design",
-    "motivo": "Cierra a las 17:00, sábado 13:30, no abre domingo y no tiene web.",
-    "senales": "Cierra 17:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "74truh8m6yrz",
-    "nota": 7,
-    "nombre": "Nishikawa Clínica Dental",
-    "motivo": "Más de 30 años y solo atiende por teléfono: sin chat, WhatsApp ni agenda en su web.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "c7njnlbg51sf",
-    "nota": 7,
-    "nombre": "Novodent Clínica Dental Integral",
-    "motivo": "Viernes cierra 16:00, sábado 15:00 y no abre domingo; WhatsApp sin chat que conteste solo.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "p12geq0j4k4w",
+    "id": "esdcy1w6m2lr",
     "nota": 6,
-    "nombre": "Dental Flores",
-    "motivo": "Su web solo tiene un botón de mensaje; sábado cierra 15:00 y no abre domingo.",
+    "nombre": "Centro Dental Lomas",
+    "motivo": "Cierra de 14:00 a 16:00 entre semana; su web pide escribir, pero no tiene chat ni WhatsApp.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "gho1v0v4dzym",
+    "id": "akewewuoutka",
     "nota": 6,
-    "nombre": "Smile Works Interlomas",
-    "motivo": "Cierra 19:00, sábado 13:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · No se pudo leer su web",
+    "nombre": "The Perfect Smile Dental Laser Clinic",
+    "motivo": "Sin web; sábado cierra 14:30 y no abre domingo.",
+    "senales": "Cierra 20:30 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "qc0yacme6efm",
+    "id": "kjjc2g2daypu",
     "nota": 5,
-    "nombre": "Dodental Tecnológico",
-    "motivo": "Tiene WhatsApp y botón para reservar, pero sin chat que conteste solo.",
+    "nombre": "Dental White",
+    "motivo": "Su web solo tiene un botón de mensaje y WhatsApp, sin chat que conteste solo.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "xem8mp8tor93",
+    "id": "lvjsvmelis0s",
     "nota": 5,
-    "nombre": "Grupo Odontológico Lomas (Interlomas)",
-    "motivo": "Tiene WhatsApp y agenda por formulario, sin chat que conteste solo.",
+    "nombre": "Denut Clínica Dental",
+    "motivo": "Su web solo tiene un botón de mensaje, sin chat que conteste solo.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "daucscwlvvx6",
+    "id": "7lcpmbatqn3l",
     "nota": 5,
-    "nombre": "Centro de Estética Dental Interlomas · Dr. Héctor Cabañas",
+    "nombre": "CÉNIT Odontología Avanzada",
+    "motivo": "Sin web propia ni agenda en línea.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "ujf3bt8ypivf",
+    "nota": 5,
+    "nombre": "Centro de Especialidades Dentales de Aguascalientes",
+    "motivo": "Atiende con citas programadas, sin web ni agenda en línea.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "6llzn85w14hi",
+    "nota": 5,
+    "nombre": "Clínica Dental Dr. Alex",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "yf26tok95hv6",
+    "id": "k888yprs2jm3",
     "nota": 5,
-    "nombre": "Dental Care Metepec",
+    "nombre": "Clínica Odontológica Silva-Herzog",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "lk766ybh5320",
+    "id": "x0tbq7u72lol",
     "nota": 5,
-    "nombre": "White Dental Metepec",
-    "motivo": "No se pudo revisar su web; sin horario confirmado.",
-    "senales": "No se pudo leer su web",
+    "nombre": "Dental Corporativa",
+    "motivo": "Más de 40 años y sin agenda en línea: todo es por teléfono o WhatsApp.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "w11tdn4zap6t",
+    "id": "bvfso62rt1x8",
     "nota": 5,
-    "nombre": "Zendo Dental Interlomas",
-    "motivo": "No se pudo revisar su web; sin horario publicado.",
-    "senales": "No se pudo leer su web",
+    "nombre": "Dra. Caribel Andrade",
+    "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "82a7s7ibbb91",
+    "id": "6cxbsbx13ay1",
+    "nota": 5,
+    "nombre": "Odontología Estética e Integral",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "05hdx9vw8q43",
+    "nota": 5,
+    "nombre": "San Dental",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "dxalxieoiegk",
     "nota": 4,
-    "nombre": "4U Dental Studio",
-    "motivo": "Ya tiene cita en línea y WhatsApp; cierra 18:00.",
-    "senales": "Cierra 18:00 · Sin chat en la web",
+    "nombre": "Ágata Estética Dental",
+    "motivo": "Cadena con varias sucursales; atiende por llamada y WhatsApp.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "9q0bt8chg9bq",
-    "nota": 4,
-    "nombre": "Consultorio Dental Satélite",
-    "motivo": "No se pudo revisar su web y no encontré teléfono público.",
-    "senales": "No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "o25wf95gwu27",
+    "id": "me2um82u8sju",
     "nota": 3,
-    "nombre": "La Clínica Dental Interlomas",
-    "motivo": "Parte de una red con agenda en línea; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "4l7vwgm4d106",
-    "nota": 3,
-    "nombre": "La Clínica Dental Satélite",
-    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "nombre": "Dra. Marijose Mayes Merelles",
+    "motivo": "Ya recibe citas en línea por Doctoralia y tiene atención telefónica 24 h.",
     "senales": "Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "xrp6jiho3xf8",
-    "nota": 2,
-    "nombre": "dentalia Satélite",
-    "motivo": "Sucursal de cadena nacional con su propio sistema de citas.",
-    "senales": "Sin chat en la web",
     "evidencia": ""
   }
 ]

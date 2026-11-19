@@ -34,10 +34,10 @@ Santa Fe, Ciudad de México
 Metepec Centro, Metepec, Estado de México
 Satélite, Naucalpan, Estado de México
 Interlomas, Huixquilucan, Estado de México
-# PENDIENTES
 Lomas, San Luis Potosí, San Luis Potosí
 Centro, Aguascalientes, Aguascalientes
 Altozano, Morelia, Michoacán
+# PENDIENTES
 Distrito Uno, Chihuahua, Chihuahua
 Centro, Hermosillo, Sonora
 Tres Ríos, Culiacán, Sinaloa
