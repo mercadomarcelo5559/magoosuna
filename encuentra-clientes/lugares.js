@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-19: Lomas (San Luis Potosí), Centro (Aguascalientes) y Altozano/Centro (Morelia).
+// Lote del 2026-11-20: Distrito Uno (Chihuahua), Centro (Hermosillo) y Tres Ríos (Culiacán).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,32 +39,33 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Lomas, San Luis Potosí, San Luis Potosí',
+    textQuery: 'dentista en Distrito Uno, Chihuahua, Chihuahua',
     places: [
-      lugar('centro-dental-lomas-slp', 'Centro Dental Lomas', 'Cordillera de los Himalaya 106, Lomas 3ra Secc., San Luis Potosí, S.L.P.', '+52 444 813 6473', 'https://www.centrodentallomas.com/', { h: { ...LV([[11, 14], [16, 20]]), 6: [10, 15], 0: [10, 15] } }),
-      lugar('dra-caribel-andrade', 'Dra. Caribel Andrade', 'Montes Blancos 180, int. 13, Lomas 2da Secc., San Luis Potosí, S.L.P.', '+52 444 828 3251', ''),
-      lugar('perfect-smile-slp', 'The Perfect Smile Dental Laser Clinic', 'Av. Cordillera de los Himalaya 611-5, Lomas 4ta Secc., San Luis Potosí, S.L.P.', '+52 444 825 2253', '', { h: { 1: [10, 20.5], 2: [10, 20.5], 3: [10, 20.5], 4: [10, 20.5], 5: [10, 20], 6: [10, 14.5] } }),
-      lugar('odontologia-estetica-integral-slp', 'Odontología Estética e Integral', 'Cordillera de los Himalaya 130, Lomas 3ra Secc., San Luis Potosí, S.L.P.', '+52 444 859 4733', ''),
-      lugar('silva-herzog', 'Clínica Odontológica Silva-Herzog', 'Cofre de Perote 249, Lomas, San Luis Potosí, S.L.P.', '+52 444 825 2158', ''),
+      lugar('distrito-dental', 'Distrito Dental', 'Vía Lombardía 5901, int. 105, Distrito I, Chihuahua, Chih.', '+52 614 441 8136', 'https://www.distritodental.com/', { h: { ...LV([9, 19]), 6: [9, 14] } }),
+      lugar('grupo-dental-cumbre', 'Grupo Dental Cumbre', 'Vía Lombardía 5705, suite 302, Distrito 1, Col. Saucito, Chihuahua, Chih.', '+52 614 414 7808', 'https://www.grupodentalcumbre.com/'),
+      lugar('dentalite', 'Dentalite', 'Periférico de la Juventud 6900, Chihuahua, Chih.', '+52 614 413 4732', 'https://www.dentalite.mx/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
+      lugar('dentalia-fashion-mall-chih', 'dentalia Chihuahua Fashion Mall', 'Periférico de la Juventud 3501, Plaza del Sol, Chihuahua, Chih.', '+52 614 430 3127', 'https://www.dentalia.com/dentistas/chihuahua'),
     ],
   },
   {
-    textQuery: 'dentista en Centro, Aguascalientes, Aguascalientes',
+    textQuery: 'dentista en Centro, Hermosillo, Sonora',
     places: [
-      lugar('dental-dr-alex', 'Clínica Dental Dr. Alex', 'Gral. Miguel Barragán 433, local 3, Zona Centro, 20000 Aguascalientes, Ags.', '+52 449 979 4402', ''),
-      lugar('especialidades-dentales-ags', 'Centro de Especialidades Dentales de Aguascalientes', 'Francisco Primo Verdad 241, Zona Centro, 20000 Aguascalientes, Ags.', '+52 449 915 1781', ''),
-      lugar('denut', 'Denut Clínica Dental', 'San Cayetano 239, San Cayetano, 20010 Aguascalientes, Ags.', '+52 449 186 4546', 'https://denut.ueniweb.com/'),
-      lugar('dental-corporativa-ags', 'Dental Corporativa', 'Fresnillo 210, Col. Primavera, 20050 Aguascalientes, Ags.', '+52 449 915 1559', ''),
+      lugar('centro-dental-integral-hmo', 'Centro Dental Integral', 'Revolución 203 esq. Veracruz, local 6A, Centro, Hermosillo, Son.', '+52 662 210 2667', 'https://www.dentistaenhermosillo.com/', { h: { ...LV([9, 19]), 6: [9, 16] } }),
+      lugar('centro-dental-sonora', 'Centro Dental Sonora', 'Blvd. Morelos 138, Hermosillo, Son.', '+52 662 210 3187', 'https://www.centrodentalsonora.com.mx/', { h: { ...LV([8, 20]), 6: [8, 15] } }),
+      lugar('clinica-dental-juarez-hmo', 'Clínica Dental Juárez', 'Av. Constituyentes 113, Misión del Real, Hermosillo, Son.', '', 'https://www.clinicadentaljuarezmx.com/', { h: { ...LV([[10, 13.5], [16, 19.5]]), 6: [10, 15] } }),
+      lugar('espinoza-clinica-dental', 'Espinoza Clínica Dental', 'Blvd. Las Torres 604, Bella Vista, Hermosillo, Son.', '+52 662 256 4085', 'https://www.espinozaclinicadental.com/index.html'),
+      lugar('arcada-hmo', 'ARCADA Clínica Dental', 'Blvd. Luis Donaldo Colosio 248, Hermosillo, Son.', '+52 662 213 0857', 'https://arcadaclinicadental.com/', { h: { ...LV([8, 20]), 6: [8, 20] } }),
     ],
   },
   {
-    textQuery: 'dentista en Altozano, Morelia, Michoacán',
+    textQuery: 'dentista en Tres Ríos, Culiacán, Sinaloa',
     places: [
-      lugar('dra-marijose-mayes', 'Dra. Marijose Mayes Merelles', 'Hospital Ángeles Altozano, consultorio 413 A, piso 4, Morelia, Mich.', '+52 443 530 0920', 'https://www.doctoralia.com.mx/perfil/marijose-mayes-merelles'),
-      lugar('agata-estetica-dental', 'Ágata Estética Dental', 'Torre B, piso 3, consultorio 306B, Altozano, Morelia, Mich.', '+52 443 330 7681', 'https://agataesteticadental.mx/agata/morelia'),
-      lugar('cenit-morelia', 'CÉNIT Odontología Avanzada', 'Ana María Gallaga 911, int. 102/105, Torre Médica Centro, Morelia, Mich.', '+52 443 703 0405', ''),
-      lugar('dental-white-morelia', 'Dental White', 'Virrey de Mendoza 435, Centro, Morelia, Mich.', '+52 443 360 5858', 'https://dental-white-1.ueniweb.com/'),
-      lugar('san-dental-morelia', 'San Dental', 'Revolución 359, Morelia, Mich.', '+52 443 236 0615', ''),
+      lugar('odontologicas-del-rio', 'Centro de Especialidades Odontológicas del Río', 'Diego Valadez 164 Pte., 2do piso, local 203, Desarrollo Urbano Tres Ríos, Culiacán, Sin.', '+52 667 752 1548', ''),
+      lugar('nutri-odent', 'Nutri Odent', 'Blvd. Alfonso G. Calderón 2595, Country Tres Ríos, Culiacán, Sin.', '+52 667 775 3939', ''),
+      lugar('ortodoncia-tres-rios', 'Consultorio de Ortodoncia Tres Ríos', 'Av. Milenium, Ampliación Desarrollo Urbano Tres Ríos, Culiacán, Sin.', '+52 667 758 7900', ''),
+      lugar('cassabi', 'Cassabi Clínica Dental', 'Culiacán, Sin.', '+52 667 584 2156', ''),
+      lugar('dental-americas', 'Dental Americas', 'Culiacán, Sin.', '+52 667 320 1086', 'https://dentalamericas.mx/'),
+      lugar('ingenieria-dental', 'Ingeniería Dental', 'Culiacán, Sin.', '+52 667 117 4169', 'http://ingenieriadental.mx/'),
     ],
   },
 ];

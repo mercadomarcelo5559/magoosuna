@@ -2,18 +2,15 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Cierra de 14:00 a 16:00 entre semana; su web pide escribir, pero no tiene chat ni WhatsApp.",
+      "motivo": "Agenda por WhatsApp sin chat que conteste solo; cierra 19:00, sábado 14:00 y no abre domingo.",
       "evidencia": "",
-      "servicios": [
-        "Implantes",
-        "Ortodoncia"
-      ]
+      "servicios": []
     }
   },
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea: todo pasa por el teléfono.",
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }
@@ -21,7 +18,40 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Sin web; sábado cierra 14:30 y no abre domingo.",
+      "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; cierra 19:00 y sábado 14:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 2,
+      "motivo": "Sucursal de cadena nacional con agenda en línea.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Sin chat ni WhatsApp en su web; cierra 19:00, sábado 16:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": [
+        "Extracciones y cirugías dentales",
+        "Ortodoncia y alineadores",
+        "Endodoncias",
+        "Implantes dentales",
+        "Limpiezas profesionales",
+        "Atención dental infantil",
+        "Resinas dentales",
+        "Carillas dentales"
+      ]
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sábado cierra 15:00 y no abre domingo; no se pudo revisar su web.",
       "evidencia": "",
       "servicios": []
     }
@@ -29,47 +59,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Atiende con citas programadas, sin web ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Su web solo tiene un botón de mensaje, sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Más de 40 años y sin agenda en línea: todo es por teléfono o WhatsApp.",
+      "motivo": "Cierra de 13:30 a 16:00; no encontré teléfono público.",
       "evidencia": "",
       "servicios": []
     }
@@ -77,15 +67,7 @@
   {
     "output": {
       "nota": 3,
-      "motivo": "Ya recibe citas en línea por Doctoralia y tiene atención telefónica 24 h.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Cadena con varias sucursales; atiende por llamada y WhatsApp.",
+      "motivo": "Ya ofrece atención telefónica de urgencias las 24 horas.",
       "evidencia": "",
       "servicios": []
     }
@@ -93,15 +75,7 @@
   {
     "output": {
       "nota": 5,
-      "motivo": "Sin web propia ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Su web solo tiene un botón de mensaje y WhatsApp, sin chat que conteste solo.",
+      "motivo": "Tiene WhatsApp y reserva de cita, sin chat que conteste solo; no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -110,6 +84,46 @@
     "output": {
       "nota": 5,
       "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Clínica nueva que agenda por WhatsApp directo con los doctores, sin web ni chat.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Clínica con pocas reseñas que agenda por WhatsApp, sin chat que conteste solo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }

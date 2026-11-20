@@ -37,10 +37,10 @@ Interlomas, Huixquilucan, Estado de México
 Lomas, San Luis Potosí, San Luis Potosí
 Centro, Aguascalientes, Aguascalientes
 Altozano, Morelia, Michoacán
-# PENDIENTES
 Distrito Uno, Chihuahua, Chihuahua
 Centro, Hermosillo, Sonora
 Tres Ríos, Culiacán, Sinaloa
+# PENDIENTES
 Boca del Río, Veracruz
 Centro, Oaxaca de Juárez, Oaxaca
 Centro, Saltillo, Coahuila
