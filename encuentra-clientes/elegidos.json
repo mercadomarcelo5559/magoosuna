@@ -1,122 +1,146 @@
 [
   {
-    "id": "orp54eq03yb8",
+    "id": "wkqneawoq3hw",
+    "nota": 8,
+    "nombre": "Oaxaca Dental",
+    "motivo": "Cierra a las 17:00, no abre fin de semana y no tiene web.",
+    "senales": "Cierra 17:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "4sw0shksihz7",
     "nota": 7,
-    "nombre": "Centro Dental Integral",
-    "motivo": "Sin chat ni WhatsApp en su web; cierra 19:00, sábado 16:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
+    "nombre": "Clínica Río Sucursal Centro",
+    "motivo": "Entre semana solo abre por la tarde (15:00–20:00) y no tiene web.",
+    "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "rxx1w8qigwc2",
-    "nota": 6,
-    "nombre": "Dentalite",
-    "motivo": "Su web solo tiene formulario de cita, sin chat ni WhatsApp; cierra 19:00 y sábado 14:00.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
+    "id": "6lke3qqilknc",
+    "nota": 7,
+    "nombre": "ODONTOAX",
+    "motivo": "Su página web ya no está activa; cierra 19:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "qke0cj1wslwp",
-    "nota": 6,
-    "nombre": "Distrito Dental",
-    "motivo": "Agenda por WhatsApp sin chat que conteste solo; cierra 19:00, sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "if2pr4q1d10m",
-    "nota": 6,
-    "nombre": "Cassabi Clínica Dental",
-    "motivo": "Clínica nueva que agenda por WhatsApp directo con los doctores, sin web ni chat.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "hol28johovnx",
-    "nota": 6,
-    "nombre": "Centro Dental Sonora",
-    "motivo": "Sábado cierra 15:00 y no abre domingo; no se pudo revisar su web.",
+    "id": "efe6oeehsa2g",
+    "nota": 7,
+    "nombre": "BocaDent",
+    "motivo": "No abre lunes ni domingo y cierra a las 14:00 miércoles y sábado.",
     "senales": "Cierra 20:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "7hbqr911kkpn",
-    "nota": 5,
-    "nombre": "ARCADA Clínica Dental",
-    "motivo": "Tiene WhatsApp y reserva de cita, sin chat que conteste solo; no abre domingo.",
+    "id": "0ma82l3nsyzj",
+    "nota": 6,
+    "nombre": "Dental Center Saltillo",
+    "motivo": "Cierra de 13:00 a 15:00 y el sábado a las 13:00; WhatsApp sin chat que conteste solo.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "lp288rqs4e9p",
+    "nota": 6,
+    "nombre": "Arte Dental Kids",
+    "motivo": "Dentista infantil con WhatsApp pero sin chat; cierra de 14:00 a 16:00.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "kuv84de6tcln",
-    "nota": 5,
-    "nombre": "Clínica Dental Juárez",
-    "motivo": "Cierra de 13:30 a 16:00; no encontré teléfono público.",
-    "senales": "Cierra 19:30 · No se pudo leer su web",
+    "id": "rvgeguhkqnhs",
+    "nota": 6,
+    "nombre": "Clínica Dental Odonic",
+    "motivo": "Sin web; sábado cierra 15:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "cctb8uil0iz0",
+    "id": "vjrotrp6wmg5",
+    "nota": 6,
+    "nombre": "Dental Acuña",
+    "motivo": "Sin web ni agenda en línea; no abre domingo.",
+    "senales": "Cierra 19:30 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "rpsforqj67ex",
+    "nota": 6,
+    "nombre": "Dental-art Clínica Dental",
+    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "as64b79kyjn5",
+    "nota": 6,
+    "nombre": "Icodent Consultorio Dental",
+    "motivo": "Sin web; cierra 19:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "944kus9c5iie",
     "nota": 5,
-    "nombre": "Dental Americas",
-    "motivo": "Clínica con pocas reseñas que agenda por WhatsApp, sin chat que conteste solo.",
+    "nombre": "Iora Clínica Dental de Implantología",
+    "motivo": "Centro de implantes con cierre de 14:00 a 16:00 y sin chat ni WhatsApp en su web.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "rq5ory91byvw",
+    "nota": 5,
+    "nombre": "Crisal Dent",
+    "motivo": "Su web solo tiene un botón de mensaje, sin chat que conteste solo.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "xtw5k0kks3ty",
+    "id": "vykted7a1v5v",
     "nota": 5,
-    "nombre": "Centro de Especialidades Odontológicas del Río",
+    "nombre": "Clínica EndoDentist",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "checfrwd7qx9",
+    "id": "npix7i66ud2k",
     "nota": 5,
-    "nombre": "Consultorio de Ortodoncia Tres Ríos",
+    "nombre": "DivDent",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "d3enh77cxhtt",
-    "nota": 5,
-    "nombre": "Nutri Odent",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
+    "id": "ug0llf8up1ox",
+    "nota": 4,
+    "nombre": "Encisan · Encías e Implantes",
+    "motivo": "Ya tiene agenda y WhatsApp en su web; cierra 18:00.",
+    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "76n2yhgj083v",
-    "nota": 5,
-    "nombre": "Grupo Dental Cumbre",
-    "motivo": "No se pudo revisar su web; sin horario publicado.",
-    "senales": "No se pudo leer su web",
+    "id": "u1qyqxnc2cjn",
+    "nota": 4,
+    "nombre": "Dr. Becerril · Clínica Dental Especializada",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "eez4xy59sa4w",
-    "nota": 5,
-    "nombre": "Ingeniería Dental",
-    "motivo": "No se pudo revisar su web; sin horario publicado.",
-    "senales": "No se pudo leer su web",
+    "id": "5ty05int96oc",
+    "nota": 4,
+    "nombre": "Micdent Mi Clínica Dental",
+    "motivo": "Abre los 7 días, incluido domingo por la mañana; sin web.",
+    "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "7gviza9dch0s",
-    "nota": 3,
-    "nombre": "Espinoza Clínica Dental",
-    "motivo": "Ya ofrece atención telefónica de urgencias las 24 horas.",
-    "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "67jlrt9efg37",
-    "nota": 2,
-    "nombre": "dentalia Chihuahua Fashion Mall",
-    "motivo": "Sucursal de cadena nacional con agenda en línea.",
-    "senales": "Sin chat en la web · Agenda en línea",
+    "id": "wawm1wo14sga",
+    "nota": 4,
+    "nombre": "MontDent Veracruz",
+    "motivo": "Abre los 7 días; sin web propia.",
+    "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   }
 ]

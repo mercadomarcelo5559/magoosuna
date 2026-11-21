@@ -40,10 +40,10 @@ Altozano, Morelia, Michoacán
 Distrito Uno, Chihuahua, Chihuahua
 Centro, Hermosillo, Sonora
 Tres Ríos, Culiacán, Sinaloa
-# PENDIENTES
 Boca del Río, Veracruz
 Centro, Oaxaca de Juárez, Oaxaca
 Centro, Saltillo, Coahuila
+# PENDIENTES
 Centro, Torreón, Coahuila
 Tabasco 2000, Villahermosa, Tabasco
 Zona Dorada, Mazatlán, Sinaloa
