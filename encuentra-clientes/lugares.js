@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-21: Boca del Río (Veracruz), Centro (Oaxaca) y Centro (Saltillo).
+// Lote del 2026-11-22: Centro (Torreón), Tabasco 2000 (Villahermosa) y Zona Dorada (Mazatlán).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,36 +39,35 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Boca del Río, Veracruz',
+    textQuery: 'dentista en Centro, Torreón, Coahuila',
     places: [
-      lugar('micdent', 'Micdent Mi Clínica Dental', 'Av. Salvador Díaz Mirón 332-B, Jardines de Virginia, 94294 Boca del Río, Ver.', '+52 229 929 6440', '', { h: { ...LV([8, 20]), 6: [8, 20], 0: [10, 14] } }),
-      lugar('endodentist', 'Clínica EndoDentist', 'Av. Reyes Heroles 64, Costa Verde, 94294 Boca del Río, Ver.', '+52 229 241 7380', ''),
-      lugar('divdent', 'DivDent', 'Av. de las Américas 590, Boca del Río, Ver.', '+52 229 101 6401', ''),
-      lugar('iora-dental', 'Iora Clínica Dental de Implantología', 'Calle Vasco de Balboa 191, Virginia, Boca del Río, Ver.', '+52 229 985 2658', 'https://www.clinicadentaliora.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [10, 14] } }),
-      lugar('bocadent', 'BocaDent', 'Calle Texcoco 341, Col. Rigo, Boca del Río, Ver.', '+52 229 922 1748', 'http://www.bocadent.com.mx/index-4.html', { h: { 2: [10, 20], 3: [10, 14], 4: [10, 20], 5: [10, 20], 6: [10, 14] } }),
-      lugar('arte-dental-kids', 'Arte Dental Kids', 'Calle Pista 256, local 5, Hípico, Boca del Río, Ver.', '+52 229 980 3231', 'https://www.artedentalkids.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [9, 14] } }),
-      lugar('montdent-veracruz', 'MontDent Veracruz', 'Plaza Vela, piso 3, int. 303, Boca del Río, Ver.', '+52 229 223 2538', '', { h: { ...LV([10, 20]), 6: [10, 20], 0: [9, 16] } }),
+      lugar('laguna-dent', 'Laguna Dent', 'Blvd. Revolución 585 Ote., Centro, 27000 Torreón, Coah.', '+52 871 711 2207', 'https://www.lagunadent.com/', { h: { ...LV([10, 19]), 6: [10, 15] } }),
+      lugar('sereya-dentales', 'Sereya Dentales', 'Calzada Cuauhtémoc 270 Sur, Centro, Torreón, Coah.', '+52 871 405 1474', 'https://sereyadentales.com/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
+      lugar('aoral-clinic', 'Aoral Clinic', 'Blvd. Independencia 144, Centro, Torreón, Coah.', '+52 871 718 4832', 'https://www.aoralclinic.com/', { h: { ...LV([9, 18]), 6: [9, 14] } }),
+      lugar('dental-center-juarez-trc', 'Dental Center Juárez', 'Av. Juárez 2767, Centro, Torreón, Coah.', '+52 871 727 6525', '', { h: { ...LV([16, 19]), 6: [10.5, 17], 0: [10, 13] } }),
+      lugar('dent-clinica-dental-trc', 'Dent Clínica Dental', 'Av. Hidalgo 3125 Ote., Nuevo Torreón, Torreón, Coah.', '+52 871 296 3651', 'https://clinicadent.com/', { h: { ...LV([9, 19]), 6: [9, 13] } }),
+      lugar('dazujo-torreon', 'Dazujo Clínica Dental', 'Blvd. La Libertad 750, Torreón, Coah.', '+52 871 222 2162', ''),
+      lugar('dental-21-torreon', 'Dental 21', 'Matamoros 1578 Pte., Torreón, Coah.', '+52 871 463 0606', ''),
     ],
   },
   {
-    textQuery: 'dentista en Centro, Oaxaca de Juárez, Oaxaca',
+    textQuery: 'dentista en Tabasco 2000, Villahermosa, Tabasco',
     places: [
-      lugar('odontoax', 'ODONTOAX', 'Félix Romero #100 esq. Gerardo Varela, Col. La Cascada, Oaxaca de Juárez, Oax.', '+52 951 518 5610', 'https://odontoax.getnetstore.mx/', { h: { ...LV([9, 19]), 6: [9, 15] } }),
-      lugar('encisan', 'Encisan · Encías e Implantes', 'Matamoros 204, Centro, Oaxaca de Juárez, Oax.', '+52 951 514 1928', 'https://www.encisan.com/', { h: { ...LV([10, 18]), 6: [10, 14] } }),
-      lugar('crisal-dent', 'Crisal Dent', 'Gregorio Torres Quintero 405C, 68016 Oaxaca de Juárez, Oax.', '+52 951 285 5271', 'https://crisaldent.ueniweb.com/'),
-      lugar('oaxaca-dental', 'Oaxaca Dental', 'Carlos María Bustamante 312-A, Centro, Oaxaca de Juárez, Oax.', '+52 951 516 4959', '', { h: LV([9, 17]) }),
+      lugar('orthocity', 'Orthocity Clínica Dental Especializada', 'Av. Paseo Tabasco 1404-1, Tabasco 2000, 86035 Villahermosa, Tab.', '+52 993 316 9113', 'https://www.orthocityvhsa.com/', { h: { ...LV([10, 20]), 6: [10, 14] } }),
+      lugar('biodentis', 'Biodentis', 'Prol. 27 de Febrero 3103, Fracc. Galaxias, Tabasco 2000, Villahermosa, Tab.', '+52 993 315 6277', 'http://www.biodentis.com.mx/'),
+      lugar('smile-cuidado-dental-familiar', 'Smile Cuidado Dental Familiar', 'Blvd. Adolfo Ruiz Cortines 1310, Plaza Olmeca, Tabasco 2000, Villahermosa, Tab.', '+52 993 291 6046', '', { h: { ...LV([14, 20]), 6: [9.5, 20] } }),
+      lugar('clinica-dental-villahermosa', 'Clínica Dental Villahermosa', 'Ernesto Malda 206, Centro, Villahermosa, Tab.', '+52 993 278 8631', '', { h: { ...LV([8.5, 20]), 6: [8.5, 20] } }),
+      lugar('odonto-vitalis', 'Odonto Vitalis', 'Calle Sindicato del Trabajo 120 C, Adolfo López Mateos, Villahermosa, Tab.', '+52 993 131 0886', 'https://www.odontovitalis.com/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
     ],
   },
   {
-    textQuery: 'dentista en Centro, Saltillo, Coahuila',
+    textQuery: 'dentista en Zona Dorada, Mazatlán, Sinaloa',
     places: [
-      lugar('icodent-saltillo', 'Icodent Consultorio Dental', 'Ignacio Allende 617, Zona Centro, 25000 Saltillo, Coah.', '+52 844 528 7536', '', { h: { ...LV([10, 19]), 6: [10, 17] } }),
-      lugar('odonic', 'Clínica Dental Odonic', 'Álvaro Obregón 211, Zona Centro, Saltillo, Coah.', '+52 844 410 4766', '', { h: { ...LV([10, 19]), 6: [10, 15] } }),
-      lugar('dental-art-saltillo', 'Dental-art Clínica Dental', 'Urdiñola Sur 554-A, Zona Centro, Saltillo, Coah.', '+52 844 297 0184', '', { h: { ...LV([10, 19]), 6: [10, 14] } }),
-      lugar('clinica-rio-centro-saltillo', 'Clínica Río Sucursal Centro', 'C. Xicoténcatl 520, Zona Centro, Saltillo, Coah.', '+52 844 143 6913', '', { h: { ...LV([15, 20]), 6: [9, 15] } }),
-      lugar('dental-acuna', 'Dental Acuña', 'C. Manuel Acuña 404-490, Zona Centro, Saltillo, Coah.', '+52 844 344 8422', '', { h: { ...LV([9.5, 19.5]), 6: [9.5, 17] } }),
-      lugar('dental-center-saltillo', 'Dental Center Saltillo', 'Col. Latinoamericana 2da Ampliación, Saltillo, Coah.', '+52 844 293 5990', 'https://www.dentalcentersaltillo.com/', { h: { ...LV([[9.5, 13], [15, 19]]), 6: [9.5, 13] } }),
-      lugar('dr-becerril', 'Dr. Becerril · Clínica Dental Especializada', 'Luis Echeverría 715, Col. Latinoamericana, Saltillo, Coah.', '+52 844 488 1588', 'https://www.drbecerril.com/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
+      lugar('gavito-dental-care', 'Dr. Francisco Gavito · Dental Care Center', 'Camarón Sábalo 51, local 10, Zona Dorada, 82110 Mazatlán, Sin.', '+52 669 984 5823', ''),
+      lugar('coppel-dental', 'Clínica Dental Dr. Roberto Coppel', 'Av. Camarón Sábalo 1502, 2do piso, Las Gaviotas, Zona Dorada, 82110 Mazatlán, Sin.', '+52 669 913 4111', ''),
+      lugar('clinica-dental-especialidades-mzt', 'Clínica Dental Especialidades', 'Tacuba 305-A, Playas del Sol, Mazatlán, Sin.', '+52 669 261 1711', 'https://clinicadentalespecialidades.com/', { h: { ...LV([[9, 14], [16, 20]]), 6: [9, 14] } }),
+      lugar('dra-susana-pedrero', 'Dra. Susana Pedrero de la Cruz', 'Mazatlán, Sin.', '', 'http://www.mydentistsusanapedrero.com/'),
+      lugar('unimed-mazatlan', 'Unimed Clínica Dental', 'Mazatlán, Sin.', '', 'https://unimed-1.ueniweb.com/'),
     ],
   },
 ];
