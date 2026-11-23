@@ -1,138 +1,138 @@
 [
   {
-    "id": "v3ayl2obkonw",
+    "id": "4mmam02a6vw2",
     "nota": 7,
-    "nombre": "Dental Center Juárez",
-    "motivo": "Entre semana solo abre de 16:00 a 19:00 y no tiene web: las mañanas nadie contesta.",
-    "senales": "Cierra 19:00 · Sin web",
+    "nombre": "Dental Del Centro",
+    "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
+    "senales": "Cierra 17:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "2ly8153vm9fz",
+    "id": "up5ur80exjfu",
     "nota": 7,
-    "nombre": "Smile Cuidado Dental Familiar",
-    "motivo": "Entre semana solo abre de 14:00 a 20:00 y no tiene web: las mañanas nadie contesta.",
-    "senales": "Cierra 20:00 · Sin web",
+    "nombre": "Torres Cirujano Dentista",
+    "motivo": "Cierra a las 18:00, no abre domingo y no tiene web.",
+    "senales": "Cierra 18:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "nfnjokuserem",
+    "id": "fole97txxw19",
     "nota": 6,
-    "nombre": "Dent Clínica Dental",
-    "motivo": "Su web solo tiene formulario para agendar, sin chat ni WhatsApp; sábado cierra 13:00.",
+    "nombre": "ABBA Médica Dental",
+    "motivo": "Tiene WhatsApp pero ningún chat que conteste solo; cierra 19:00 y sábado 14:00.",
     "senales": "Cierra 19:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "m1109nsf6155",
+    "id": "h8axd6aap0nc",
     "nota": 6,
-    "nombre": "Clínica Dental Especialidades",
-    "motivo": "Cierra de 14:00 a 16:00; su web no tiene chat ni WhatsApp.",
+    "nombre": "Be Dental Juárez",
+    "motivo": "Sin web; cierra 18:00, sábado 15:00 y no abre domingo.",
+    "senales": "Cierra 18:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "bap4dar3ailc",
+    "nota": 6,
+    "nombre": "Clínica Dental ALFA-CEM",
+    "motivo": "Sin web ni agenda en línea; solo horario entre semana.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "hhql841xmj9m",
+    "nota": 6,
+    "nombre": "Clínica Más Dental",
+    "motivo": "Cierra 18:00 y sábado 14:00; no se pudo revisar su web.",
+    "senales": "Cierra 18:00 · No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "kcr138anqdi2",
+    "nota": 5,
+    "nombre": "Clínica Dental Cuernavaca (WeSmile)",
+    "motivo": "Agenda por teléfono y WhatsApp, sin chat que conteste solo.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "2fhgsaq6gdu0",
+    "id": "0eaakrylzc2d",
     "nota": 5,
-    "nombre": "Aoral Clinic",
-    "motivo": "Atiende con cita previa por WhatsApp; cierra 18:00 y sábado 14:00.",
-    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "exgem2k5cggg",
-    "nota": 5,
-    "nombre": "Sereya Dentales",
-    "motivo": "Agenda por WhatsApp sin chat que conteste solo; sábado 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "5162i2vpc0rs",
-    "nota": 5,
-    "nombre": "Clínica Dental Villahermosa",
-    "motivo": "Sin web ni agenda en línea; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "bb0j07qvjpy1",
-    "nota": 5,
-    "nombre": "Unimed Clínica Dental",
-    "motivo": "Su web solo tiene un botón de mensaje, sin chat que conteste solo.",
+    "nombre": "Gardini Clinic",
+    "motivo": "Agenda por WhatsApp sin chat que conteste solo; no encontré teléfono público.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "4z8ody1u4dbc",
+    "id": "f8vrh4dnoo7m",
     "nota": 5,
-    "nombre": "Clínica Dental Dr. Roberto Coppel",
+    "nombre": "Centro de Rehabilitación Bucodental",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "crlq4dyck9un",
+    "id": "7dsv7jchmuj5",
     "nota": 5,
-    "nombre": "Dazujo Clínica Dental",
-    "motivo": "Atiende con cita previa y no tiene web ni agenda en línea.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "4vsqcqg4v8is",
-    "nota": 5,
-    "nombre": "Dental 21",
+    "nombre": "Clínica Dental Mango",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "cr3e8b8l45jh",
+    "id": "ifveywn5wksa",
     "nota": 5,
-    "nombre": "Dr. Francisco Gavito · Dental Care Center",
+    "nombre": "Estudio 134 Clínica Dental",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "6co0ffpnol1t",
+    "id": "dp0crkkco1f2",
     "nota": 5,
-    "nombre": "Biodentis",
-    "motivo": "No se pudo revisar su web; sin horario confirmado.",
-    "senales": "No se pudo leer su web",
+    "nombre": "Healteeth Dental Center",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "9fipncauiwia",
+    "id": "t1qqqe5k6bzo",
+    "nota": 5,
+    "nombre": "Vivadental",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "agwxcqfcaao4",
     "nota": 4,
-    "nombre": "Laguna Dent",
-    "motivo": "Ya tiene agenda y WhatsApp en su web; cierra 19:00 y sábado 15:00.",
-    "senales": "Cierra 19:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "a43fv4f38b6y",
-    "nota": 4,
-    "nombre": "Odonto Vitalis",
+    "nombre": "C Dental",
     "motivo": "Ya tiene agenda y WhatsApp en su web.",
+    "senales": "Cierra 19:30 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "mt8jl23lhd20",
+    "nota": 4,
+    "nombre": "Llanas Dental",
+    "motivo": "Ya tiene reserva en línea y WhatsApp en su web; cierra 18:00.",
+    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "k246eke51v76",
+    "nota": 3,
+    "nombre": "La Clínica Dental Cuernavaca",
+    "motivo": "Parte de una red con agenda en línea y WhatsApp.",
     "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "egrpshxgx4kv",
-    "nota": 4,
-    "nombre": "Orthocity Clínica Dental Especializada",
-    "motivo": "Ya tiene agenda y WhatsApp en su web.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "3begyvbcuool",
-    "nota": 4,
-    "nombre": "Dra. Susana Pedrero de la Cruz",
-    "motivo": "No se pudo revisar su web y no encontré teléfono público.",
-    "senales": "No se pudo leer su web",
+    "id": "j0730z2ap28l",
+    "nota": 2,
+    "nombre": "Clínica Dental Spekter",
+    "motivo": "Ya tiene chat (Respond.io) y agenda en su web.",
+    "senales": "Cierra 19:00 · Chat en la web (Respond.io) · Agenda en línea",
     "evidencia": ""
   }
 ]

@@ -1,24 +1,16 @@
 [
   {
     "output": {
+      "nota": 7,
+      "motivo": "Cierra a las 18:00, no abre domingo y no tiene web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
       "nota": 4,
-      "motivo": "Ya tiene agenda y WhatsApp en su web; cierra 19:00 y sábado 15:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Agenda por WhatsApp sin chat que conteste solo; sábado 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Atiende con cita previa por WhatsApp; cierra 18:00 y sábado 14:00.",
+      "motivo": "Ya tiene reserva en línea y WhatsApp en su web; cierra 18:00.",
       "evidencia": "",
       "servicios": []
     }
@@ -26,31 +18,7 @@
   {
     "output": {
       "nota": 7,
-      "motivo": "Entre semana solo abre de 16:00 a 19:00 y no tiene web: las mañanas nadie contesta.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Su web solo tiene formulario para agendar, sin chat ni WhatsApp; sábado cierra 13:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Atiende con cita previa y no tiene web ni agenda en línea.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
       "evidencia": "",
       "servicios": []
     }
@@ -65,32 +33,16 @@
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "No se pudo revisar su web; sin horario confirmado.",
+      "nota": 6,
+      "motivo": "Cierra 18:00 y sábado 14:00; no se pudo revisar su web.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 7,
-      "motivo": "Entre semana solo abre de 14:00 a 20:00 y no tiene web: las mañanas nadie contesta.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Ya tiene agenda y WhatsApp en su web.",
+      "nota": 6,
+      "motivo": "Sin web; cierra 18:00, sábado 15:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
@@ -99,6 +51,62 @@
     "output": {
       "nota": 5,
       "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 2,
+      "motivo": "Ya tiene chat (Respond.io) y agenda en su web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda por teléfono y WhatsApp, sin chat que conteste solo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Parte de una red con agenda en línea y WhatsApp.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda por WhatsApp sin chat que conteste solo; no encontré teléfono público.",
       "evidencia": "",
       "servicios": []
     }
@@ -114,29 +122,15 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Cierra de 14:00 a 16:00; su web no tiene chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": [
-        "Rehabilitación Oral",
-        "Ortodoncia",
-        "Cirugia Oral",
-        "Odontopediatria",
-        "Endodoncia"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "No se pudo revisar su web y no encontré teléfono público.",
+      "motivo": "Tiene WhatsApp pero ningún chat que conteste solo; cierra 19:00 y sábado 14:00.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "Su web solo tiene un botón de mensaje, sin chat que conteste solo.",
+      "nota": 6,
+      "motivo": "Sin web ni agenda en línea; solo horario entre semana.",
       "evidencia": "",
       "servicios": []
     }
