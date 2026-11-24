@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-23: Centro (Ciudad Juárez), Centro (Cuernavaca) y Centro (Pachuca).
+// Lote del 2026-11-24: Americana, Chapalita (Guadalajara) y Puerta de Hierro (Zapopan).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,35 +39,29 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Juárez Centro, Ciudad Juárez, Chihuahua',
+    textQuery: 'dentista en Americana, Guadalajara, Jalisco',
     places: [
-      lugar('torres-cirujano-dentista', 'Torres Cirujano Dentista', 'Av. Lerdo 388 Nte., Centro, Ciudad Juárez, Chih.', '+52 656 612 4604', '', { h: { ...LV([9, 18]), 6: [9, 18] } }),
-      lugar('llanas-dental', 'Llanas Dental', 'Av. Hermanos Escobar 2075, Col. Hidalgo, 32300 Ciudad Juárez, Chih.', '+52 656 703 9013', 'https://llanasdental.com/', { h: { ...LV([9, 18]), 6: [9, 14] } }),
-      lugar('dental-del-centro-cdj', 'Dental Del Centro', 'Av. de las Torres 2751, Lote Bravo, Ciudad Juárez, Chih.', '+52 656 623 7497', '', { h: { ...LV([9, 17]), 6: [9, 17] } }),
-      lugar('c-dental-juarez', 'C Dental', 'Paseo de la Victoria 2736, Jardines del Bosque, Ciudad Juárez, Chih.', '+52 656 814 5376', 'https://www.cdentaljuarez.com/', { h: { ...LV([9, 19.5]), 6: [9, 14] } }),
-      lugar('clinica-mas-dental', 'Clínica Más Dental', 'Ramón Rayón 9951, Parajes del Sol, Ciudad Juárez, Chih.', '+52 656 681 0159', 'http://www.clinicamasdentaljuarez.com/', { h: { ...LV([9.5, 18]), 6: [10, 14] } }),
-      lugar('be-dental-juarez', 'Be Dental Juárez', 'CP 32310, Ciudad Juárez, Chih.', '+52 656 440 5857', '', { h: { ...LV([10, 18]), 6: [10, 15] } }),
+      lugar('dental-glow-gdl', 'Dental Glow', 'José Guadalupe Montenegro 2072, Americana, Guadalajara, Jal.', '+52 33 4697 6630', 'https://www.dentistagdl.com/en'),
+      lugar('hector-ochoa', 'Dr. Héctor Ochoa Velázquez', 'C. Bruselas 158, Americana, Guadalajara, Jal.', '+52 33 3825 6860', 'https://www.doctoranytime.mx/d/dentista/hector-ochoa-velazquez'),
+      lugar('dental-coy-gdl', 'Dental Coy GDL', 'Colonia Americana, Guadalajara, Jal.', '+52 33 1895 9623', 'https://www.facebook.com/p/Dental-Coy-GDL-100063562749140/'),
+      lugar('consultorio-hidalgo-1362', 'Consultorio Dental Av. Hidalgo 1362', 'Av. Hidalgo 1362, Americana, Guadalajara, Jal.', '+52 33 3826 0040', ''),
     ],
   },
   {
-    textQuery: 'dentista en Cuernavaca Centro, Cuernavaca, Morelos',
+    textQuery: 'dentista en Chapalita, Guadalajara, Jalisco',
     places: [
-      lugar('healteeth', 'Healteeth Dental Center', 'Plaza Esmeralda, Av. Morelos 178, D-3, Centro, Cuernavaca, Mor.', '+52 777 310 3654', ''),
-      lugar('dental-mango', 'Clínica Dental Mango', 'Ricardo Linares #10, 1er piso, Centro, Cuernavaca, Mor.', '+52 777 318 9141', ''),
-      lugar('estudio-134', 'Estudio 134 Clínica Dental', 'Álvaro Obregón 134, Centro, Cuernavaca, Mor.', '+52 777 318 3005', ''),
-      lugar('dental-spekter', 'Clínica Dental Spekter', 'Chapultepec, Cuernavaca, Mor.', '+52 777 159 8684', 'https://dentalspekter.com/dentista-en-cuernavaca', { h: { ...LV([10, 19]), 6: [10, 17] } }),
-      lugar('wesmile-cuernavaca', 'Clínica Dental Cuernavaca (WeSmile)', 'Av. Alta Tensión 18, local 208, Cantarranas, Cuernavaca, Mor.', '+52 777 244 6560', 'https://www.clinicadentalcuernavaca.com/', { h: { ...LV([8, 20]), 6: [8, 14] } }),
-      lugar('la-clinica-dental-cuernavaca', 'La Clínica Dental Cuernavaca', 'Av. Río Mayo 1001, Vista Hermosa, Cuernavaca, Mor.', '+52 777 454 0185', 'https://laclinicadental.com.mx/sobre-nosotros/', { h: { ...LV([9, 20]), 6: [9, 14] } }),
+      lugar('deo-clinic', 'Deo Clinic', 'Av. Guadalupe 618, Chapalita, 44500 Guadalajara, Jal.', '+52 33 1178 4981', 'https://www.doctoralia.com.mx/clinicas/deo-clinic', { h: { 1: [9.5, 14.5], 2: [9.5, 14.5], 3: [9.5, 20], 4: [9.5, 14.5], 5: [9.5, 14.5], 6: [9.5, 14] } }),
+      lugar('gineco-dental-chapalita', 'Gineco Dental Chapalita', 'Ermita 1428, Chapalita Sur, 45030 Zapopan, Jal.', '+52 33 3647 6868', '', { h: { ...LV([9, 19]), 6: [9, 14] } }),
+      lugar('denz-dental', 'Denz', 'Av. Tonantzin 1030, Chapalita, 45040 Guadalajara, Jal.', '+52 33 3304 4085', 'https://denzdental.com/', { h: { ...LV([10, 20]), 6: [10, 14] } }),
+      lugar('dental-chapalita', 'Dental Chapalita', '12 de Diciembre 1048, int. 102, Chapalita, Guadalajara, Jal.', '+52 33 3121 4599', 'http://www.dentalchapalita.com.mx/'),
     ],
   },
   {
-    textQuery: 'dentista en Pachuca Centro, Pachuca, Hidalgo',
+    textQuery: 'dentista en Puerta de Hierro, Zapopan, Jalisco',
     places: [
-      lugar('rehabilitacion-bucodental-pachuca', 'Centro de Rehabilitación Bucodental', 'Av. Benito Juárez 1221, Centro, 42080 Pachuca, Hgo.', '+52 771 713 2691', ''),
-      lugar('gardini-clinic', 'Gardini Clinic', 'Av. Revolución 1104, Pachuca, Hgo.', '', 'https://gardiniclinic.com/'),
-      lugar('vivadental-pachuca', 'Vivadental', 'Reyna de los Mártires 938, Pachuca, Hgo.', '+52 771 203 5540', ''),
-      lugar('abba-medica-dental', 'ABBA Médica Dental', 'Río Amajac 103, Fracc. Las Terrazas, Pachuca, Hgo.', '+52 771 473 5289', 'https://www.abbaclinicadental.com/', { h: { ...LV([8, 19]), 6: [8, 14] } }),
-      lugar('alfa-cem', 'Clínica Dental ALFA-CEM', 'Pachuca, Hgo.', '+52 771 119 8688', '', { h: LV([9, 20]) }),
+      lugar('coph', 'Centro Odontológico Puerta de Hierro', 'Av. Empresarios 150, piso 7, consultorio 703, Puerta de Hierro, Zapopan, Jal.', '+52 33 1460 3826', 'https://www.facebook.com/COPHodontologia/'),
+      lugar('dentalia-andares', 'dentalia Andares', 'Blvd. Puerta de Hierro 4965, 45116 Zapopan, Jal.', '+52 33 3611 1725', 'https://www.dentalia.com/dentistas/zapopan'),
+      lugar('dra-daniela-garcia', 'Dra. Daniela García · Odontología Estética', 'Empresarios 150, Torre Elite, piso 19, Hospital Puerta de Hierro, Zapopan, Jal.', '+52 33 3945 9872', 'https://www.dradanielagrc.com/', { h: LV([16, 20]) }),
     ],
   },
 ];

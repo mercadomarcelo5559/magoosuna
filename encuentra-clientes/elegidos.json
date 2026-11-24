@@ -1,138 +1,90 @@
 [
   {
-    "id": "4mmam02a6vw2",
-    "nota": 7,
-    "nombre": "Dental Del Centro",
-    "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
-    "senales": "Cierra 17:00 · Sin web",
+    "id": "6fq2x4nt330m",
+    "nota": 8,
+    "nombre": "Dra. Daniela García · Odontología Estética",
+    "motivo": "Solo atiende de 16:00 a 20:00 entre semana y no abre fin de semana.",
+    "senales": "Cierra 20:00 · No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "up5ur80exjfu",
-    "nota": 7,
-    "nombre": "Torres Cirujano Dentista",
-    "motivo": "Cierra a las 18:00, no abre domingo y no tiene web.",
-    "senales": "Cierra 18:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "fole97txxw19",
+    "id": "e122rmdwgrus",
     "nota": 6,
-    "nombre": "ABBA Médica Dental",
-    "motivo": "Tiene WhatsApp pero ningún chat que conteste solo; cierra 19:00 y sábado 14:00.",
-    "senales": "Cierra 19:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "h8axd6aap0nc",
-    "nota": 6,
-    "nombre": "Be Dental Juárez",
-    "motivo": "Sin web; cierra 18:00, sábado 15:00 y no abre domingo.",
-    "senales": "Cierra 18:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "bap4dar3ailc",
-    "nota": 6,
-    "nombre": "Clínica Dental ALFA-CEM",
-    "motivo": "Sin web ni agenda en línea; solo horario entre semana.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "hhql841xmj9m",
-    "nota": 6,
-    "nombre": "Clínica Más Dental",
-    "motivo": "Cierra 18:00 y sábado 14:00; no se pudo revisar su web.",
-    "senales": "Cierra 18:00 · No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "kcr138anqdi2",
-    "nota": 5,
-    "nombre": "Clínica Dental Cuernavaca (WeSmile)",
-    "motivo": "Agenda por teléfono y WhatsApp, sin chat que conteste solo.",
+    "nombre": "Denz",
+    "motivo": "Su web solo tiene botón de cita, sin chat ni WhatsApp; sábado cierra 14:00.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "0eaakrylzc2d",
-    "nota": 5,
-    "nombre": "Gardini Clinic",
-    "motivo": "Agenda por WhatsApp sin chat que conteste solo; no encontré teléfono público.",
+    "id": "ywufr2jni8h0",
+    "nota": 6,
+    "nombre": "Gineco Dental Chapalita",
+    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "2m2ot2vrs0i8",
+    "nota": 6,
+    "nombre": "Dental Glow",
+    "motivo": "Atiende pacientes internacionales por WhatsApp, sin chat que conteste solo.",
     "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "f8vrh4dnoo7m",
+    "id": "bvrjrqjap2e0",
+    "nota": 6,
+    "nombre": "Centro Odontológico Puerta de Hierro",
+    "motivo": "Solo tiene Facebook y agenda por WhatsApp, sin chat que conteste solo.",
+    "senales": "Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "53w1swk9juz6",
+    "nota": 6,
+    "nombre": "Dental Coy GDL",
+    "motivo": "Solo tiene Facebook, sin web propia ni agenda en línea.",
+    "senales": "Solo redes, sin web propia",
+    "evidencia": ""
+  },
+  {
+    "id": "xoouv774l5r1",
     "nota": 5,
-    "nombre": "Centro de Rehabilitación Bucodental",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "7dsv7jchmuj5",
-    "nota": 5,
-    "nombre": "Clínica Dental Mango",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "ifveywn5wksa",
-    "nota": 5,
-    "nombre": "Estudio 134 Clínica Dental",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "dp0crkkco1f2",
-    "nota": 5,
-    "nombre": "Healteeth Dental Center",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "t1qqqe5k6bzo",
-    "nota": 5,
-    "nombre": "Vivadental",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "agwxcqfcaao4",
-    "nota": 4,
-    "nombre": "C Dental",
-    "motivo": "Ya tiene agenda y WhatsApp en su web.",
-    "senales": "Cierra 19:30 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "mt8jl23lhd20",
-    "nota": 4,
-    "nombre": "Llanas Dental",
-    "motivo": "Ya tiene reserva en línea y WhatsApp en su web; cierra 18:00.",
-    "senales": "Cierra 18:00 · Sin chat en la web · Agenda en línea",
-    "evidencia": ""
-  },
-  {
-    "id": "k246eke51v76",
-    "nota": 3,
-    "nombre": "La Clínica Dental Cuernavaca",
-    "motivo": "Parte de una red con agenda en línea y WhatsApp.",
+    "nombre": "Deo Clinic",
+    "motivo": "Agenda por Doctoralia, pero casi todos los días cierra a las 14:30.",
     "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
     "evidencia": ""
   },
   {
-    "id": "j0730z2ap28l",
+    "id": "vgdjedncls1z",
+    "nota": 5,
+    "nombre": "Consultorio Dental Av. Hidalgo 1362",
+    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "46z1ysmgrrlq",
+    "nota": 5,
+    "nombre": "Dental Chapalita",
+    "motivo": "No se pudo revisar su web; sin horario publicado.",
+    "senales": "No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "2us59m7fcoks",
+    "nota": 3,
+    "nombre": "Dr. Héctor Ochoa Velázquez",
+    "motivo": "Ya recibe citas en línea por Doctoranytime.",
+    "senales": "Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "8cq4ul4sbw8v",
     "nota": 2,
-    "nombre": "Clínica Dental Spekter",
-    "motivo": "Ya tiene chat (Respond.io) y agenda en su web.",
-    "senales": "Cierra 19:00 · Chat en la web (Respond.io) · Agenda en línea",
+    "nombre": "dentalia Andares",
+    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   }
 ]

@@ -49,10 +49,10 @@ Zona Dorada, Mazatlán, Sinaloa
 Juárez Centro, Ciudad Juárez, Chihuahua
 Cuernavaca Centro, Cuernavaca, Morelos
 Pachuca Centro, Pachuca, Hidalgo
-# PENDIENTES
 Americana, Guadalajara, Jalisco
 Chapalita, Guadalajara, Jalisco
 Puerta de Hierro, Zapopan, Jalisco
+# PENDIENTES
 Condesa, Ciudad de México
 Lindavista, Ciudad de México
 Tlalpan Centro, Ciudad de México

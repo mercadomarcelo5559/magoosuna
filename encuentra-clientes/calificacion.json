@@ -1,32 +1,23 @@
 [
   {
     "output": {
-      "nota": 7,
-      "motivo": "Cierra a las 18:00, no abre domingo y no tiene web.",
+      "nota": 6,
+      "motivo": "Atiende pacientes internacionales por WhatsApp, sin chat que conteste solo.",
       "evidencia": "",
-      "servicios": []
+      "servicios": [
+        "Periodontics",
+        "Invisible Orthodontics",
+        "Endodontics",
+        "Dental Surgery",
+        "Smile Design",
+        "Dental Implants"
+      ]
     }
   },
   {
     "output": {
-      "nota": 4,
-      "motivo": "Ya tiene reserva en línea y WhatsApp en su web; cierra 18:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra a las 17:00, no abre domingo y no tiene web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Ya tiene agenda y WhatsApp en su web.",
+      "nota": 3,
+      "motivo": "Ya recibe citas en línea por Doctoranytime.",
       "evidencia": "",
       "servicios": []
     }
@@ -34,7 +25,23 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Cierra 18:00 y sábado 14:00; no se pudo revisar su web.",
+      "motivo": "Solo tiene Facebook, sin web propia ni agenda en línea.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda por Doctoralia, pero casi todos los días cierra a las 14:30.",
       "evidencia": "",
       "servicios": []
     }
@@ -42,31 +49,38 @@
   {
     "output": {
       "nota": 6,
-      "motivo": "Sin web; cierra 18:00, sábado 15:00 y no abre domingo.",
+      "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
+      "nota": 6,
+      "motivo": "Su web solo tiene botón de cita, sin chat ni WhatsApp; sábado cierra 14:00.",
+      "evidencia": "",
+      "servicios": [
+        "Odontología Preventiva y operatoria",
+        "Diseño de Sonrisa",
+        "Rehabilitacion oral y prótesis",
+        "Endodoncia",
+        "Periodoncia",
+        "Implantes Dentales"
+      ]
+    }
+  },
+  {
+    "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "nota": 6,
+      "motivo": "Solo tiene Facebook y agenda por WhatsApp, sin chat que conteste solo.",
       "evidencia": "",
       "servicios": []
     }
@@ -74,63 +88,15 @@
   {
     "output": {
       "nota": 2,
-      "motivo": "Ya tiene chat (Respond.io) y agenda en su web.",
+      "motivo": "Sucursal de cadena nacional que abre los 7 días.",
       "evidencia": "",
       "servicios": []
     }
   },
   {
     "output": {
-      "nota": 5,
-      "motivo": "Agenda por teléfono y WhatsApp, sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Parte de una red con agenda en línea y WhatsApp.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Agenda por WhatsApp sin chat que conteste solo; no encontré teléfono público.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Tiene WhatsApp pero ningún chat que conteste solo; cierra 19:00 y sábado 14:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web ni agenda en línea; solo horario entre semana.",
+      "nota": 8,
+      "motivo": "Solo atiende de 16:00 a 20:00 entre semana y no abre fin de semana.",
       "evidencia": "",
       "servicios": []
     }
