@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-24: Americana, Chapalita (Guadalajara) y Puerta de Hierro (Zapopan).
+// Lote del 2026-11-25: Condesa, Lindavista y Tlalpan (CDMX).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,29 +39,34 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Americana, Guadalajara, Jalisco',
+    textQuery: 'dentista en Condesa, Ciudad de México',
     places: [
-      lugar('dental-glow-gdl', 'Dental Glow', 'José Guadalupe Montenegro 2072, Americana, Guadalajara, Jal.', '+52 33 4697 6630', 'https://www.dentistagdl.com/en'),
-      lugar('hector-ochoa', 'Dr. Héctor Ochoa Velázquez', 'C. Bruselas 158, Americana, Guadalajara, Jal.', '+52 33 3825 6860', 'https://www.doctoranytime.mx/d/dentista/hector-ochoa-velazquez'),
-      lugar('dental-coy-gdl', 'Dental Coy GDL', 'Colonia Americana, Guadalajara, Jal.', '+52 33 1895 9623', 'https://www.facebook.com/p/Dental-Coy-GDL-100063562749140/'),
-      lugar('consultorio-hidalgo-1362', 'Consultorio Dental Av. Hidalgo 1362', 'Av. Hidalgo 1362, Americana, Guadalajara, Jal.', '+52 33 3826 0040', ''),
+      lugar('endodoncia-condesa', 'Endodoncia Condesa · Dra. Elvira Gil Martínez', 'Chilpancingo 71, consultorio 603, Hipódromo Condesa, CDMX', '+52 55 1645 6505', 'https://www.endodonciacondesa.com.mx/', { h: { ...LV([9, 18]), 6: [8, 12.5] } }),
+      lugar('arrfox', 'ArrFox Clínica Dental', 'Atlixco 18-1, Condesa, 06140 CDMX', '+52 55 5256 4039', 'https://www.arrfox.com.mx/', { h: { ...LV([10, 20]), 6: [10, 14] } }),
+      lugar('or-dental', 'OR Clínica Dental', 'Av. Mazatlán 131-B, Condesa, 06140 CDMX', '+52 55 5553 8279', 'https://www.ordental.com.mx/en'),
+      lugar('om-dental', 'Om Dental', 'Tuxpan 2, Roma Sur, CDMX', '+52 55 3901 9028', 'https://omdental.mx/en'),
     ],
   },
   {
-    textQuery: 'dentista en Chapalita, Guadalajara, Jalisco',
+    textQuery: 'dentista en Lindavista, Ciudad de México',
     places: [
-      lugar('deo-clinic', 'Deo Clinic', 'Av. Guadalupe 618, Chapalita, 44500 Guadalajara, Jal.', '+52 33 1178 4981', 'https://www.doctoralia.com.mx/clinicas/deo-clinic', { h: { 1: [9.5, 14.5], 2: [9.5, 14.5], 3: [9.5, 20], 4: [9.5, 14.5], 5: [9.5, 14.5], 6: [9.5, 14] } }),
-      lugar('gineco-dental-chapalita', 'Gineco Dental Chapalita', 'Ermita 1428, Chapalita Sur, 45030 Zapopan, Jal.', '+52 33 3647 6868', '', { h: { ...LV([9, 19]), 6: [9, 14] } }),
-      lugar('denz-dental', 'Denz', 'Av. Tonantzin 1030, Chapalita, 45040 Guadalajara, Jal.', '+52 33 3304 4085', 'https://denzdental.com/', { h: { ...LV([10, 20]), 6: [10, 14] } }),
-      lugar('dental-chapalita', 'Dental Chapalita', '12 de Diciembre 1048, int. 102, Chapalita, Guadalajara, Jal.', '+52 33 3121 4599', 'http://www.dentalchapalita.com.mx/'),
+      lugar('la-clinica-dental-lindavista', 'La Clínica Dental Lindavista', 'Av. Montevideo 272, Lindavista, Gustavo A. Madero, 07300 CDMX', '+52 55 8854 7357', 'https://laclinica.com.mx/contactanos/', { h: { ...LV([9, 20]), 6: [9, 16] } }),
+      lugar('navs-dental', "Nav's Dental · Dr. Víctor M. Navarro Sousa", 'Calle Lima 880-A, altos 1, Lindavista, 07300 CDMX', '+52 55 5586 0968', 'https://navsdental.com/contacto', { h: { ...LV([[9.5, 13.5], [16.5, 19.5]]), 6: [9.5, 14] } }),
+      lugar('odontosoto', 'Consultorio Dental Odontosoto', 'Salaverry 814, Lindavista, CDMX', '+52 55 6631 2754', 'https://www.odontosoto.com/', { h: { ...LV([11.5, 21]), 6: [11, 16] } }),
+      lugar('dentis-lindavista', 'Dentis Lindavista', 'Av. Montevideo 363, local 326, Lindavista, 07300 CDMX', '+52 55 5586 9969', '', { h: { ...LV([10, 20]), 6: [10, 18] } }),
+      lugar('mil-sonrisas-lindavista', 'Fundación Mil Sonrisas Lindavista', 'Arequipa, Lindavista, Gustavo A. Madero, 07300 CDMX', '+52 55 5088 8505', '', { h: { ...LV([9, 18]), 6: [9, 18], 0: [9, 18] } }),
     ],
   },
   {
-    textQuery: 'dentista en Puerta de Hierro, Zapopan, Jalisco',
+    textQuery: 'dentista en Tlalpan Centro, Ciudad de México',
     places: [
-      lugar('coph', 'Centro Odontológico Puerta de Hierro', 'Av. Empresarios 150, piso 7, consultorio 703, Puerta de Hierro, Zapopan, Jal.', '+52 33 1460 3826', 'https://www.facebook.com/COPHodontologia/'),
-      lugar('dentalia-andares', 'dentalia Andares', 'Blvd. Puerta de Hierro 4965, 45116 Zapopan, Jal.', '+52 33 3611 1725', 'https://www.dentalia.com/dentistas/zapopan'),
-      lugar('dra-daniela-garcia', 'Dra. Daniela García · Odontología Estética', 'Empresarios 150, Torre Elite, piso 19, Hospital Puerta de Hierro, Zapopan, Jal.', '+52 33 3945 9872', 'https://www.dradanielagrc.com/', { h: LV([16, 20]) }),
+      lugar('dental-advance-tlalpan', 'Dental Advance', 'Calzada de Tlalpan 4836, Barrio Niño Jesús, Tlalpan, CDMX', '+52 55 7706 5212', 'https://draltamirano.mx/', { h: { ...LV([9, 21]), 6: [9, 16] } }),
+      lugar('dentistas-en-tlalpan', 'Dentistas en Tlalpan · Dr. Héctor Hernández', 'Av. Renato Leduc 148, Toriello Guerra, Tlalpan, CDMX', '+52 55 7574 2570', 'https://dentistasentlalpan.com/', { h: { ...LV([10, 20]), 6: [9, 15] } }),
+      lugar('dental-karand', 'Dental Karand', 'Hacienda del Cristo 130, Coapa, Tlalpan, CDMX', '+52 55 7144 0735', 'https://www.dentalkarand.com/', { h: { ...LV([10, 21]), 6: [10, 21] } }),
+      lugar('futura-dental', 'Futura Dental', 'Acanceh 573, Pedregal de San Nicolás, Tlalpan, CDMX', '+52 55 2060 4281', 'https://futuradental.xyz/', { h: LV([11, 19]) }),
+      lugar('medica-altaplus', 'Médica AltaPlus · Atención Dental', 'Tizimín 216, Lomas de Padierna, Tlalpan, CDMX', '+52 55 4005 1376', 'https://medaltaplus.com/atencion-dental/', { h: { ...LV([8, 21]), 6: [8, 16], 0: [8, 16] } }),
+      lugar('especialidad-dental-padierna', 'Consultorio de Especialidad Dental', 'Lomas de Padierna, Tlalpan, CDMX', '+52 55 2615 4832', 'https://consultorioespecialidaddental.com/'),
+      lugar('dental-san-pedro-martir', 'Centro Dental San Pedro Mártir', 'Camino Viejo a San Pedro Mártir 188, Tlalpan, CDMX', '+52 55 5415 9678', '', { h: { ...LV([9, 19]), 6: [9, 19] } }),
     ],
   },
 ];

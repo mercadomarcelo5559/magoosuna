@@ -52,10 +52,10 @@ Pachuca Centro, Pachuca, Hidalgo
 Americana, Guadalajara, Jalisco
 Chapalita, Guadalajara, Jalisco
 Puerta de Hierro, Zapopan, Jalisco
-# PENDIENTES
 Condesa, Ciudad de México
 Lindavista, Ciudad de México
 Tlalpan Centro, Ciudad de México
+# PENDIENTES
 Valle Oriente, San Pedro Garza García, Nuevo León
 Contry, Monterrey, Nuevo León
 Guadalupe Centro, Guadalupe, Nuevo León

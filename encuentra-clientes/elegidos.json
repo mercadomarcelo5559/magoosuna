@@ -1,90 +1,130 @@
 [
   {
-    "id": "6fq2x4nt330m",
-    "nota": 8,
-    "nombre": "Dra. Daniela García · Odontología Estética",
-    "motivo": "Solo atiende de 16:00 a 20:00 entre semana y no abre fin de semana.",
-    "senales": "Cierra 20:00 · No se pudo leer su web",
+    "id": "ocveucv5zoqi",
+    "nota": 7,
+    "nombre": "Endodoncia Condesa · Dra. Elvira Gil Martínez",
+    "motivo": "Endodoncista que cierra 18:00 y el sábado 12:30; WhatsApp sin chat que conteste solo.",
+    "senales": "Cierra 18:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "e122rmdwgrus",
+    "id": "hwdhwmeu3pz4",
+    "nota": 7,
+    "nombre": "Futura Dental",
+    "motivo": "Atiende con cita previa, cierra 19:00 y no abre fin de semana; WhatsApp sin chat.",
+    "senales": "Cierra 19:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "39h33570yw87",
+    "nota": 7,
+    "nombre": "Nav's Dental · Dr. Víctor M. Navarro Sousa",
+    "motivo": "Cierra de 13:30 a 16:30 y a las 19:30; su web no tiene chat ni WhatsApp.",
+    "senales": "Cierra 19:30 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "jgywm491hizy",
     "nota": 6,
-    "nombre": "Denz",
-    "motivo": "Su web solo tiene botón de cita, sin chat ni WhatsApp; sábado cierra 14:00.",
+    "nombre": "ArrFox Clínica Dental",
+    "motivo": "Sin chat ni WhatsApp en su web; sábado cierra 14:00 y no abre domingo.",
     "senales": "Cierra 20:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "ywufr2jni8h0",
+    "id": "c42cq8l761w6",
     "nota": 6,
-    "nombre": "Gineco Dental Chapalita",
-    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+    "nombre": "Consultorio Dental Odontosoto",
+    "motivo": "Abre hasta las 11:30 y no tiene chat ni WhatsApp en su web.",
+    "senales": "Cierra 21:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "1p3o3g2aky2y",
+    "nota": 6,
+    "nombre": "Dentistas en Tlalpan · Dr. Héctor Hernández",
+    "motivo": "Endodoncista sin chat ni WhatsApp en su web; sábado cierra 15:00.",
+    "senales": "Cierra 20:00 · Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "zk81ik2h17bi",
+    "nota": 5,
+    "nombre": "Centro Dental San Pedro Mártir",
+    "motivo": "Sin web ni agenda en línea; no abre domingo.",
     "senales": "Cierra 19:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "2m2ot2vrs0i8",
-    "nota": 6,
-    "nombre": "Dental Glow",
-    "motivo": "Atiende pacientes internacionales por WhatsApp, sin chat que conteste solo.",
-    "senales": "Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "bvrjrqjap2e0",
-    "nota": 6,
-    "nombre": "Centro Odontológico Puerta de Hierro",
-    "motivo": "Solo tiene Facebook y agenda por WhatsApp, sin chat que conteste solo.",
-    "senales": "Solo redes, sin web propia",
-    "evidencia": ""
-  },
-  {
-    "id": "53w1swk9juz6",
-    "nota": 6,
-    "nombre": "Dental Coy GDL",
-    "motivo": "Solo tiene Facebook, sin web propia ni agenda en línea.",
-    "senales": "Solo redes, sin web propia",
-    "evidencia": ""
-  },
-  {
-    "id": "xoouv774l5r1",
+    "id": "f76mlmh7xy94",
     "nota": 5,
-    "nombre": "Deo Clinic",
-    "motivo": "Agenda por Doctoralia, pero casi todos los días cierra a las 14:30.",
-    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "nombre": "Dental Advance",
+    "motivo": "Agenda por WhatsApp sin chat que conteste solo; abre hasta las 21:00.",
+    "senales": "Cierra 21:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "vgdjedncls1z",
+    "id": "vuw6m17j3xyb",
     "nota": 5,
-    "nombre": "Consultorio Dental Av. Hidalgo 1362",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
+    "nombre": "Dentis Lindavista",
+    "motivo": "Sin web ni agenda en línea; no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "46z1ysmgrrlq",
+    "id": "c7wpbk34cojq",
     "nota": 5,
-    "nombre": "Dental Chapalita",
+    "nombre": "Dental Karand",
+    "motivo": "No se pudo revisar su web; no abre domingo.",
+    "senales": "Cierra 21:00 · No se pudo leer su web",
+    "evidencia": ""
+  },
+  {
+    "id": "jx8g0arlribk",
+    "nota": 5,
+    "nombre": "Consultorio de Especialidad Dental",
     "motivo": "No se pudo revisar su web; sin horario publicado.",
     "senales": "No se pudo leer su web",
     "evidencia": ""
   },
   {
-    "id": "2us59m7fcoks",
-    "nota": 3,
-    "nombre": "Dr. Héctor Ochoa Velázquez",
-    "motivo": "Ya recibe citas en línea por Doctoranytime.",
-    "senales": "Sin chat en la web · Agenda en línea",
+    "id": "8hlcvzuc9jr9",
+    "nota": 4,
+    "nombre": "Om Dental",
+    "motivo": "Ya agenda por WhatsApp y su web en inglés guía al paciente.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "8cq4ul4sbw8v",
-    "nota": 2,
-    "nombre": "dentalia Andares",
-    "motivo": "Sucursal de cadena nacional que abre los 7 días.",
+    "id": "skspqw5t1ws2",
+    "nota": 4,
+    "nombre": "OR Clínica Dental",
+    "motivo": "Ya ofrece reserva en línea en su web.",
     "senales": "Sin chat en la web",
+    "evidencia": ""
+  },
+  {
+    "id": "hbridqn9kn78",
+    "nota": 3,
+    "nombre": "La Clínica Dental Lindavista",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
+    "senales": "Cierra 20:00 · Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "bkv7jfukmxmt",
+    "nota": 3,
+    "nombre": "Fundación Mil Sonrisas Lindavista",
+    "motivo": "Fundación que abre los 7 días; no es un consultorio privado típico.",
+    "senales": "Cierra 18:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "q6aigikslydk",
+    "nota": 3,
+    "nombre": "Médica AltaPlus · Atención Dental",
+    "motivo": "Centro médico que abre los 7 días con agenda y WhatsApp.",
+    "senales": "Cierra 21:00 · Sin chat en la web",
     "evidencia": ""
   }
 ]
