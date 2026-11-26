@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-25: Condesa, Lindavista y Tlalpan (CDMX).
+// Lote del 2026-11-26: Valle Oriente (San Pedro), Contry (Monterrey) y Guadalupe Centro (NL).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,34 +39,33 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Condesa, Ciudad de México',
+    textQuery: 'dentista en Valle Oriente, San Pedro Garza García, Nuevo León',
     places: [
-      lugar('endodoncia-condesa', 'Endodoncia Condesa · Dra. Elvira Gil Martínez', 'Chilpancingo 71, consultorio 603, Hipódromo Condesa, CDMX', '+52 55 1645 6505', 'https://www.endodonciacondesa.com.mx/', { h: { ...LV([9, 18]), 6: [8, 12.5] } }),
-      lugar('arrfox', 'ArrFox Clínica Dental', 'Atlixco 18-1, Condesa, 06140 CDMX', '+52 55 5256 4039', 'https://www.arrfox.com.mx/', { h: { ...LV([10, 20]), 6: [10, 14] } }),
-      lugar('or-dental', 'OR Clínica Dental', 'Av. Mazatlán 131-B, Condesa, 06140 CDMX', '+52 55 5553 8279', 'https://www.ordental.com.mx/en'),
-      lugar('om-dental', 'Om Dental', 'Tuxpan 2, Roma Sur, CDMX', '+52 55 3901 9028', 'https://omdental.mx/en'),
+      lugar('zurit-dental', 'Zurit Dental Studio', 'Río Guadalquivir 112 Ote., Col. Del Valle, San Pedro Garza García, N.L.', '+52 81 2611 7832', 'https://www.zurit.com.mx/dentistas-en-san-pedro/'),
+      lugar('marfil-dental-studio', 'Marfil Dental Studio', 'Moll del Valle, 4º piso, studio 410, San Pedro Garza García, N.L.', '+52 81 2362 0223', 'https://www.marfildentalstudio.com/nosotros.html'),
     ],
   },
   {
-    textQuery: 'dentista en Lindavista, Ciudad de México',
+    textQuery: 'dentista en Contry, Monterrey, Nuevo León',
     places: [
-      lugar('la-clinica-dental-lindavista', 'La Clínica Dental Lindavista', 'Av. Montevideo 272, Lindavista, Gustavo A. Madero, 07300 CDMX', '+52 55 8854 7357', 'https://laclinica.com.mx/contactanos/', { h: { ...LV([9, 20]), 6: [9, 16] } }),
-      lugar('navs-dental', "Nav's Dental · Dr. Víctor M. Navarro Sousa", 'Calle Lima 880-A, altos 1, Lindavista, 07300 CDMX', '+52 55 5586 0968', 'https://navsdental.com/contacto', { h: { ...LV([[9.5, 13.5], [16.5, 19.5]]), 6: [9.5, 14] } }),
-      lugar('odontosoto', 'Consultorio Dental Odontosoto', 'Salaverry 814, Lindavista, CDMX', '+52 55 6631 2754', 'https://www.odontosoto.com/', { h: { ...LV([11.5, 21]), 6: [11, 16] } }),
-      lugar('dentis-lindavista', 'Dentis Lindavista', 'Av. Montevideo 363, local 326, Lindavista, 07300 CDMX', '+52 55 5586 9969', '', { h: { ...LV([10, 20]), 6: [10, 18] } }),
-      lugar('mil-sonrisas-lindavista', 'Fundación Mil Sonrisas Lindavista', 'Arequipa, Lindavista, Gustavo A. Madero, 07300 CDMX', '+52 55 5088 8505', '', { h: { ...LV([9, 18]), 6: [9, 18], 0: [9, 18] } }),
+      lugar('dentagrama', 'Dentagrama', 'Av. Alfonso Reyes 269, Contry, Monterrey, N.L.', '+52 81 1727 2481', 'https://www.doctoralia.com.mx/clinicas/dentagrama'),
+      lugar('dentastic', 'Dentistas Dentastic', 'Alfonso Reyes 351, Contry Tesoro, Monterrey, N.L.', '+52 81 2235 9867', 'https://www.dentistasdentastic.com/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
+      lugar('cantu-martinez', 'Cantú & Martínez Odontología Integral', 'Revolución 3540, Contry Tesoro, 64850 Monterrey, N.L.', '+52 81 1967 1112', '', { h: { ...LV([[9.5, 13], [15, 19]]), 6: [9.5, 13] } }),
+      lugar('maas-dentistas', 'MAAS Dentistas', 'Av. Constelaciones 111, Contry, Monterrey, N.L.', '+52 81 1360 3501', 'https://en.maasdentistas.com/', { h: { ...LV([10, 20]), 6: [10, 16] } }),
+      lugar('energia-dental', 'Energía Dental', 'Av. Revolución 710-B, Contry, Monterrey, N.L.', '+52 81 1878 2814', ''),
+      lugar('consultorio-constelaciones-180', 'Consultorio Dental Constelaciones 180', 'Calle Constelaciones 180 A, Contry, Monterrey, N.L.', '+52 81 8357 8412', ''),
     ],
   },
   {
-    textQuery: 'dentista en Tlalpan Centro, Ciudad de México',
+    textQuery: 'dentista en Guadalupe Centro, Guadalupe, Nuevo León',
     places: [
-      lugar('dental-advance-tlalpan', 'Dental Advance', 'Calzada de Tlalpan 4836, Barrio Niño Jesús, Tlalpan, CDMX', '+52 55 7706 5212', 'https://draltamirano.mx/', { h: { ...LV([9, 21]), 6: [9, 16] } }),
-      lugar('dentistas-en-tlalpan', 'Dentistas en Tlalpan · Dr. Héctor Hernández', 'Av. Renato Leduc 148, Toriello Guerra, Tlalpan, CDMX', '+52 55 7574 2570', 'https://dentistasentlalpan.com/', { h: { ...LV([10, 20]), 6: [9, 15] } }),
-      lugar('dental-karand', 'Dental Karand', 'Hacienda del Cristo 130, Coapa, Tlalpan, CDMX', '+52 55 7144 0735', 'https://www.dentalkarand.com/', { h: { ...LV([10, 21]), 6: [10, 21] } }),
-      lugar('futura-dental', 'Futura Dental', 'Acanceh 573, Pedregal de San Nicolás, Tlalpan, CDMX', '+52 55 2060 4281', 'https://futuradental.xyz/', { h: LV([11, 19]) }),
-      lugar('medica-altaplus', 'Médica AltaPlus · Atención Dental', 'Tizimín 216, Lomas de Padierna, Tlalpan, CDMX', '+52 55 4005 1376', 'https://medaltaplus.com/atencion-dental/', { h: { ...LV([8, 21]), 6: [8, 16], 0: [8, 16] } }),
-      lugar('especialidad-dental-padierna', 'Consultorio de Especialidad Dental', 'Lomas de Padierna, Tlalpan, CDMX', '+52 55 2615 4832', 'https://consultorioespecialidaddental.com/'),
-      lugar('dental-san-pedro-martir', 'Centro Dental San Pedro Mártir', 'Camino Viejo a San Pedro Mártir 188, Tlalpan, CDMX', '+52 55 5415 9678', '', { h: { ...LV([9, 19]), 6: [9, 19] } }),
+      lugar('dental-vidana', 'Clínica Dental Vidaña', 'Carretera a Reynosa 2208, Hacienda La Trinidad, 67190 Guadalupe, N.L.', '+52 81 4273 9257', '', { h: { ...LV([9, 19]), 6: [9, 16] } }),
+      lugar('smilen', 'Smilēn Clínica Dental', 'Av. Paseo de las Américas 2101, local 17b, 2º piso, Contry Sol, 67174 Guadalupe, N.L.', '+52 81 1306 7952', '', { h: { ...LV([9, 19]), 6: [9, 14] } }),
+      lugar('dental-sosa', 'Clínica Dental Sosa (Dentaldav)', 'C. Guadalupe 700-53, Centro de Guadalupe, 67140 Guadalupe, N.L.', '+52 81 8117 4435', '', { h: { ...LV([10.5, 18.5]), 6: [10.5, 16] } }),
+      lugar('dent-monterrey', 'Dent Monterrey', 'C. Guadalupe 632, Centro de Guadalupe, 67100 Guadalupe, N.L.', '+52 81 1093 2253', '', { h: { ...LV([[9, 13], [15, 19]]), 6: [9, 14] } }),
+      lugar('odontologia-integral-infantil-gpe', 'Odontología Integral e Infantil', 'Av. Santa Rosa de Lima 1495, Santa María, 67198 Guadalupe, N.L.', '+52 81 8361 4806', '', { h: { ...LV([10, 20]), 6: [12, 17] } }),
+      lugar('odontosmile-gpe', 'Odontosmile', 'Plaza Mirador 2500, local 43, Mirador de la Silla, 67170 Guadalupe, N.L.', '+52 81 3483 3419', '', { h: { ...LV([10, 20]), 6: [10, 20] } }),
+      lugar('dentistas-linda-vista', 'Los Dentistas Linda Vista', 'Linda Vista, Guadalupe, N.L.', '+52 81 1245 1026', ''),
     ],
   },
 ];

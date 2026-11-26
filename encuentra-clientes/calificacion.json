@@ -1,122 +1,8 @@
 [
   {
     "output": {
-      "nota": 7,
-      "motivo": "Endodoncista que cierra 18:00 y el sábado 12:30; WhatsApp sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin chat ni WhatsApp en su web; sábado cierra 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": [
-        "Cosmetología Dental",
-        "Implantología",
-        "Cirugía Maxilofacial",
-        "Ortodoncia",
-        "Endodoncia"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Ya ofrece reserva en línea en su web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 4,
-      "motivo": "Ya agenda por WhatsApp y su web en inglés guía al paciente.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 13:30 a 16:30 y a las 19:30; su web no tiene chat ni WhatsApp.",
-      "evidencia": "",
-      "servicios": [
-        "Blanqueamiento",
-        "Odontología Estética",
-        "Ortodoncia - Brackets"
-      ]
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Abre hasta las 11:30 y no tiene chat ni WhatsApp en su web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
       "nota": 5,
-      "motivo": "Sin web ni agenda en línea; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Fundación que abre los 7 días; no es un consultorio privado típico.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Agenda por WhatsApp sin chat que conteste solo; abre hasta las 21:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Endodoncista sin chat ni WhatsApp en su web; sábado cierra 15:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "No se pudo revisar su web; no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Atiende con cita previa, cierra 19:00 y no abre fin de semana; WhatsApp sin chat.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Centro médico que abre los 7 días con agenda y WhatsApp.",
+      "motivo": "No se pudo revisar su web; sin horario publicado.",
       "evidencia": "",
       "servicios": []
     }
@@ -131,8 +17,104 @@
   },
   {
     "output": {
+      "nota": 3,
+      "motivo": "Ya recibe citas en línea por Doctoralia.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Su web solo pide llamar para agendar, sin chat ni WhatsApp; cierra 19:00 y sábado 14:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 13:00; sin web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda por WhatsApp y formulario, sin chat que conteste solo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web ni agenda en línea; no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; cierra 18:30 y el sábado 16:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 14:00; sin web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; el sábado abre hasta el mediodía.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
       "nota": 5,
       "motivo": "Sin web ni agenda en línea; no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
       "evidencia": "",
       "servicios": []
     }
