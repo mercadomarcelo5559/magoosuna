@@ -1,122 +1,138 @@
 [
   {
-    "id": "of45gvo4my41",
+    "id": "eh98kuds4j3s",
+    "nota": 8,
+    "nombre": "Dra. Andrea Carrillo",
+    "motivo": "Solo atiende de 16:00 a 19:00 entre semana y no tiene web.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "1nb87ke2mlc2",
+    "nota": 8,
+    "nombre": "Dental Clinic Spa",
+    "motivo": "Solo atiende de 16:00 a 20:00 y no tiene web: las mañanas nadie contesta.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "jd3k6q9g1vxo",
     "nota": 7,
-    "nombre": "Dentistas Dentastic",
-    "motivo": "Su web solo pide llamar para agendar, sin chat ni WhatsApp; cierra 19:00 y sábado 14:00.",
+    "nombre": "Dental R.M.",
+    "motivo": "Abre de 11:00 a 18:00 y el sábado hasta las 14:00; sin web.",
+    "senales": "Cierra 18:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "gh82ttm4vcar",
+    "nota": 6,
+    "nombre": "Consultorio Dental Tlaquepaque",
+    "motivo": "Sin web; viernes cierra 16:00 y sábado 15:00.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "fiegk50djy7v",
+    "nota": 6,
+    "nombre": "Dental Tlaquepaque",
+    "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+    "senales": "Cierra 19:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "r6dvjapw1xow",
+    "nota": 6,
+    "nombre": "Clínica Dental Vallarta Mx",
+    "motivo": "Sin web; sábado cierra 13:30 y no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "dbj3fnwv4dr5",
+    "nota": 6,
+    "nombre": "Consultorio Dental Pérez Sandoval",
+    "motivo": "Atiende con cita previa; sábado cierra 13:00 y no tiene web.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "bg2gff9b2ni9",
+    "nota": 6,
+    "nombre": "Dental Center Centro de Especialidades Dentales",
+    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "w7kfszkro05d",
+    "nota": 6,
+    "nombre": "Sevilla Dental",
+    "motivo": "Sin web; no abre fin de semana.",
+    "senales": "Cierra 20:00 · Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "5yvvj57xnecz",
+    "nota": 5,
+    "nombre": "Bienstar Dental",
+    "motivo": "Agenda por WhatsApp y formulario, sin chat que conteste solo; sábado 15:00.",
     "senales": "Cierra 19:00 · Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "a08pysl6qzki",
-    "nota": 7,
-    "nombre": "Cantú & Martínez Odontología Integral",
-    "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 13:00; sin web.",
-    "senales": "Cierra 19:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "nb5ipfnbavjt",
-    "nota": 7,
-    "nombre": "Dent Monterrey",
-    "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 14:00; sin web.",
-    "senales": "Cierra 19:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "y58dcdd8fzab",
-    "nota": 6,
-    "nombre": "Clínica Dental Sosa (Dentaldav)",
-    "motivo": "Sin web; cierra 18:30 y el sábado 16:00.",
-    "senales": "Cierra 18:30 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "waga7cc3oae2",
-    "nota": 6,
-    "nombre": "Clínica Dental Vidaña",
+    "id": "8wvl0425h28i",
+    "nota": 5,
+    "nombre": "Clínica Dental Belladenti Tonalá",
     "motivo": "Sin web ni agenda en línea; no abre domingo.",
     "senales": "Cierra 19:00 · Sin web",
     "evidencia": ""
   },
   {
-    "id": "j2j5ledsb7jo",
-    "nota": 6,
-    "nombre": "Smilēn Clínica Dental",
-    "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
-    "senales": "Cierra 19:00 · Sin web",
+    "id": "tv87hxa48s3r",
+    "nota": 5,
+    "nombre": "Clínica Dental Díaz",
+    "motivo": "Su web no tiene chat, WhatsApp ni agenda; sin horario publicado.",
+    "senales": "Sin chat en la web",
     "evidencia": ""
   },
   {
-    "id": "sqfqlgpt5pz2",
+    "id": "ewp5rk99sy2e",
     "nota": 5,
-    "nombre": "MAAS Dentistas",
-    "motivo": "Agenda por WhatsApp y formulario, sin chat que conteste solo.",
-    "senales": "Cierra 20:00 · Sin chat en la web",
-    "evidencia": ""
-  },
-  {
-    "id": "6d6uwtkllka7",
-    "nota": 5,
-    "nombre": "Odontología Integral e Infantil",
-    "motivo": "Sin web ni agenda en línea; el sábado abre hasta el mediodía.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "2aybzedhtju0",
-    "nota": 5,
-    "nombre": "Odontosmile",
-    "motivo": "Sin web ni agenda en línea; no abre domingo.",
-    "senales": "Cierra 20:00 · Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "2guuymt7dor0",
-    "nota": 5,
-    "nombre": "Consultorio Dental Constelaciones 180",
+    "nombre": "Clínica Dental Plaza Marina",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "fvoggylcsu3o",
+    "id": "vhfoxgdfa3o6",
     "nota": 5,
-    "nombre": "Energía Dental",
+    "nombre": "Consultorio Dental Dra. Iliana Marcela",
+    "motivo": "Atiende con cita previa y no tiene web ni agenda en línea.",
+    "senales": "Sin web",
+    "evidencia": ""
+  },
+  {
+    "id": "4acxrw5md2wi",
+    "nota": 5,
+    "nombre": "Consultorio Dental Tonalá",
     "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
     "senales": "Sin web",
     "evidencia": ""
   },
   {
-    "id": "asje1eydpbr4",
-    "nota": 5,
-    "nombre": "Los Dentistas Linda Vista",
-    "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-    "senales": "Sin web",
-    "evidencia": ""
-  },
-  {
-    "id": "zkrqg3rowkqx",
-    "nota": 5,
-    "nombre": "Marfil Dental Studio",
-    "motivo": "No se pudo revisar su web; sin horario publicado.",
-    "senales": "No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "kgvaezwuh8eh",
-    "nota": 5,
-    "nombre": "Zurit Dental Studio",
-    "motivo": "No se pudo revisar su web; sin horario publicado.",
-    "senales": "No se pudo leer su web",
-    "evidencia": ""
-  },
-  {
-    "id": "4y0y6yhyx61c",
+    "id": "w35022jlo3tk",
     "nota": 3,
-    "nombre": "Dentagrama",
-    "motivo": "Ya recibe citas en línea por Doctoralia.",
+    "nombre": "Boca Oficina Dental",
+    "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
     "senales": "Sin chat en la web · Agenda en línea",
+    "evidencia": ""
+  },
+  {
+    "id": "dzdnqvo82fyd",
+    "nota": 2,
+    "nombre": "Clínica Dental Alemán",
+    "motivo": "Ya tiene chat (Messenger) y WhatsApp en su web.",
+    "senales": "Cierra 20:00 · Chat en la web (Messenger)",
     "evidencia": ""
   }
 ]

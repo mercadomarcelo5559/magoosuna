@@ -58,10 +58,10 @@ Tlalpan Centro, Ciudad de México
 Valle Oriente, San Pedro Garza García, Nuevo León
 Contry, Monterrey, Nuevo León
 Guadalupe Centro, Guadalupe, Nuevo León
-# PENDIENTES
 Tlaquepaque Centro, San Pedro Tlaquepaque, Jalisco
 Tonalá Centro, Tonalá, Jalisco
 Puerto Vallarta Centro, Puerto Vallarta, Jalisco
+# PENDIENTES
 Xalapa Centro, Xalapa, Veracruz
 Toluca Centro, Toluca, Estado de México
 Tlalnepantla Centro, Tlalnepantla, Estado de México

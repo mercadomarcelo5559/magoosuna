@@ -1,64 +1,8 @@
 [
   {
     "output": {
-      "nota": 5,
-      "motivo": "No se pudo revisar su web; sin horario publicado.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "No se pudo revisar su web; sin horario publicado.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 3,
-      "motivo": "Ya recibe citas en línea por Doctoralia.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Su web solo pide llamar para agendar, sin chat ni WhatsApp; cierra 19:00 y sábado 14:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 13:00; sin web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Agenda por WhatsApp y formulario, sin chat que conteste solo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "nota": 8,
+      "motivo": "Solo atiende de 16:00 a 20:00 y no tiene web: las mañanas nadie contesta.",
       "evidencia": "",
       "servicios": []
     }
@@ -66,7 +10,111 @@
   {
     "output": {
       "nota": 6,
+      "motivo": "Sin web; cierra 19:00, sábado 14:00 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; viernes cierra 16:00 y sábado 15:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Su web no tiene chat, WhatsApp ni agenda; sin horario publicado.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Sin web ni agenda en línea; pocos datos públicos.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
       "motivo": "Sin web ni agenda en línea; no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 8,
+      "motivo": "Solo atiende de 16:00 a 19:00 entre semana y no tiene web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 7,
+      "motivo": "Abre de 11:00 a 18:00 y el sábado hasta las 14:00; sin web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Atiende con cita previa y no tiene web ni agenda en línea.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Atiende con cita previa; sábado cierra 13:00 y no tiene web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 5,
+      "motivo": "Agenda por WhatsApp y formulario, sin chat que conteste solo; sábado 15:00.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; sábado cierra 13:30 y no abre domingo.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 2,
+      "motivo": "Ya tiene chat (Messenger) y WhatsApp en su web.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 6,
+      "motivo": "Sin web; no abre fin de semana.",
+      "evidencia": "",
+      "servicios": []
+    }
+  },
+  {
+    "output": {
+      "nota": 3,
+      "motivo": "Ya tiene agenda en línea y WhatsApp en su web.",
       "evidencia": "",
       "servicios": []
     }
@@ -75,38 +123,6 @@
     "output": {
       "nota": 6,
       "motivo": "Sin web; sábado cierra 14:00 y no abre domingo.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 6,
-      "motivo": "Sin web; cierra 18:30 y el sábado 16:00.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 7,
-      "motivo": "Cierra de 13:00 a 15:00 y a las 19:00, sábado 14:00; sin web.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; el sábado abre hasta el mediodía.",
-      "evidencia": "",
-      "servicios": []
-    }
-  },
-  {
-    "output": {
-      "nota": 5,
-      "motivo": "Sin web ni agenda en línea; no abre domingo.",
       "evidencia": "",
       "servicios": []
     }

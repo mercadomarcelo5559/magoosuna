@@ -1,77 +1,87 @@
 [
   {
     "output": {
-      "mensaje": "Hola, equipo de Dentastic. Vi que en su web las citas se piden solo por teléfono, sin chat ni WhatsApp.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de la Dra. Andrea Carrillo. Vi que entre semana atienden de 4 a 7, así que los mensajes de la mañana esperan.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Le gustaría verla, doctora?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Cantú & Martínez. Vi que cierran de 1 a 3 y a las 7, y el sábado a la 1; esos mensajes esperan.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Les gustaría probarla?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Dental Clinic Spa. Vi que atienden de 4 a 8 de la tarde, así que los mensajes de la mañana esperan varias horas.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Dent Monterrey. Vi que cierran de 1 a 3 y a las 7, y el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Dental R.M. Vi que abren de 11 a 6 y el sábado hasta las 2; fuera de ese horario los mensajes esperan.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Clínica Dental Sosa. Vi que cierran a las 6:30 y no tienen agenda en línea.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Les gustaría verla?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo del Consultorio Dental Tlaquepaque. Vi que el viernes cierran a las 4 y el sábado a las 3.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Clínica Dental Vidaña. Vi que no tienen agenda en línea y que el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Dental Tlaquepaque. Vi que el sábado cierran a las 2 y el domingo no abren; esos mensajes esperan hasta el lunes.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Les gustaría probarla?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Smilēn. Vi que el sábado cierran a las 2 y el domingo no abren; esos mensajes esperan hasta el lunes.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Clínica Dental Vallarta Mx. Vi que el sábado cierran a la 1:30 y el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de MAAS Dentistas. Vi que agendan por WhatsApp; de noche esos mensajes esperan respuesta.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo del Consultorio Dental Pérez Sandoval. Vi que atienden con cita previa y el sábado cierran a la 1.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Odontología Integral e Infantil. Vi que no tienen agenda en línea y que el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Dental Center Vallarta. Vi que el sábado cierran a las 2 y el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Les gustaría verla?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Odontosmile. Vi que no tienen agenda en línea y que el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Les gustaría probarla?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Sevilla Dental. Vi que no abren el fin de semana, así que esos mensajes esperan hasta el lunes.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo del consultorio dental de Constelaciones 180. Vi que no tienen agenda en línea; las citas dependen del teléfono.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Bienstar Dental. Vi que agendan por WhatsApp y cierran a las 7; de noche esos mensajes esperan.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Energía Dental. Vi que no tienen agenda en línea, así que quien busca cita de noche tiene que esperar.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Belladenti Tonalá. Vi que no tienen agenda en línea y que el domingo no abren.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Los Dentistas Linda Vista. Vi que no tienen agenda en línea, así que las citas dependen de que alguien conteste.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Clínica Dental Díaz. Vi que en su web no hay chat, WhatsApp ni agenda en línea.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Marfil Dental Studio. Vi que las citas se piden por teléfono o correo, sin una respuesta al momento.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de Clínica Dental Plaza Marina. Vi que no tienen agenda en línea, así que las citas dependen de que alguien conteste.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Zurit Dental Studio. Vi que no tienen agenda en línea, así que las citas dependen de que alguien conteste.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo de la Dra. Iliana Marcela. Vi que atienden con cita previa y no tienen agenda en línea.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Le gustaría verla, doctora?\nMarcelo · Pagoya"
     }
   },
   {
     "output": {
-      "mensaje": "Hola, equipo de Dentagrama. Vi que agendan por Doctoralia; las dudas que llegan de noche igual esperan respuesta.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+      "mensaje": "Hola, equipo del Consultorio Dental Tonalá. Vi que no tienen agenda en línea, así que las citas dependen de que alguien conteste.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+    }
+  },
+  {
+    "output": {
+      "mensaje": "Hola, equipo de Boca Oficina Dental. Vi que agendan en línea; las dudas que llegan de noche igual esperan respuesta.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
+    }
+  },
+  {
+    "output": {
+      "mensaje": "Hola, equipo de Clínica Dental Alemán. Vi que ya tienen chat en su web; quizá les sirva una recepcionista que también agende y avise urgencias.\nLes preparé una recepcionista con IA de prueba, con su nombre y su horario, para que la prueben esta noche como si fueran un paciente: {DEMO}\n¿Me dicen qué les parece?\nMarcelo · Pagoya"
     }
   }
 ]

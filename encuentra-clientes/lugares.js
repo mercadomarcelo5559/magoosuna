@@ -1,6 +1,6 @@
 // Negocios reales encontrados en búsquedas web (directorios y sitios de cada clínica), en el mismo formato
 // que devuelve Google Places API (places:searchText). Se usa porque esta ejecución no tuvo API key de Google.
-// Lote del 2026-11-26: Valle Oriente (San Pedro), Contry (Monterrey) y Guadalupe Centro (NL).
+// Lote del 2026-11-27: Tlaquepaque Centro, Tonalá Centro y Puerto Vallarta (Jalisco).
 // Una respuesta por zona, igual que "Arma las búsquedas" -> "Busca en Google Maps".
 // Calificaciones: de agregadores (no de Google). Reseñas: no se obtuvieron textos, se dejan vacías (no se inventan).
 const DIAS = ['domingo', 'lunes', 'martes', 'miércoles', 'jueves', 'viernes', 'sábado'];
@@ -39,33 +39,35 @@ const lugar = (id, nombre, direccion, tel, web, extra = {}) => ({
 const LV = (r) => ({ 1: r, 2: r, 3: r, 4: r, 5: r });
 module.exports = [
   {
-    textQuery: 'dentista en Valle Oriente, San Pedro Garza García, Nuevo León',
+    textQuery: 'dentista en Tlaquepaque Centro, San Pedro Tlaquepaque, Jalisco',
     places: [
-      lugar('zurit-dental', 'Zurit Dental Studio', 'Río Guadalquivir 112 Ote., Col. Del Valle, San Pedro Garza García, N.L.', '+52 81 2611 7832', 'https://www.zurit.com.mx/dentistas-en-san-pedro/'),
-      lugar('marfil-dental-studio', 'Marfil Dental Studio', 'Moll del Valle, 4º piso, studio 410, San Pedro Garza García, N.L.', '+52 81 2362 0223', 'https://www.marfildentalstudio.com/nosotros.html'),
+      lugar('dental-clinic-spa', 'Dental Clinic Spa', 'Juárez 283, Centro, San Pedro Tlaquepaque, Jal.', '+52 33 1525 8603', '', { h: { ...LV([16, 20]), 6: [16, 20] } }),
+      lugar('dental-tlaquepaque', 'Dental Tlaquepaque', 'Miguel Hidalgo 138, Centro, San Pedro Tlaquepaque, Jal.', '+52 33 1775 0740', '', { h: { ...LV([9, 19]), 6: [9, 14] } }),
+      lugar('consultorio-dental-tlaquepaque', 'Consultorio Dental Tlaquepaque', 'Progreso 210-1, Centro, San Pedro Tlaquepaque, Jal.', '+52 33 1765 6100', '', { h: { 1: [9, 19], 2: [9, 19], 3: [9, 19], 4: [9, 19], 5: [9, 16], 6: [10, 15] } }),
+      lugar('clinica-dental-diaz', 'Clínica Dental Díaz', 'Tonalá 99, Centro, San Pedro Tlaquepaque, Jal.', '+52 33 1762 4250', 'https://www.dentaldiaz.com/'),
     ],
   },
   {
-    textQuery: 'dentista en Contry, Monterrey, Nuevo León',
+    textQuery: 'dentista en Tonalá Centro, Tonalá, Jalisco',
     places: [
-      lugar('dentagrama', 'Dentagrama', 'Av. Alfonso Reyes 269, Contry, Monterrey, N.L.', '+52 81 1727 2481', 'https://www.doctoralia.com.mx/clinicas/dentagrama'),
-      lugar('dentastic', 'Dentistas Dentastic', 'Alfonso Reyes 351, Contry Tesoro, Monterrey, N.L.', '+52 81 2235 9867', 'https://www.dentistasdentastic.com/', { h: { ...LV([9, 19]), 6: [10, 14] } }),
-      lugar('cantu-martinez', 'Cantú & Martínez Odontología Integral', 'Revolución 3540, Contry Tesoro, 64850 Monterrey, N.L.', '+52 81 1967 1112', '', { h: { ...LV([[9.5, 13], [15, 19]]), 6: [9.5, 13] } }),
-      lugar('maas-dentistas', 'MAAS Dentistas', 'Av. Constelaciones 111, Contry, Monterrey, N.L.', '+52 81 1360 3501', 'https://en.maasdentistas.com/', { h: { ...LV([10, 20]), 6: [10, 16] } }),
-      lugar('energia-dental', 'Energía Dental', 'Av. Revolución 710-B, Contry, Monterrey, N.L.', '+52 81 1878 2814', ''),
-      lugar('consultorio-constelaciones-180', 'Consultorio Dental Constelaciones 180', 'Calle Constelaciones 180 A, Contry, Monterrey, N.L.', '+52 81 8357 8412', ''),
+      lugar('consultorio-dental-tonala', 'Consultorio Dental Tonalá', 'Av. de los Maestros 180, Tonalá Centro, 45400 Tonalá, Jal.', '+52 33 3683 4680', ''),
+      lugar('belladenti-tonala', 'Clínica Dental Belladenti Tonalá', 'Francisco I. Madero 93, Tonalá Centro, Tonalá, Jal.', '+52 33 3792 6525', '', { h: { ...LV([10, 19]), 6: [10, 19] } }),
+      lugar('dra-andrea-carrillo', 'Dra. Andrea Carrillo', 'Emiliano Zapata 332-B, Tonalá Centro, Tonalá, Jal.', '+52 33 3724 4652', '', { h: { ...LV([16, 19]), 6: [11, 14] } }),
+      lugar('dental-rm-tonala', 'Dental R.M.', 'C. Zaragoza 27-B, Tonalá Centro, Tonalá, Jal.', '+52 33 1585 7213', '', { h: { ...LV([11, 18]), 6: [11, 14] } }),
+      lugar('dra-iliana-marcela', 'Consultorio Dental Dra. Iliana Marcela', 'Javier Mina 253-E, Tonalá Centro, Tonalá, Jal.', '+52 33 1300 2582', ''),
+      lugar('perez-sandoval-tonala', 'Consultorio Dental Pérez Sandoval', 'P.º Loma Norte 7734-C, Loma Dorada, Tonalá, Jal.', '+52 33 3477 2006', '', { h: { ...LV([10, 20]), 6: [10, 13] } }),
     ],
   },
   {
-    textQuery: 'dentista en Guadalupe Centro, Guadalupe, Nuevo León',
+    textQuery: 'dentista en Puerto Vallarta Centro, Puerto Vallarta, Jalisco',
     places: [
-      lugar('dental-vidana', 'Clínica Dental Vidaña', 'Carretera a Reynosa 2208, Hacienda La Trinidad, 67190 Guadalupe, N.L.', '+52 81 4273 9257', '', { h: { ...LV([9, 19]), 6: [9, 16] } }),
-      lugar('smilen', 'Smilēn Clínica Dental', 'Av. Paseo de las Américas 2101, local 17b, 2º piso, Contry Sol, 67174 Guadalupe, N.L.', '+52 81 1306 7952', '', { h: { ...LV([9, 19]), 6: [9, 14] } }),
-      lugar('dental-sosa', 'Clínica Dental Sosa (Dentaldav)', 'C. Guadalupe 700-53, Centro de Guadalupe, 67140 Guadalupe, N.L.', '+52 81 8117 4435', '', { h: { ...LV([10.5, 18.5]), 6: [10.5, 16] } }),
-      lugar('dent-monterrey', 'Dent Monterrey', 'C. Guadalupe 632, Centro de Guadalupe, 67100 Guadalupe, N.L.', '+52 81 1093 2253', '', { h: { ...LV([[9, 13], [15, 19]]), 6: [9, 14] } }),
-      lugar('odontologia-integral-infantil-gpe', 'Odontología Integral e Infantil', 'Av. Santa Rosa de Lima 1495, Santa María, 67198 Guadalupe, N.L.', '+52 81 8361 4806', '', { h: { ...LV([10, 20]), 6: [12, 17] } }),
-      lugar('odontosmile-gpe', 'Odontosmile', 'Plaza Mirador 2500, local 43, Mirador de la Silla, 67170 Guadalupe, N.L.', '+52 81 3483 3419', '', { h: { ...LV([10, 20]), 6: [10, 20] } }),
-      lugar('dentistas-linda-vista', 'Los Dentistas Linda Vista', 'Linda Vista, Guadalupe, N.L.', '+52 81 1245 1026', ''),
+      lugar('bienstar-dental', 'Bienstar Dental', 'Hidalgo 185, local 2, Centro Pitillal, Puerto Vallarta, Jal.', '+52 322 293 7480', 'https://bienstardental.com/', { h: { ...LV([10, 19]), 6: [10, 15] } }),
+      lugar('clinica-dental-vallarta-mx', 'Clínica Dental Vallarta Mx', 'Paseo Benemérito de las Américas 130, Valentín Gómez Farías, Puerto Vallarta, Jal.', '+52 322 239 8184', '', { h: { ...LV([9.5, 20]), 6: [9.5, 13.5] } }),
+      lugar('dental-aleman', 'Clínica Dental Alemán', 'Popa 12, Marina Vallarta, 48335 Puerto Vallarta, Jal.', '+52 322 178 7341', 'https://www.dentalaleman.com/es/', { h: { ...LV([9, 20]), 6: [9, 15] } }),
+      lugar('sevilla-dental', 'Sevilla Dental', 'Lucerna 148, Versalles, Puerto Vallarta, Jal.', '+52 322 274 3096', '', { h: LV([9, 20]) }),
+      lugar('boca-oficina-dental', 'Boca Oficina Dental', 'Plaza Neptuno, local B3, Marina Vallarta, Puerto Vallarta, Jal.', '+52 322 114 4452', 'https://www.bocaoficinadental.com/en/'),
+      lugar('dental-center-pv', 'Dental Center Centro de Especialidades Dentales', 'Av. Los Tules 158-6, Puerto Vallarta, Jal.', '+52 322 224 5585', '', { h: { ...LV([10, 20]), 6: [10, 14] } }),
+      lugar('dental-plaza-marina', 'Clínica Dental Plaza Marina', 'Plaza Marina, local G26, Marina Vallarta, Puerto Vallarta, Jal.', '+52 322 221 0165', ''),
     ],
   },
 ];
